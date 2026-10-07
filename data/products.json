@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Nike Running Shoes",
+    "category": "shoes",
+    "color": "black",
+    "price": 120,
+    "stock": 10,
+    "description": "High performance black running shoes with responsive cushioning.",
+    "image": "images/nike_running_black.png",
+    "embedding": [0.9, 0.1, 0.2]
+  },
+  {
+    "id": 2,
+    "name": "Adidas Running Shoes",
+    "category": "shoes",
+    "color": "white",
+    "price": 100,
+    "stock": 15,
+    "description": "Lightweight white running shoes designed for marathon endurance.",
+    "image": "images/adidas_running_white.png",
+    "embedding": [0.2, 0.8, 0.1]
+  },
+  {
+    "id": 3,
+    "name": "Black Leather Bag",
+    "category": "bag",
+    "color": "black",
+    "price": 80,
+    "stock": 20,
+    "description": "Premium black leather bag suitable for work and casual travel.",
+    "image": "images/black_leather_bag.png",
+    "embedding": [0.1, 0.2, 0.9]
+  },
+  {
+    "id": 4,
+    "name": "Blue Sports Shoes",
+    "category": "shoes",
+    "color": "blue",
+    "price": 75,
+    "stock": 12,
+    "description": "Comfortable blue sports shoes ideal for gym workouts and training.",
+    "image": "images/blue_sports_shoes.png",
+    "embedding": [0.8, 0.2, 0.2]
+  },
+  {
+    "id": 5,
+    "name": "Puma Trail Running Shoes",
+    "category": "shoes",
+    "color": "black",
+    "price": 90,
+    "stock": 8,
+    "description": "Rugged black trail running shoes with enhanced grip outsole.",
+    "image": "images/puma_trail_black.png",
+    "embedding": [0.85, 0.15, 0.25]
+  },
+  {
+    "id": 6,
+    "name": "Brown Leather Crossbody Bag",
+    "category": "bag",
+    "color": "brown",
+    "price": 95,
+    "stock": 5,
+    "description": "Classic brown genuine leather crossbody bag with multiple compartments.",
+    "image": "images/brown_leather_crossbody.png",
+    "embedding": [0.12, 0.3, 0.85]
+  },
+  {
+    "id": 7,
+    "name": "Red Canvas Sneakers",
+    "category": "shoes",
+    "color": "red",
+    "price": 60,
+    "stock": 18,
+    "description": "Casual red canvas low-top sneakers for everyday street style.",
+    "image": "images/red_canvas_sneakers.png",
+    "embedding": [0.75, 0.35, 0.15]
+  },
+  {
+    "id": 8,
+    "name": "White Casual T-Shirt",
+    "category": "clothing",
+    "color": "white",
+    "price": 25,
+    "stock": 50,
+    "description": "Breathable 100% organic cotton white t-shirt for casual wear.",
+    "image": "images/white_casual_tshirt.png",
+    "embedding": [0.3, 0.7, 0.4]
+  },
+  {
+    "id": 9,
+    "name": "Black Formal Leather Shoes",
+    "category": "shoes",
+    "color": "black",
+    "price": 140,
+    "stock": 7,
+    "description": "Elegant handcrafted black leather oxford shoes for formal events.",
+    "image": "images/black_formal_oxford.png",
+    "embedding": [0.6, 0.2, 0.75]
+  },
+  {
+    "id": 10,
+    "name": "Waterproof Hiking Backpack",
+    "category": "bag",
+    "color": "black",
+    "price": 110,
+    "stock": 14,
+    "description": "Heavy-duty waterproof black outdoor backpack for trekking and hiking.",
+    "image": "images/waterproof_backpack_black.png",
+    "embedding": [0.35, 0.25, 0.88]
+  },
+  {
+    "id": 11,
+    "name": "Green Athletic Running Shorts",
+    "category": "clothing",
+    "color": "green",
+    "price": 35,
+    "stock": 25,
+    "description": "Lightweight quick-dry green running shorts with reflective elements.",
+    "image": "images/green_running_shorts.png",
+    "embedding": [0.5, 0.6, 0.3]
+  },
+  {
+    "id": 12,
+    "name": "Smart Fitness Watch",
+    "category": "accessories",
+    "color": "black",
+    "price": 150,
+    "stock": 0,
+    "description": "Advanced black digital smartwatch with heart-rate and GPS tracking.",
+    "image": "images/smart_fitness_watch.png",
+    "embedding": [0.4, 0.5, 0.6]
+  }
+]

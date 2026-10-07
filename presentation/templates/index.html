@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimodal E-Commerce Search System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-text">
+          <span class="brand-title">Multimodal Shop</span>
+          <span class="brand-sub">Assignment 05 & 06 Prototype</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <button class="nav-btn active" id="tabProductsBtn" onclick="switchTab('products')">
+          🛍️ Search Products
+        </button>
+        <button class="nav-btn" id="tabOrdersBtn" onclick="switchTab('orders')">
+          📦 Track Orders
+        </button>
+        <button class="nav-btn" id="tabArchBtn" onclick="switchTab('architecture')">
+          📐 Architecture & Evaluation
+        </button>
+      </nav>
+      <div id="dbStatusBadge" title="Database Connection Status" style="display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; background:#f1f5f9; border:1px solid #cbd5e1; color:#475569;">
+        <span id="dbStatusDot" style="width:8px; height:8px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
+        <span id="dbStatusText">Checking DB...</span>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="main-content">
+    <!-- TAB 1: PRODUCT SEARCH -->
+    <section id="tabProducts" class="tab-pane active">
+      <!-- Search Control Bar -->
+      <div class="search-panel">
+        <div class="search-modes-pill">
+          <button class="mode-pill active" id="modeKeyword" onclick="setSearchMode('keyword')">🔤 Text Search</button>
+          <button class="mode-pill" id="modeVoice" onclick="setSearchMode('voice')">🎙️ Voice Search</button>
+          <button class="mode-pill" id="modeImage" onclick="setSearchMode('image')">🖼️ Image Search</button>
+          <button class="mode-pill" id="modeMultimodal" onclick="setSearchMode('multimodal')">✨ Multimodal Fusion</button>
+        </div>
+
+        <div class="search-bar-wrapper">
+          <div class="input-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Search products by keyword (e.g. 'black running shoes', 'leather bag')..." autocomplete="off">
+            <button class="icon-btn mic-btn" id="micBtn" title="Speak to Search (Voice Input)" onclick="toggleVoiceInput()">
+              <span id="micIcon">🎙️</span>
+            </button>
+            <button class="icon-btn img-btn" id="imgUploadTrigger" title="Upload Image" onclick="triggerImageUpload()">
+              <span>📷</span>
+            </button>
+            <input type="file" id="imageFileInput" accept="image/*" style="display:none" onchange="handleImageFileSelected(event)">
+          </div>
+          <button class="btn btn-primary" id="searchSubmitBtn" onclick="executeSearch()">Search</button>
+        </div>
+
+        <!-- Voice Active Status Box -->
+        <div id="voiceStatusBox" class="voice-status-box" style="display: none;">
+          <div class="voice-anim">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <span id="voiceStatusText">Listening... Please speak into your microphone.</span>
+          <button class="btn-sm" onclick="stopVoiceRecording()">Stop</button>
+        </div>
+
+        <!-- Image Active Preview Bar -->
+        <div id="imagePreviewBox" class="image-preview-box" style="display: none;">
+          <div class="img-preview-thumb-wrap">
+            <img id="imagePreviewThumb" src="" alt="Query image">
+            <span id="imagePreviewName">image.png</span>
+          </div>
+          <div class="img-preset-select">
+            <label>Image Prototype:</label>
+            <select id="imagePresetSelect" onchange="changeImagePreset()">
+              <option value="shoes">Shoes prototype [0.9, 0.1, 0.2]</option>
+              <option value="running_shoes">Running Shoes [0.9, 0.15, 0.15]</option>
+              <option value="bag">Leather Bag prototype [0.1, 0.2, 0.9]</option>
+              <option value="clothing">Casual Apparel [0.3, 0.7, 0.4]</option>
+              <option value="watch">Smart Watch prototype [0.4, 0.5, 0.6]</option>
+            </select>
+          </div>
+          <button class="btn-sm btn-clear" onclick="clearImageQuery()">✕ Remove Image</button>
+        </div>
+
+        <!-- Multimodal & Ranking Controls -->
+        <div class="search-advanced-options">
+          <div class="fusion-slider-group" id="fusionSliderGroup">
+            <label>Multimodal Balance: <span id="weightLabel">50% Text / 50% Image</span></label>
+            <input type="range" id="fusionWeight" min="0" max="100" value="50" oninput="updateFusionWeight(this.value)">
+          </div>
+          <div class="checkbox-group">
+            <label class="toggle-switch">
+              <input type="checkbox" id="rankingBoostToggle" checked>
+              <span class="switch-slider"></span>
+            </label>
+            <span class="toggle-label">Enable Multi-Signal Ranking (Stock & Price factors)</span>
+          </div>
+        </div>
+
+        <!-- Quick Query Tags -->
+        <div class="quick-tags">
+          <span class="tag-label">Try queries:</span>
+          <button class="tag" onclick="quickSearch('black shoes')">black shoes</button>
+          <button class="tag" onclick="quickSearch('Nike running shoes')">Nike running shoes</button>
+          <button class="tag" onclick="quickSearch('leather bag')">leather bag</button>
+          <button class="tag" onclick="quickSearch('blue sports shoes')">blue sports shoes</button>
+          <button class="tag" onclick="quickSearch('white casual t-shirt')">white t-shirt</button>
+        </div>
+      </div>
+
+      <!-- Search Results Info & Filter Bar -->
+      <div class="results-header">
+        <div>
+          <h2 id="resultsHeading">All Products</h2>
+          <p id="resultsSub" class="subtext">Displaying 12 products in catalog</p>
+        </div>
+        <div class="filter-actions">
+          <select id="categoryFilter" onchange="filterByCategory()">
+            <option value="all">All Categories</option>
+            <option value="shoes">Shoes</option>
+            <option value="bag">Bags</option>
+            <option value="clothing">Clothing</option>
+            <option value="accessories">Accessories</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- TAB 2: ORDER TRACKING -->
+    <section id="tabOrders" class="tab-pane">
+      <div class="orders-container">
+        <div class="order-search-card">
+          <h2>📦 Order Tracking Service</h2>
+          <p class="subtext">Look up customer orders by Order ID (Use Case: <code>Search Order</code> &amp; <code>View Order</code>)</p>
+          <div class="order-input-row">
+            <input type="text" id="orderInput" placeholder="Enter Order ID (e.g. O001, O002, O003, 20261001)...">
+            <button class="btn btn-primary" onclick="lookupOrder()">Find Order</button>
+          </div>
+          <div class="quick-orders">
+            <span>Quick tests:</span>
+            <button class="tag" onclick="quickOrder('O001')">O001 (Shipped)</button>
+            <button class="tag" onclick="quickOrder('O002')">O002 (Delivered)</button>
+            <button class="tag" onclick="quickOrder('O003')">O003 (Processing)</button>
+            <button class="tag" onclick="quickOrder('20261001')">20261001 (Out for Delivery)</button>
+          </div>
+        </div>
+
+        <div id="orderResultDisplay" class="order-details-card" style="display: none;">
+          <!-- Injected via JavaScript -->
+        </div>
+
+        <div class="orders-all-section">
+          <h3>Recent Orders in Database</h3>
+          <div class="orders-table-wrapper">
+            <table class="data-table" id="allOrdersTable">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer ID</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="allOrdersTbody">
+                <!-- Injected via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: ARCHITECTURE & EVALUATION -->
+    <section id="tabArchitecture" class="tab-pane">
+      <div class="architecture-container">
+        <div class="arch-card">
+          <h2>📐 System Architecture (Three-Layer Architecture)</h2>
+          <p class="subtext">Strict separation: <code>Presentation Layer ➔ Application / Intelligence Layer ➔ Data Layer</code></p>
+          
+          <div class="layers-visual">
+            <div class="layer-box layer-presentation">
+              <div class="layer-header">1. Presentation Layer</div>
+              <div class="layer-components">
+                <span class="comp-badge">SearchUI</span>
+                <span class="comp-badge">VoiceInput</span>
+                <span class="comp-badge">ImageUpload</span>
+                <span class="comp-badge">SearchResultView</span>
+              </div>
+            </div>
+            <div class="layer-arrow">⬇ HTTP / JSON (Query &amp; Response)</div>
+            <div class="layer-box layer-application">
+              <div class="layer-header">2. Application / Intelligence Layer</div>
+              <div class="layer-components">
+                <span class="comp-badge">QueryService</span>
+                <span class="comp-badge">SpeechService</span>
+                <span class="comp-badge">ImageService</span>
+                <span class="comp-badge">SearchService</span>
+                <span class="comp-badge">RankingService</span>
+              </div>
+            </div>
+            <div class="layer-arrow">⬇ Domain Access (No direct UI ➔ Data dependency)</div>
+            <div class="layer-box layer-data">
+              <div class="layer-header">3. Data Layer</div>
+              <div class="layer-components">
+                <span class="comp-badge">ProductRepository</span>
+                <span class="comp-badge">OrderRepository</span>
+                <span class="comp-badge">VectorIndex</span>
+                <span class="comp-badge">ProductDatabase (products.json)</span>
+                <span class="comp-badge">ImageStorage (images/)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-card">
+          <h2>🧪 Experimental Evaluation (Section 22, Table 3)</h2>
+          <p class="subtext">Automated evaluation metrics on test query suite</p>
+          <div id="evalTableWrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Query</th>
+                  <th>Mode</th>
+                  <th>Top-1 Result</th>
+                  <th>Score</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="evalTableTbody">
+                <!-- Injected via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+          <div class="eval-metrics" id="evalMetrics">
+            <!-- Computed dynamically -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRODUCT DETAIL MODAL (Use Case: View Product) -->
+  <div id="productModal" class="modal-overlay" onclick="closeProductModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeProductModal()">✕</button>
+      <div class="modal-body" id="modalProductContent">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Multimodal E-Commerce Search System • Information System Analysis &amp; Design (Assignment 05/06)</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
