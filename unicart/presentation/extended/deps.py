@@ -7,11 +7,11 @@ from typing import Annotated, Iterator, Optional
 from fastapi import Depends, Header, Request
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 
-from .. import config
-from ..business.actor import Actor
-from ..business.exceptions import Forbidden, Unauthorized, BusinessError
-from .security import decode_token
-from .wiring import Services, build_services
+from ... import config
+from ...business.actor import Actor
+from ...business.exceptions import Forbidden, Unauthorized, BusinessError
+from ..security import decode_token
+from ..wiring import Services, build_services
 
 _bearer = HTTPBearer(auto_error=False)
 

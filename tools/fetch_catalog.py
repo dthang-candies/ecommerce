@@ -20,7 +20,7 @@ import httpx
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from unicart import config  # noqa: E402  (loads .env)
-from unicart.ai.gemini import AiUnavailable, GeminiClient  # noqa: E402
+from unicart.business.extended.ai.gemini import AiUnavailable, GeminiClient  # noqa: E402
 
 API = "https://dummyjson.com/products?limit=0"
 OUT, IMG = ROOT / "data" / "catalog.json", ROOT / "images" / "products"

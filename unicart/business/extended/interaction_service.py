@@ -1,8 +1,8 @@
-from ..domain.enums import EventType
-from ..domain.models import InteractionLog
-from ..persistence.repositories import InteractionRepository, ProductRepository
-from .exceptions import BusinessError
-from .transaction import transactional
+from ...domain.enums import EventType
+from ...domain.models import InteractionLog
+from ...persistence.repositories import InteractionRepository, ProductRepository
+from ..exceptions import BusinessError
+from ..transaction import transactional
 
 # PURCHASE is written by CheckoutService only; clients may report just these events (UC-16, FR-19).
 CLIENT_EVENTS = {EventType.VIEW, EventType.SEARCH, EventType.CLICK_REC, EventType.REC_IMPRESSION}

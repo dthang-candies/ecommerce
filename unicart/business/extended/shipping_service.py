@@ -1,13 +1,13 @@
 from datetime import date, datetime
 
-from ..domain.enums import OrderStatus, PaymentStatus, ShipmentStatus
-from ..domain.models import CustomerOrder, Shipment
-from ..persistence.repositories import OrderRepository, ShipmentRepository
-from .actor import Actor
-from .exceptions import BusinessError, InvalidTransition, NotFound
+from ...domain.enums import OrderStatus, PaymentStatus, ShipmentStatus
+from ...domain.models import CustomerOrder, Shipment
+from ...persistence.repositories import OrderRepository, ShipmentRepository
+from ..actor import Actor
+from ..exceptions import BusinessError, InvalidTransition, NotFound
 from .integrations import SandboxCarrier
-from .order_service import OrderService
-from .transaction import transactional
+from ..order_service import OrderService
+from ..transaction import transactional
 
 
 class ShippingService:

@@ -1,7 +1,7 @@
-from ..domain.models import Address, Customer
-from ..persistence.repositories import AddressRepository, CustomerRepository
-from .exceptions import BusinessError, NotFound
-from .transaction import transactional
+from ...domain.models import Address, Customer
+from ...persistence.repositories import AddressRepository, CustomerRepository
+from ..exceptions import BusinessError, NotFound
+from ..transaction import transactional
 from .validation import check_phone
 
 

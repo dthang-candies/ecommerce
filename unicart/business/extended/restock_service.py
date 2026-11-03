@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from ..domain.enums import RestockStatus
-from ..domain.models import RestockRequest
-from ..persistence.repositories import InventoryRepository, ProductRepository, RestockRepository, SupplierRepository
-from .exceptions import BusinessError, Conflict, InvalidTransition, NotFound
-from .inventory_service import InventoryService
-from .transaction import transactional
+from ...domain.enums import RestockStatus
+from ...domain.models import RestockRequest
+from ...persistence.repositories import InventoryRepository, ProductRepository, RestockRepository, SupplierRepository
+from ..exceptions import BusinessError, Conflict, InvalidTransition, NotFound
+from ..inventory_service import InventoryService
+from ..transaction import transactional
 
 
 class RestockService:

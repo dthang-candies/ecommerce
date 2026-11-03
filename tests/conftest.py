@@ -7,7 +7,7 @@ import pymysql
 import pytest
 from fastapi.testclient import TestClient
 
-from unicart.domain import security
+from unicart.domain.extended import security
 from unicart.persistence.database import Database
 from unicart.presentation.app import create_app
 

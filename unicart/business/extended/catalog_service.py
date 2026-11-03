@@ -2,11 +2,11 @@ import logging
 from decimal import Decimal, InvalidOperation
 from typing import Optional
 
-from ..domain.enums import MovementType, ProductStatus
-from ..domain.models import Category, Inventory, Product
-from ..persistence.repositories import CategoryRepository, InventoryRepository, ProductRepository
-from .exceptions import BusinessError, Conflict, NotFound
-from .transaction import transactional
+from ...domain.enums import MovementType, ProductStatus
+from ...domain.models import Category, Inventory, Product
+from ...persistence.repositories import CategoryRepository, InventoryRepository, ProductRepository
+from ..exceptions import BusinessError, Conflict, NotFound
+from ..transaction import transactional
 
 audit = logging.getLogger("unicart.audit")
 

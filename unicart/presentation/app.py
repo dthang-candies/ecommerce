@@ -13,7 +13,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .. import config
 from ..business.exceptions import BusinessError
-from ..ai.runtime import AiRuntime
+from ..business.extended.ai.runtime import AiRuntime
 from ..persistence.database import Database
 from .routers import admin, auth, catalog, chat, customer, search, staff
 from .wiring import build_services

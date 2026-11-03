@@ -4,7 +4,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel, Field
 
-from ..domain.enums import EventType, PaymentChannel, PaymentMethod, ShipmentStatus
+from ...domain.enums import EventType, PaymentChannel, PaymentMethod, ShipmentStatus
 
 
 class RegisterIn(BaseModel):

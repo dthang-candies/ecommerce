@@ -14,15 +14,15 @@ import time
 from dataclasses import dataclass, field
 from datetime import datetime
 
-from .. import config
-from ..ai.gemini import AiUnavailable
-from ..ai.runtime import AiRuntime
-from ..domain.models import CustomerOrder, Product, Promotion
-from ..persistence.repositories import OrderRepository, PromotionRepository
+from ... import config
+from .ai.gemini import AiUnavailable
+from .ai.runtime import AiRuntime
+from ...domain.models import CustomerOrder, Product, Promotion
+from ...persistence.repositories import OrderRepository, PromotionRepository
 from . import chat_rules
-from .actor import Actor
+from ..actor import Actor
 from .chat_tools import TOOL_DECLARATIONS, ChatToolbox
-from .exceptions import BusinessError
+from ..exceptions import BusinessError
 from .search_service import SearchService
 
 log = logging.getLogger("unicart.chat")

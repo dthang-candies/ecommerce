@@ -8,7 +8,7 @@ from typing import Optional
 from sqlalchemy import BigInteger, Date, DateTime, ForeignKey, Integer, JSON, LargeBinary, Numeric, String, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
-from . import security
+from .extended import security
 from .enums import (
     DiscountType, LoyaltyTier, OrderStatus, PaymentStatus, ProductStatus, RestockStatus,
     ShipmentStatus, SupportStatus,

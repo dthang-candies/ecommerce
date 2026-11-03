@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from ..domain.enums import SupportStatus
-from ..domain.models import SupportRequest
-from ..persistence.repositories import OrderRepository, SupportRepository
-from .exceptions import BusinessError, Forbidden, InvalidTransition, NotFound
-from .transaction import transactional
+from ...domain.enums import SupportStatus
+from ...domain.models import SupportRequest
+from ...persistence.repositories import OrderRepository, SupportRepository
+from ..exceptions import BusinessError, Forbidden, InvalidTransition, NotFound
+from ..transaction import transactional
 
 
 class SupportService:

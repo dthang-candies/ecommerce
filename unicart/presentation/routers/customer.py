@@ -6,8 +6,8 @@ from fastapi import APIRouter, Depends, Header, Response
 
 from ...business.actor import Actor
 from ...domain.enums import PaymentStatus
-from ..deps import get_services, partner_only, require_roles
-from ..schemas import (
+from ..extended.deps import get_services, partner_only, require_roles
+from ..extended.schemas import (
     AddressIn, CartAddIn, CartUpdateIn, OrderIn, PayIn, PaymentCallbackIn, ProfileIn, QuoteIn, ReviewIn, SupportIn,
 )
 from ..serializers import (

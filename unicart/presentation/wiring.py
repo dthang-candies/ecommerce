@@ -1,27 +1,27 @@
 """Builds the services of one request from one database session (manual dependency injection)."""
 from dataclasses import dataclass
 
-from ..business.account_service import AccountService
-from ..business.auth_service import AuthService
+from ..business.extended.account_service import AccountService
+from ..business.extended.auth_service import AuthService
 from ..business.cart_service import CartService
-from ..business.catalog_service import CatalogService
-from ..business.chat_service import ChatService
+from ..business.extended.catalog_service import CatalogService
+from ..business.extended.chat_service import ChatService
 from ..business.checkout_service import CheckoutService
-from ..business.customer_service import CustomerService
-from ..business.interaction_service import InteractionService
+from ..business.extended.customer_service import CustomerService
+from ..business.extended.interaction_service import InteractionService
 from ..business.inventory_service import InventoryService
 from ..business.order_service import OrderService
 from ..business.payment_service import PaymentService
 from ..business.product_service import ProductService
-from ..business.promotion_service import PromotionService
-from ..business.recommendation_service import RecommendationService
-from ..business.report_service import ReportService
-from ..business.search_service import SearchService
-from ..business.restock_service import RestockService
-from ..business.review_service import ReviewService
-from ..business.shipping_service import ShippingService
-from ..business.support_service import SupportService
-from ..ai.runtime import AiRuntime
+from ..business.extended.promotion_service import PromotionService
+from ..business.extended.recommendation_service import RecommendationService
+from ..business.extended.report_service import ReportService
+from ..business.extended.search_service import SearchService
+from ..business.extended.restock_service import RestockService
+from ..business.extended.review_service import ReviewService
+from ..business.extended.shipping_service import ShippingService
+from ..business.extended.support_service import SupportService
+from ..business.extended.ai.runtime import AiRuntime
 from ..persistence.repositories import (
     AccountRepository, AddressRepository, CartRepository, CategoryRepository, CustomerRepository,
     InteractionRepository, InventoryRepository, OrderRepository, PaymentRepository, ProductRepository,

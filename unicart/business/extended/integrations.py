@@ -4,7 +4,7 @@ import secrets
 from dataclasses import dataclass
 from decimal import Decimal
 
-from ..domain.enums import PaymentChannel, PaymentStatus
+from ...domain.enums import PaymentChannel, PaymentStatus
 
 
 @dataclass(frozen=True)

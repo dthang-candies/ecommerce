@@ -46,7 +46,7 @@ Thanh toán online dùng cổng sandbox: số thẻ kết thúc `0000` bị từ
 Dùng Google Gemini API miễn phí ([lấy khóa](https://aistudio.google.com/apikey), điền `GEMINI_API_KEY` vào `.env`). Có khóa: ô tìm kiếm hiểu câu tự nhiên ("giày chạy bộ màu đen dưới 1 triệu"), tự sửa chính tả, có nút 🎤 và 📷. Không có khóa hoặc Gemini lỗi: tự về tìm từ khóa. Lần khởi động đầu tự tạo vector sản phẩm (vài giây). Chi tiết, giới hạn và lưu ý riêng tư: `docs/AI_SEARCH.md`.
 
 ## Chatbot hỗ trợ người mua
-Nút "Hỏi trợ lý" ở góc phải mọi trang: mã giảm giá đang hiệu lực hôm nay, gợi ý sản phẩm, tra cứu đơn hàng của chính khách, hướng dẫn đổi trả (soạn sẵn yêu cầu hỗ trợ, khách bấm Gửi mới tạo). Câu ngắn trả lời tức thì bằng bộ luật; câu mở dùng Gemini (function-calling) và tự về bộ luật khi AI chậm/lỗi hoặc chưa có khóa. Trợ lý chỉ đọc dữ liệu, không tự hủy/đổi/hoàn tiền. Thiết kế, giới hạn và lưu ý: `docs/CHATBOT.md` (chính sách đổi trả 7 ngày là chính sách mẫu, chỉnh trong `unicart/business/chat_policy.py`).
+Nút "Hỏi trợ lý" ở góc phải mọi trang: mã giảm giá đang hiệu lực hôm nay, gợi ý sản phẩm, tra cứu đơn hàng của chính khách, hướng dẫn đổi trả (soạn sẵn yêu cầu hỗ trợ, khách bấm Gửi mới tạo). Câu ngắn trả lời tức thì bằng bộ luật; câu mở dùng Gemini (function-calling) và tự về bộ luật khi AI chậm/lỗi hoặc chưa có khóa. Trợ lý chỉ đọc dữ liệu, không tự hủy/đổi/hoàn tiền. Thiết kế, giới hạn và lưu ý: `docs/CHATBOT.md` (chính sách đổi trả 7 ngày là chính sách mẫu, chỉnh trong `business/extended/chat_policy.py`).
 
 ## Kiểm thử
 ```bash

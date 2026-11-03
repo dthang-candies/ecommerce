@@ -20,9 +20,9 @@ image ─ Gemini nhận diện sản phẩm ─┘        │
                                             ▼
         lọc cứng theo giá/danh mục → sắp xếp → phân trang   (hết hàng bị xếp thấp, không bị ẩn)
 ```
-- **Bộ phân tích truy vấn** (`unicart/ai/query_parser.py`, không gọi mạng): "dưới 300 nghìn", "từ 10 triệu đến 20 triệu", "khoảng 2tr", "một triệu rưỡi", "1,5 triệu trở xuống", "under 500k"; màu (phân biệt "đỏ" với "đồ", "kem" màu với kem chống nắng); `size 42`; bỏ phần đệm "tôi muốn tìm…".
+- **Bộ phân tích truy vấn** (`unicart/business/extended/ai/query_parser.py`, không gọi mạng): "dưới 300 nghìn", "từ 10 triệu đến 20 triệu", "khoảng 2tr", "một triệu rưỡi", "1,5 triệu trở xuống", "under 500k"; màu (phân biệt "đỏ" với "đồ", "kem" màu với kem chống nắng); `size 42`; bỏ phần đệm "tôi muốn tìm…".
 - **Tự sửa chính tả (FR-20):** khi không có kết quả mà có từ sản phẩm gần giống ("laptp" → "Laptop") thì tìm lại với từ đã sửa, báo cho người dùng và cho phép tìm đúng từ gốc. Gõ không dấu ("giay chay bo") không bị coi là lỗi.
-- **Ngưỡng liên quan** (`business/search_service.py`) hiệu chỉnh bằng cosine thật: sản phẩm không liên quan nằm quanh 0,60–0,64, đúng ≥ 0,67. Nếu kết quả tốt nhất < 0,655 thì không trả gì ("xyz asdf", "đồ ăn vặt", "xe ô tô" → rỗng). Ngưỡng tính trên **toàn bộ catalogue trước khi lọc giá**, để khi hàng đúng bị loại bởi giá thì hàng nhiễu không trồi lên.
+- **Ngưỡng liên quan** (`business/extended/search_service.py`) hiệu chỉnh bằng cosine thật: sản phẩm không liên quan nằm quanh 0,60–0,64, đúng ≥ 0,67. Nếu kết quả tốt nhất < 0,655 thì không trả gì ("xyz asdf", "đồ ăn vặt", "xe ô tô" → rỗng). Ngưỡng tính trên **toàn bộ catalogue trước khi lọc giá**, để khi hàng đúng bị loại bởi giá thì hàng nhiễu không trồi lên.
 - **Chỉ mục vector:** bảng `product_embedding` (22 bảng). Khi khởi động chỉ nạp từ MySQL; tác vụ nền chỉ nhúng sản phẩm mới hoặc đã đổi nội dung (băm MD5). Admin tạo/sửa/xóa sản phẩm sẽ kích hoạt cập nhật nền; `POST /api/admin/ai/reindex` để chạy tay; `python -m unicart.migrate` tạo bảng cho CSDL cũ.
 
 ## Dự phòng khi AI lỗi (NFR-12)

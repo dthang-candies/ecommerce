@@ -4,8 +4,8 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Depends, Query, Request, Response
 
 from ...business.actor import Actor
-from ..deps import get_services, require_roles
-from ..schemas import (
+from ..extended.deps import get_services, require_roles
+from ..extended.schemas import (
     CategoryIn, LockIn, ProductIn, ProductUpdateIn, PromotionIn, RoleIn, StaffAccountIn, VisibilityIn,
 )
 from ..serializers import account_json, category_json, product_json, promotion_json

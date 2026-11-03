@@ -3,10 +3,10 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends, Request
 
-from ...business.chat_service import ChatReply, ChatTurn
-from ...business.chat_tools import describe_promotion
-from ..deps import RateLimited, Soft, chat_budget, get_services
-from ..schemas import ChatIn
+from ...business.extended.chat_service import ChatReply, ChatTurn
+from ...business.extended.chat_tools import describe_promotion
+from ..extended.deps import RateLimited, Soft, chat_budget, get_services
+from ..extended.schemas import ChatIn
 from ..serializers import order_json, product_json, promotion_json
 from ..wiring import Services
 

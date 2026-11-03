@@ -16,10 +16,10 @@ from operator import mul
 from sqlalchemy import select
 from sqlalchemy.orm import joinedload
 
-from .. import config
-from ..domain.models import Product
-from ..persistence.database import Database
-from ..persistence.repositories import EmbeddingRepository
+from .... import config
+from ....domain.models import Product
+from ....persistence.database import Database
+from ....persistence.repositories import EmbeddingRepository
 import time
 
 from .gemini import AiQuotaExceeded, AiUnavailable, GeminiClient

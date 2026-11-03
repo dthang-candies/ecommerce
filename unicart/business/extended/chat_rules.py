@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import re
 
-from ..ai.query_parser import fold_chars
+from .ai.query_parser import fold_chars
 from .chat_tools import ChatToolbox, LOGIN_NEEDED
 
 GREETING = ("Xin chào! Mình là trợ lý mua sắm của UniCart. Mình có thể giúp bạn tìm sản phẩm, xem mã giảm giá hôm nay, "

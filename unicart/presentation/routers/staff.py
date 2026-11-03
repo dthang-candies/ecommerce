@@ -8,8 +8,8 @@ from fastapi import APIRouter, Depends, Query
 from ...business.actor import Actor
 from ...business.exceptions import NotFound
 from ...domain.enums import OrderStatus
-from ..deps import get_services, partner_only, require_roles
-from ..schemas import (
+from ..extended.deps import get_services, partner_only, require_roles
+from ..extended.schemas import (
     CarrierSandboxIn, QuantityIn, RestockIn, ShipmentCallbackIn, StatusIn, SupplierCallbackIn, SupplierResponseIn,
     SupportReplyIn, ThresholdIn,
 )

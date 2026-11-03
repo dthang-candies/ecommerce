@@ -3,8 +3,8 @@ out-of-stock products (FR-24, FR-25). score(u,i) = alpha*CF + (1-alpha)*CB, alph
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 
-from ..domain.models import Product
-from ..persistence.repositories import InteractionRepository, OrderRepository, ProductRepository
+from ...domain.models import Product
+from ...persistence.repositories import InteractionRepository, OrderRepository, ProductRepository
 
 WEIGHT = {"VIEW": 1.0, "CLICK_REC": 1.0, "ADD_TO_CART": 3.0, "PURCHASE": 5.0}
 

@@ -7,8 +7,8 @@ from sqlalchemy import text
 
 from conftest import ADMIN, AN, login
 from fake_ai import FakeGemini
-from unicart.ai.runtime import AiRuntime
-from unicart.presentation import deps
+from unicart.business.extended.ai.runtime import AiRuntime
+from unicart.presentation.extended import deps
 from unicart.presentation.app import create_app
 
 JPEG = b"\xff\xd8\xff\xe0" + b"0" * 100
@@ -176,7 +176,7 @@ def test_image_search_returns_what_gemini_recognised(ai_client, session):
 
 
 def test_image_too_specific_query_falls_back_to_the_category(ai_client, fake):
-    from unicart.ai.gemini import ImageUnderstanding
+    from unicart.business.extended.ai.gemini import ImageUnderstanding
     fake.image = ImageUnderstanding(query="xqzv wkpt bìa đen", category="Laptop", color="", brand="")
     r = ai_client.post("/api/search/image", content=JPEG).json()
     assert r["items"] and r["items"][0]["name"] == "Laptop Pro 14"
@@ -206,7 +206,7 @@ def test_voice_returns_a_transcript(ai_client, fake):
     assert r.status_code == 200 and r.json() == {"text": "laptop dưới 30 triệu", "language": "vi"}
     assert ai_client.post("/api/search/voice", content=JPEG).status_code == 415
     assert ai_client.post("/api/search/voice", content=WAV + b"0" * (3 * 1024 * 1024)).status_code == 413
-    from unicart.ai.gemini import Transcript
+    from unicart.business.extended.ai.gemini import Transcript
     fake.speech = Transcript(text="", language="vi")
     assert ai_client.post("/api/search/voice", content=WAV).status_code == 400          # nothing heard
     fake.fail = True
@@ -229,7 +229,7 @@ def test_creating_a_product_schedules_a_background_reindex(ai_client, fake):
 
 def test_lexical_match_uses_whole_words_not_substrings():
     from types import SimpleNamespace
-    from unicart.business.search_service import SearchService
+    from unicart.business.extended.search_service import SearchService
     p = SimpleNamespace(name="Điện thoại Galaxy", brand="Samsung", category=SimpleNamespace(name="Electronics"), sku="MB-002")
     lex = SearchService._lexical
     assert lex(["an"], p) == 0.0                 # 'an' is inside 'Samsung' / 'Galaxy' but is not a word of it
@@ -252,7 +252,7 @@ def test_sync_waits_out_the_free_tier_quota_and_keeps_partial_progress(db, fake)
     rt2 = AiRuntime(db, fake)
     rt2.sleep = lambda _: None
     import pytest as _pytest
-    from unicart.ai.gemini import AiUnavailable
+    from unicart.business.extended.ai.gemini import AiUnavailable
     with _pytest.raises(AiUnavailable):
         rt2.sync()
     assert len(rt2.vectors()) == 6                              # the 6 vectors already in MySQL were loaded despite the failure

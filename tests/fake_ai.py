@@ -4,8 +4,8 @@ import copy
 import hashlib
 import math
 
-from unicart.ai.gemini import AiBadInput, AiQuotaExceeded, AiUnavailable, ImageUnderstanding, Transcript
-from unicart.ai.query_parser import fold_chars
+from unicart.business.extended.ai.gemini import AiBadInput, AiQuotaExceeded, AiUnavailable, ImageUnderstanding, Transcript
+from unicart.business.extended.ai.query_parser import fold_chars
 
 DIM, OFFSET = 1024, math.sqrt(1.5)
 

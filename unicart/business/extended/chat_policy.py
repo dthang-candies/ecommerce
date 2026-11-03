@@ -3,7 +3,7 @@ never contradicts the checkout (BR-04, BR-06, BR-08). The return policy is a DEM
 no return flow, so it is stated here and handled through a support request (UC-23)."""
 from __future__ import annotations
 
-from .. import config
+from ... import config
 
 
 def _vnd(n: int) -> str:

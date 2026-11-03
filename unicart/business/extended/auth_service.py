@@ -1,10 +1,10 @@
-from ..domain import security
-from ..domain.models import Account, Cart, Customer
-from ..persistence.repositories import AccountRepository, CustomerRepository
-from .exceptions import Conflict, Unauthorized
-from .transaction import transactional
+from ...domain.extended import security
+from ...domain.models import Account, Cart, Customer
+from ...persistence.repositories import AccountRepository, CustomerRepository
+from ..exceptions import Conflict, Unauthorized
+from ..transaction import transactional
 from .validation import check_email, check_password, check_phone
-from .exceptions import BusinessError
+from ..exceptions import BusinessError
 
 
 class AuthService:

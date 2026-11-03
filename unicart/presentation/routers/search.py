@@ -5,9 +5,9 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Depends, Query, Request
 from starlette.concurrency import run_in_threadpool
 
-from ...business.search_service import SearchOutcome
-from ..deps import RateLimited, get_services, image_budget, text_budget, voice_budget
-from ..media import read_limited, sniff_audio, sniff_image
+from ...business.extended.search_service import SearchOutcome
+from ..extended.deps import RateLimited, get_services, image_budget, text_budget, voice_budget
+from ..extended.media import read_limited, sniff_audio, sniff_image
 from ..serializers import product_json
 from ..wiring import Services
 

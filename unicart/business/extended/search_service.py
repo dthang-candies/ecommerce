@@ -8,13 +8,13 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from ..ai.gemini import AiBadInput, AiUnavailable, ImageUnderstanding, Transcript
-from ..ai.query_parser import COLOR_ALIASES, ParsedQuery, fold_chars, parse_query
-from ..ai.runtime import AiRuntime, dot
-from ..domain.models import Product
-from ..persistence.repositories import ProductRepository
-from .exceptions import BusinessError, ServiceUnavailable
-from .product_service import ProductService
+from .ai.gemini import AiBadInput, AiUnavailable, ImageUnderstanding, Transcript
+from .ai.query_parser import COLOR_ALIASES, ParsedQuery, fold_chars, parse_query
+from .ai.runtime import AiRuntime, dot
+from ...domain.models import Product
+from ...persistence.repositories import ProductRepository
+from ..exceptions import BusinessError, ServiceUnavailable
+from ..product_service import ProductService
 
 # Tuned on the demo catalogue with gemini-embedding-001 @ 768 dims (see docs/AI_SEARCH.md).
 BEST_MIN = 0.655      # if even the best product is below this, nothing is relevant (gibberish scores 0.60)

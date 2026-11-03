@@ -3,7 +3,7 @@ import logging
 
 import uvicorn
 
-from .ai.runtime import AiRuntime
+from .business.extended.ai.runtime import AiRuntime
 from .persistence.database import Database
 from .presentation.app import create_app
 

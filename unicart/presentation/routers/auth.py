@@ -4,8 +4,8 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, Request, Response
 
 from ...business.actor import Actor
-from ..deps import current_actor, get_services, throttle
-from ..schemas import ChangePasswordIn, LoginIn, RegisterIn
+from ..extended.deps import current_actor, get_services, throttle
+from ..extended.schemas import ChangePasswordIn, LoginIn, RegisterIn
 from ..security import create_token
 from ..serializers import account_json, customer_json
 from ..wiring import Services

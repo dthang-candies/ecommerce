@@ -15,7 +15,7 @@ Ngoài ra trả lời phí vận chuyển, thanh toán, hủy đơn theo đúng 
 1. **"Sản phẩm giảm giá" = mã giảm giá đang hiệu lực.** Hệ thống chưa có giá giảm riêng cho từng sản phẩm (chỉ có `Promotion` áp dụng cho cả đơn khi thanh toán). Chatbot nói rõ điều này thay vì giả vờ có sản phẩm đang giảm. Nếu sau này thêm giá khuyến mại theo sản phẩm, chỉ cần thêm một công cụ `list_discounted_products` và sửa pricing/cart/checkout.
 2. **Đổi trả = giải thích + tạo yêu cầu hỗ trợ.** Tài liệu gốc không có quy trình đổi trả (không có trạng thái đơn, hoàn kho hay hoàn tiền khi trả). Chatbot không thể đổi/trả/hoàn tiền; nhân viên SALES xử lý yêu cầu ở màn hình Hỗ trợ có sẵn.
 
-> **Chính sách đổi trả là chính sách MẪU của đồ án**: 7 ngày kể từ ngày giao (`RETURN_WINDOW_DAYS`), áp dụng khi hàng lỗi/sai mẫu/sai mô tả. Nội dung nằm trong `unicart/business/chat_policy.py` — sửa ở đó cho đúng chính sách thật. Nếu báo cáo gốc có quy định khác thì lấy theo báo cáo.
+> **Chính sách đổi trả là chính sách MẪU của đồ án**: 7 ngày kể từ ngày giao (`RETURN_WINDOW_DAYS`), áp dụng khi hàng lỗi/sai mẫu/sai mô tả. Nội dung nằm trong `business/extended/chat_policy.py` — sửa ở đó cho đúng chính sách thật. Nếu báo cáo gốc có quy định khác thì lấy theo báo cáo.
 
 ## Kiến trúc
 ```
@@ -41,7 +41,7 @@ Một lệnh gọi Gemini mất **7–17 s** (cùng ngày, buổi tối, đo l�
 - Gemini dành cho câu dài/mở ("tư vấn laptop cho sinh viên lập trình, tầm 25 triệu…"); quá `CHAT_TIMEOUT` hoặc lỗi thì bộ luật trả lời và phản hồi có `degraded: true` (NFR-12). Nếu bộ luật cũng không có gì để đưa ra (câu dài, không có ý định rõ) thì bot nói thẳng "AI đang bận, hãy hỏi ngắn hơn" thay vì báo "không tìm thấy sản phẩm". Lần gọi đầu bị timeout thì **không** thử model dự phòng (cùng backend, chỉ nhân đôi thời gian chờ). Giao diện hiện "Mình đang tra cứu…" sau 6 s.
 - Chỉnh bằng biến môi trường: `CHAT_CALL_TIMEOUT` (25), `CHAT_TIMEOUT` (50), `CHAT_FAST_PATH_WORDS` (12; đặt 0 để luôn dùng model), `GEMINI_TEXT_MODEL`.
 
-Bộ luật (`business/chat_rules.py`) là từ khóa tiếng Việt có/không dấu, không phải hiểu ngôn ngữ: câu ngắn nhưng nằm ngoài các nhóm trên sẽ được **tìm như sản phẩm** (đường nhanh chỉ áp dụng khi nhận ra ý định).
+Bộ luật (`business/extended/chat_rules.py`) là từ khóa tiếng Việt có/không dấu, không phải hiểu ngôn ngữ: câu ngắn nhưng nằm ngoài các nhóm trên sẽ được **tìm như sản phẩm** (đường nhanh chỉ áp dụng khi nhận ra ý định).
 
 ## Bảo mật & quyền riêng tư
 - **Danh tính lấy từ JWT**, không từ tham số của model: công cụ đơn hàng chỉ đọc đơn có `customer_id` = khách đăng nhập; đơn của người khác và đơn không tồn tại trả **cùng một thông báo** (không dò được mã đơn). Khách chưa đăng nhập và tài khoản nhân viên không dùng được công cụ đơn hàng.

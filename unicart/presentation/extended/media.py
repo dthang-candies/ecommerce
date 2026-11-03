@@ -1,7 +1,7 @@
 """Recognise uploaded images/audio by their magic bytes (never trust the client's Content-Type) and cap their size."""
 from fastapi import Request
 
-from ..business.exceptions import BusinessError
+from ...business.exceptions import BusinessError
 
 
 class PayloadTooLarge(BusinessError):

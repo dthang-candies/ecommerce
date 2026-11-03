@@ -13,13 +13,13 @@ from datetime import datetime, timedelta
 from decimal import Decimal, InvalidOperation
 from typing import Callable
 
-from .. import config
-from ..domain.enums import OrderStatus
-from ..domain.models import CustomerOrder, Product, Promotion
-from ..persistence.repositories import OrderRepository, PromotionRepository
-from .actor import Actor
+from ... import config
+from ...domain.enums import OrderStatus
+from ...domain.models import CustomerOrder, Product, Promotion
+from ...persistence.repositories import OrderRepository, PromotionRepository
+from ..actor import Actor
 from .chat_policy import TOPICS, policies
-from .exceptions import BusinessError, NotFound
+from ..exceptions import BusinessError, NotFound
 from .search_service import SearchService
 
 MAX_PRODUCTS, MAX_ORDERS = 5, 5

@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import logging
 
-from ..domain import security
-from ..domain.models import Account, Role
-from ..persistence.repositories import AccountRepository
-from .exceptions import BusinessError, Conflict, Forbidden, NotFound
-from .transaction import transactional
+from ...domain.extended import security
+from ...domain.models import Account, Role
+from ...persistence.repositories import AccountRepository
+from ..exceptions import BusinessError, Conflict, Forbidden, NotFound
+from ..transaction import transactional
 from .validation import check_email, check_password
 
 audit = logging.getLogger("unicart.audit")

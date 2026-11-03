@@ -6,7 +6,7 @@ from ..domain.models import Payment
 from ..persistence.repositories import OrderRepository, PaymentRepository
 from .actor import SYSTEM
 from .exceptions import Conflict, Forbidden, NotFound
-from .integrations import GatewayResult, SandboxPaymentGateway
+from .extended.integrations import GatewayResult, SandboxPaymentGateway
 from .order_service import OrderService
 from .transaction import transactional
 

@@ -9,7 +9,7 @@ from decimal import Decimal
 
 from sqlalchemy import func, select
 
-from .domain import security
+from .domain.extended import security
 from .domain.models import (
     Account, Address, Cart, Category, Customer, CustomerOrder, InteractionLog, Inventory, OrderItem,
     OrderStatusHistory, Payment, Product, Review, Role, Shipment, StockMovement,

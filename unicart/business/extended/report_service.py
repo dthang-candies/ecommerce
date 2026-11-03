@@ -10,8 +10,8 @@ from collections import defaultdict
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 
-from ..persistence.repositories import InteractionRepository, InventoryRepository, ReportRepository
-from .exceptions import BusinessError
+from ...persistence.repositories import InteractionRepository, InventoryRepository, ReportRepository
+from ..exceptions import BusinessError
 
 STATUSES = ("PENDING_PAYMENT", "PENDING", "CONFIRMED", "PACKED", "SHIPPING", "DELIVERED", "CANCELLED")
 

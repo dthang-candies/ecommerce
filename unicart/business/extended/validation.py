@@ -1,7 +1,7 @@
 """Small input rules shared by several services (server-side validation, Chapter 2 NFRs)."""
 import re
 
-from .exceptions import BusinessError
+from ..exceptions import BusinessError
 
 _EMAIL = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 _PHONE = re.compile(r"^[0-9+][0-9 .\-]{7,18}$")

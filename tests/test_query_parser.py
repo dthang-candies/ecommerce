@@ -1,7 +1,7 @@
 """Query understanding (FR-23): prices, brands, colours, sizes, filler words - no network, no database."""
 import pytest
 
-from unicart.ai.query_parser import fold_chars, parse_query
+from unicart.business.extended.ai.query_parser import fold_chars, parse_query
 
 BRANDS = ["Adidas", "Sony", "La Roche-Posay", "Samsung"]
 

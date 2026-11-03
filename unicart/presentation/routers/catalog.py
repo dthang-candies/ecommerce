@@ -5,8 +5,8 @@ from typing import Annotated, Optional
 from fastapi import APIRouter, Depends, Query
 
 from ...business.actor import Actor
-from ..deps import Soft, get_services, require_roles
-from ..schemas import EventIn
+from ..extended.deps import Soft, get_services, require_roles
+from ..extended.schemas import EventIn
 from ..serializers import category_json, product_json, recommendation_json, review_json
 from ..wiring import Services
 

@@ -13,8 +13,8 @@ from sqlalchemy import text
 from conftest import AN, BINH, SERVICE, WAREHOUSE
 from fake_ai import FakeGemini
 from unicart import config
-from unicart.ai.runtime import AiRuntime
-from unicart.presentation import deps
+from unicart.business.extended.ai.runtime import AiRuntime
+from unicart.presentation.extended import deps
 from unicart.presentation.app import create_app
 
 
@@ -361,7 +361,7 @@ def test_overall_deadline_falls_back_to_rules(ai_client, fake, monkeypatch):
 
 # ------------------------------------------------------------------ Gemini client: model fallback policy of chat_turn
 def test_chat_turn_does_not_retry_a_second_model_after_a_timeout():
-    from unicart.ai.gemini import AiUnavailable, GeminiClient
+    from unicart.business.extended.ai.gemini import AiUnavailable, GeminiClient
     client = GeminiClient("k", "primary", "secondary", "emb", 8)
     seen = []
 
@@ -375,7 +375,7 @@ def test_chat_turn_does_not_retry_a_second_model_after_a_timeout():
 
 
 def test_chat_turn_tries_the_fallback_model_on_server_errors():
-    from unicart.ai.gemini import AiUnavailable, GeminiClient
+    from unicart.business.extended.ai.gemini import AiUnavailable, GeminiClient
     client = GeminiClient("k", "primary", "secondary", "emb", 8)
     models = []
 
