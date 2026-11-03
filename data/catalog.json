@@ -1,0 +1,3274 @@
+[
+ {
+  "source_id": 1,
+  "sku": "DJ-001",
+  "category": "Chăm sóc cá nhân",
+  "name": "Mascara Essence Lash Princess",
+  "description": "Mascara giúp mi dày và dài tự nhiên, lâu trôi và không thử nghiệm trên động vật.",
+  "brand": "Essence",
+  "price": 250000,
+  "stock": 99,
+  "image": "images/products/dj-001.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 2,
+  "sku": "DJ-002",
+  "category": "Chăm sóc cá nhân",
+  "name": "Bảng Phấn Mắt Kèm Gương",
+  "description": "Bảng phấn mắt đa năng với nhiều tông màu thời thượng, tích hợp gương tiện lợi khi trang điểm.",
+  "brand": "Glamour Beauty",
+  "price": 500000,
+  "stock": 34,
+  "image": "images/products/dj-002.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 3,
+  "sku": "DJ-003",
+  "category": "Chăm sóc cá nhân",
+  "name": "Phấn Phủ Dạng Bột",
+  "description": "Phấn phủ hạt mịn giúp kiềm dầu hiệu quả, mang lại lớp nền mịn màng và lì tự nhiên.",
+  "brand": "Velvet Touch",
+  "price": 375000,
+  "stock": 89,
+  "image": "images/products/dj-003.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 4,
+  "sku": "DJ-004",
+  "category": "Chăm sóc cá nhân",
+  "name": "Son Môi Đỏ Cổ Điển",
+  "description": "Son môi màu đỏ quyến rũ với chất son mềm mịn, lên màu chuẩn và bám màu lâu suốt cả ngày.",
+  "brand": "Chic Cosmetics",
+  "price": 325000,
+  "stock": 91,
+  "image": "images/products/dj-004.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 5,
+  "sku": "DJ-005",
+  "category": "Chăm sóc cá nhân",
+  "name": "Sơn Móng Tay Màu Đỏ",
+  "description": "Sơn móng tay màu đỏ bóng bẩy, mau khô giúp mang lại bộ móng đẹp chuẩn salon ngay tại nhà.",
+  "brand": "Nail Couture",
+  "price": 225000,
+  "stock": 79,
+  "image": "images/products/dj-005.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 6,
+  "sku": "DJ-006",
+  "category": "Chăm sóc cá nhân",
+  "name": "Nước Hoa Unisex Calvin Klein CK One",
+  "description": "Mùi hương kinh điển tươi mát và sảng khoái, phù hợp sử dụng hằng ngày cho cả nam và nữ.",
+  "brand": "Calvin Klein",
+  "price": 1250000,
+  "stock": 29,
+  "image": "images/products/dj-006.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 7,
+  "sku": "DJ-007",
+  "category": "Chăm sóc cá nhân",
+  "name": "Nước hoa Chanel Coco Noir Eau de Parfum",
+  "description": "Hương thơm sang trọng, huyền bí với sự kết hợp của bưởi, hoa hồng và gỗ đàn hương, hoàn hảo cho buổi tối.",
+  "brand": "Chanel",
+  "price": 3250000,
+  "stock": 58,
+  "image": "images/products/dj-007.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 8,
+  "sku": "DJ-008",
+  "category": "Chăm sóc cá nhân",
+  "name": "Nước Hoa Dior J'adore",
+  "description": "Mùi hương hoa cỏ cao cấp tôn lên nét nữ tính và thanh lịch nhờ sự hòa quyện của hoàng lan, hoa hồng và nhài.",
+  "brand": "Dior",
+  "price": 2250000,
+  "stock": 98,
+  "image": "images/products/dj-008.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 9,
+  "sku": "DJ-009",
+  "category": "Chăm sóc cá nhân",
+  "name": "Nước Hoa Dolce & Gabbana Dolce Shine",
+  "description": "Hương thơm trái cây tươi vui, trẻ trung với nốt hương xoài, hoa nhài và gỗ sáng màu.",
+  "brand": "Dolce & Gabbana",
+  "price": 1750000,
+  "stock": 4,
+  "image": "images/products/dj-009.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 10,
+  "sku": "DJ-010",
+  "category": "Chăm sóc cá nhân",
+  "name": "Nước hoa Gucci Bloom Eau de Parfum",
+  "description": "Mùi hương hoa cỏ quyến rũ, hiện đại và lãng mạn với hoa huệ, hoa nhài và hoa cẩm tú cầu.",
+  "brand": "Gucci",
+  "price": 2000000,
+  "stock": 91,
+  "image": "images/products/dj-010.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 11,
+  "sku": "DJ-011",
+  "category": "Nội thất & trang trí",
+  "name": "Giường Ngủ Cao Cấp Annibale Colombo",
+  "description": "Khung giường sang trọng, tinh tế được làm từ chất liệu cao cấp mang lại sự thoải mái cho phòng ngủ.",
+  "brand": "Annibale Colombo",
+  "price": 47500000,
+  "stock": 88,
+  "image": "images/products/dj-011.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 12,
+  "sku": "DJ-012",
+  "category": "Nội thất & trang trí",
+  "name": "Ghế sofa Annibale Colombo",
+  "description": "Ghế sofa êm ái và đẳng cấp với thiết kế tinh xảo cùng lớp bọc cao cấp cho phòng khách.",
+  "brand": "Annibale Colombo",
+  "price": 62500000,
+  "stock": 60,
+  "image": "images/products/dj-012.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 13,
+  "sku": "DJ-013",
+  "category": "Nội thất & trang trí",
+  "name": "Bàn đầu giường gỗ anh đào châu Phi",
+  "description": "Táp đầu giường phong cách, tiện dụng giúp tăng không gian lưu trữ và vẻ đẹp cho phòng ngủ.",
+  "brand": "Furniture Co.",
+  "price": 7500000,
+  "stock": 64,
+  "image": "images/products/dj-013.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 14,
+  "sku": "DJ-014",
+  "category": "Nội thất & trang trí",
+  "name": "Ghế Phòng Họp Knoll Saarinen Executive",
+  "description": "Ghế văn phòng ergonomic thiết kế hiện đại, vượt thời gian, hoàn hảo cho phòng làm việc.",
+  "brand": "Knoll",
+  "price": 12500000,
+  "stock": 26,
+  "image": "images/products/dj-014.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 15,
+  "sku": "DJ-015",
+  "category": "Nội thất & trang trí",
+  "name": "Tủ chậu rửa mặt bằng gỗ kèm gương",
+  "description": "Bộ tủ chậu rửa mặt bằng gỗ độc đáo đi kèm gương soi đồng bộ, tăng điểm nhấn cho phòng tắm.",
+  "brand": "Bath Trends",
+  "price": 20000000,
+  "stock": 7,
+  "image": "images/products/dj-015.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 16,
+  "sku": "DJ-016",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Táo tươi",
+  "description": "Táo tươi giòn, hoàn hảo cho món ăn vặt hoặc chế biến thành các món ăn khác nhau.",
+  "brand": null,
+  "price": 50000,
+  "stock": 8,
+  "image": "images/products/dj-016.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 17,
+  "sku": "DJ-017",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Thịt bò bít tết",
+  "description": "Thịt bò bít tết chất lượng cao, tuyệt vời để nướng hoặc nấu chín theo ý thích của bạn.",
+  "brand": null,
+  "price": 325000,
+  "stock": 86,
+  "image": "images/products/dj-017.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 18,
+  "sku": "DJ-018",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Thức ăn cho mèo",
+  "description": "Thức ăn dinh dưỡng cho mèo được bào chế để đáp ứng nhu cầu chế độ ăn uống của thú cưng.",
+  "brand": null,
+  "price": 225000,
+  "stock": 46,
+  "image": "images/products/dj-018.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 19,
+  "sku": "DJ-019",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Thịt gà tươi",
+  "description": "Thịt gà tươi và mềm, thích hợp cho nhiều cách chế biến món ăn khác nhau.",
+  "brand": null,
+  "price": 250000,
+  "stock": 97,
+  "image": "images/products/dj-019.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 20,
+  "sku": "DJ-020",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Dầu ăn",
+  "description": "Dầu ăn đa năng thích hợp cho việc chiên, xào và các ứng dụng nấu nướng khác nhau.",
+  "brand": null,
+  "price": 125000,
+  "stock": 10,
+  "image": "images/products/dj-020.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 21,
+  "sku": "DJ-021",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Dưa chuột",
+  "description": "Dưa chuột tươi giòn và mọng nước, lý tưởng cho các món salad, ăn vặt hoặc món phụ.",
+  "brand": null,
+  "price": 37000,
+  "stock": 84,
+  "image": "images/products/dj-021.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 22,
+  "sku": "DJ-022",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Thức ăn cho chó",
+  "description": "Thức ăn cho chó được đặc chế để cung cấp các chất dinh dưỡng thiết yếu cho thú cưng của bạn.",
+  "brand": null,
+  "price": 275000,
+  "stock": 71,
+  "image": "images/products/dj-022.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 23,
+  "sku": "DJ-023",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Trứng gà",
+  "description": "Trứng tươi, nguyên liệu đa năng để làm bánh, nấu ăn hoặc bữa sáng.",
+  "brand": null,
+  "price": 75000,
+  "stock": 9,
+  "image": "images/products/dj-023.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 24,
+  "sku": "DJ-024",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Phi-lê cá",
+  "description": "Khúc phi-lê cá chất lượng, thích hợp để nướng, đút lò hoặc áp chảo.",
+  "brand": null,
+  "price": 375000,
+  "stock": 74,
+  "image": "images/products/dj-024.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 25,
+  "sku": "DJ-025",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Ớt chuông xanh",
+  "description": "Ớt chuông xanh tươi và bắt mắt, hoàn hảo để tăng màu sắc và hương vị cho món ăn.",
+  "brand": null,
+  "price": 32000,
+  "stock": 33,
+  "image": "images/products/dj-025.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 26,
+  "sku": "DJ-026",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Ớt xanh cay",
+  "description": "Ớt xanh cay, lý tưởng để tạo độ cay nồng cho các công thức nấu ăn yêu thích của bạn.",
+  "brand": null,
+  "price": 25000,
+  "stock": 3,
+  "image": "images/products/dj-026.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 27,
+  "sku": "DJ-027",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Mật ong nguyên chất",
+  "description": "Mật ong nguyên chất trong lọ tiện lợi, hoàn hảo để làm ngọt đồ uống hoặc rưới lên món ăn.",
+  "brand": null,
+  "price": 175000,
+  "stock": 34,
+  "image": "images/products/dj-027.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 28,
+  "sku": "DJ-028",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Kem lạnh",
+  "description": "Kem béo ngậy và ngon miệng, có nhiều hương vị cho bạn một món tráng miệng tuyệt vời.",
+  "brand": null,
+  "price": 137000,
+  "stock": 27,
+  "image": "images/products/dj-028.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 29,
+  "sku": "DJ-029",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Nước ép trái cây",
+  "description": "Nước trái cây giải khát giàu vitamin, tuyệt vời để bổ sung nước cho cơ thể.",
+  "brand": null,
+  "price": 100000,
+  "stock": 50,
+  "image": "images/products/dj-029.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 30,
+  "sku": "DJ-030",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Kiwi tươi",
+  "description": "Kiwi giàu dinh dưỡng, hoàn hảo để ăn vặt hoặc thêm hương vị nhiệt đới cho món ăn của bạn.",
+  "brand": null,
+  "price": 62000,
+  "stock": 99,
+  "image": "images/products/dj-030.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 31,
+  "sku": "DJ-031",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Chanh tươi",
+  "description": "Chanh tươi mọng nước, vị chua thanh, thích hợp nấu ăn, làm bánh hoặc pha chế đồ uống.",
+  "brand": null,
+  "price": 20000,
+  "stock": 31,
+  "image": "images/products/dj-031.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 32,
+  "sku": "DJ-032",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Sữa tươi",
+  "description": "Sữa tươi nguyên chất giàu dinh dưỡng, thực phẩm thiết yếu cho mọi bữa ăn và gia đình.",
+  "brand": null,
+  "price": 87000,
+  "stock": 27,
+  "image": "images/products/dj-032.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 33,
+  "sku": "DJ-033",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Quả dâu tằm",
+  "description": "Dâu tằm ngọt lịm, mọng nước, lý tưởng để ăn vặt hoặc làm topping cho món tráng miệng.",
+  "brand": null,
+  "price": 125000,
+  "stock": 99,
+  "image": "images/products/dj-033.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 34,
+  "sku": "DJ-034",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Cà phê Nescafe",
+  "description": "Cà phê Nescafe chất lượng cao với hương vị đậm đà, đánh thức năng lượng mỗi ngày.",
+  "brand": null,
+  "price": 200000,
+  "stock": 57,
+  "image": "images/products/dj-034.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 35,
+  "sku": "DJ-035",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Khoai tây",
+  "description": "Khoai tây tươi ngon, dẻo bùi, hoàn hảo cho các món nướng, nghiền hoặc chiên.",
+  "brand": null,
+  "price": 57000,
+  "stock": 13,
+  "image": "images/products/dj-035.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 36,
+  "sku": "DJ-036",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Bột Protein",
+  "description": "Bột protein giàu dưỡng chất, hỗ trợ tối ưu cho việc tập luyện và bổ sung năng lượng.",
+  "brand": null,
+  "price": 500000,
+  "stock": 80,
+  "image": "images/products/dj-036.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 37,
+  "sku": "DJ-037",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Hành tây đỏ",
+  "description": "Hành tây đỏ thơm ngon, giòn ngọt, giúp tăng hương vị đậm đà cho các món ăn.",
+  "brand": null,
+  "price": 50000,
+  "stock": 82,
+  "image": "images/products/dj-037.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 38,
+  "sku": "DJ-038",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Gạo",
+  "description": "Gạo thượng hạng dẻo thơm, là nguyên liệu chính không thể thiếu cho mọi bữa cơm gia đình.",
+  "brand": null,
+  "price": 150000,
+  "stock": 59,
+  "image": "images/products/dj-038.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 39,
+  "sku": "DJ-039",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Nước ngọt",
+  "description": "Nước ngọt giải khát đa dạng hương vị, mang lại cảm giác sảng khoái tức thì.",
+  "brand": null,
+  "price": 50000,
+  "stock": 53,
+  "image": "images/products/dj-039.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 40,
+  "sku": "DJ-040",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Dâu tây",
+  "description": "Dâu tây tươi ngọt, mọng nước, tuyệt vời để ăn trực tiếp hoặc làm sinh tố, bánh ngọt.",
+  "brand": null,
+  "price": 100000,
+  "stock": 46,
+  "image": "images/products/dj-040.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 41,
+  "sku": "DJ-041",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Hộp khăn giấy",
+  "description": "Khăn giấy mềm mại, thấm hút tốt, tiện lợi cho nhu cầu sử dụng hàng ngày.",
+  "brand": null,
+  "price": 62000,
+  "stock": 86,
+  "image": "images/products/dj-041.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 42,
+  "sku": "DJ-042",
+  "category": "Thực phẩm & đồ uống",
+  "name": "Nước suối",
+  "description": "Nước khoáng đóng chai tinh khiết, giải khát và bù nước hiệu quả suốt cả ngày.",
+  "brand": null,
+  "price": 25000,
+  "stock": 53,
+  "image": "images/products/dj-042.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 43,
+  "sku": "DJ-043",
+  "category": "Nội thất & trang trí",
+  "name": "Xích đu trang trí",
+  "description": "Món đồ trang trí tinh tế mang lại nét sang trọng và sinh động cho không gian sống của bạn.",
+  "brand": null,
+  "price": 1500000,
+  "stock": 47,
+  "image": "images/products/dj-043.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 44,
+  "sku": "DJ-044",
+  "category": "Nội thất & trang trí",
+  "name": "Khung ảnh gia đình cây gia phả",
+  "description": "Khung ảnh thiết kế độc đáo giúp lưu giữ và trưng bày những ký ức ngọt ngào bên người thân.",
+  "brand": null,
+  "price": 750000,
+  "stock": 77,
+  "image": "images/products/dj-044.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 45,
+  "sku": "DJ-045",
+  "category": "Nội thất & trang trí",
+  "name": "Cây giả trang trí",
+  "description": "Cây cảnh nhân tạo mang mảng xanh tươi mát vào nhà mà không cần công chăm sóc.",
+  "brand": null,
+  "price": 1000000,
+  "stock": 28,
+  "image": "images/products/dj-045.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 46,
+  "sku": "DJ-046",
+  "category": "Nội thất & trang trí",
+  "name": "Chậu Cây Kiểng",
+  "description": "Chậu cây thiết kế hiện đại, tinh tế, phù hợp cho cả không gian nội thất và ngoại thất.",
+  "brand": null,
+  "price": 375000,
+  "stock": 59,
+  "image": "images/products/dj-046.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 47,
+  "sku": "DJ-047",
+  "category": "Nội thất & trang trí",
+  "name": "Đèn Để Bàn",
+  "description": "Đèn bàn chiếu sáng tiện ích và trang trí, mang lại bầu không gian ấm cúng cho phòng khách của bạn.",
+  "brand": null,
+  "price": 1250000,
+  "stock": 9,
+  "image": "images/products/dj-047.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 48,
+  "sku": "DJ-048",
+  "category": "Gia dụng",
+  "name": "Muôi Xẻng Tre",
+  "description": "Dụng cụ nhà bếp đa năng từ tre thân thiện với môi trường, lý tưởng để đảo và múc thức ăn.",
+  "brand": null,
+  "price": 200000,
+  "stock": 37,
+  "image": "images/products/dj-048.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 49,
+  "sku": "DJ-049",
+  "category": "Gia dụng",
+  "name": "Cốc Nhôm Đen",
+  "description": "Cốc nhôm màu đen sang trọng và bền bỉ, dùng được cho cả đồ uống nóng lẫn lạnh.",
+  "brand": null,
+  "price": 150000,
+  "stock": 75,
+  "image": "images/products/dj-049.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 50,
+  "sku": "DJ-050",
+  "category": "Gia dụng",
+  "name": "Dụng Cụ Đánh Trứng Đen",
+  "description": "Cây đánh trứng thiết kế tay cầm côngοnomic tiện lợi, giúp việc pha chế và làm bánh dễ dàng hơn.",
+  "brand": null,
+  "price": 250000,
+  "stock": 73,
+  "image": "images/products/dj-050.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 51,
+  "sku": "DJ-051",
+  "category": "Gia dụng",
+  "name": "Máy Xay Sinh Tố Hộp",
+  "description": "Máy xay nhỏ gọn và mạnh mẽ, hoàn hảo để làm sinh tố, đồ uống lắc và nhiều món khác.",
+  "brand": null,
+  "price": 1000000,
+  "stock": 9,
+  "image": "images/products/dj-051.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 52,
+  "sku": "DJ-052",
+  "category": "Gia dụng",
+  "name": "Chảo Wok Thép Carbon",
+  "description": "Chảo xào đa năng với khả năng phân bổ nhiệt đều, giúp món ăn chín ngon hoàn hảo.",
+  "brand": null,
+  "price": 750000,
+  "stock": 40,
+  "image": "images/products/dj-052.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 53,
+  "sku": "DJ-053",
+  "category": "Gia dụng",
+  "name": "Thớt Cắt",
+  "description": "Phụ kiện nhà bếp thiết yếu làm từ chất liệu bền bỉ, mang lại bề mặt cắt thái an toàn và vệ sinh.",
+  "brand": null,
+  "price": 325000,
+  "stock": 14,
+  "image": "images/products/dj-053.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 54,
+  "sku": "DJ-054",
+  "category": "Gia dụng",
+  "name": "Dụng Cụ Vắt Cam Vàng",
+  "description": "Dụng cụ vắt nước cốt trái cây tiện lợi với màu vàng tươi tắn, làm bừng sáng gian bếp của bạn.",
+  "brand": null,
+  "price": 225000,
+  "stock": 22,
+  "image": "images/products/dj-054.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 55,
+  "sku": "DJ-055",
+  "category": "Gia dụng",
+  "name": "Dụng Cụ Cắt Trứng",
+  "description": "Thiết bị tiện dụng giúp cắt lát trứng luộc đều tay, hoàn hảo cho món salad và bánh mì kẹp.",
+  "brand": null,
+  "price": 175000,
+  "stock": 40,
+  "image": "images/products/dj-055.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 56,
+  "sku": "DJ-056",
+  "category": "Gia dụng",
+  "name": "Bếp Điện",
+  "description": "Giải pháp nấu nướng nhỏ gọn và hiệu quả, lý tưởng cho căn bếp nhỏ hoặc làm bếp phụ.",
+  "brand": null,
+  "price": 1250000,
+  "stock": 21,
+  "image": "images/products/dj-056.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 57,
+  "sku": "DJ-057",
+  "category": "Gia dụng",
+  "name": "Rây Lọc Mịn",
+  "description": "Dụng cụ đa năng để lọc chất lỏng và rây bột, giúp việc nấu nướng và làm bánh thêm mượt mà.",
+  "brand": null,
+  "price": 250000,
+  "stock": 85,
+  "image": "images/products/dj-057.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 58,
+  "sku": "DJ-058",
+  "category": "Gia dụng",
+  "name": "Nĩa Ăn",
+  "description": "Đồ dùng bàn ăn cổ điển với thiết kế bền chắc và vừa tay, là lựa chọn đáng tin cậy mỗi ngày.",
+  "brand": null,
+  "price": 100000,
+  "stock": 7,
+  "image": "images/products/dj-058.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 59,
+  "sku": "DJ-059",
+  "category": "Gia dụng",
+  "name": "Ly Thủy Tinh",
+  "description": "Ly uống nước trong suốt và thanh lịch, giúp bạn chiêm ngưỡng trọn vẹn màu sắc đồ uống.",
+  "brand": null,
+  "price": 125000,
+  "stock": 46,
+  "image": "images/products/dj-059.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 60,
+  "sku": "DJ-060",
+  "category": "Gia dụng",
+  "name": "Dụng Cụ Mài Phô Mai Đen",
+  "description": "Dụng cụ mài phô mai và rau củ sắc bén, giúp việc chuẩn bị món ăn nhanh chóng và dễ dàng.",
+  "brand": null,
+  "price": 275000,
+  "stock": 84,
+  "image": "images/products/dj-060.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 61,
+  "sku": "DJ-061",
+  "category": "Gia dụng",
+  "name": "Máy xay cầm tay",
+  "description": "Máy xay cầm tay đa năng giúp xay nhuyễn, trộn thực phẩm nhanh chóng. Thiết kế nhỏ gọn và động cơ mạnh mẽ là trợ thủ đắc lực cho mọi gian bếp.",
+  "brand": null,
+  "price": 875000,
+  "stock": 84,
+  "image": "images/products/dj-061.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 62,
+  "sku": "DJ-062",
+  "category": "Gia dụng",
+  "name": "Khay làm đá",
+  "description": "Khay làm đá tiện lợi giúp bạn dễ dàng tạo ra những viên đá mát lạnh cho đồ uống. Thiết kế nhỏ gọn, an toàn và dễ sử dụng.",
+  "brand": null,
+  "price": 150000,
+  "stock": 13,
+  "image": "images/products/dj-062.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 63,
+  "sku": "DJ-063",
+  "category": "Gia dụng",
+  "name": "Rây lọc thực phẩm",
+  "description": "Rây lọc đa năng với lưới siêu mịn giúp lọc và rây bột, nguyên liệu khô hoặc ướt mượt mà. Dụng cụ không thể thiếu cho việc nấu nướng và làm bánh.",
+  "brand": null,
+  "price": 200000,
+  "stock": 68,
+  "image": "images/products/dj-063.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 64,
+  "sku": "DJ-064",
+  "category": "Gia dụng",
+  "name": "Dao nhà bếp",
+  "description": "Dao nhà bếp sắc bén giúp cắt, thái và gọt thực phẩm dễ dàng. Cán dao thiết kế côngοnomic cầm nắm chắc chắn, an toàn khi sử dụng.",
+  "brand": null,
+  "price": 375000,
+  "stock": 7,
+  "image": "images/products/dj-064.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 65,
+  "sku": "DJ-065",
+  "category": "Gia dụng",
+  "name": "Hộp đựng cơm trưa",
+  "description": "Hộp đựng cơm tiện lợi với nhiều ngăn riêng biệt giúp mang theo bữa ăn ngon mọi lúc mọi nơi. Thiết kế nhỏ gọn, chống rò rỉ và dễ vệ sinh.",
+  "brand": null,
+  "price": 325000,
+  "stock": 94,
+  "image": "images/products/dj-065.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 66,
+  "sku": "DJ-066",
+  "category": "Gia dụng",
+  "name": "Lò vi sóng",
+  "description": "Lò vi sóng đa năng giúp nấu chín, hâm nóng và rã đông thực phẩm nhanh chóng. Kích thước nhỏ gọn phù hợp với mọi không gian bếp.",
+  "brand": null,
+  "price": 2250000,
+  "stock": 59,
+  "image": "images/products/dj-066.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 67,
+  "sku": "DJ-067",
+  "category": "Gia dụng",
+  "name": "Giá treo ly",
+  "description": "Giá treo ly kiểu dáng hiện đại giúp tiết kiệm không gian và sắp xếp ly gọn gàng. Giữ cho những chiếc cốc yêu thích luôn ngăn nắp và dễ lấy.",
+  "brand": null,
+  "price": 400000,
+  "stock": 88,
+  "image": "images/products/dj-067.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 68,
+  "sku": "DJ-068",
+  "category": "Gia dụng",
+  "name": "Chảo chống dính",
+  "description": "Chảo chống dính cao cấp giúp chiên xào ngon miệng và dễ dàng vệ sinh. Lớp chống dính bền bỉ giúp hạn chế dầu mỡ và an toàn cho sức khỏe.",
+  "brand": null,
+  "price": 625000,
+  "stock": 90,
+  "image": "images/products/dj-068.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 69,
+  "sku": "DJ-069",
+  "category": "Gia dụng",
+  "name": "Đĩa ăn cao cấp",
+  "description": "Đĩa ăn thiết kế tinh tế, bền đẹp phù hợp cho bữa ăn hằng ngày hoặc các dịp đặc biệt. Mang lại vẻ sang trọng cho bàn ăn của bạn.",
+  "brand": null,
+  "price": 100000,
+  "stock": 66,
+  "image": "images/products/dj-069.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 70,
+  "sku": "DJ-070",
+  "category": "Gia dụng",
+  "name": "Kẹp gắp thức ăn màu đỏ",
+  "description": "Kẹp gắp đa năng tiện lợi cho việc nấu nướng và gắp thức ăn. Màu sắc nổi bật tạo thêm điểm nhấn sinh động cho gian bếp.",
+  "brand": null,
+  "price": 175000,
+  "stock": 82,
+  "image": "images/products/dj-070.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 71,
+  "sku": "DJ-071",
+  "category": "Gia dụng",
+  "name": "Nồi bạc kèm nắp kính",
+  "description": "Nồi nấu cao cấp kèm nắp kính giúp quan sát thức ăn dễ dàng khi đun nấu. Chất liệu bền đẹp, truyền nhiệt tốt cho món ăn tròn vị.",
+  "brand": null,
+  "price": 1000000,
+  "stock": 40,
+  "image": "images/products/dj-071.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 72,
+  "sku": "DJ-072",
+  "category": "Gia dụng",
+  "name": "Xẻng lật thức ăn có lỗ",
+  "description": "Xẻng lật chịu nhiệt giúp lật rán thức ăn dễ dàng. Thiết kế có khe thoát dầu mỡ tiện lợi, lý tưởng cho các món chiên xào.",
+  "brand": null,
+  "price": 225000,
+  "stock": 88,
+  "image": "images/products/dj-072.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 73,
+  "sku": "DJ-073",
+  "category": "Gia dụng",
+  "name": "Kệ đựng gia vị",
+  "description": "Kệ đựng gia vị thông minh giúp sắp xếp hũ gia vị gọn gàng, ngăn nắp. Thiết kế sang trọng giúp tối ưu không gian bếp của bạn.",
+  "brand": null,
+  "price": 500000,
+  "stock": 79,
+  "image": "images/products/dj-073.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 74,
+  "sku": "DJ-074",
+  "category": "Gia dụng",
+  "name": "Muỗng nấu ăn",
+  "description": "Muỗng đa năng tiện lợi dùng để khuấy, múc và nêm nếm thức ăn. Thiết kế эрgonomi cầm nắm thoải mái, bền đẹp theo thời gian.",
+  "brand": null,
+  "price": 125000,
+  "stock": 59,
+  "image": "images/products/dj-074.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 75,
+  "sku": "DJ-075",
+  "category": "Gia dụng",
+  "name": "Khay đựng đồ ăn",
+  "description": "Khay đựng sang trọng thích hợp dùng để phục vụ đồ ăn nhẹ, đồ uống. Kiểu dáng tinh tế giúp tôn lên sự thanh lịch khi tiếp khách.",
+  "brand": null,
+  "price": 425000,
+  "stock": 71,
+  "image": "images/products/dj-075.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 76,
+  "sku": "DJ-076",
+  "category": "Gia dụng",
+  "name": "Cán lăn bột bằng gỗ",
+  "description": "Dụng cụ làm bếp kinh điển giúp cán đều bột dễ dàng nhờ bề mặt nhẵn mịn và tay cầm chắc chắn.",
+  "brand": null,
+  "price": 300000,
+  "stock": 80,
+  "image": "images/products/dj-076.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 77,
+  "sku": "DJ-077",
+  "category": "Gia dụng",
+  "name": "Dao gọt vỏ màu vàng",
+  "description": "Dụng cụ tiện lợi giúp gọt vỏ rau củ quả nhanh chóng với màu vàng tươi tắn làm bừng sáng gian bếp.",
+  "brand": null,
+  "price": 150000,
+  "stock": 35,
+  "image": "images/products/dj-077.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 78,
+  "sku": "DJ-078",
+  "category": "Electronics",
+  "name": "Apple MacBook Pro 14 Inch Space Grey",
+  "description": "Laptop mạnh mẽ và sang trọng tích hợp chip Apple M1 Pro cùng màn hình Retina tuyệt đỉnh.",
+  "brand": "Apple",
+  "price": 50000000,
+  "stock": 24,
+  "image": "images/products/dj-078.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 79,
+  "sku": "DJ-079",
+  "category": "Electronics",
+  "name": "Laptop Asus Zenbook Pro Dual Screen",
+  "description": "Thiết bị hiệu năng cao với màn hình kép, mang lại sự linh hoạt tối đa cho nhà sáng tạo.",
+  "brand": "Asus",
+  "price": 45000000,
+  "stock": 45,
+  "image": "images/products/dj-079.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 80,
+  "sku": "DJ-080",
+  "category": "Electronics",
+  "name": "Huawei Matebook X Pro",
+  "description": "Laptop mỏng nhẹ thời trang sở hữu màn hình cảm ứng độ phân giải cao cho trải nghiệm đỉnh cao.",
+  "brand": "Huawei",
+  "price": 35000000,
+  "stock": 75,
+  "image": "images/products/dj-080.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 81,
+  "sku": "DJ-081",
+  "category": "Electronics",
+  "name": "Lenovo Yoga 920",
+  "description": "Laptop xoay gập 2 trong 1 linh hoạt với bản lề thông minh, dễ dàng chuyển đổi thành máy tính bảng.",
+  "brand": "Lenovo",
+  "price": 27500000,
+  "stock": 40,
+  "image": "images/products/dj-081.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 82,
+  "sku": "DJ-082",
+  "category": "Electronics",
+  "name": "New DELL XPS 13 9300 Laptop",
+  "description": "Laptop nhỏ gọn mạnh mẽ với viền màn hình siêu mỏng InfinityEdge và hiệu năng cao cấp.",
+  "brand": "Dell",
+  "price": 37500000,
+  "stock": 74,
+  "image": "images/products/dj-082.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 83,
+  "sku": "DJ-083",
+  "category": "Clothes",
+  "name": "Áo sơ mi caro xanh đen",
+  "description": "Áo nam thời trang và thoải mái với họa tiết caro cổ điển, phù hợp cho cả đi chơi lẫn dịp bán trang trọng.",
+  "brand": "Fashion Trends",
+  "price": 750000,
+  "stock": 38,
+  "image": "images/products/dj-083.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 84,
+  "sku": "DJ-084",
+  "category": "Clothes",
+  "name": "Áo thun nam Gigabyte Aorus",
+  "description": "Áo thun cá tính dành cho game thủ với logo Aorus nổi bật, hoàn hảo để thể hiện phong cách riêng.",
+  "brand": "Gigabyte",
+  "price": 625000,
+  "stock": 90,
+  "image": "images/products/dj-084.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 85,
+  "sku": "DJ-085",
+  "category": "Clothes",
+  "name": "Áo sơ mi kẻ sọc nam",
+  "description": "Áo sơ mi nam cơ bản với họa tiết kẻ sọc vượt thời gian, kiểu dáng thoải mái không thể thiếu trong tủ đồ.",
+  "brand": "Classic Wear",
+  "price": 875000,
+  "stock": 82,
+  "image": "images/products/dj-085.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 86,
+  "sku": "DJ-086",
+  "category": "Clothes",
+  "name": "Áo sơ mi nam ngắn tay",
+  "description": "Lựa chọn thoáng mát và phong cách cho ngày ấm áp, mang lại vẻ ngoài lịch sự nhưng vô cùng thoải mái.",
+  "brand": "Casual Comfort",
+  "price": 500000,
+  "stock": 2,
+  "image": "images/products/dj-086.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 87,
+  "sku": "DJ-087",
+  "category": "Clothes",
+  "name": "Áo sơ mi nam họa tiết caro",
+  "description": "Áo sơ mi caro cổ điển dễ phối đồ, mang lại nét lịch lãm và chỉn chu cho tủ quần áo của bạn.",
+  "brand": "Urban Chic",
+  "price": 700000,
+  "stock": 95,
+  "image": "images/products/dj-087.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 88,
+  "sku": "DJ-088",
+  "category": "Shoes",
+  "name": "Nike Air Jordan 1 Đỏ Đen",
+  "description": "Giày bóng rổ biểu tượng với thiết kế thời trang và hiệu năng vượt trội, được giới mê giày cực kỳ săn đón.",
+  "brand": "Nike",
+  "price": 3750000,
+  "stock": 7,
+  "image": "images/products/dj-088.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 89,
+  "sku": "DJ-089",
+  "category": "Shoes",
+  "name": "Giày đinh bóng chày Nike",
+  "description": "Giày chuyên dụng giúp bám sân tối ưu, mang lại sự ổn định và hỗ trợ đắc lực cho cầu thủ bóng chày.",
+  "brand": "Nike",
+  "price": 2000000,
+  "stock": 12,
+  "image": "images/products/dj-089.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 90,
+  "sku": "DJ-090",
+  "category": "Shoes",
+  "name": "Giày thể thao Puma Future Rider",
+  "description": "Sự kết hợp hoàn hảo giữa phong cách retro và sự êm ái hiện đại, là lựa chọn thời trang cho mọi ngày.",
+  "brand": "Puma",
+  "price": 2250000,
+  "stock": 90,
+  "image": "images/products/dj-090.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 91,
+  "sku": "DJ-091",
+  "category": "Shoes",
+  "name": "Giày Thể Thao Off White & Đỏ",
+  "description": "Sự kết hợp giữa phong cách và sự thoải mái với phối màu nổi bật, cá tính. Lựa chọn hoàn hảo cho người yêu thể thao.",
+  "brand": "Off White",
+  "price": 3000000,
+  "stock": 17,
+  "image": "images/products/dj-091.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 92,
+  "sku": "DJ-092",
+  "category": "Shoes",
+  "name": "Giày Thể Thao Off White Đỏ",
+  "description": "Thiết kế độc đáo mang lại vẻ ngoài thời trang và sự êm ái cho các dịp dạo phố. Phụ kiện không thể thiếu cho tủ đồ của bạn.",
+  "brand": "Off White",
+  "price": 2750000,
+  "stock": 62,
+  "image": "images/products/dj-092.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 93,
+  "sku": "DJ-093",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Dây Da Nâu",
+  "description": "Kiểu dáng cổ điển với dây da thật và mặt số tinh tế, mang lại vẻ lịch lãm. Tôn lên phong cách sang trọng cho phái mạnh.",
+  "brand": "Fashion Timepieces",
+  "price": 2250000,
+  "stock": 32,
+  "image": "images/products/dj-093.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 94,
+  "sku": "DJ-094",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Longines Master Collection",
+  "description": "Biểu tượng của sự sang trọng và độ chính xác đỉnh cao. Thiết kế vượt thời gian khẳng định đẳng cấp quý ông.",
+  "brand": "Longines",
+  "price": 37500000,
+  "stock": 100,
+  "image": "images/products/dj-094.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 95,
+  "sku": "DJ-095",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Rolex Cellini Date Mặt Đen",
+  "description": "Kiệt tác cổ điển với mặt số đen huyền bí và lịch ngày tiện dụng. Mang đậm di sản chế tác đỉnh cao từ thương hiệu Rolex.",
+  "brand": "Rolex",
+  "price": 225000000,
+  "stock": 40,
+  "image": "images/products/dj-095.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 96,
+  "sku": "DJ-096",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Rolex Cellini Moonphase",
+  "description": "Tuyệt tác hiển thị pha mặt trăng với thiết kế tinh xảo đến từng chi tiết. Thể hiện sự tinh tế và đẳng cấp vượt thời gian.",
+  "brand": "Rolex",
+  "price": 325000000,
+  "stock": 36,
+  "image": "images/products/dj-096.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 97,
+  "sku": "DJ-097",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Rolex Datejust",
+  "description": "Dòng đồng hồ biểu tượng với ô cửa sổ lịch ngày tiện ích và độ bền bỉ cao. Sự lựa chọn hoàn hảo cho mọi phong cách.",
+  "brand": "Rolex",
+  "price": 275000000,
+  "stock": 86,
+  "image": "images/products/dj-097.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 98,
+  "sku": "DJ-098",
+  "category": "Phụ kiện",
+  "name": "Đồng Hồ Rolex Submariner",
+  "description": "Huyền thoại đồng hồ lặn với khả năng chống nước và độ bền vượt trội. Người bạn đồng hành lý tưởng cho những chuyến phiêu lưu.",
+  "brand": "Rolex",
+  "price": 350000000,
+  "stock": 55,
+  "image": "images/products/dj-098.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 99,
+  "sku": "DJ-099",
+  "category": "Electronics",
+  "name": "Loa Thông Minh Amazon Echo Plus",
+  "description": "Loa thông minh tích hợp trợ lý ảo Alexa với chất âm cao cấp. Hoạt động như trung tâm điều khiển các thiết bị nhà thông minh.",
+  "brand": "Amazon",
+  "price": 2500000,
+  "stock": 61,
+  "image": "images/products/dj-099.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 100,
+  "sku": "DJ-100",
+  "category": "Electronics",
+  "name": "Tai Nghe Apple Airpods",
+  "description": "Trải nghiệm âm thanh không dây liền mạch với khả năng kết nối nhanh chóng. Tích hợp Siri hoàn hảo cho nhu cầu giải trí khi di chuyển.",
+  "brand": "Apple",
+  "price": 3250000,
+  "stock": 67,
+  "image": "images/products/dj-100.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 101,
+  "sku": "DJ-101",
+  "category": "Electronics",
+  "name": "Tai Nghe Apple AirPods Max Bạc",
+  "description": "Tai nghe chụp tai cao cấp với âm thanh trung thực và chống ồn chủ động. Mang đến trải nghiệm nghe nhạc sống động và đẳng cấp.",
+  "brand": "Apple",
+  "price": 13750000,
+  "stock": 59,
+  "image": "images/products/dj-101.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 102,
+  "sku": "DJ-102",
+  "category": "Electronics",
+  "name": "Sạc Không Dây Apple Airpower",
+  "description": "Giải pháp sạc không dây tiện lợi cho các thiết bị Apple tương thích. Chỉ cần đặt thiết bị lên bề mặt sạc để nạp đầy năng lượng dễ dàng.",
+  "brand": "Apple",
+  "price": 2000000,
+  "stock": 1,
+  "image": "images/products/dj-102.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 103,
+  "sku": "DJ-103",
+  "category": "Electronics",
+  "name": "Loa Apple HomePod Mini Xám Không Gian",
+  "description": "Loa thông minh nhỏ gọn mang đến âm thanh ấn tượng. Kết nối mượt mà với hệ sinh thái Apple cho ngôi nhà thông minh của bạn.",
+  "brand": "Apple",
+  "price": 2500000,
+  "stock": 27,
+  "image": "images/products/dj-103.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 104,
+  "sku": "DJ-104",
+  "category": "Electronics",
+  "name": "Củ Sạc Apple iPhone",
+  "description": "Củ sạc chính hãng chất lượng cao giúp sạc nhanh và an toàn cho iPhone. Giữ thiết bị của bạn luôn tràn đầy năng lượng.",
+  "brand": "Apple",
+  "price": 500000,
+  "stock": 31,
+  "image": "images/products/dj-104.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 105,
+  "sku": "DJ-105",
+  "category": "Electronics",
+  "name": "Pin Dự Phòng Apple MagSafe Battery Pack",
+  "description": "Sạc dự phòng nhỏ gọn gắn nam châm từ tính tiện lợi cho iPhone hỗ trợ MagSafe. Giải pháp bổ sung năng lượng hoàn hảo khi đang di chuyển.",
+  "brand": "Apple",
+  "price": 2500000,
+  "stock": 1,
+  "image": "images/products/dj-105.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 106,
+  "sku": "DJ-106",
+  "category": "Electronics",
+  "name": "Apple Watch Series 4 Màu Vàng",
+  "description": "Đồng hồ thông minh sành điệu với tính năng đo nhịp tim, theo dõi sức khỏe và màn hình Retina sắc nét.",
+  "brand": "Apple",
+  "price": 8750000,
+  "stock": 33,
+  "image": "images/products/dj-106.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 107,
+  "sku": "DJ-107",
+  "category": "Electronics",
+  "name": "Tai nghe không dây Beats Flex",
+  "description": "Tai nghe đa năng với thiết kế nam châm tiện lợi và thời lượng pin lên đến 12 giờ cho nhu cầu sử dụng hằng ngày.",
+  "brand": "Beats",
+  "price": 1250000,
+  "stock": 50,
+  "image": "images/products/dj-107.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 108,
+  "sku": "DJ-108",
+  "category": "Electronics",
+  "name": "Ốp lưng silicone iPhone 12 MagSafe màu Plum",
+  "description": "Ốp lưng thời trang tích hợp công nghệ MagSafe giúp bảo vệ hoàn hảo và dễ dàng gắn phụ kiện.",
+  "brand": "Apple",
+  "price": 750000,
+  "stock": 69,
+  "image": "images/products/dj-108.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 109,
+  "sku": "DJ-109",
+  "category": "Electronics",
+  "name": "Gậy chụp ảnh Monopod",
+  "description": "Phụ kiện chụp ảnh đa năng giúp giữ máy ảnh ổn định, dễ dàng chụp ảnh selfie, nhóm và quay video.",
+  "brand": "TechGear",
+  "price": 500000,
+  "stock": 48,
+  "image": "images/products/dj-109.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 110,
+  "sku": "DJ-110",
+  "category": "Electronics",
+  "name": "Đèn hỗ trợ selfie kèm iPhone",
+  "description": "Đèn LED di động, điều chỉnh được, giúp chiếu sáng tối ưu cho ảnh selfie và cuộc gọi video.",
+  "brand": "GadgetMaster",
+  "price": 375000,
+  "stock": 58,
+  "image": "images/products/dj-110.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 111,
+  "sku": "DJ-111",
+  "category": "Electronics",
+  "name": "Gậy tự sướng Monopod",
+  "description": "Thiết kế kéo dài và gấp gọn linh hoạt giúp bạn dễ dàng chụp ảnh selfie hoặc ảnh nhóm hoàn hảo.",
+  "brand": "SnapTech",
+  "price": 325000,
+  "stock": 11,
+  "image": "images/products/dj-111.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 112,
+  "sku": "DJ-112",
+  "category": "Electronics",
+  "name": "Chân đế máy ảnh phòng thu TV",
+  "description": "Hệ thống hỗ trợ máy ảnh chuyên nghiệp giúp chuyển động mượt mà, lý tưởng cho phát sóng và sản xuất.",
+  "brand": "ProVision",
+  "price": 12500000,
+  "stock": 15,
+  "image": "images/products/dj-112.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 113,
+  "sku": "DJ-113",
+  "category": "Xe máy",
+  "name": "Xe máy đa năng",
+  "description": "Dòng xe bền bỉ, tiết kiệm nhiên liệu, mang lại trải nghiệm lái thoải mái và hiệu quả cho mọi hành trình.",
+  "brand": "Generic Motors",
+  "price": 100000000,
+  "stock": 34,
+  "image": "images/products/dj-113.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 114,
+  "sku": "DJ-114",
+  "category": "Xe máy",
+  "name": "Kawasaki Z800",
+  "description": "Môtô thể thao mạnh mẽ, linh hoạt với thiết kế ấn tượng và hiệu suất đỉnh cao.",
+  "brand": "Kawasaki",
+  "price": 225000000,
+  "stock": 52,
+  "image": "images/products/dj-114.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 115,
+  "sku": "DJ-115",
+  "category": "Xe máy",
+  "name": "MotoGP CI.H1",
+  "description": "Xe phân khối lớn hiệu suất cao lấy cảm hứng từ công nghệ đua MotoGP mang lại cảm giác lái phấn khích.",
+  "brand": "MotoGP",
+  "price": 375000000,
+  "stock": 10,
+  "image": "images/products/dj-115.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 116,
+  "sku": "DJ-116",
+  "category": "Xe máy",
+  "name": "Xe máy tay ga",
+  "description": "Dòng xe tiện dụng, tiết kiệm nhiên liệu, thiết kế dễ điều khiển rất phù hợp để di chuyển trong thành phố.",
+  "brand": "ScootMaster",
+  "price": 75000000,
+  "stock": 84,
+  "image": "images/products/dj-116.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 117,
+  "sku": "DJ-117",
+  "category": "Xe máy",
+  "name": "Xe môtô thể thao",
+  "description": "Thiết kế khí động học sắc sảo hướng đến tốc độ và sự linh hoạt cho trải nghiệm lái đầy phấn khích.",
+  "brand": "SpeedMaster",
+  "price": 187500000,
+  "stock": 0,
+  "image": "images/products/dj-117.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 118,
+  "sku": "DJ-118",
+  "category": "Chăm sóc cá nhân",
+  "name": "Xà phòng rửa tay Attitude Super Leaves",
+  "description": "Xà phòng tự nhiên giàu dưỡng chất giúp làm sạch, dưỡng ẩm và mang lại làn da tay mềm mại, tươi mát.",
+  "brand": "Attitude",
+  "price": 225000,
+  "stock": 94,
+  "image": "images/products/dj-118.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 119,
+  "sku": "DJ-119",
+  "category": "Chăm sóc cá nhân",
+  "name": "Sữa tắm Olay Ultra Moisture Shea Butter",
+  "description": "Sữa tắm dưỡng ẩm sâu với bơ hạt mỡ giúp da mềm mịn màng và lưu lại lớp bọt mịn màng.",
+  "brand": "Olay",
+  "price": 325000,
+  "stock": 34,
+  "image": "images/products/dj-119.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 120,
+  "sku": "DJ-120",
+  "category": "Chăm sóc cá nhân",
+  "name": "Sữa dưỡng thể và dưỡng da mặt Vaseline Men",
+  "description": "Dưỡng thể chuyên biệt dành cho nam giới giúp cung cấp độ ẩm lâu dài và giữ cho làn da luôn khỏe mạnh.",
+  "brand": "Vaseline",
+  "price": 250000,
+  "stock": 95,
+  "image": "images/products/dj-120.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 121,
+  "sku": "DJ-121",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone 5s",
+  "description": "iPhone 5s thiết kế nhỏ gọn, mang lại trải nghiệm ổn định và bền bỉ cho người dùng.",
+  "brand": "Apple",
+  "price": 5000000,
+  "stock": 25,
+  "image": "images/products/dj-121.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 122,
+  "sku": "DJ-122",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone 6",
+  "description": "iPhone 6 sở hữu màn hình lớn hơn cùng hiệu năng mượt mà, là lựa chọn phổ biến một thời.",
+  "brand": "Apple",
+  "price": 7500000,
+  "stock": 60,
+  "image": "images/products/dj-122.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 123,
+  "sku": "DJ-123",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone 13 Pro",
+  "description": "iPhone 13 Pro đẳng cấp với hệ thống camera đỉnh cao, chip hiệu năng khủng và màn hình cực nét.",
+  "brand": "Apple",
+  "price": 27500000,
+  "stock": 56,
+  "image": "images/products/dj-123.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 124,
+  "sku": "DJ-124",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone X",
+  "description": "iPhone X đánh dấu bước đột phá thiết kế với màn hình tràn viền OLED và bảo mật Face ID tiên tiến.",
+  "brand": "Apple",
+  "price": 22500000,
+  "stock": 37,
+  "image": "images/products/dj-124.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 125,
+  "sku": "DJ-125",
+  "category": "Electronics",
+  "name": "Điện thoại Oppo A57",
+  "description": "Oppo A57 tầm trung có thiết kế thời trang, mang đến hiệu năng ổn định trong tầm giá.",
+  "brand": "Oppo",
+  "price": 6250000,
+  "stock": 19,
+  "image": "images/products/dj-125.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 126,
+  "sku": "DJ-126",
+  "category": "Electronics",
+  "name": "Điện thoại Oppo F19 Pro Plus",
+  "description": "Oppo F19 Pro Plus tập trung mạnh vào khả năng chụp ảnh, mang lại trải nghiệm nhiếp ảnh chuyên nghiệp.",
+  "brand": "Oppo",
+  "price": 10000000,
+  "stock": 78,
+  "image": "images/products/dj-126.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 127,
+  "sku": "DJ-127",
+  "category": "Electronics",
+  "name": "Điện thoại Oppo K1",
+  "description": "Oppo K1 nổi bật với thiết kế phong cách và hiệu năng đáng tin cậy, phù hợp với mọi nhu cầu.",
+  "brand": "Oppo",
+  "price": 7500000,
+  "stock": 55,
+  "image": "images/products/dj-127.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 128,
+  "sku": "DJ-128",
+  "category": "Electronics",
+  "name": "Điện thoại Realme C35",
+  "description": "Realme C35 giá rẻ đáp ứng tốt mọi tác vụ hàng ngày với trải nghiệm sử dụng mượt mà, thân thiện.",
+  "brand": "Realme",
+  "price": 3750000,
+  "stock": 48,
+  "image": "images/products/dj-128.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 129,
+  "sku": "DJ-129",
+  "category": "Electronics",
+  "name": "Điện thoại Realme X",
+  "description": "Realme X cân bằng hoàn hảo giữa hiệu năng và camera, sở hữu màn hình ấn tượng.",
+  "brand": "Realme",
+  "price": 7500000,
+  "stock": 12,
+  "image": "images/products/dj-129.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 130,
+  "sku": "DJ-130",
+  "category": "Electronics",
+  "name": "Điện thoại Realme XT",
+  "description": "Realme XT trang bị cảm biến ảnh cao cấp, thỏa mãn đam mê sáng tạo hình ảnh và video sắc nét.",
+  "brand": "Realme",
+  "price": 8750000,
+  "stock": 80,
+  "image": "images/products/dj-130.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 131,
+  "sku": "DJ-131",
+  "category": "Electronics",
+  "name": "Điện thoại Samsung Galaxy S7",
+  "description": "Galaxy S7 là dòng flagship sang trọng với màn hình sắc nét, camera đỉnh và hiệu năng mạnh mẽ.",
+  "brand": "Samsung",
+  "price": 7500000,
+  "stock": 67,
+  "image": "images/products/dj-131.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 132,
+  "sku": "DJ-132",
+  "category": "Electronics",
+  "name": "Điện thoại Samsung Galaxy S8",
+  "description": "Galaxy S8 sở hữu màn hình vô cực ấn tượng cùng công nghệ camera tiên tiến.",
+  "brand": "Samsung",
+  "price": 12500000,
+  "stock": 0,
+  "image": "images/products/dj-132.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 133,
+  "sku": "DJ-133",
+  "category": "Electronics",
+  "name": "Điện thoại Samsung Galaxy S10",
+  "description": "Galaxy S10 mang đến màn hình AMOLED rực rỡ, cụm camera đa năng và hiệu năng đỉnh cao.",
+  "brand": "Samsung",
+  "price": 17500000,
+  "stock": 19,
+  "image": "images/products/dj-133.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 134,
+  "sku": "DJ-134",
+  "category": "Electronics",
+  "name": "Điện thoại Vivo S1",
+  "description": "Vivo S1 thời trang kết hợp màn hình sống động và hiệu năng ổn định cho mọi trải nghiệm.",
+  "brand": "Vivo",
+  "price": 6250000,
+  "stock": 50,
+  "image": "images/products/dj-134.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 135,
+  "sku": "DJ-135",
+  "category": "Electronics",
+  "name": "Điện thoại Vivo V9",
+  "description": "Vivo V9 thiết kế hiện đại, nổi bật với khả năng chụp ảnh selfie sắc nét và màn hình tai thỏ thời thượng.",
+  "brand": "Vivo",
+  "price": 7500000,
+  "stock": 82,
+  "image": "images/products/dj-135.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 136,
+  "sku": "DJ-136",
+  "category": "Electronics",
+  "name": "Điện thoại Vivo X21",
+  "description": "Smartphone cao cấp với cảm biến vân tay ẩn dưới màn hình và camera sắc nét. Mang lại trải nghiệm công nghệ đỉnh cao cho người dùng.",
+  "brand": "Vivo",
+  "price": 12500000,
+  "stock": 7,
+  "image": "images/products/dj-136.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 137,
+  "sku": "DJ-137",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng bầu dục Mỹ",
+  "description": "Quả bóng chuyên dụng cho môn bóng bầu dục, thiết kế chuẩn xác giúp dễ dàng ném và bắt. Trang thiết bị không thể thiếu cho các trận đấu.",
+  "brand": null,
+  "price": 500000,
+  "stock": 53,
+  "image": "images/products/dj-137.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 138,
+  "sku": "DJ-138",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng chày tiêu chuẩn",
+  "description": "Quả bóng chày với lớp da bền bỉ, thiết kế tối ưu cho việc ném, đánh và bắt bóng. Lựa chọn hoàn hảo cho mọi trận đấu chày.",
+  "brand": null,
+  "price": 225000,
+  "stock": 100,
+  "image": "images/products/dj-138.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 139,
+  "sku": "DJ-139",
+  "category": "Thể thao & dã ngoại",
+  "name": "Găng tay bóng chày",
+  "description": "Găng tay bảo vệ giúp cầu thủ bắt bóng chắc chắn và thoải mái. Mang lại sự kiểm soát tối đa trong suốt trận đấu.",
+  "brand": null,
+  "price": 625000,
+  "stock": 22,
+  "image": "images/products/dj-139.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 140,
+  "sku": "DJ-140",
+  "category": "Thể thao & dã ngoại",
+  "name": "Quả bóng rổ",
+  "description": "Bóng rổ tiêu chuẩn dùng cho cả trong nhà lẫn ngoài trời, hỗ trợ tốt cho các động tác dẫn bóng, ném rổ và chuyền bóng.",
+  "brand": null,
+  "price": 375000,
+  "stock": 75,
+  "image": "images/products/dj-140.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 141,
+  "sku": "DJ-141",
+  "category": "Thể thao & dã ngoại",
+  "name": "Vành bóng rổ",
+  "description": "Bộ vành và lưới bóng rổ chắc chắn, gắn trên bảng rổ. Tạo mục tiêu chính xác cho các cú ném ghi điểm.",
+  "brand": null,
+  "price": 1000000,
+  "stock": 43,
+  "image": "images/products/dj-141.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 142,
+  "sku": "DJ-142",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng cricket",
+  "description": "Quả bóng da cứng chuyên dụng cho môn cricket. Độ cứng và đường chỉ may góp phần tạo nên những đường bóng biến hóa.",
+  "brand": null,
+  "price": 325000,
+  "stock": 30,
+  "image": "images/products/dj-142.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 143,
+  "sku": "DJ-143",
+  "category": "Thể thao & dã ngoại",
+  "name": "Gậy đánh cricket",
+  "description": "Dụng cụ thiết yếu làm bằng gỗ với nhiều kích cỡ khác nhau. Hỗ trợ batsman thực hiện những cú đánh bóng chuẩn xác.",
+  "brand": null,
+  "price": 750000,
+  "stock": 98,
+  "image": "images/products/dj-143.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 144,
+  "sku": "DJ-144",
+  "category": "Thể thao & dã ngoại",
+  "name": "Mũ bảo hiểm cricket",
+  "description": "Mũ bảo hiểm chuyên dụng bảo vệ tối ưu cho batsman và wicketkeeper. An toàn trước các đường bóng nhanh và hiểm hóc.",
+  "brand": null,
+  "price": 1120000,
+  "stock": 10,
+  "image": "images/products/dj-144.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 145,
+  "sku": "DJ-145",
+  "category": "Thể thao & dã ngoại",
+  "name": "Khung thành cricket Wicket",
+  "description": "Bộ ba cọc gỗ và hai thanh ngang tạo thành khung thành cricket. Mục tiêu của batsman là bảo vệ wicket này để ghi điểm.",
+  "brand": null,
+  "price": 750000,
+  "stock": 25,
+  "image": "images/products/dj-145.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 146,
+  "sku": "DJ-146",
+  "category": "Thể thao & dã ngoại",
+  "name": "Cầu lông vũ",
+  "description": "Quả cầu lông làm từ lông vũ tự nhiên, thiết kế cho lối chơi tốc độ cao. Đảm bảo độ bay ổn định và chính xác trong mọi trận đấu.",
+  "brand": null,
+  "price": 150000,
+  "stock": 95,
+  "image": "images/products/dj-146.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 147,
+  "sku": "DJ-147",
+  "category": "Thể thao & dã ngoại",
+  "name": "Quả bóng đá",
+  "description": "Quả bóng đá tiêu chuẩn chuyên dùng cho các trận đấu. Thiết kế tối ưu cho các pha đá bóng và chuyền bóng trên sân.",
+  "brand": null,
+  "price": 450000,
+  "stock": 96,
+  "image": "images/products/dj-147.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 148,
+  "sku": "DJ-148",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng gôn (Golf)",
+  "description": "Quả bóng gôn nhỏ với bề mặt có các vết lõm khí động học. Giúp tăng lực nâng và khoảng cách bay khi đánh.",
+  "brand": null,
+  "price": 250000,
+  "stock": 84,
+  "image": "images/products/dj-148.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 149,
+  "sku": "DJ-149",
+  "category": "Thể thao & dã ngoại",
+  "name": "Gậy sắt đánh gôn (Iron)",
+  "description": "Gậy gôn đầu kim loại chuyên dụng cho các cú đánh tiếp cận và gạt bóng. Phù hợp cho nhiều kỹ thuật chơi gôn khác nhau.",
+  "brand": null,
+  "price": 1250000,
+  "stock": 90,
+  "image": "images/products/dj-149.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 150,
+  "sku": "DJ-150",
+  "category": "Thể thao & dã ngoại",
+  "name": "Gậy bóng chày kim loại",
+  "description": "Gậy bóng chày làm từ hợp kim nhẹ và bền bỉ. Thường dùng trong các trận đấu và luyện tập đánh bóng.",
+  "brand": null,
+  "price": 750000,
+  "stock": 16,
+  "image": "images/products/dj-150.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 151,
+  "sku": "DJ-151",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng Tennis Chuẩn Thi Đấu",
+  "description": "Bóng tennis chuyên dụng với độ nảy tốt, lý tưởng cho tập luyện và thi đấu.",
+  "brand": null,
+  "price": 175000,
+  "stock": 28,
+  "image": "images/products/dj-151.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 152,
+  "sku": "DJ-152",
+  "category": "Thể thao & dã ngoại",
+  "name": "Vợt Tennis Thể Thao",
+  "description": "Vợt tennis thiết kế chắc chắn với tay cầm êm ái, hỗ trợ tối ưu cho các cú đánh.",
+  "brand": null,
+  "price": 1250000,
+  "stock": 6,
+  "image": "images/products/dj-152.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 153,
+  "sku": "DJ-153",
+  "category": "Thể thao & dã ngoại",
+  "name": "Bóng Chuyền Tiêu Chuẩn",
+  "description": "Bóng chuyền mềm mại, độ bám tốt, hoàn hảo cho các trận đấu và buổi tập.",
+  "brand": null,
+  "price": 300000,
+  "stock": 0,
+  "image": "images/products/dj-153.webp",
+  "attributes": {
+   "warranty": "1 tuần",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 154,
+  "sku": "DJ-154",
+  "category": "Phụ kiện",
+  "name": "Kính Mát Thời Trang Màu Đen",
+  "description": "Kính mát đen cổ điển, thời trang và bảo vệ mắt tối ưu khỏi tia UV.",
+  "brand": "Fashion Shades",
+  "price": 750000,
+  "stock": 60,
+  "image": "images/products/dj-154.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 155,
+  "sku": "DJ-155",
+  "category": "Phụ kiện",
+  "name": "Kính Mát Kiểu Dáng Cổ Điển",
+  "description": "Kính mát thiết kế vượt thời gian, chống UV hiệu quả và dễ dàng phối đồ.",
+  "brand": "Fashion Shades",
+  "price": 625000,
+  "stock": 1,
+  "image": "images/products/dj-155.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 156,
+  "sku": "DJ-156",
+  "category": "Phụ kiện",
+  "name": "Kính Mát Xanh Đen Nổi Bật",
+  "description": "Sự kết hợp màu sắc độc đáo mang lại phong cách cá tính và thu hút mọi ánh nhìn.",
+  "brand": "Fashion Shades",
+  "price": 875000,
+  "stock": 24,
+  "image": "images/products/dj-156.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 157,
+  "sku": "DJ-157",
+  "category": "Phụ kiện",
+  "name": "Kính Mát Đi Tiệc",
+  "description": "Mẫu kính độc đáo giúp bạn nổi bật và thêm phần rạng rỡ trong các buổi tiệc.",
+  "brand": "Fashion Fun",
+  "price": 500000,
+  "stock": 86,
+  "image": "images/products/dj-157.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 158,
+  "sku": "DJ-158",
+  "category": "Phụ kiện",
+  "name": "Kính Mát Đa Năng",
+  "description": "Kính mát thiết kế đơn giản, chống tia UV hiệu quả cho các hoạt động ngoài trời.",
+  "brand": "Fashion Shades",
+  "price": 575000,
+  "stock": 27,
+  "image": "images/products/dj-158.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 159,
+  "sku": "DJ-159",
+  "category": "Electronics",
+  "name": "iPad Mini 2021 Starlight",
+  "description": "Tablet nhỏ gọn, mạnh mẽ từ Apple với màn hình Retina sắc nét và thiết kế sang trọng.",
+  "brand": "Apple",
+  "price": 12500000,
+  "stock": 47,
+  "image": "images/products/dj-159.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 160,
+  "sku": "DJ-160",
+  "category": "Electronics",
+  "name": "Samsung Galaxy Tab S8 Plus Grey",
+  "description": "Máy tính bảng hiệu năng cao với màn hình AMOLED lớn và hỗ trợ S Pen tiện lợi.",
+  "brand": "Samsung",
+  "price": 15000000,
+  "stock": 62,
+  "image": "images/products/dj-160.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 161,
+  "sku": "DJ-161",
+  "category": "Electronics",
+  "name": "Samsung Galaxy Tab White",
+  "description": "Máy tính bảng Android màu trắng thanh lịch, pin bền bỉ cho mọi tác vụ hàng ngày.",
+  "brand": "Samsung",
+  "price": 8750000,
+  "stock": 92,
+  "image": "images/products/dj-161.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 162,
+  "sku": "DJ-162",
+  "category": "Clothes",
+  "name": "Đầm Xanh Nữ Tính",
+  "description": "Chiếc đầm xanh thanh lịch, mang lại vẻ ngoài duyên dáng cho mọi dịp.",
+  "brand": null,
+  "price": 750000,
+  "stock": 52,
+  "image": "images/products/dj-162.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 163,
+  "sku": "DJ-163",
+  "category": "Clothes",
+  "name": "Đầm Hè Cho Nữ",
+  "description": "Đầm thiết kế mỏng nhẹ, họa tiết tươi tắn giúp bạn thoải mái trong ngày hè.",
+  "brand": null,
+  "price": 500000,
+  "stock": 43,
+  "image": "images/products/dj-163.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 164,
+  "sku": "DJ-164",
+  "category": "Clothes",
+  "name": "Đầm Xám Thời Trang",
+  "description": "Trang phục màu xám đa năng, dễ phối đồ cho cả đi chơi và đi làm.",
+  "brand": null,
+  "price": 875000,
+  "stock": 55,
+  "image": "images/products/dj-164.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 165,
+  "sku": "DJ-165",
+  "category": "Clothes",
+  "name": "Đầm Ngắn Trẻ Trung",
+  "description": "Mẫu đầm ngắn năng động, kết hợp hoàn hảo giữa thời trang và sự thoải mái.",
+  "brand": null,
+  "price": 625000,
+  "stock": 22,
+  "image": "images/products/dj-165.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 166,
+  "sku": "DJ-166",
+  "category": "Clothes",
+  "name": "Đầm Tartan Cổ Điển",
+  "description": "Đầm họa tiết tartan mang đến nét thanh lịch vượt thời gian cho tủ đồ của bạn. Thiết kế lý tưởng cho mùa thu đông, tạo điểm nhấn truyền thống đầy cuốn hút.",
+  "brand": null,
+  "price": 1000000,
+  "stock": 73,
+  "image": "images/products/dj-166.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 172,
+  "sku": "DJ-172",
+  "category": "Phụ kiện",
+  "name": "Túi Xách Nữ Màu Xanh Dương",
+  "description": "Túi xách nữ màu xanh dương thời trang và rộng rãi cho sử dụng hằng ngày. Với màu sắc nổi bật và nhiều ngăn tiện lợi, sản phẩm kết hợp hoàn hảo giữa thời trang và tính ứng dụng.",
+  "brand": "Fashionista",
+  "price": 1250000,
+  "stock": 76,
+  "image": "images/products/dj-172.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 173,
+  "sku": "DJ-173",
+  "category": "Phụ kiện",
+  "name": "Túi Da Nữ Heshe",
+  "description": "Túi da nữ Heshe sang trọng và cao cấp dành cho phái đẹp thanh lịch. Thiết kế vượt thời gian cùng độ bền bỉ giúp đây trở thành món phụ kiện đa năng.",
+  "brand": "Heshe",
+  "price": 3250000,
+  "stock": 99,
+  "image": "images/products/dj-173.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 174,
+  "sku": "DJ-174",
+  "category": "Phụ kiện",
+  "name": "Túi Xách Nữ Prada",
+  "description": "Túi xách nữ Prada biểu tượng toát lên vẻ đẹp sang trọng và đẳng cấp. Chế tác tỉ mỉ với logo Prada đặc trưng, đây là item khẳng định phong cách cho tín đồ thời trang.",
+  "brand": "Prada",
+  "price": 15000000,
+  "stock": 75,
+  "image": "images/products/dj-174.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 175,
+  "sku": "DJ-175",
+  "category": "Phụ kiện",
+  "name": "Balo Da Giả Màu Trắng",
+  "description": "Balo da giả màu trắng thời thượng và tiện dụng cho phụ nữ hiện đại. Thiết kế trang nhã cùng sức chứa rộng rãi phù hợp cho cả phong cách thường ngày lẫn khi di chuyển.",
+  "brand": "Urban Chic",
+  "price": 1000000,
+  "stock": 39,
+  "image": "images/products/dj-175.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 176,
+  "sku": "DJ-176",
+  "category": "Phụ kiện",
+  "name": "Túi Xách Nữ Màu Đen",
+  "description": "Túi xách nữ màu đen cổ điển dễ dàng phối hợp với nhiều trang phục khác nhau. Thiết kế đa năng và không bao giờ lỗi mốt là món đồ không thể thiếu trong tủ đồ.",
+  "brand": "Elegance Collection",
+  "price": 1500000,
+  "stock": 11,
+  "image": "images/products/dj-176.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 177,
+  "sku": "DJ-177",
+  "category": "Clothes",
+  "name": "Đầm Dạ Hội Nữ Màu Đen",
+  "description": "Đầm dạ hội nữ màu đen sang trọng và thanh lịch vượt thời gian. Thiết kế tối giản hoàn hảo cho các sự kiện trang trọng, toát lên phong cách đẳng cấp.",
+  "brand": null,
+  "price": 3250000,
+  "stock": 25,
+  "image": "images/products/dj-177.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 178,
+  "sku": "DJ-178",
+  "category": "Clothes",
+  "name": "Bộ Đồ Corset Da Kèm Chân Váy",
+  "description": "Bộ đồ cá tính kết hợp corset thời trang và chân váy đồng điệu. Lựa chọn lý tưởng cho những ai yêu thích sự phá cách và muốn nổi bật tại mọi sự kiện.",
+  "brand": null,
+  "price": 2250000,
+  "stock": 30,
+  "image": "images/products/dj-178.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 179,
+  "sku": "DJ-179",
+  "category": "Clothes",
+  "name": "Corset Kèm Chân Váy Đen",
+  "description": "Set đồ chic và đa năng kết hợp corset thời thượng với chân váy đen cổ điển. Mang lại vẻ ngoài trẻ trung và đồng điệu cho nhiều dịp khác nhau.",
+  "brand": null,
+  "price": 2000000,
+  "stock": 33,
+  "image": "images/products/dj-179.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 180,
+  "sku": "DJ-180",
+  "category": "Clothes",
+  "name": "Đầm Họa Tiết Pea",
+  "description": "Đầm họa tiết pea thời trang và thoải mái cho các buổi dạo phố. Mang đến nét tinh nghịch và vui tươi, là lựa chọn tuyệt vời cho trang phục hằng ngày.",
+  "brand": null,
+  "price": 1250000,
+  "stock": 6,
+  "image": "images/products/dj-180.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 181,
+  "sku": "DJ-181",
+  "category": "Clothes",
+  "name": "Bộ Vest Đỏ & Đen Marni",
+  "description": "Bộ vest Marni phối đỏ và đen sành điệu, mang đậm tinh thần thời trang cao cấp. Thiết kế hiện đại giúp bạn tạo diện mạo tự tin và đầy quyền lực.",
+  "brand": null,
+  "price": 4500000,
+  "stock": 62,
+  "image": "images/products/dj-181.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Đổi trả trong 90 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 182,
+  "sku": "DJ-182",
+  "category": "Phụ kiện",
+  "name": "Bông Tai Pha Lê Xanh",
+  "description": "Bông tai đính pha lê xanh rực rỡ và lấp lánh cho phái đẹp. Thiết kế cổ điển mang lại nét thanh lịch, hoàn hảo cho các sự kiện trang trọng.",
+  "brand": null,
+  "price": 750000,
+  "stock": 54,
+  "image": "images/products/dj-182.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 183,
+  "sku": "DJ-183",
+  "category": "Phụ kiện",
+  "name": "Bông Tai Oval Xanh",
+  "description": "Bông tai dáng oval độc đáo, thời trang và dễ phối đồ. Dù diện thường ngày hay dự tiệc, sắc xanh nổi bật giúp bạn luôn tỏa sáng.",
+  "brand": null,
+  "price": 625000,
+  "stock": 73,
+  "image": "images/products/dj-183.webp",
+  "attributes": {
+   "warranty": "3 tháng",
+   "shipping": "Giao trong 3-5 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 184,
+  "sku": "DJ-184",
+  "category": "Phụ kiện",
+  "name": "Bông Tai Nhiệt Đới",
+  "description": "Bông tai lấy cảm hứng từ thiên nhiên nhiệt đới đầy vui tươi và rực rỡ. Phụ kiện hoàn hảo mang hơi thở mùa hè vào phong cách của bạn.",
+  "brand": null,
+  "price": 500000,
+  "stock": 1,
+  "image": "images/products/dj-184.webp",
+  "attributes": {
+   "warranty": "3 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 185,
+  "sku": "DJ-185",
+  "category": "Shoes",
+  "name": "Dép Đen & Nâu",
+  "description": "Dép phối màu đen và nâu thoải mái, thời trang cho ngày thường. Sự kết hợp màu sắc tinh tế mang lại cảm giác thư giãn đầy phong cách.",
+  "brand": "Comfort Trends",
+  "price": 500000,
+  "stock": 3,
+  "image": "images/products/dj-185.webp",
+  "attributes": {
+   "warranty": "Trọn đời",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 186,
+  "sku": "DJ-186",
+  "category": "Shoes",
+  "name": "Giày cao gót Calvin Klein Heel Shoes",
+  "description": "Thiết kế thanh lịch và sang trọng, hoàn hảo cho các buổi tiệc và sự kiện trang trọng.",
+  "brand": "Calvin Klein",
+  "price": 2000000,
+  "stock": 93,
+  "image": "images/products/dj-186.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 187,
+  "sku": "DJ-187",
+  "category": "Shoes",
+  "name": "Giày nữ ánh vàng Golden Shoes Woman",
+  "description": "Mẫu giày sang trọng với sắc vàng quyến rũ, giúp tôn lên vẻ đẳng cấp cho trang phục dự tiệc.",
+  "brand": "Fashion Diva",
+  "price": 1250000,
+  "stock": 88,
+  "image": "images/products/dj-187.webp",
+  "attributes": {
+   "warranty": "6 tháng",
+   "return_policy": "Đổi trả trong 7 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 188,
+  "sku": "DJ-188",
+  "category": "Shoes",
+  "name": "Giày nữ thời trang Pampi Shoes",
+  "description": "Sự kết hợp hoàn hảo giữa êm ái và năng động, phù hợp mang đi chơi hay dạo phố hằng ngày.",
+  "brand": "Pampi",
+  "price": 750000,
+  "stock": 49,
+  "image": "images/products/dj-188.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 189,
+  "sku": "DJ-189",
+  "category": "Shoes",
+  "name": "Giày đỏ cá tính Red Shoes",
+  "description": "Gam màu đỏ nổi bật giúp bạn thu hút mọi ánh nhìn trong các buổi tiệc hoặc dịp đi chơi.",
+  "brand": "Fashion Express",
+  "price": 875000,
+  "stock": 7,
+  "image": "images/products/dj-189.webp",
+  "attributes": {
+   "warranty": "Không bảo hành",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 190,
+  "sku": "DJ-190",
+  "category": "Phụ kiện",
+  "name": "Đồng hồ nam IWC Ingenieur Automatic Steel",
+  "description": "Vỏ thép không gỉ bền bỉ kết hợp bộ máy cơ chính xác, mang lại phong cách lịch lãm.",
+  "brand": "IWC",
+  "price": 125000000,
+  "stock": 90,
+  "image": "images/products/dj-190.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 191,
+  "sku": "DJ-191",
+  "category": "Phụ kiện",
+  "name": "Đồng hồ nữ Rolex Cellini Moonphase",
+  "description": "Kiệt tác thời gian với tính năng lịch tuần trăng tinh xảo, tôn vinh đẳng cấp phái đẹp.",
+  "brand": "Rolex",
+  "price": 400000000,
+  "stock": 52,
+  "image": "images/products/dj-191.webp",
+  "attributes": {
+   "warranty": "1 tháng",
+   "return_policy": "Đổi trả trong 30 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 192,
+  "sku": "DJ-192",
+  "category": "Phụ kiện",
+  "name": "Đồng hồ nữ Rolex Datejust Women",
+  "description": "Biểu tượng thời gian vượt thời gian với thiết kế sang trọng và tính năng lịch ngày tiện dụng.",
+  "brand": "Rolex",
+  "price": 275000000,
+  "stock": 4,
+  "image": "images/products/dj-192.webp",
+  "attributes": {
+   "warranty": "5 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 193,
+  "sku": "DJ-193",
+  "category": "Phụ kiện",
+  "name": "Đồng hồ nữ mạ vàng Watch Gold for Women",
+  "description": "Phụ kiện thời trang mạ vàng cao cấp, mang lại vẻ đẹp kiêu sa và quý phái cho phái đẹp.",
+  "brand": "Fashion Gold",
+  "price": 20000000,
+  "stock": 0,
+  "image": "images/products/dj-193.webp",
+  "attributes": {
+   "warranty": "2 năm",
+   "shipping": "Giao trong 1-2 ngày làm việc",
+   "return_policy": "Đổi trả trong 60 ngày"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ },
+ {
+  "source_id": 194,
+  "sku": "DJ-194",
+  "category": "Phụ kiện",
+  "name": "Đồng hồ đeo tay nữ Women's Wrist Watch",
+  "description": "Thiết kế đơn giản, thanh lịch và dễ phối đồ, là phụ kiện lý tưởng cho phong cách hằng ngày.",
+  "brand": "Fashion Co.",
+  "price": 3250000,
+  "stock": 12,
+  "image": "images/products/dj-194.webp",
+  "attributes": {
+   "warranty": "1 năm",
+   "return_policy": "Không đổi trả"
+  },
+  "translated": true,
+  "source": "dummyjson.com"
+ }
+]

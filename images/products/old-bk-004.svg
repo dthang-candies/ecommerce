@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" role="img" aria-label="Nhà giả kim">
+<rect width="600" height="800" fill="#b5651d"/><rect x="0" y="0" width="36" height="800" fill="#00000033"/>
+<rect x="90" y="120" width="420" height="6" fill="#fff1d0"/><rect x="90" y="470" width="420" height="6" fill="#fff1d0"/>
+<text font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="64" fill="#ffffff" text-anchor="middle"><tspan x="300" y="300">Nhà giả kim</tspan></text>
+<text x="300" y="540" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#fff1d0" text-anchor="middle">Paulo Coelho</text>
+<text x="300" y="730" font-family="Helvetica, Arial, sans-serif" font-size="24" letter-spacing="4" fill="#ffffffcc" text-anchor="middle">NHÃ NAM</text>
+</svg>
