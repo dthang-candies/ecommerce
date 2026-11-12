@@ -1,0 +1,1920 @@
+% !TEX program = xelatex
+% Biên dịch bằng XeLaTeX (Overleaf: Menu > Compiler > XeLaTeX)
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ---------- Lề trang & font ----------
+\usepackage[top=2.5cm,bottom=2.5cm,left=2cm,right=2cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}  % Nếu không có font này, đổi thành: \setmainfont{TeX Gyre Termes} hoặc {Liberation Serif}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------- Tiêu đề ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\centering\large}
+  {CHAPTER \thechapter.}
+  {0.5em}
+  {}
+\titlespacing*{\chapter}{0pt}{0pt}{24pt}
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.6em}{}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% ---------- Danh sách, bảng, màu, tiện ích ----------
+\usepackage{enumitem}
+\setlist[itemize]{itemsep=3pt,topsep=4pt,leftmargin=*}
+\setlist[enumerate]{itemsep=3pt,topsep=4pt,leftmargin=*}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.25}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{listings}
+
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,frame=single,
+  numbers=left,numberstyle=\tiny,keywordstyle=\bfseries,showstringspaces=false,
+  columns=fullflexible,captionpos=b,language=Python,
+  xleftmargin=1.5em,framexleftmargin=1.5em}
+\usepackage{pdflscape}
+\providecommand{\vpfigure}[4][0.95]{%
+  \begin{figure}[H]\centering
+    \IfFileExists{#2}{\includegraphics[width=#1\textwidth]{#2}}{%
+      \fbox{\parbox{0.85\textwidth}{\centering\vspace{3cm}\textit{[Chen hinh: \detokenize{#2}]}\vspace{3cm}}}}
+    \caption{#3}\label{#4}\end{figure}}
+\usepackage{tikz}
+\usepackage{amsmath}
+\renewcommand\contentsname{TABLE OF CONTENTS}
+\renewcommand\listtablename{LIST OF TABLES}
+
+\usepackage[hidelinks,unicode]{hyperref}
+
+\begin{document}
+
+% TRANG BÌA
+\pagenumbering{gobble}
+\begin{titlepage}
+\begin{tikzpicture}[remember picture,overlay]
+  \draw[line width=1.5pt]
+    ([shift={(2.3cm,-2.2cm)}]current page.north west)
+    rectangle
+    ([shift={(-2.3cm,2.2cm)}]current page.south east);
+\end{tikzpicture}
+
+\vspace*{0.5cm}
+\begin{center}
+  \textbf{POSTS AND TELECOMMUNICATIONS INSTITUTE OF TECHNOLOGY}\\[4pt]
+  \textbf{DEPARTMENT OF INFORMATION TECHNOLOGY I}
+\end{center}
+
+\vspace{1.5cm}
+\begin{center}
+  \IfFileExists{logo_ptit.png}{\includegraphics[width=5cm]{logo_ptit.png}}{\vspace{4.5cm}}
+\end{center}
+
+\begin{center}
+  \textbf{\large Subject: INFORMATION SYSTEMS ANALYSIS AND DESIGN}
+\end{center}
+
+\vspace{2cm}
+\begin{center}
+\begin{tabular}{@{}l@{\hspace{0.8cm}}l@{}}
+  \textbf{Supervisor} & : Prof. Dr. Tran Dinh Que \\[6pt]
+  \textbf{Class} & : E23TTNT02 \\[6pt]
+  \textbf{Student name} & : Dang Van Thang \\[6pt]
+  \textbf{Student ID} & : B23DCCE086 \\
+\end{tabular}
+\end{center}
+
+\vspace*{\fill}
+\begin{center}
+  \textbf{HA NOI - 2026}
+\end{center}
+\end{titlepage}
+
+% MỤC LỤC
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\clearpage
+
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+\chapter{DETERMINE REQUIREMENTS}
+
+\section{Introduction}
+
+Thương mại điện tử không chỉ là một website bán hàng mà là một Hệ thống Thông tin tích hợp, thu thập, xử lý, lưu trữ và trao đổi dữ liệu giữa khách hàng, nhân viên vận hành, ban quản lý và các đối tác bên ngoài (nhà cung cấp, cổng thanh toán, đơn vị vận chuyển). Hệ thống cần bảo đảm dữ liệu chính xác, nhất quán và sẵn sàng tại mọi thời điểm. Bên cạnh các chức năng giao dịch, phân hệ Trí tuệ Nhân tạo (AI) gợi ý sản phẩm cá nhân hóa hỗ trợ tìm kiếm, nâng cao trải nghiệm người dùng và tăng tỷ lệ chuyển đổi đơn hàng mà không thay đổi quy trình nghiệp vụ cốt lõi.
+
+Chương 1 khảo sát hiện trạng doanh nghiệp ABC Online Shop (tổ chức, mô hình kinh doanh, bên liên quan, quy trình nghiệp vụ, luồng thông tin), nhận diện các vấn đề tồn đọng và xác định mục đích, phạm vi, mục tiêu của hệ thống mới.
+
+\textbf{Quy ước.} Báo cáo dùng thống nhất các mã \textbf{P} (vấn đề), \textbf{BR} (quy tắc nghiệp vụ), \textbf{SN} (nhu cầu bên liên quan), \textbf{FR}/\textbf{NFR} (yêu cầu chức năng/phi chức năng) và \textbf{UC} (use case) để truy vết giữa các chương. Tên actor và use case giữ nguyên tiếng Anh như trong sơ đồ Use Case.
+
+\section{Business Background}
+
+\subsection{Organization}
+
+ABC Online Shop là doanh nghiệp thương mại điện tử quy mô vừa, kinh doanh đa dạng mặt hàng tiêu dùng trực tuyến. Cơ cấu gồm các bộ phận Ban Quản lý, Quản trị Hệ thống, Bán hàng \& Dịch vụ Khách hàng, Quản lý Kho và Marketing; doanh nghiệp hợp tác với Nhà cung cấp, Cổng thanh toán và Đơn vị vận chuyển. Mỗi bộ phận được ánh xạ sang \textbf{actor} trong sơ đồ Use Case, đồng thời là cơ sở xác định các vai trò phân quyền (role) ở các chương sau.
+
+\begin{longtable}{p{5.2cm}p{4.2cm}p{6.4cm}}
+\caption{Ánh xạ bộ phận tổ chức sang actor của hệ thống}\\
+\toprule
+\textbf{Bộ phận / Đối tác} & \textbf{Actor} & \textbf{Phạm vi thao tác chính} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Ban Quản lý & Manager & Xem, xuất báo cáo kinh doanh và hiệu quả AI \\
+Quản trị Hệ thống & System admin & Sản phẩm, danh mục, khuyến mại, tài khoản và vai trò \\
+Bán hàng \& Dịch vụ Khách hàng & Service staff; Sales staff & Service staff: xác nhận, xử lý đơn. Sales staff: xử lý yêu cầu của khách (đổi trả, khiếu nại, tư vấn) \\
+Quản lý Kho & Warehouse staff & Tồn kho, chuẩn bị và đóng gói đơn hàng \\
+Marketing & Marketing staff & Theo dõi hiệu quả gợi ý AI và khuyến mại \\
+Kế toán & (không có actor riêng) & Sử dụng báo cáo do Manager xuất; không thao tác trực tiếp trên hệ thống \\
+Khách vãng lai / Khách hàng & Guest user; Customer & Duyệt, tìm kiếm, mua hàng, theo dõi đơn, đánh giá \\
+Nhà cung cấp, Cổng thanh toán, Đơn vị vận chuyển & Supplier; Payment Provider; Shipping Provider & Tương tác qua giao diện/API: yêu cầu nhập hàng, giao dịch thanh toán, cập nhật vận đơn \\
+\end{longtable}
+
+\subsection{Business Model}
+
+ABC Online Shop vận hành theo mô hình B2C, bán lẻ trực tiếp tới người tiêu dùng qua website (giao diện web thích ứng máy tính và điện thoại; ứng dụng di động riêng nằm ngoài phạm vi báo cáo). Người dùng đăng ký, đăng nhập, tìm kiếm, thêm vào giỏ, đặt hàng, thanh toán trực tuyến hoặc COD và theo dõi giao hàng. Doanh thu chính từ bán lẻ, kết hợp chiết khấu, mã giảm giá và khuyến mại định kỳ để giữ chân khách hàng; phân hệ AI nâng cao trải nghiệm tìm kiếm và gợi ý.
+
+\subsection{Products and Customers}
+
+\textbf{Sản phẩm:} nhiều ngành hàng tiêu dùng (thời trang, điện tử, gia dụng, chăm sóc cá nhân, phụ kiện). Mỗi sản phẩm gồm mã, tên, danh mục, thương hiệu, giá, hình ảnh, mô tả, tồn kho, đánh giá và thuộc tính tùy ngành hàng (kích thước, màu sắc, phiên bản, bảo hành). Để cài đặt khả thi, mỗi sản phẩm được quản lý ở mức một mã hàng (SKU) với bộ thuộc tính mô tả linh hoạt; biến thể (size, màu) được thể hiện qua thuộc tính của sản phẩm.
+
+\textbf{Khách hàng:} cá nhân mua sắm trực tuyến (học sinh, sinh viên, nhân viên văn phòng, hộ gia đình). Hệ thống kết hợp tìm kiếm truyền thống và gợi ý dựa trên hành vi (đã xem, từ khóa, giỏ hàng, lịch sử mua, đánh giá).
+
+\subsection{Major Business Activities}
+
+Quản lý sản phẩm \& danh mục; quản lý khách hàng; duyệt \& tìm kiếm sản phẩm; gợi ý sản phẩm bằng AI; giỏ hàng; xử lý đơn hàng; xử lý thanh toán; quản lý tồn kho; vận chuyển \& giao hàng; đánh giá \& phản hồi; khuyến mại \& marketing; báo cáo \& hỗ trợ quyết định; xác thực \& phân quyền; chăm sóc khách hàng; nhập hàng từ nhà cung cấp. Đầu vào, xử lý và đầu ra của từng hoạt động được phân tích ở mục 1.4.
+
+\subsection{Business Rules}
+
+Các quy tắc nghiệp vụ dưới đây (BR) là ràng buộc mà hệ thống phải bảo đảm; chúng là đầu vào trực tiếp cho thiết kế cơ sở dữ liệu (khóa, ràng buộc, trạng thái) ở Chương 4 và cho phần kiểm tra dữ liệu ở Chương 5. Các giá trị số (thời hạn, ngưỡng) là tham số cấu hình đề xuất.
+
+\begin{longtable}{p{1.4cm}p{14.4cm}}
+\caption{Business rules}\\
+\toprule
+\textbf{ID} & \textbf{Quy tắc nghiệp vụ} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+BR-01 & Mỗi sản phẩm thuộc đúng một danh mục. Sản phẩm có trạng thái hiển thị (Active/Hidden); chỉ sản phẩm Active mới xuất hiện với khách hàng. Sản phẩm đã phát sinh đơn hàng không bị xóa vật lý mà chuyển sang Hidden. \\
+BR-02 & Guest user chỉ được duyệt, tìm kiếm và xem chi tiết. Giỏ hàng, đặt hàng, đánh giá, hồ sơ chỉ dành cho Customer đã đăng nhập; mỗi Customer có đúng một giỏ hàng hiện hành. \\
+BR-03 & Số lượng mua của một sản phẩm không vượt tồn kho khả dụng. Tồn kho khả dụng bị trừ khi đơn hàng được tạo thành công và được hoàn lại khi đơn bị hủy hoặc hết hạn thanh toán. \\
+BR-04 & Có hai hình thức thanh toán: thanh toán khi nhận hàng (COD) và thanh toán trực tuyến qua cổng thanh toán. Đơn thanh toán trực tuyến không được thanh toán trong 15 phút sẽ tự động hủy và hoàn tồn kho. \\
+BR-05 & Tổng tiền đơn hàng = $\sum$(đơn giá $\times$ số lượng) $-$ giảm giá $+$ phí vận chuyển. Mỗi đơn áp dụng tối đa một mã giảm giá còn hiệu lực và đạt giá trị đơn tối thiểu. Đơn giá được chốt tại thời điểm đặt hàng. \\
+BR-06 & Phí vận chuyển tính theo quy tắc cấu hình (phí cố định theo khu vực; miễn phí khi đơn đạt ngưỡng nhất định). \\
+BR-07 & Đơn hàng đi theo một vòng đời trạng thái xác định (Pending Payment, Pending, Confirmed, Packed, Shipping, Delivered, Cancelled); mọi lần đổi trạng thái được ghi lại (người thực hiện, thời điểm). Chi tiết chuyển trạng thái ở Chương 2. \\
+BR-08 & Customer chỉ được hủy đơn khi đơn chưa được kho đóng gói (trạng thái Pending Payment, Pending hoặc Confirmed). \\
+BR-09 & Customer chỉ được đánh giá sản phẩm thuộc đơn đã ở trạng thái Delivered; mỗi sản phẩm trong một đơn được đánh giá một lần, với số sao từ 1 đến 5. \\
+BR-10 & Mỗi tài khoản nội bộ có đúng một vai trò và chỉ truy cập được chức năng thuộc vai trò đó (RBAC). \\
+BR-11 & Khi tồn kho của sản phẩm xuống dưới ngưỡng tối thiểu, hệ thống cảnh báo; Warehouse staff tạo yêu cầu nhập hàng gửi Supplier; tồn kho chỉ tăng khi yêu cầu nhập được xác nhận và nhập kho. \\
+\end{longtable}
+
+\section{Stakeholder Analysis}
+
+\subsection{Internal Stakeholders}
+
+Ban Quản lý (Management); Quản trị viên Hệ thống (System Admin); Nhân viên Bán hàng (Sales staff -- xử lý yêu cầu hỗ trợ, đổi trả, khiếu nại); Nhân viên Dịch vụ Khách hàng (Service staff -- xác nhận, xử lý đơn hàng, theo dõi vận chuyển); Nhân viên Kho (Warehouse staff); Nhân viên Marketing; Bộ phận Kế toán (bên liên quan gián tiếp: dùng báo cáo do Manager xuất, không có tài khoản thao tác riêng).
+
+\subsection{External Stakeholders}
+
+Khách hàng (Customers), Khách vãng lai (Guest users), Nhà cung cấp (Suppliers), Cổng thanh toán (Payment Service Providers) và Đơn vị vận chuyển (Shipping Providers).
+
+\subsection{Stakeholder Interests}
+
+\begin{longtable}{p{3.2cm}p{5cm}p{7.8cm}}
+\caption{Stakeholder interests}\\
+\toprule
+\textbf{Stakeholder} & \textbf{Goal (Mục tiêu)} & \textbf{Information Need (Nhu cầu thông tin)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{\emph{(tiếp tục trang sau)}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Customer & Tìm kiếm và mua sản phẩm nhanh chóng, an toàn & Thông tin sản phẩm, giá cả, tồn kho, gợi ý cá nhân hóa, trạng thái đơn hàng \\
+Management & Giám sát và đánh giá toàn bộ hoạt động kinh doanh & Báo cáo doanh thu, đơn hàng, tồn kho, hiệu quả khuyến mại và phân tích AI \\
+Sales Staff &  Giải quyết yêu cầu của khách hàng kịp thời &  Thông tin khách hàng, đơn hàng liên quan, nội dung yêu cầu hỗ trợ \\
+Service Staff & Xử lý đơn hàng chính xác và đúng hạn & Danh sách đơn chờ xử lý, chi tiết đơn, trạng thái thanh toán và tồn kho \\
+Warehouse Staff & Kiểm soát kho và chuẩn bị đơn hàng đúng thời gian & Danh sách đơn cần đóng gói, vị trí sản phẩm, số lượng tồn kho cập nhật \\
+Marketing Staff & Đánh giá hiệu quả khuyến mại và gợi ý AI & Chỉ số CTR, Add-to-Cart, Conversion theo gợi ý; dữ liệu hành vi khách hàng \\
+System Admin & Duy trì hệ thống vận hành ổn định và an toàn & Dữ liệu người dùng, cấu hình sản phẩm, nhật ký hệ thống (logs), danh mục khuyến mại \\
+Supplier & Cung cấp và bổ sung hàng hóa theo nhu cầu & Chi tiết đơn đặt hàng nhập kho, số lượng cảnh báo tồn kho tối thiểu \\
+Payment Provider & Thực hiện giao dịch thanh toán chính xác & Mã đơn hàng, số tiền cần thanh toán, thông tin yêu cầu giao dịch \\
+Shipping Provider & Giao hàng đến đúng địa chỉ người nhận & Thông tin người nhận, địa chỉ giao hàng, số điện thoại, kích thước/trọng lượng gói hàng \\
+\end{longtable}
+
+\subsection{Stakeholder Map}
+
+Stakeholders được phân loại theo ma trận Mức độ ảnh hưởng (Influence) -- Mức độ quan tâm (Interest):
+
+\begin{itemize}
+  \item \textbf{Manage Closely (cao -- cao):} Management, System Administrator, Customer.
+  \item \textbf{Keep Satisfied (ảnh hưởng cao -- quan tâm thấp):} Payment Provider, Shipping Provider, Supplier.
+  \item \textbf{Keep Informed (ảnh hưởng thấp -- quan tâm cao):} Nhân viên Bán hàng \& CSKH, Nhân viên Kho, Nhân viên Marketing.
+  \item \textbf{Monitor (thấp -- thấp):} Khách hàng tiềm năng/vãng lai, cộng đồng, nhà cung cấp phụ.
+\end{itemize}
+
+\vpfigure{stakeholder_matrix.png}{Ma trận bên liên quan (Stakeholder map)}{fig:stakeholder-map}
+
+\section{Business Activity Analysis}
+
+\begin{longtable}{p{2.3cm}p{3.9cm}p{5.6cm}p{4.0cm}}
+\caption{Business activity analysis}\\
+\toprule
+\textbf{Hoạt động} & \textbf{Đầu vào (Input)} & \textbf{Xử lý (Processing)} & \textbf{Đầu ra (Output)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Product Manager & Tên, danh mục, thương hiệu, mô tả, hình ảnh, giá, thuộc tính, số lượng ban đầu. & Kiểm tra hợp lệ dữ liệu, phân loại danh mục, xuất bản hoặc ngừng kinh doanh (chuyển sang Hidden theo BR-01). & Product Catalogue công khai, nhất quán, chuẩn hóa. \\
+Customer Manager & Thông tin cá nhân (họ tên, email, số điện thoại), mật khẩu, địa chỉ giao hàng, hành vi tìm kiếm, lịch sử xem, giỏ hàng, đơn đã mua, đánh giá. & Đăng ký/đăng nhập/đăng xuất (email và mật khẩu băm), cập nhật hồ sơ, ghi nhật ký hành vi người dùng. & Hồ sơ khách hàng tập trung (Unified Customer Profile) và chuỗi dữ liệu hành vi phục vụ cá nhân hóa. \\
+Order Processing & Giỏ hàng, địa chỉ nhận, phương thức vận chuyển, hình thức thanh toán, mã giảm giá. & (1) Khách xác nhận giỏ và gửi đặt hàng; (2) kiểm tra tồn kho; (3) tính tổng tiền, chiết khấu, phí vận chuyển; (4) chuyển yêu cầu thanh toán (online) hoặc xác nhận COD; (5) Service staff kiểm tra, xác nhận (hoặc hủy nếu thông tin không hợp lệ); (6) Warehouse staff chuẩn bị, đóng gói, bàn giao vận chuyển. & Đơn hàng ở trạng thái tương ứng (Pending Payment, Pending, Confirmed, Packed, Shipping, Delivered, Cancelled -- BR-07) và thông báo xác nhận cho khách. \\
+Payment & Mã đơn hàng, tổng số tiền, phương thức thanh toán. & Khởi tạo yêu cầu với cổng thanh toán, bảo vệ dữ liệu giao dịch, nhận phản hồi (Success/Failed) qua Webhook/API. Khi thất bại, đơn giữ Pending Payment để thử lại hoặc đổi phương thức (BR-04). & Transaction ID, trạng thái thanh toán, hóa đơn điện tử. \\
+Inventory & Phiếu nhập kho, đơn mới, đơn hủy, phiếu trả hàng. & Giữ/trừ tồn theo trạng thái đơn, hoàn lại khi hủy, cập nhật khi nhập hàng; cảnh báo khi tồn dưới ngưỡng và tạo yêu cầu nhập hàng gửi Supplier (BR-11). & Available Stock được cập nhật kịp thời. \\
+Shipping & Đơn đã đóng gói, thông tin người nhận, địa chỉ, trọng lượng/kích thước. & Kết nối API đối tác, tạo vận đơn, tiếp nhận hành trình (In Transit, Delivered, Failed). & Tracking ID, trạng thái giao hàng. \\
+Customer Support & Yêu cầu hỗ trợ (hỏi đáp, đổi trả, khiếu nại) gắn với tài khoản và đơn hàng. & Sales staff tiếp nhận, phân loại, phản hồi, cập nhật trạng thái (Open, In progress, Resolved). & Yêu cầu được giải quyết kèm lịch sử trao đổi; phản hồi gửi khách. \\
+Reporting & Dữ liệu đơn hàng, thanh toán, kho, khách hàng và nhật ký gợi ý AI. & Tổng hợp chỉ số (doanh thu, tỷ lệ hủy đơn, vòng quay tồn kho, tỷ lệ nhấp/mua từ gợi ý AI). & Báo cáo bảng, biểu đồ định kỳ (ngày, tuần, tháng) cho Ban quản lý. \\
+\end{longtable}
+
+\vpfigure{business_flow.png}{Luồng nghiệp vụ tổng quát của ABC Online Shop}{fig:business-flow}
+
+\section{Information Analysis}
+
+\subsection{Information Stored and Preliminary Data Entities}
+
+Hệ thống lưu trữ các tập dữ liệu chính: hồ sơ khách hàng và địa chỉ; tài khoản đăng nhập (mật khẩu băm) và vai trò; catalogue sản phẩm và danh mục; lịch sử tương tác và nhật ký hành vi; giỏ hàng; đơn hàng và lịch sử đổi trạng thái; kết quả giao dịch thanh toán (không lưu thông tin thẻ nhạy cảm); tồn kho và nhật ký điều chỉnh; mã vận đơn và nhật ký giao hàng; đánh giá; mã giảm giá và khuyến mại; yêu cầu hỗ trợ và yêu cầu nhập hàng; kết quả đề xuất AI và chỉ số hiệu quả AI. Đây là các thực thể dữ liệu sơ bộ: Chương 4 chuẩn hóa chúng thành sơ đồ lớp, ERD và lược đồ quan hệ, Chương 5 cài đặt thành bảng và API. Thông tin do ai tạo ra và ai sử dụng được tổng hợp trong bảng dưới đây.
+
+\subsection{Information Catalogue}
+
+\begin{longtable}{p{3.3cm}p{2.9cm}p{3.6cm}p{6.2cm}}
+\caption{Information catalogue}\\
+\toprule
+\textbf{Information Name} & \textbf{Created By} & \textbf{Used By} & \textbf{Purpose} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Product Information & System Admin / Staff & Customers, Staff, AI Component & Hiển thị, tìm kiếm, quản lý và làm đầu vào cho AI gợi ý \\
+Customer Information & Customer & System, Sales Staff & Quản lý tài khoản, liên hệ và xử lý đơn hàng \\
+Order Information & Customer, System & Staff, Warehouse, Payment, Shipping & Xử lý, đóng gói, giao hàng và đối soát \\
+Shipping Information & System, Shipping Provider & Customer, Customer Service Staff & Theo dõi hành trình đơn hàng \\
+Promotion Information & System Admin & Customer, Order Processing & Áp dụng ưu đãi, tính chiết khấu đơn hàng \\
+Revenue Reports & System & Management, Accounting & Đánh giá hiệu quả kinh doanh và dòng tiền \\
+Inventory Reports & System & Management, Warehouse Staff & Theo dõi tồn kho, lập kế hoạch nhập hàng \\
+Recommended Product List & AI Component & Customer & Gợi ý sản phẩm phù hợp với từng khách hàng \\
+Shopping Cart Information & Customer, System & Customer, Order Processing & Lưu giữ sản phẩm dự định mua trước khi thanh toán \\
+Review Information & Customer & Other Customers, Management, AI & Tăng độ tin cậy sản phẩm và cung cấp phản hồi về chất lượng \\
+Support Request & Customer, Sales Staff & Sales Staff, Customer & Ghi nhận và giải quyết yêu cầu hỗ trợ, đổi trả, khiếu nại \\
+Restock Request & Warehouse Staff, System & Supplier, Warehouse Staff & Bổ sung hàng khi tồn kho dưới ngưỡng tối thiểu \\
+Account \& Role & System Admin, Customer & System & Xác thực đăng nhập và phân quyền truy cập chức năng \\
+\end{longtable}
+
+\section{Current Problems}
+
+\subsection{Problem Identification}
+
+\begin{longtable}{p{1.2cm}p{5cm}p{5cm}p{4.8cm}}
+\caption{Problem identification}\\
+\toprule
+\textbf{Mã} & \textbf{Tên vấn đề (Problem)} & \textbf{Hoạt động bị ảnh hưởng} & \textbf{Stakeholders bị ảnh hưởng} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+P1 & Dữ liệu sản phẩm không nhất quán và thiếu chuẩn hóa & Quản lý sản phẩm, tìm kiếm & Customers, System Administrators \\
+P2 & Cập nhật thông tin tồn kho chậm, không theo thời gian thực & Quản lý kho, xử lý đơn hàng & Customers, Warehouse Staff, Sales Staff \\
+P3 & Trạng thái đơn hàng và giao hàng không rõ ràng, cập nhật chậm & Xử lý đơn hàng, vận chuyển & Customers, Customer Service Staff \\
+P4 & Dữ liệu khách hàng và lịch sử tương tác bị phân tán & Quản lý khách hàng, Marketing & Customers, Staff, AI Component \\
+P5 & Nền tảng chưa có tính năng gợi ý sản phẩm cá nhân hóa & Duyệt và tìm kiếm sản phẩm & Customers, Management \\
+P6 & Báo cáo quản trị và phản hồi của khách hàng được tổng hợp thủ công, chậm & Báo cáo và hỗ trợ ra quyết định, đánh giá sản phẩm & Management, Marketing Staff, Customers \\
+\end{longtable}
+
+\subsection{Problem Causes and Consequences}
+
+\begin{longtable}{p{1.0cm}p{7.6cm}p{7.2cm}}
+\caption{Problem causes and consequences}\\
+\toprule
+\textbf{Mã} & \textbf{Nguyên nhân (Causes)} & \textbf{Hậu quả (Consequences)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+P1 & Thiếu quy trình kiểm duyệt dữ liệu đầu vào; nhân viên nhập liệu thủ công theo nhiều cách khác nhau, gây sai lệch thuộc tính, trùng lặp, thiếu thông tin. & Khách nhận thông tin sai lệch, giảm niềm tin vào thương hiệu; AI nhận dữ liệu kém chất lượng nên gợi ý sai. \\
+P2 & Tồn kho phụ thuộc cập nhật thủ công của nhân viên kho; nhập hàng, xác nhận, hủy đơn và đổi trả chưa đồng bộ tự động với dữ liệu bán hàng. & Bán vượt tồn kho (overselling): khách đặt thành công nhưng kho hết hàng, buộc hủy đơn, tăng chi phí vận hành và gây bức xúc. \\
+P3 & Dữ liệu đơn hàng, thanh toán, vận chuyển nằm ở các hệ thống độc lập hoặc do đối tác quản lý, chưa kết nối API để đồng bộ trạng thái. & Khách không chủ động theo dõi được đơn, tăng số cuộc gọi/tin nhắn hỗ trợ và chi phí nhân sự CSKH. \\
+P4 & Hồ sơ, lịch sử mua, sản phẩm đã xem và giỏ hàng lưu rải rác trên nhiều cơ sở dữ liệu, thiếu kho dữ liệu tập trung. & Khó khắc họa chân dung khách hàng, giảm hiệu quả Marketing, thiếu dữ liệu sạch cho AI. \\
+P5 & Hệ thống cũ chỉ hiển thị theo danh mục cố định hoặc sản phẩm mới nhất, chưa khai thác dữ liệu hành vi để tính độ tương quan giữa các sản phẩm. & Khách mất nhiều thời gian tìm sản phẩm, giảm trải nghiệm, giảm tỷ lệ add-to-cart và chuyển đổi đơn hàng. \\
+P6 & Số liệu đơn hàng, tồn kho, đánh giá nằm nhiều nơi, tổng hợp thủ công bằng bảng tính theo kỳ; không có nguồn dữ liệu tập trung để xuất báo cáo tự động. & Ban quản lý nhận báo cáo chậm, có thể sai lệch; quyết định nhập hàng và khuyến mại thiếu cơ sở dữ liệu; phản hồi chất lượng sản phẩm không được khai thác kịp thời. \\
+\end{longtable}
+
+\subsection{Problem Tree}
+
+Các nguyên nhân gốc (cập nhật dữ liệu thủ công, dữ liệu phân tán, chưa khai thác hành vi khách hàng, thiếu quy trình xử lý đồng nhất) dẫn đến vấn đề trung tâm \emph{quản lý và khai thác thông tin thương mại điện tử chưa hiệu quả}, kéo theo hậu quả: đơn hàng bị hủy/trễ, tăng công việc thủ công, giảm hài lòng và cơ hội bán hàng, báo cáo quản trị chậm (P6).
+
+\vpfigure{problem_tree.png}{Cây vấn đề (Problem tree)}{fig:problem-tree}
+
+\section{Proposed Information System}
+
+\subsection{System Purpose}
+
+Hệ thống quản lý tập trung toàn bộ chuỗi hoạt động kinh doanh của ABC Online Shop, tự động đồng bộ dữ liệu giữa sản phẩm, giỏ hàng, đơn hàng, thanh toán, kho và vận chuyển để giảm thao tác thủ công và bảo đảm nhất quán dữ liệu; đồng thời tích hợp phân hệ AI gợi ý cá nhân hóa và hỗ trợ ban quản lý ra quyết định dựa trên dữ liệu.
+
+\subsection{System Scope}
+
+Phạm vi chức năng của hệ thống bao gồm:
+
+\begin{itemize}
+  \item Quản lý tài khoản và hồ sơ khách hàng, đăng nhập và phân quyền theo vai trò.
+  \item Quản lý catalogue sản phẩm, giá bán và khuyến mại.
+  \item Duyệt, tìm kiếm và lọc sản phẩm.
+  \item Quản lý giỏ hàng và áp dụng mã giảm giá.
+  \item Xử lý, xác nhận và theo dõi đơn hàng.
+  \item Tự động kiểm tra và cập nhật tồn kho.
+  \item Tích hợp cổng thanh toán trực tuyến.
+  \item Kết nối tạo đơn và đồng bộ trạng thái giao vận.
+  \item Quản lý đánh giá, phản hồi của khách hàng.
+  \item Tiếp nhận và xử lý yêu cầu hỗ trợ của khách hàng; tạo và theo dõi yêu cầu nhập hàng với nhà cung cấp.
+  \item \textbf{Phân hệ AI:} Thu thập hành vi tương tác và tạo danh sách gợi ý sản phẩm.
+  \item Hệ thống báo cáo quản trị (doanh thu, tồn kho, hiệu suất AI).
+\end{itemize}
+
+\textbf{Phạm vi cài đặt và các giả định (phục vụ Chương 4, 5).} Do thời gian và nguồn lực của một bài tập cá nhân, phạm vi được chia thành hai giai đoạn:
+
+\begin{itemize}
+  \item \textbf{Giai đoạn 1 -- Lõi nghiệp vụ (cài đặt đầy đủ ở Chương 5):} các use case UC-01 đến UC-15 và UC-21 đến UC-26 (Chương 2): tài khoản, danh mục, tìm kiếm từ khóa, giỏ hàng, đặt hàng, thanh toán, xử lý đơn, kho, vận chuyển, báo cáo.
+  \item \textbf{Giai đoạn 2 -- Phân hệ AI (Chương 3):} thiết kế đầy đủ; khi cài đặt chỉ triển khai tập con khả thi (ghi log hành vi, sửa lỗi chính tả khi tìm kiếm, gợi ý sản phẩm cơ bản và lọc hàng hết); tìm kiếm bằng hình ảnh/giọng nói và chatbot dừng ở mức thiết kế.
+\end{itemize}
+
+\textbf{Giả định kỹ thuật:} hệ thống là ứng dụng web thích ứng nhiều kích thước màn hình; kiến trúc ba lớp (giao diện -- nghiệp vụ -- dữ liệu) với giao tiếp qua REST API; cơ sở dữ liệu quan hệ; cổng thanh toán và đơn vị vận chuyển được tích hợp qua giao diện giả lập (sandbox/mock) có cùng hợp đồng dữ liệu với dịch vụ thật.
+
+\textbf{Ngoài phạm vi:} ứng dụng di động riêng, nhiều kho/chi nhánh, đa tiền tệ, kế toán và hạch toán tài chính, quy trình bảo hành chi tiết, thanh toán thật trên môi trường production.
+
+\subsection{System Boundary}
+
+\begin{longtable}{p{7.9cm}p{7.9cm}}
+\caption{System boundary}\\
+\toprule
+\textbf{Inside the System (Bên trong hệ thống)} & \textbf{Outside the System (Bên ngoài hệ thống)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Phân hệ Xác thực và Phân quyền & Tác nhân con người: Guest user, Customer \\
+Phân hệ Quản lý Khách hàng & Khách hàng (Customers) \\
+Phân hệ Quản lý Sản phẩm & Quản trị viên và nhân viên (Staff) \\
+Phân hệ Giỏ hàng và Xử lý Đơn hàng & Ban Quản lý (Management) \\
+Phân hệ Tự động Quản lý Tồn kho và Nhập hàng & Nhà cung cấp (Suppliers) \\
+Phân hệ Tích hợp Thanh toán & Cổng thanh toán (Payment Service Providers) \\
+Phân hệ Quản lý Vận chuyển & Đơn vị vận chuyển (Shipping Providers) \\
+Phân hệ Hỗ trợ Khách hàng & Nhân viên: Service, Sales, Warehouse, Marketing staff \\
+Phân hệ AI Gợi ý Sản phẩm & Hạ tầng ngân hàng/thanh toán bên ngoài \\
+Phân hệ Báo cáo và Phân tích & Kho bãi thực tế và phương tiện giao hàng \\
+\end{longtable}
+
+Ghi chú: các phân hệ nghiệp vụ ở cột trái nằm bên trong ranh giới; cột phải là các actor và đối tượng bên ngoài tương tác với hệ thống.
+
+\subsection{Context Diagram}
+
+Sơ đồ ngữ cảnh thể hiện E-Commerce System ở trung tâm và các dòng dữ liệu trao đổi với Customer, Administrator/Staff, Manager, Payment Service, Shipping Provider và Supplier (chi tiết ở bảng Information Flows).
+
+\vpfigure{context_diagram.png}{Sơ đồ ngữ cảnh (Context diagram)}{fig:context}
+
+\subsection{Information Flows}
+
+\begin{longtable}{p{3.4cm}p{3.4cm}p{9.2cm}}
+\caption{Information flows}\\
+\toprule
+\textbf{Source (Nguồn)} & \textbf{Destination (Đích)} & \textbf{Information Exchanged (Thông tin trao đổi)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Customer & System & Dữ liệu đăng ký, đăng nhập, tìm kiếm, giỏ hàng, thông tin đặt hàng, địa chỉ, đánh giá, yêu cầu hủy đơn, yêu cầu hỗ trợ \\
+System & Customer & Chi tiết sản phẩm, danh sách gợi ý AI, xác nhận đơn, kết quả thanh toán, vận đơn \\
+Staff / Admin & System & Danh mục sản phẩm, giá bán, mã giảm giá, dữ liệu điều chỉnh kho, cập nhật trạng thái đơn, phản hồi yêu cầu hỗ trợ \\
+System & Staff / Admin & Danh sách đơn cần xử lý, cảnh báo tồn kho, hồ sơ khách hàng \\
+System & Management & Báo cáo doanh thu, báo cáo tồn kho, chỉ số chuyển đổi của AI \\
+System & Payment Provider & Mã đơn hàng, số tiền, yêu cầu khởi tạo thanh toán \\
+Payment Provider & System & Kết quả giao dịch (Success/Failed), mã giao dịch \\
+System & Shipping Provider & Yêu cầu giao hàng, địa chỉ, tên người nhận, số điện thoại, kích thước gói hàng \\
+Shipping Provider & System & Mã vận đơn, trạng thái hành trình, thời gian giao hàng thực tế \\
+System & Supplier & Yêu cầu nhập hàng (sản phẩm, số lượng) \\
+Supplier & System & Xác nhận yêu cầu nhập hàng, thời gian giao dự kiến \\
+\end{longtable}
+
+\subsection{System Objectives}
+
+\begin{itemize}
+  \item \textbf{Trải nghiệm mua sắm tiện lợi:} tìm kiếm, xem và mua sản phẩm dễ dàng.
+  \item \textbf{Dữ liệu chính xác, nhất quán:} đồng bộ tập trung giữa sản phẩm, khách hàng và kho; không xảy ra bán vượt tồn kho (giải quyết P2).
+  \item \textbf{Tự động hóa chuỗi xử lý đơn hàng:} giỏ hàng $\rightarrow$ thanh toán $\rightarrow$ kho $\rightarrow$ vận chuyển.
+  \item \textbf{Thông tin minh bạch:} trạng thái đơn và hành trình vận chuyển theo thông tin từ đối tác; khách tự tra cứu mà không cần liên hệ nhân viên (giải quyết P3).
+  \item \textbf{Cá nhân hóa bằng AI:} hướng tới tăng tỷ lệ chuyển đổi và doanh thu.
+  \item \textbf{Tối ưu chi phí vận hành:} giảm nhập liệu và đối soát thủ công.
+  \item \textbf{Hỗ trợ ra quyết định:} báo cáo đa chiều, tạo tự động từ dữ liệu tập trung (giải quyết P6).
+\end{itemize}
+
+Các mục tiêu trên được đo bằng chỉ tiêu cụ thể để kiểm chứng ở giai đoạn kiểm thử (Chương 5): (i) 0 đơn bị bán vượt tồn trong kiểm thử đặt hàng đồng thời; (ii) trạng thái đơn hàng hiển thị cho khách trong vòng 5 giây sau khi nhân viên hoặc đối tác cập nhật; (iii) báo cáo doanh thu theo kỳ được tạo trong vòng 10 giây; (iv) khách hàng mới hoàn tất đặt hàng trong không quá 4 bước thao tác (NFR-07).
+
+\section{Conclusion}
+
+Chương 1 đã khảo sát bối cảnh ABC Online Shop và chỉ ra sáu vấn đề P1--P6: dữ liệu sản phẩm không nhất quán, tồn kho cập nhật chậm, trạng thái đơn hàng không rõ ràng, dữ liệu khách hàng phân tán, thiếu gợi ý cá nhân hóa và báo cáo quản trị tổng hợp thủ công. Hệ thống Thông tin Thương mại Điện tử tích hợp AI được đề xuất để giải quyết các vấn đề này; phạm vi, ranh giới, sơ đồ ngữ cảnh, dòng thông tin, quy tắc nghiệp vụ (BR), thực thể dữ liệu sơ bộ và phạm vi cài đặt là đầu vào cho Phân tích yêu cầu (\textbf{CHAPTER 2}), Thiết kế (Chương 4) và Cài đặt (Chương 5).
+
+\chapter{ANALYSIS REQUIREMENTS}
+
+\section{Stakeholder Needs}
+
+\subsection{Stakeholder Needs Catalogue}
+
+\begin{longtable}{p{1.6cm}p{3cm}p{6cm}p{5.4cm}}
+\caption{Stakeholder needs catalogue}\\
+\toprule
+\textbf{ID} & \textbf{Stakeholder} & \textbf{Stakeholder Need (Nhu cầu)} & \textbf{Reason / Business Problem (Lý do)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{SN01} & Guest user & Duyệt và tìm kiếm sản phẩm mà không bắt buộc đăng ký. & Người dùng muốn khám phá catalogue trước khi tạo tài khoản. \\
+\textbf{SN02} & Customer & Xem thông tin sản phẩm đầy đủ, chính xác và đồng nhất. & Giải quyết vấn đề \textbf{P1} (thông tin sản phẩm không nhất quán). \\
+\textbf{SN03} & Customer & Xem trạng thái tồn kho khả dụng khi xem sản phẩm. & Giải quyết vấn đề \textbf{P2} (tồn kho cập nhật chậm, bán vượt tồn kho). \\
+\textbf{SN04} & Customer & Quản lý giỏ hàng và đặt hàng thuận tiện. & Cần xem lại giá, số lượng và tổng tiền trước khi thanh toán. \\
+\textbf{SN05} & Customer & Thanh toán an toàn và nhận kết quả giao dịch rõ ràng. & Cần minh bạch về thành công hay thất bại của giao dịch. \\
+\textbf{SN06} & Customer & Theo dõi trạng thái đơn hàng và vận chuyển. & Giải quyết vấn đề \textbf{P3} (trạng thái đơn hàng không rõ ràng). \\
+\textbf{SN07} & Customer & Quản lý hồ sơ cá nhân và bảo mật dữ liệu. & Giải quyết vấn đề \textbf{P4} (dữ liệu khách hàng phân tán). \\
+\textbf{SN08} & Customer & Gửi đánh giá sau khi nhận hàng. & Cung cấp phản hồi chất lượng sản phẩm cho người mua khác và cho quản lý (liên quan \textbf{P6}). \\
+\textbf{SN09} & System admin & Quản lý tập trung sản phẩm, danh mục, khuyến mại. & Loại bỏ nhập liệu thủ công phân tán, giải quyết vấn đề \textbf{P1}. \\
+\textbf{SN10} & Warehouse / Service staff & Cập nhật tồn kho và đơn hàng tự động. & Tránh chênh lệch giữa kho thực tế và hệ thống (\textbf{P2}, \textbf{P3}). \\
+\textbf{SN11} & Shipping Provider & Nhận đầy đủ thông tin người nhận và gói hàng. & Đảm bảo giao hàng đúng địa chỉ (\textbf{P3}). \\
+\textbf{SN12} & Manager & Nhận báo cáo tổng hợp về doanh thu, tồn kho, đơn hàng. & Cung cấp số liệu để ra quyết định (\textbf{P6}). \\
+\textbf{SN13} & Payment Provider & Nhận yêu cầu thanh toán chính xác (mã đơn, số tiền). & Thực hiện giao dịch đúng và phản hồi kết quả. \\
+\textbf{SN14} & Customer, nhân viên & Đăng nhập an toàn và chỉ truy cập đúng dữ liệu, chức năng của mình. & Bảo vệ dữ liệu cá nhân và đơn hàng; cơ sở của hồ sơ tập trung (\textbf{P4}). \\
+\textbf{SN15} & Customer & Xem lịch sử đơn hàng và chủ động hủy đơn khi chưa đóng gói. & Giảm phụ thuộc vào CSKH (\textbf{P3}); xử lý khi đổi ý hoặc thanh toán lỗi. \\
+\textbf{SN16} & Sales staff & Tiếp nhận và theo dõi yêu cầu hỗ trợ của khách tại một nơi. & Yêu cầu hỗ trợ đang rải rác, khó theo dõi (\textbf{P3}, \textbf{P4}). \\
+\textbf{SN17} & Warehouse staff, Supplier & Được cảnh báo hàng sắp hết và trao đổi yêu cầu nhập hàng qua hệ thống. & Hạn chế hết hàng và cập nhật tồn kho chậm (\textbf{P2}). \\
+\textbf{SN18} & System admin & Tạo, khóa tài khoản nhân viên và gán vai trò. & Kiểm soát quyền truy cập theo BR-10. \\
+\end{longtable}
+
+Ngoài SN01--SN18, Chương 3 bổ sung năm nhu cầu SN-A1 đến SN-A5 cho phân hệ AI (Giai đoạn 2).
+
+\section{Functional Requirements}
+
+\subsection{Functional Requirement Catalogue}
+
+\begin{longtable}{p{1.6cm}p{7.4cm}p{2.9cm}p{1.9cm}p{2.2cm}}
+\caption{Functional requirement catalogue}\\
+\toprule
+\textbf{ID} & \textbf{Requirement Statement (Mô tả yêu cầu)} & \textbf{Category} & \textbf{Source} & \textbf{Priority} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{FR-01} & Hệ thống phải cho phép Guest user đăng ký tài khoản mới bằng email chưa tồn tại trong hệ thống. & Account & SN01 & Must Have \\
+\textbf{FR-02} & Hệ thống phải cho phép người dùng duyệt sản phẩm theo danh mục. & Browsing & SN01, SN02 & Must Have \\
+\textbf{FR-03} & Hệ thống phải cho phép tìm kiếm sản phẩm theo từ khóa, kèm lọc (danh mục, khoảng giá), sắp xếp và phân trang kết quả. & Search & SN01, SN02 & Must Have \\
+\textbf{FR-04} & Hệ thống phải hiển thị thông tin chi tiết sản phẩm kèm trạng thái tồn kho (Còn hàng/Hết hàng) và các đánh giá của khách hàng. & Product Detail & SN02, SN03 & Must Have \\
+\textbf{FR-05} & Hệ thống phải cho phép Customer thêm, bớt, sửa số lượng sản phẩm trong giỏ hàng. & Cart & SN04 & Must Have \\
+\textbf{FR-06} & Hệ thống phải kiểm tra giỏ hàng (giá, tồn kho) trước khi cho phép thanh toán. & Checkout & SN03, SN04 & Must Have \\
+\textbf{FR-07} & Hệ thống phải tính tổng tiền gồm giá sản phẩm, khuyến mại và phí vận chuyển theo BR-05, BR-06. & Checkout & SN04 & Must Have \\
+\textbf{FR-08} & Hệ thống phải tạo đơn hàng mới sau khi Customer xác nhận đặt hàng, chốt đơn giá và địa chỉ giao tại thời điểm đặt. & Checkout & SN04, SN10 & Must Have \\
+\textbf{FR-09} & Hệ thống phải tích hợp cổng thanh toán để xử lý thanh toán trực tuyến và ghi nhận kết quả; đồng thời hỗ trợ thanh toán COD. & Payment & SN05, SN13 & Must Have \\
+\textbf{FR-10} & Hệ thống phải cho phép Service staff xác nhận, hủy và cập nhật trạng thái đơn hàng. & Order Processing & SN10, SN06 & Must Have \\
+\textbf{FR-11} & Hệ thống phải cho phép Customer xem và cập nhật thông tin hồ sơ cá nhân và sổ địa chỉ giao hàng. & Profile & SN07 & Should Have \\
+\textbf{FR-12} & Hệ thống phải cho phép Customer gửi đánh giá (số sao, bình luận) sau khi nhận hàng (BR-09). & Review & SN08 & Should Have \\
+\textbf{FR-13} & Hệ thống phải cho phép System admin thêm, sửa, xóa và ẩn sản phẩm, danh mục trong catalogue. & Administration & SN09 & Must Have \\
+\textbf{FR-14} & Hệ thống phải cho phép System admin tạo và quản lý chương trình khuyến mại. & Administration & SN09 & Should Have \\
+\textbf{FR-15} & Hệ thống phải tự động trừ tồn kho khi đơn hàng được tạo thành công và cộng lại khi đơn bị hủy (BR-03). & Inventory & SN10 & Must Have \\
+\textbf{FR-16} & Hệ thống phải đồng bộ trạng thái vận chuyển từ đối tác và hiển thị cho Customer. & Shipping & SN06, SN11 & Must Have \\
+\textbf{FR-17} & Hệ thống phải xuất báo cáo doanh thu, tồn kho và đơn hàng cho Manager. & Reporting & SN12 & Must Have \\
+\textbf{FR-18} & Hệ thống nên xuất báo cáo hiệu quả gợi ý AI (CTR, Add-to-Cart, Conversion) cho Manager và Marketing staff & Reporting & SN12, SN-A1 & Could Have \\
+\textbf{FR-28} & Hệ thống phải cho phép người dùng đăng nhập, đăng xuất bằng email và mật khẩu, và duy trì phiên đăng nhập an toàn. & Account & SN14 & Must Have \\
+\textbf{FR-29} & Hệ thống phải cho phép Customer xem lịch sử, chi tiết và trạng thái đơn hàng của mình, và hủy đơn khi còn được phép (BR-08). & Order Tracking & SN06, SN15 & Must Have \\
+\textbf{FR-30} & Hệ thống phải cho phép Warehouse staff xem danh sách đơn đã xác nhận, đánh dấu đã đóng gói và bàn giao vận chuyển. & Order Processing & SN10 & Must Have \\
+\textbf{FR-31} & Hệ thống phải cảnh báo khi tồn kho dưới ngưỡng tối thiểu, cho phép tạo yêu cầu nhập hàng gửi Supplier và ghi nhận nhập kho khi Supplier xác nhận (BR-11). & Inventory & SN17 & Should Have \\
+\textbf{FR-32} & Hệ thống phải cho phép Sales staff xem, phản hồi và cập nhật trạng thái các yêu cầu hỗ trợ của khách hàng. & Customer Support & SN16 & Should Have \\
+\textbf{FR-33} & Hệ thống phải cho phép System admin tạo, khóa, mở khóa tài khoản và gán vai trò cho nhân viên; mỗi chức năng chỉ truy cập được bởi vai trò được phép (BR-10). & Administration & SN14, SN18 & Must Have \\
+\textbf{FR-34} & Hệ thống phải quản lý vòng đời trạng thái đơn hàng theo Bảng chuyển trạng thái, từ chối chuyển trạng thái không hợp lệ và ghi lịch sử mỗi lần chuyển (BR-07). & Order Processing & SN06, SN10 & Must Have \\
+\end{longtable}
+
+Ghi chú về đánh số: FR-19 đến FR-27 là các yêu cầu của phân hệ AI trong Chương 3; vì vậy các yêu cầu lõi bổ sung ở Chương 2 được đánh số từ FR-28 để không trùng mã. Tương tự, NFR-10 đến NFR-14 thuộc Chương 3 và các NFR lõi bổ sung bắt đầu từ NFR-15.
+
+\section{Non-Functional Requirements}
+
+\subsection{Performance (Hiệu năng)}
+
+\begin{itemize}
+  \item \textbf{NFR-01:} Hệ thống phải trả về kết quả tìm kiếm trong vòng không quá \textbf{2 giây} dưới điều kiện tải bình thường.
+  \item \textbf{NFR-02:} Hệ thống phải xử lý phản hồi giao dịch thanh toán trực tuyến không quá \textbf{3 giây}.
+\end{itemize}
+
+\subsection{Security (Bảo mật)}
+
+\begin{itemize}
+  \item \textbf{NFR-03:} Mật khẩu người dùng phải được mã hóa bằng thuật toán an toàn (ví dụ: bcrypt, PBKDF2) trước khi lưu.
+  \item \textbf{NFR-04:} Dữ liệu truyền giữa client và server phải được mã hóa qua HTTPS (TLS 1.2 trở lên).
+  \item \textbf{NFR-05:} Hệ thống không lưu trữ thông tin thẻ nhạy cảm, sử dụng cơ chế tokenization của cổng thanh toán.
+  \item \textbf{NFR-06:} Hệ thống phải áp dụng phân quyền theo vai trò (RBAC) cho các nhân viên và kiểm tra quyền ở phía máy chủ cho mọi API.
+\end{itemize}
+
+\subsection{Usability, Availability \& Integrity (Khả dụng, sẵn sàng, toàn vẹn)}
+
+\begin{itemize}
+  \item \textbf{NFR-07:} Giao diện web phải tương thích trên cả thiết bị di động và máy tính; Người dùng mới có thể đặt hàng trong không quá \textbf{4 bước} thao tác.
+  \item \textbf{NFR-08:} Hệ thống phải đạt độ sẵn sàng tối thiểu \textbf{99.9\%} trong năm (không tính thời gian bảo trì đã thông báo).
+  \item \textbf{NFR-09:} Dữ liệu đơn hàng và tồn kho phải đảm bảo tính toàn vẹn (ACID).
+\end{itemize}
+
+\subsection{Implementation-oriented Requirements (Yêu cầu phục vụ thiết kế và cài đặt)}
+
+\begin{itemize}
+  \item \textbf{NFR-15 (Concurrency):} Khi nhiều khách đặt cùng một sản phẩm đồng thời, hệ thống phải bảo đảm không bán vượt tồn kho (xử lý trong một giao dịch, cập nhật tồn có điều kiện). Giải quyết P2.
+  \item \textbf{NFR-16 (Maintainability):} Hệ thống được tổ chức theo ba lớp (giao diện, nghiệp vụ, dữ liệu) và giao tiếp qua REST API; việc thay đổi đối tác thanh toán hoặc vận chuyển chỉ ảnh hưởng lớp tích hợp.
+  \item \textbf{NFR-17 (Audit \& Backup):} Hệ thống phải ghi nhật ký các thao tác quản trị và mọi lần đổi trạng thái đơn hàng, và sao lưu cơ sở dữ liệu tối thiểu mỗi ngày.
+  \item \textbf{NFR-18 (Localization):} Giao diện bằng tiếng Việt, tiền tệ VND, múi giờ UTC+7, dữ liệu lưu mã hóa Unicode (UTF-8).
+\end{itemize}
+
+\section{Requirement Prioritization}
+
+Sử dụng phương pháp \textbf{MoSCoW} để phân loại mức độ ưu tiên:
+
+\begin{longtable}{p{4.2cm}p{11.8cm}}
+\caption{MoSCoW prioritization}\\
+\toprule
+\textbf{Priority} & \textbf{Requirements} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Must Have} & FR-01, FR-02, FR-03, FR-04, FR-05, FR-06, FR-07, FR-08, FR-09, FR-10, FR-13, FR-15, FR-16, FR-17, FR-28, FR-29, FR-30, FR-33, FR-34 \\
+\textbf{Should Have} & FR-11, FR-12, FR-14, FR-31, FR-32 \\
+\textbf{Could Have} & FR-18 \\
+\textbf{Won't Have (Giai đoạn 1; chuyển sang Giai đoạn 2 -- Chương 3)} & FR-19 đến FR-27 (ghi log hành vi, sửa lỗi chính tả, tìm kiếm hình ảnh/giọng nói/ngữ nghĩa, gợi ý cá nhân hóa, chatbot). Ngoài phạm vi: ứng dụng di động riêng, nhiều kho, đa tiền tệ, thanh toán thật \\
+\end{longtable}
+
+
+\section{Actor Analysis}
+
+Actor đại diện cho các vai trò bên ngoài tương tác trực tiếp với hệ thống:
+
+\begin{longtable}{p{3.4cm}p{6.8cm}p{2.4cm}p{3.2cm}}
+\caption{Actor analysis}\\
+\toprule
+\textbf{Actor} & \textbf{Description (Mô tả vai trò)} & \textbf{Actor Type} & \textbf{Role (RBAC)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Guest user} & Người dùng chưa đăng nhập, duyệt và tìm kiếm sản phẩm, có thể đăng ký tài khoản. & Human Actor & (chưa đăng nhập) \\
+\textbf{Customer} & Người dùng đã đăng ký, quản lý giỏ hàng, đặt hàng, thanh toán và đánh giá. Là một Guest user sau khi đăng nhập. & Human Actor & CUSTOMER \\
+\textbf{System admin} & Quản trị viên quản lý sản phẩm, danh mục, khuyến mại và tài khoản. & Human Actor & ADMIN \\
+\textbf{Service staff} & Nhân viên xử lý và xác nhận đơn hàng. & Human Actor & SERVICE \\
+\textbf{Sales staff} & Nhân viên tiếp nhận và xử lý yêu cầu hỗ trợ của khách hàng. & Human Actor & SALES \\
+\textbf{Warehouse staff} & Nhân viên kho cập nhật tồn kho và chuẩn bị hàng. & Human Actor & WAREHOUSE \\
+\textbf{Marketing staff} & Nhân viên xem chỉ số hiệu quả gợi ý và khuyến mại (UC-20, Giai đoạn 2). & Human Actor & MARKETING \\
+\textbf{Manager} & Ban quản lý xem và xuất báo cáo kinh doanh. & Human Actor & MANAGER \\
+\textbf{Payment Provider} & Cổng thanh toán bên ngoài xử lý giao dịch tài chính. & System Actor & (tích hợp API) \\
+\textbf{Shipping Provider} & Đơn vị vận chuyển đối tác cập nhật trạng thái giao hàng. & System Actor & (tích hợp API) \\
+\textbf{Supplier} & Nhà cung cấp nhận và xác nhận yêu cầu nhập hàng. & System Actor & (tích hợp API) \\
+\end{longtable}
+
+\section{Use Case Model}
+
+\subsection{Use Case Overview}
+
+Sơ đồ Use Case tổng quát của hệ thống được thể hiện trong Hình 2.1. Báo cáo tập trung vào 21 use case lõi (UC-01 đến UC-15 và UC-21 đến UC-26) cùng 5 use case AI ở Chương 3 (UC-16 đến UC-20), được trình bày chi tiết trong các mục sau.
+
+\vpfigure{usecase_diagram.png}{Sơ đồ Use Case tổng quát của hệ thống}{fig:usecase-overview}
+
+\subsection{Use Case Identification \& Catalogue}
+
+\begin{longtable}{p{1.6cm}p{4.8cm}p{3.8cm}p{2.6cm}p{2.8cm}}
+\caption{Use case catalogue}\\
+\toprule
+\textbf{ID} & \textbf{Use Case Name} & \textbf{Primary Actor} & \textbf{Priority} & \textbf{Related Requirement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{UC-01} & Register Account & Guest user & Must Have & FR-01 \\
+\textbf{UC-02} & Browse Products & Guest user / Customer & Must Have & FR-02 \\
+\textbf{UC-03} & Search Products & Guest user / Customer & Must Have & FR-03 \\
+\textbf{UC-04} & View Product Detail & Guest user / Customer & Must Have & FR-04 \\
+\textbf{UC-05} & Manage Shopping Cart & Customer & Must Have & FR-05 \\
+\textbf{UC-06} & Check out & Customer & Must Have & FR-06, FR-07, FR-08 \\
+\textbf{UC-07} & Make Online Payment & Customer / Payment Provider & Must Have & FR-09 \\
+\textbf{UC-08} & Manage Profile & Customer & Should Have & FR-11 \\
+\textbf{UC-09} & Submit Product Review & Customer & Should Have & FR-12 \\
+\textbf{UC-10} & Manage Product and Category & System admin & Must Have & FR-13 \\
+\textbf{UC-11} & Manage Promotions & System admin & Should Have & FR-14 \\
+\textbf{UC-12} & Manage Inventory & Warehouse staff & Must Have & FR-15 \\
+\textbf{UC-13} & Process Orders & Service staff & Must Have & FR-10, FR-34 \\
+\textbf{UC-14} & Update Delivery Status & Shipping Provider & Must Have & FR-16 \\
+\textbf{UC-15} & Generate Business Report & Manager & Must Have & FR-17 \\
+\textbf{UC-21} & Prepare Order & Warehouse staff & Must Have & FR-30, FR-34 \\
+\textbf{UC-22} & Manage Restocking & Supplier / Warehouse staff & Should Have & FR-31 \\
+\textbf{UC-23} & Handle Customer Request & Sales staff & Should Have & FR-32 \\
+\textbf{UC-24} & Manage Accounts and Roles & System admin & Must Have & FR-33 \\
+\textbf{UC-25} & Track and Cancel Order & Customer & Must Have & FR-29, FR-34 \\
+\textbf{UC-26} & Login/Logout & Guest user / nhân viên & Must Have & FR-28 \\
+\end{longtable}
+
+Các use case UC-16 đến UC-20 của phân hệ AI được đặc tả ở Chương 3.
+
+\subsection{Include and Extend Relationships}
+
+\begin{itemize}
+  \item \textbf{Quan hệ \texttt{<<include>>} (bắt buộc):}
+  \begin{itemize}
+    \item \texttt{UC-06: Check out} \textbf{\texttt{<<include>>}} \texttt{Validate Shopping Cart}: Hệ thống kiểm tra giỏ hàng (giá, tồn kho) trước khi thanh toán.
+    \item \texttt{UC-06: Check out} \textbf{\texttt{<<include>>}} \texttt{Calculate Order Total}: Hệ thống tính tổng tiền gồm khuyến mại và phí vận chuyển.
+  \end{itemize}
+  \item \textbf{Quan hệ \texttt{<<extend>>} (mở rộng/tùy chọn):}
+  \begin{itemize}
+    \item \texttt{UC-07: Make Online Payment} \textbf{\texttt{<<extend>>}} \texttt{UC-06: Check out}: Bước thanh toán trực tuyến chỉ xảy ra khi Customer chọn hình thức thanh toán online.
+    \item \texttt{Search Keyword} \textbf{\texttt{<<extend>>}} \texttt{UC-03: Search Products}: Tìm kiếm theo từ khóa là chức năng mở rộng của tìm kiếm sản phẩm. \texttt{Search Image} và \texttt{Search Voice} cũng là \texttt{<<extend>>} của UC-03 theo sơ đồ, được đặc tả ở Chương 3 (FR-21, FR-22, Giai đoạn 2).
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Use Case Specification: UC-06 Check out}
+
+\begin{longtable}{p{4cm}p{11.8cm}}
+\caption{Use case specification UC-06}\\
+\toprule
+\textbf{Element} & \textbf{Detail Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Use Case Name} & \textbf{UC-06: Check out} \\
+\textbf{Primary Actor} & Customer (đã đăng nhập) \\
+\textbf{Supporting Actors} & Payment Provider (qua UC-07) \\
+\textbf{Goal} & Khách hàng hoàn tất việc tạo một đơn hàng hợp lệ. \\
+\textbf{Trigger} & Khách hàng nhấn nút ``Thanh toán'' từ giỏ hàng. \\
+\textbf{Preconditions} & 1. Khách hàng đã đăng nhập. \newline 2. Giỏ hàng có ít nhất một sản phẩm. \\
+\textbf{Postconditions} & 1. Đơn hàng được tạo với trạng thái Pending (COD) hoặc Pending Payment (thanh toán online). \newline 2. Tồn kho của sản phẩm được trừ tương ứng. \newline 3. Khách hàng nhận thông báo xác nhận. \newline 4. Giỏ hàng được làm trống. \\
+\textbf{Main Success Flow} & \textbf{1.} Khách hàng chọn tiến hành thanh toán. \newline \textbf{2.} Hệ thống kiểm tra giá và tồn kho các sản phẩm trong giỏ (include Validate Shopping Cart). \newline \textbf{3.} Khách hàng chọn địa chỉ giao hàng, phương thức thanh toán (COD hoặc online) và nhập mã giảm giá (nếu có). \newline \textbf{4.} Hệ thống tính tổng tiền (include Calculate Order Total). \newline \textbf{5.} Khách hàng xác nhận đặt hàng. \newline \textbf{6.} Hệ thống tạo đơn hàng, chốt đơn giá, trừ tồn kho trong cùng một giao dịch. \newline \textbf{7.} Nếu thanh toán online, thực hiện UC-07. \newline \textbf{8.} Hệ thống gửi thông báo xác nhận cho khách hàng. \\
+\textbf{Alternative Flows} & \textbf{[A1] Hết hàng:} Tại bước 2, nếu sản phẩm hết hàng, hệ thống thông báo, đánh dấu sản phẩm và dừng quy trình. \newline \textbf{[A2] Thanh toán thất bại:} Tại bước 7, nếu cổng thanh toán báo lỗi, đơn được giữ ở trạng thái Pending Payment và khách hàng được chọn phương thức khác; quá 15 phút đơn tự hủy và hoàn tồn (BR-04). \newline \textbf{[A3] Mã giảm giá không hợp lệ:} Tại bước 3--4, nếu mã hết hạn hoặc chưa đạt giá trị tối thiểu, hệ thống báo lỗi và tính tiền không có giảm giá. \newline \textbf{[A4] Hết hàng khi tạo đơn:} Tại bước 6, nếu tồn kho vừa bị đơn khác lấy hết, giao dịch bị hủy, hệ thống quay lại A1 (NFR-15). \\
+\end{longtable}
+
+\vpfigure{act-checkout.png}{Activity diagram UC-06 Check out}{fig:act-checkout}
+
+\subsection{Use Case Specification: UC-07 Make Online Payment}
+
+\begin{longtable}{p{4cm}p{11.8cm}}
+\caption{Use case specification UC-07}\\
+\toprule
+\textbf{Element} & \textbf{Detail Description} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Use Case Name} & \textbf{UC-07: Make Online Payment} \\
+\textbf{Primary Actor} & Customer \\
+\textbf{Supporting Actors} & Payment Provider \\
+\textbf{Goal} & Thanh toán đơn hàng qua cổng thanh toán và ghi nhận kết quả. \\
+\textbf{Trigger} & Khách chọn thanh toán online ở bước 7 của UC-06. \\
+\textbf{Preconditions} & Đơn hàng ở trạng thái Pending Payment và chưa quá 15 phút. \\
+\textbf{Postconditions} & Thành công: giao dịch được lưu, đơn chuyển sang Pending. Thất bại: đơn giữ Pending Payment. \\
+\textbf{Main Success Flow} & \textbf{1.} Hệ thống hiển thị tổng tiền và các phương thức (ví điện tử, thẻ). \newline \textbf{2.} Khách chọn phương thức. \newline \textbf{3.} Hệ thống gửi yêu cầu thanh toán (mã đơn, số tiền) đến Payment Provider; dữ liệu thẻ do cổng xử lý (NFR-05). \newline \textbf{4.} Khách xác thực giao dịch tại cổng. \newline \textbf{5.} Payment Provider trả kết quả Success cùng mã giao dịch. \newline \textbf{6.} Hệ thống lưu giao dịch, chuyển đơn sang Pending và thông báo khách. \\
+\textbf{Alternative Flows} & \textbf{[A1] Thất bại:} Tại bước 5 kết quả Failed; hệ thống báo lỗi và cho khách thử lại hoặc đổi phương thức (quay về bước 2). \newline \textbf{[A2] Hết hạn:} Quá 15 phút chưa thanh toán; đơn tự hủy và hoàn tồn. \newline \textbf{[A3] Kết quả gửi trùng:} Nếu cổng gửi lại cùng mã giao dịch, hệ thống bỏ qua lần lặp. \\
+\end{longtable}
+
+\vpfigure{act-payment.png}{Activity diagram UC-07 Make Online Payment}{fig:act-payment}
+
+
+\section{Requirement Traceability}
+
+Ma trận vết liên kết giữa vấn đề ($\text{P}$), nhu cầu ($\text{SN}$), yêu cầu chức năng ($\text{FR}$) và use case ($\text{UC}$):
+
+\begin{longtable}{p{4.4cm}p{3.2cm}p{4.2cm}p{4.2cm}}
+\caption{Requirement traceability matrix}\\
+\toprule
+\textbf{Business Problem} & \textbf{Stakeholder Need} & \textbf{Functional Requirement} & \textbf{Use Case} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{P1} -- Thông tin sản phẩm không nhất quán & SN01, SN02, SN09 & FR-02, FR-03, FR-13 & UC-02, UC-03, UC-10 \\
+\textbf{P2} -- Tồn kho cập nhật chậm & SN03, SN10, SN17 & FR-04, FR-06, FR-15, FR-30, FR-31 & UC-04, UC-06, UC-12, UC-21, UC-22 \\
+\textbf{P3} -- Trạng thái đơn hàng không rõ ràng & SN06, SN10, SN11, SN15, SN16 & FR-10, FR-16, FR-29, FR-32, FR-34 & UC-13, UC-14, UC-25, UC-23 \\
+\textbf{P4} -- Dữ liệu khách hàng phân tán & SN07, SN14, SN18 & FR-01, FR-11, FR-28, FR-33 & UC-01, UC-08, UC-26, UC-24 \\
+\textbf{P5} -- Chưa có gợi ý cá nhân hóa & SN-A1 đến SN-A5 & FR-19 đến FR-27 & UC-16 đến UC-19 \\
+\textbf{P6} -- Báo cáo, phản hồi tổng hợp thủ công & SN08, SN12 & FR-12, FR-17, FR-18 & UC-09, UC-15, UC-20 \\
+\end{longtable}
+
+\section{Requirement Validation}
+
+Các yêu cầu được kiểm tra theo bốn tiêu chí: (1) \textbf{rõ ràng \& đúng đắn} -- viết theo mẫu ``Hệ thống phải...'', không dùng từ cảm tính; (2) \textbf{kiểm thử được} -- yêu cầu phi chức năng có chỉ số định lượng (ví dụ phản hồi trong 2 giây, uptime $\geq 99.9\%$); (3) \textbf{khả thi} -- phù hợp phạm vi và khả năng kỹ thuật, phạm vi cài đặt chia giai đoạn; (4) \textbf{đầy đủ \& liên vết} -- mỗi vấn đề ở Chương 1 liên kết với ít nhất một FR và một use case, mỗi use case gắn với ít nhất một yêu cầu và một actor, mọi actor đều có use case.
+
+\section{Conclusion}
+
+Chương 2 chuyển hóa các vấn đề và nhu cầu thành mô hình yêu cầu gồm 25 FR lõi (FR-01 đến FR-18 và FR-28 đến FR-34), 13 NFR lõi (NFR-01 đến NFR-09 và NFR-15 đến NFR-18), được mô hình hóa qua 21 use case lõi và ưu tiên theo MoSCoW. Ma trận vết xác nhận các vấn đề P1 đến P6 đều được giải quyết. Cùng với phân hệ AI ở Chương 3 (9 FR, 5 NFR, 5 UC), toàn hệ thống gồm 34 FR, 18 NFR và 26 UC; các quy tắc nghiệp vụ, vòng đời đơn hàng, thực thể dữ liệu và phạm vi cài đặt là nền tảng cho thiết kế ở Chương 4 và cài đặt ở Chương 5.
+
+\chapter{AI FOR E-COMMERCE}
+
+\section{Overview of AI Integration in E-Commerce}
+
+\subsection{Bối cảnh và vai trò của AI}
+
+Chương 1 chỉ ra dữ liệu khách hàng và lịch sử tương tác bị phân tán (\textbf{P4}) và nền tảng chưa có gợi ý sản phẩm cá nhân hóa (\textbf{P5}). Chương 2 mới chỉ hỗ trợ tìm kiếm từ khóa và xếp tìm kiếm bằng hình ảnh, giọng nói, gợi ý bằng AI vào nhóm \emph{Won't Have} của giai đoạn đầu. Chương này đặc tả phân hệ AI như một \textbf{giai đoạn mở rộng (Phase 2)} để giải quyết P4 và P5.
+
+Phân hệ AI \textbf{không thay thế} các quy trình nghiệp vụ cốt lõi; nếu gặp sự cố, hệ thống vẫn vận hành bình thường với tìm kiếm từ khóa và danh mục tĩnh (\emph{graceful degradation}). Ba nhóm chức năng AI:
+
+\begin{itemize}
+  \item \textbf{Tìm kiếm đa phương thức (Multi-Modal Search):} văn bản, hình ảnh, giọng nói; sửa lỗi chính tả và hiểu ngữ nghĩa.
+  \item \textbf{Bộ đề xuất sản phẩm cá nhân hóa (Recommender System):} gợi ý theo hành vi và thuộc tính sản phẩm.
+  \item \textbf{Chatbot và trợ lý mua sắm (Conversational AI):} tư vấn theo ngữ cảnh, tạo danh sách mua sắm theo kịch bản, hỗ trợ chăm sóc khách hàng.
+\end{itemize}
+
+\subsection{Kiến trúc tổng quan phân hệ AI trong hệ thống}
+
+Phân hệ AI được thiết kế dạng các dịch vụ độc lập (AI microservices) giao tiếp với hệ thống E-Commerce chính qua API (Hình~\ref{fig:ai-arch}).
+
+\vpfigure{ai-architecture.png}{Kiến trúc tổng quan phân hệ AI trong hệ thống E-Commerce}{fig:ai-arch}
+
+Luồng dữ liệu gồm hai giai đoạn:
+
+\begin{enumerate}
+  \item \textbf{Thu thập và huấn luyện (offline/near-real-time):} ghi nhận \emph{User Interaction Logs} (xem, tìm kiếm, thêm giỏ, mua, đánh giá -- FR-19) và \emph{Product Metadata}; làm sạch, tổng hợp theo hồ sơ khách hàng tập trung (giải quyết P4) để huấn luyện hoặc cập nhật mô hình.
+  \item \textbf{Suy luận (online inference):} dịch vụ AI nhận ngữ cảnh (người dùng, sản phẩm đang xem, truy vấn) và trả kết quả xếp hạng dưới 1 giây (NFR-10). Kết quả luôn được lọc qua dịch vụ Tồn kho để \textbf{loại bỏ sản phẩm hết hàng}, nhất quán với giải pháp cho P2.
+\end{enumerate}
+
+\section{Multi-Modal Search System}
+
+\subsection{Tìm kiếm đa phương thức (Multi-Modal Input)}
+
+Hệ thống cho phép Khách vãng lai (Guest user) và Khách hàng (Customer) tìm sản phẩm bằng ba phương thức, đều quy về cùng một truy vấn ngữ nghĩa trước khi xếp hạng kết quả:
+
+\begin{longtable}{p{3.2cm}p{5.4cm}p{7.4cm}}
+\caption{Các phương thức tìm kiếm đa phương thức}\\
+\toprule
+\textbf{Phương thức} & \textbf{Cách hoạt động} & \textbf{Công nghệ gợi ý} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Text Search} & Người dùng nhập từ khóa hoặc câu mô tả; hệ thống chuẩn hóa, sửa lỗi rồi truy vấn chỉ mục. & Chỉ mục văn bản (BM25) kết hợp truy vấn vector. \\
+\textbf{Image Search (Visual Search)} & Người dùng tải ảnh lên; hệ thống trích đặc trưng và tìm sản phẩm tương tự về kiểu dáng, màu sắc. & Mạng nơ-ron tích chập hoặc mô hình nhúng ảnh (embedding), tìm kiếm láng giềng gần nhất (ANN) trên vector index. \\
+\textbf{Voice Search} & Người dùng nói; hệ thống chuyển giọng nói thành văn bản rồi xử lý như Text Search. & Speech-to-Text hỗ trợ tiếng Việt và tiếng Anh. \\
+\end{longtable}
+
+Ba phương thức tương ứng với các use case \texttt{Search Keyword}, \texttt{Search Image}, \texttt{Search Voice}, đều là \texttt{<<extend>>} của \texttt{Search Products} (UC-03) vì là tùy chọn: luồng tìm kiếm cơ bản của UC-03 vẫn hoàn chỉnh khi không dùng chúng.
+
+\subsection{Xử lý linh hoạt và sửa lỗi thông minh (NLP)}
+
+Ba kỹ thuật xử lý ngôn ngữ tự nhiên giúp tăng độ chính xác tìm kiếm (P1, P5):
+
+\begin{itemize}
+  \item \textbf{Typo Tolerance và Spell Correction:} tự sửa lỗi chính tả tiếng Việt/Anh, kể cả lỗi bỏ dấu (``ipmhoen'' $\rightarrow$ ``iPhone'', ``ao khoac'' $\rightarrow$ ``áo khoác''); hiển thị truy vấn đã sửa và cho phép chọn lại truy vấn gốc.
+  \item \textbf{Semantic Search:} tìm theo ngữ nghĩa thay vì khớp từ khóa (``áo mặc mùa đông'' trả về áo khoác, áo len, áo phao). Truy vấn và mô tả sản phẩm được chuyển thành vector nhúng và xếp hạng theo độ tương đồng cosine.
+  \item \textbf{Synonym và Entity Recognition:} nhận diện từ đồng nghĩa (``điện thoại'' $\leftrightarrow$ ``smartphone'') và trích xuất thương hiệu, màu sắc, kích thước, khoảng giá; ví dụ ``áo thun nam màu đen size L dưới 300 nghìn'' $\rightarrow$ danh mục = áo thun, giới tính = nam, màu = đen, size = L, giá $\leq$ 300.000 đồng.
+\end{itemize}
+
+\subsection{Luồng xử lý một truy vấn tìm kiếm}
+
+\begin{enumerate}
+  \item Người dùng gửi truy vấn (văn bản, ảnh hoặc giọng nói) qua API Gateway; giọng nói được chuyển thành văn bản (Speech-to-Text), ảnh được trích xuất vector đặc trưng.
+  \item Dịch vụ AI Search chuẩn hóa văn bản, sửa lỗi chính tả, trích xuất thực thể.
+  \item Truy vấn chỉ mục kết hợp (từ khóa và vector) và xếp hạng kết quả.
+  \item Lọc theo tồn kho khả dụng và trạng thái hiển thị, trả về cùng các bộ lọc gợi ý; nếu không có kết quả, đề xuất từ khóa tương tự và sản phẩm thay thế.
+\end{enumerate}
+
+\section{AI-Based Recommender System}
+
+\subsection{Thuật toán và mô hình đề xuất}
+
+Hệ thống chọn \textbf{Hybrid Approach}, kết hợp Collaborative Filtering (CF -- dựa trên hành vi của người dùng có sở thích tương đồng) và Content-Based Filtering (CB -- dựa trên thuộc tính sản phẩm), để cân bằng độ chính xác với độ đa dạng và xử lý bài toán \emph{Cold Start}:
+
+\begin{itemize}
+  \item \textbf{Khách hàng mới (chưa có lịch sử):} dùng gợi ý theo sản phẩm bán chạy, sản phẩm nổi bật theo danh mục và dữ liệu phiên hiện tại (Content-Based dựa trên các sản phẩm vừa xem).
+  \item \textbf{Sản phẩm mới (chưa có tương tác):} dùng Content-Based theo thuộc tính và mô tả, đồng thời đưa vào khu vực ``Sản phẩm mới'' để thu thập tương tác ban đầu.
+  \item \textbf{Khách hàng đã có đủ lịch sử:} tăng dần trọng số của Collaborative Filtering.
+\end{itemize}
+
+Điểm xếp hạng cuối cùng của sản phẩm $i$ đối với khách hàng $u$:
+
+\begin{equation}
+\text{score}(u,i) = \alpha \cdot \text{CF}(u,i) + (1-\alpha) \cdot \text{CB}(u,i), \qquad 0 \le \alpha \le 1
+\end{equation}
+
+Trong đó $\text{CF}$ là điểm từ Collaborative Filtering, $\text{CB}$ là điểm từ Content-Based, và hệ số $\alpha$ tăng theo số lượng tương tác của khách hàng (khách mới có $\alpha \approx 0$).
+
+\subsection{Các kịch bản hiển thị gợi ý}
+
+\begin{longtable}{p{3.4cm}p{5.4cm}p{3.6cm}p{3.4cm}}
+\caption{Kịch bản hiển thị gợi ý (Real-Time Recommendation Contexts)}\\
+\toprule
+\textbf{Vị trí} & \textbf{Nội dung gợi ý} & \textbf{Dữ liệu đầu vào} & \textbf{Mục tiêu} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Trang chủ} & ``Dành cho bạn'': danh sách cá nhân hóa theo lịch sử tương tác. & Lịch sử xem, tìm kiếm, mua. & Tăng CTR. \\
+\textbf{Chi tiết sản phẩm} & ``Sản phẩm tương tự'' và ``Thường được mua cùng nhau''. & Sản phẩm đang xem, thuộc tính, đồng xuất hiện trong đơn hàng. & Tăng Add-to-Cart. \\
+\textbf{Giỏ hàng / Check out} & Phụ kiện bổ sung (cross-selling), phiên bản cao cấp hơn (up-selling). & Nội dung giỏ hàng. & Tăng giá trị đơn hàng. \\
+\end{longtable}
+
+Mọi danh sách gợi ý đều phải loại bỏ sản phẩm đã hết hàng hoặc đang bị ẩn (xem NFR về tính nhất quán ở mục 3.5).
+
+\subsection{Đo lường hiệu quả mô hình (Business Metrics)}
+
+Hiệu quả của bộ đề xuất được đo bằng các chỉ số kinh doanh, phục vụ báo cáo hiệu quả gợi ý AI (FR-18) cho Ban quản lý:
+
+\begin{align}
+\text{CTR} &= \frac{\text{Số lượt nhấp vào gợi ý}}{\text{Số lượt hiển thị gợi ý}} \times 100\% \\
+\text{Add-to-Cart Rate} &= \frac{\text{Số lượt thêm vào giỏ từ gợi ý}}{\text{Số lượt nhấp vào gợi ý}} \times 100\% \\
+\text{Conversion Rate} &= \frac{\text{Số đơn hàng có sản phẩm từ gợi ý}}{\text{Số phiên có hiển thị gợi ý}} \times 100\%
+\end{align}
+
+Hiệu quả được đánh giá bằng thử nghiệm A/B: nhóm thử thấy gợi ý AI, nhóm đối chứng thấy danh sách mặc định (sản phẩm mới nhất); chênh lệch giữa hai nhóm là căn cứ giữ, điều chỉnh hoặc tắt mô hình.
+
+\section{Conversational AI and Intelligent Chatbot}
+
+\subsection{Trợ lý mua sắm theo ý định (Intent-based Shopping Assistant)}
+
+Chatbot nhận diện \emph{ý định (intent)} từ hội thoại tự nhiên rồi truy vấn dữ liệu hệ thống để trả lời có căn cứ (không tự bịa sản phẩm). Điểm nổi bật là \textbf{tạo danh sách mua sắm theo kịch bản}:
+
+\begin{itemize}
+  \item \textbf{Thực phẩm, gia dụng} -- ``Tôi muốn nấu thịt kho tàu'': nhận diện ý định ``nấu món ăn'' và thực thể ``thịt kho tàu''; đưa ra nguyên liệu (thịt ba chỉ, trứng cút, nước dừa, nước mắm, đường, hành tím); với mỗi nguyên liệu tìm sản phẩm \textbf{còn hàng} và gắn \emph{Deep Link} tới trang sản phẩm; người dùng thêm cả danh sách vào giỏ chỉ bằng một thao tác (UC-05).
+  \item \textbf{Thời trang} -- ``Tôi muốn phối đồ phong cách thời trang nam 2026'': nhận diện ý định ``phối đồ'' và thực thể (nam, 2026); phân tích xu hướng (Trend Analysis) từ dữ liệu bán hàng và lượt xem gần đây; gợi ý bộ phối đồ (áo, quần, giày, phụ kiện) lọc theo \textbf{kích cỡ} trong hồ sơ hoặc hội thoại, kèm liên kết tới từng món.
+\end{itemize}
+
+\vpfigure{chatbot-flow.png}{Luồng tạo danh sách mua sắm theo kịch bản của chatbot}{fig:chatbot-flow}
+
+\subsection{Hỗ trợ giải đáp và chăm sóc khách hàng}
+
+\begin{itemize}
+  \item \textbf{Tra cứu tự động} trạng thái đơn hàng, hành trình vận chuyển (UC-14), chính sách đổi trả, giảm số lượt hỏi thủ công tới nhân viên (giải quyết P3).
+  \item \textbf{Hỗ trợ 24/7} cho các câu hỏi phổ biến ngoài giờ làm việc.
+  \item \textbf{Chuyển giao cho nhân viên (Human Handoff)} khi câu hỏi phức tạp, khách phàn nàn hoặc độ tin cậy thấp: hội thoại được chuyển cho Service staff cùng toàn bộ lịch sử trao đổi.
+\end{itemize}
+
+\section{System Requirements and Design Considerations for AI}
+
+\subsection{Yêu cầu bổ sung cho phân hệ AI}
+
+Các yêu cầu dưới đây có mã FR-19 đến FR-27 và NFR-10 đến NFR-14 (các yêu cầu lõi bổ sung ở Chương 2 dùng mã FR-28 đến FR-34 và NFR-15 đến NFR-18 để không trùng mã) và truy vết về nhu cầu SN và vấn đề P.
+
+\begin{longtable}{p{1.6cm}p{7.6cm}p{2.8cm}p{1.8cm}p{2.2cm}}
+\caption{Yêu cầu chức năng bổ sung cho phân hệ AI}\\
+\toprule
+\textbf{ID} & \textbf{Requirement Statement} & \textbf{Category} & \textbf{Source} & \textbf{Priority} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{FR-19} & Hệ thống phải ghi nhận lịch sử tương tác của người dùng (xem, tìm kiếm, thêm giỏ, mua) vào hồ sơ khách hàng tập trung. & AI Data & SN-A1 & Must Have \\
+\textbf{FR-20} & Hệ thống phải tự động sửa lỗi chính tả và hiển thị truy vấn đã sửa cho người dùng. & AI Search & SN-A2 & Should Have \\
+\textbf{FR-21} & Hệ thống phải hỗ trợ tìm kiếm sản phẩm bằng hình ảnh tải lên. & AI Search & SN-A2 & Could Have \\
+\textbf{FR-22} & Hệ thống phải hỗ trợ tìm kiếm sản phẩm bằng giọng nói. & AI Search & SN-A2 & Could Have \\
+\textbf{FR-23} & Hệ thống phải tìm kiếm theo ngữ nghĩa và nhận diện thương hiệu, màu sắc, kích thước trong truy vấn. & AI Search & SN-A2 & Should Have \\
+\textbf{FR-24} & Hệ thống phải hiển thị danh sách gợi ý cá nhân hóa tại trang chủ, trang chi tiết sản phẩm và giỏ hàng. & Recommendation & SN-A3 & Should Have \\
+\textbf{FR-25} & Hệ thống phải không đưa sản phẩm hết hàng hoặc đã ẩn vào danh sách gợi ý. & Recommendation & SN-A3 & Must Have \\
+\textbf{FR-26} & Chatbot phải tạo danh sách mua sắm theo kịch bản, kèm liên kết đến sản phẩm còn hàng. & Chatbot & SN-A4 & Could Have \\
+\textbf{FR-27} & Chatbot phải tra cứu trạng thái đơn hàng và chuyển cuộc hội thoại cho nhân viên khi không giải quyết được. & Chatbot & SN-A5 & Should Have \\
+\end{longtable}
+
+\begin{longtable}{p{1.6cm}p{2.6cm}p{11.8cm}}
+\caption{Yêu cầu phi chức năng bổ sung cho phân hệ AI}\\
+\toprule
+\textbf{ID} & \textbf{Category} & \textbf{Requirement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{NFR-10} & Performance & Phân hệ AI phải trả về kết quả gợi ý hoặc tìm kiếm trong vòng dưới \textbf{1 giây} (phân vị 95) khi người dùng tải trang. \\
+\textbf{NFR-11} & Scalability & Dịch vụ AI phải xử lý tối thiểu \textbf{1.000 truy vấn đồng thời} và tăng theo chiều ngang mà không cần thiết kế lại. \\
+\textbf{NFR-12} & Availability & Khi dịch vụ AI không phản hồi, hệ thống phải tự động quay về tìm kiếm từ khóa và danh sách mặc định trong vòng \textbf{2 giây}. \\
+\textbf{NFR-13} & Privacy & Dữ liệu cá nhân dùng cho AI phải được ẩn danh hoặc mã hóa, và người dùng phải có quyền tắt cá nhân hóa. \\
+\textbf{NFR-14} & Accuracy & Chatbot không được trả lời thông tin đơn hàng hoặc giá khi không truy xuất được từ dữ liệu của hệ thống. \\
+\end{longtable}
+
+Các nhu cầu bổ sung (SN-A1 đến SN-A5) và liên hệ với Chương 1, Chương 2:
+
+\begin{longtable}{p{1.8cm}p{3cm}p{6.4cm}p{4.8cm}}
+\caption{Nhu cầu và use case bổ sung cho phân hệ AI}\\
+\toprule
+\textbf{ID} & \textbf{Stakeholder} & \textbf{Nhu cầu} & \textbf{Vấn đề / Use case liên quan} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{SN-A1} & Marketing, Manager & Hồ sơ hành vi tập trung để phân tích và huấn luyện mô hình. & P4; FR-19; UC-16 \\
+\textbf{SN-A2} & Guest user, Customer & Tìm sản phẩm nhanh, chính xác, kể cả khi gõ sai hoặc không biết tên. & P5; FR-20 đến FR-23; UC-03 (extend) \\
+\textbf{SN-A3} & Customer & Nhận gợi ý sản phẩm phù hợp sở thích. & P5; FR-24, FR-25; UC-17 \\
+\textbf{SN-A4} & Customer & Được tư vấn mua sắm theo nhu cầu cụ thể. & P5; FR-26; UC-18 \\
+\textbf{SN-A5} & Customer, Service staff & Giải đáp nhanh về đơn hàng; giảm tải cho nhân viên. & P3; FR-27; UC-19 \\
+\end{longtable}
+
+Các use case mới được thêm vào danh mục của Chương 2:
+
+\begin{longtable}{p{1.6cm}p{5.4cm}p{3.4cm}p{3cm}p{2.6cm}}
+\caption{Use case bổ sung cho phân hệ AI}\\
+\toprule
+\textbf{ID} & \textbf{Use Case Name} & \textbf{Primary Actor} & \textbf{Related FR} & \textbf{Priority} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{UC-16} & Track User Interactions & Customer (ngầm định) & FR-19 & Must Have \\
+\textbf{UC-17} & Get Personalized Recommendations & Customer & FR-24, FR-25 & Should Have \\
+\textbf{UC-18} & Chat with Shopping Assistant & Customer & FR-26 & Could Have \\
+\textbf{UC-19} & Get Order Support via Chatbot & Customer, Service staff & FR-27 & Should Have \\
+\textbf{UC-20} & View Recommendation Performance & Manager, Marketing staff & FR-18 & Could Have \\
+\end{longtable}
+
+\subsection{Quyền riêng tư và an toàn dữ liệu (Privacy and Data Ethics)}
+
+Việc thu thập dữ liệu hành vi phục vụ AI làm tăng rủi ro đối với dữ liệu cá nhân, nên phải tuân thủ các nguyên tắc sau:
+
+\begin{itemize}
+  \item \textbf{Giảm thiểu dữ liệu:} chỉ thu thập dữ liệu cần cho mô hình (mã sản phẩm, loại hành động, thời gian).
+  \item \textbf{Mã hóa và ẩn danh:} thông tin định danh được mã hóa khi lưu và tách khỏi dữ liệu huấn luyện; truyền qua HTTPS (NFR-04); mật khẩu băm một chiều (NFR-03); không lưu thông tin thẻ (NFR-05).
+  \item \textbf{Đồng ý và kiểm soát:} thông báo rõ việc thu thập dữ liệu, cho phép tắt cá nhân hóa; giọng nói và ảnh tải lên chỉ dùng xử lý truy vấn, không dùng huấn luyện nếu chưa được đồng ý.
+  \item \textbf{Minh bạch và phân quyền:} gợi ý có nhãn ``Gợi ý cho bạn'' và không thiên lệch theo lợi nhuận; chỉ Manager và Marketing staff xem báo cáo hiệu quả AI (RBAC, NFR-06).
+\end{itemize}
+
+\subsection{Rủi ro và biện pháp giảm thiểu}
+
+\begin{longtable}{p{4.4cm}p{5.8cm}p{5.8cm}}
+\caption{Rủi ro của phân hệ AI}\\
+\toprule
+\textbf{Rủi ro} & \textbf{Tác động} & \textbf{Biện pháp giảm thiểu} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Dữ liệu huấn luyện kém chất lượng (liên quan P1, P4) & Gợi ý sai, tìm kiếm lệch. & Chuẩn hóa catalogue (UC-10), làm sạch log trước khi huấn luyện. \\
+Cold Start & Gợi ý nghèo nàn với khách và sản phẩm mới. & Hybrid; dùng sản phẩm bán chạy và Content-Based. \\
+Chatbot trả lời sai & Mất niềm tin, sai thông tin đơn hàng. & Chỉ trả lời từ dữ liệu hệ thống (NFR-14); chuyển nhân viên khi độ tin cậy thấp. \\
+Phân hệ AI ngừng hoạt động & Gián đoạn trải nghiệm mua sắm. & Cơ chế dự phòng về tìm kiếm từ khóa (NFR-12). \\
+Rò rỉ dữ liệu cá nhân & Vi phạm pháp lý, mất uy tín. & Mã hóa, ẩn danh, giới hạn quyền truy cập (mục 3.5.2). \\
+\end{longtable}
+
+\section{Summary and Connection to System Design}
+
+\subsection{Tóm tắt chương}
+
+Chương 3 đề xuất ba nhóm chức năng AI cho ABC Online Shop: tìm kiếm đa phương thức, bộ đề xuất cá nhân hóa theo hướng Hybrid (xử lý Cold Start) và chatbot trợ lý mua sắm. Giá trị kinh doanh gồm rút ngắn thời gian tìm sản phẩm, tăng tỷ lệ nhấp, thêm giỏ và chuyển đổi, giảm tải cho chăm sóc khách hàng. Phân hệ bổ sung 9 FR (FR-19 đến FR-27), 5 NFR (NFR-10 đến NFR-14) và 5 UC (UC-16 đến UC-20), giải quyết P4 và P5 mà không thay đổi quy trình nghiệp vụ cốt lõi.
+
+\subsection{Tiền đề cho Chương 4 (Design System)}
+
+Chương 4 cần bổ sung: các thực thể \texttt{InteractionLog}, \texttt{Recommendation}, \texttt{ChatSession}, \texttt{ChatMessage}, \texttt{ProductEmbedding}; các API \texttt{GET /search}, \texttt{POST /search/image}, \texttt{POST /search/voice}, \texttt{GET /recommendations}, \texttt{POST /chat}; sơ đồ tuần tự cho tìm kiếm, gợi ý và chatbot; giao diện ô tìm kiếm đa phương thức (máy ảnh, micro), khối ``Gợi ý cho bạn'' và cửa sổ chatbot.
+
+\chapter{DESIGN SYSTEM}
+
+\section{Class Diagram in Analysis}
+
+\subsection{Mục đích và cơ sở xây dựng}
+
+Sơ đồ lớp phân tích mô tả các \emph{khái niệm nghiệp vụ} của ABC Online Shop và quan hệ giữa chúng, chưa quan tâm đến công nghệ cài đặt (chưa có phương thức, kiểu truy cập, lớp điều khiển hay truy xuất dữ liệu). Sơ đồ được suy ra từ danh sách thực thể sơ bộ và BR-01 đến BR-11 (Chương 1), các use case lõi UC-05, UC-06, UC-07 cùng vòng đời đơn hàng (Chương 2) và danh mục sản phẩm đa ngành hàng (sách, điện tử, thời trang, giày dép). Danh từ quan trọng trong đặc tả use case trở thành lớp ứng viên, thông tin đi kèm thành thuộc tính, động từ nối hai danh từ thành quan hệ.
+
+\clearpage
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \IfFileExists{class-analysis.png}{%
+    \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{class-analysis.png}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{4cm}\textit{[Chen hinh: class-analysis.png]}\vspace{4cm}}}}
+  \caption{Sơ đồ lớp ở giai đoạn phân tích}\label{fig:class-analysis}
+\end{figure}
+\end{landscape}
+\clearpage
+
+\subsection{Mô tả các lớp}
+
+Sơ đồ gồm 20 lớp, chia thành bốn nhóm.
+
+\begin{longtable}{p{2.9cm}p{4.4cm}p{8.5cm}}
+\caption{Các lớp trong sơ đồ lớp phân tích}\\
+\toprule
+\textbf{Lớp} & \textbf{Thuộc tính chính} & \textbf{Vai trò} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{3}{l}{\textit{Nhóm khách hàng}} \\
+\texttt{Customer} & cusID, email, phone, password, created & Người mua đã đăng ký; là tác nhân trung tâm của UC-05, UC-06, UC-07. \\
+\texttt{FullName} & firstName, middleName, lastName & Họ tên đầy đủ của khách hàng, tách thành ba phần để sắp xếp và hiển thị linh hoạt. \\
+\texttt{Address} & addressID, street, district, city, country, posCode & Địa chỉ giao hàng; một khách hàng có thể lưu nhiều địa chỉ. \\
+\texttt{CustomerVIP} & vipLevel, loyaltyPoint, discountRate & Khách hàng thân thiết, được hưởng mức chiết khấu riêng. \\
+\texttt{CustomerNew} & registrationDate, welcomeDiscount & Khách hàng mới đăng ký, được ưu đãi chào mừng. \\
+\multicolumn{3}{l}{\textit{Nhóm sản phẩm}} \\
+\texttt{Product} & productID, name, description, price, stockQuantity & Lớp cha của mọi mặt hàng; chứa các thuộc tính chung của sản phẩm (BR-01). \\
+\texttt{Book} & ISBN, title, author, publisher & Sách. \\
+\texttt{Electronic} & brand, model, warrantyMonths & Thiết bị điện tử nói chung. \\
+\texttt{Laptop} & cpu, ram, storage & Máy tính xách tay, là loại con của \texttt{Electronic}. \\
+\texttt{Mobile} & screenSize, storage, batteryCapacity & Điện thoại di động, là loại con của \texttt{Electronic}. \\
+\texttt{Clothes} & size, color, material & Quần áo. \\
+\texttt{Shoes} & shoesSize, shoesType & Giày dép. \\
+\multicolumn{3}{l}{\textit{Nhóm giỏ hàng và đơn hàng}} \\
+\texttt{Cart} & cartID, createDate, totalAmount & Giỏ hàng hiện hành của khách hàng (BR-02). \\
+\texttt{CartItem} & quantity, unitPrice, subTotal & Một dòng trong giỏ: sản phẩm và số lượng muốn mua. \\
+\texttt{Order} & orderID, orderDate, totalAmount, status & Đơn hàng được tạo từ giỏ hàng khi checkout (UC-06); \texttt{status} theo vòng đời ở Chương 2. \\
+\texttt{OrderItem} & quantity, unitPrice, subTotal & Một dòng của đơn hàng; \texttt{unitPrice} là đơn giá chốt tại thời điểm đặt (BR-05). \\
+\multicolumn{3}{l}{\textit{Nhóm thanh toán và vận chuyển}} \\
+\texttt{Payment} & paymentID, paymentDate, amount, status & Giao dịch thanh toán của một đơn hàng (UC-07). \\
+\texttt{PayCash} & receivedAmount & Thanh toán tiền mặt (COD). \\
+\texttt{PayCredit} & transactionID, cardLastFourDigits, authorizationCode & Thanh toán trực tuyến qua cổng thanh toán; chỉ lưu bốn số cuối của thẻ, phù hợp NFR-05. \\
+\texttt{Shipping} & shippingID, shippingMethod, shippingFee, trackingNumber, shippingStatus, deliveryDate & Thông tin vận chuyển và hành trình giao hàng (UC-14). \\
+\end{longtable}
+
+\subsection{Giải thích các quan hệ}
+
+Các quan hệ trong sơ đồ thuộc bốn loại: kết hợp (association), tập hợp (aggregation), hợp thành (composition) và kế thừa (generalization). Cách đọc bội số (multiplicity): ``1'' là đúng một, ``0..1'' là không hoặc một, ``0..*'' là không hoặc nhiều, ``1..*'' là một hoặc nhiều.
+
+\begin{longtable}{p{3.4cm}p{2.6cm}p{2.2cm}p{7.6cm}}
+\caption{Các quan hệ giữa các lớp}\\
+\toprule
+\textbf{Quan hệ} & \textbf{Loại} & \textbf{Bội số} & \textbf{Giải thích} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Customer -- FullName & Aggregation & 1 -- 1 & Mỗi khách hàng có đúng một họ tên. \texttt{FullName} là thành phần mô tả khách hàng, không cần tồn tại độc lập. \\
+Customer -- Address & Association & 1 -- 0..* & Một khách hàng lưu nhiều địa chỉ giao hàng; mỗi địa chỉ thuộc về một khách hàng. \\
+Customer -- Cart & Association & 1 -- 0..1 & Mỗi khách hàng có tối đa một giỏ hàng hiện hành (BR-02). \\
+Customer -- Order & Association & 1 -- 0..* & Một khách hàng có thể đặt nhiều đơn hàng theo thời gian; mỗi đơn thuộc về đúng một khách hàng. \\
+Cart -- CartItem & Composition & 1 -- 0..* & Giỏ hàng gồm các dòng hàng. Dòng hàng không tồn tại khi giỏ bị xóa, nên dùng composition (hình thoi đặc). \\
+CartItem -- Product & Association & 0..* -- 1 & Mỗi dòng trong giỏ tham chiếu đúng một sản phẩm; một sản phẩm có thể nằm trong nhiều giỏ. \\
+Order -- OrderItem & Composition & 1 -- 1..* & Một đơn hàng phải có ít nhất một dòng hàng và các dòng hàng bị xóa theo đơn hàng. \\
+OrderItem -- Product & Association & 0..* -- 1 & Mỗi dòng đơn hàng tham chiếu một sản phẩm; đơn giá được sao chép vào \texttt{OrderItem} nên đổi giá sau này không làm thay đổi đơn cũ. \\
+Order -- Payment & Association & 1 -- 0..1 & Mỗi đơn có tối đa một giao dịch thanh toán; đơn thanh toán online chưa thanh toán thì chưa có giao dịch thành công. \\
+Order -- Shipping & Association & 1 -- 0..1 & Đơn hàng chỉ có thông tin vận chuyển sau khi được đóng gói và bàn giao (Packed trở đi). \\
+Customer $\leftarrow$ CustomerVIP, CustomerNew & Generalization & --- & Hai loại khách hàng chuyên biệt hóa từ \texttt{Customer}; kế thừa các thuộc tính chung và bổ sung thuộc tính riêng. \\
+Product $\leftarrow$ Book, Electronic, Clothes, Shoes & Generalization & --- & Mỗi ngành hàng có thuộc tính riêng nhưng đều là một sản phẩm. Nhờ kế thừa, giỏ hàng và đơn hàng chỉ cần làm việc với \texttt{Product}. \\
+Electronic $\leftarrow$ Laptop, Mobile & Generalization & --- & Kế thừa nhiều cấp: Laptop và Mobile cũng là Electronic, và Electronic là Product. \\
+Payment $\leftarrow$ PayCash, PayCredit & Generalization & --- & Hai hình thức thanh toán của BR-04: COD và thanh toán trực tuyến. \\
+\end{longtable}
+
+\subsubsection*{Luồng dữ liệu qua các lớp}
+
+Các quan hệ trên phản ánh đúng luồng nghiệp vụ UC-05 $\rightarrow$ UC-06 $\rightarrow$ UC-07: \texttt{Customer} thêm \texttt{Product} vào \texttt{Cart} (qua \texttt{CartItem}); khi checkout, hệ thống sao chép từng \texttt{CartItem} thành \texttt{OrderItem} (chốt đơn giá), tạo \texttt{Order} thuộc về \texttt{Customer}, rồi tạo \texttt{Payment} và sau đó \texttt{Shipping} theo trạng thái của đơn.
+
+\subsection{Nhận xét và hướng hoàn thiện}
+
+Sơ đồ phân tích bao quát luồng mua hàng chính nhưng còn các điểm sẽ xử lý ở các mục sau: (1) thiếu các lớp \texttt{Account}, \texttt{Role}, \texttt{Category}, \texttt{Inventory}, \texttt{Promotion}, \texttt{Review}, yêu cầu hỗ trợ, nhập hàng và lịch sử trạng thái đơn (bổ sung ở mục 4.3); (2) \texttt{subTotal}, \texttt{totalAmount} là thuộc tính dẫn xuất nên không lưu trùng trong mô hình dữ liệu (mục 4.2); (3) cây kế thừa sản phẩm và khách hàng khó ánh xạ sang bảng quan hệ, được đánh giá ở mục 4.2 và 4.3; (4) sơ đồ chưa có phương thức và chưa chia tầng, thực hiện ở mục 4.3 và 4.4.
+
+\section{Data Model}
+
+\subsection{Nguyên tắc chuyển từ sơ đồ lớp sang mô hình dữ liệu}
+
+Mô hình dữ liệu được xây dựng cho cơ sở dữ liệu quan hệ MySQL, xuất phát từ sơ đồ lớp ở mục 4.1 và bổ sung các thực thể của Chương 1, 2. Các quy tắc chuyển đổi được áp dụng thống nhất:
+
+\begin{longtable}{p{4.6cm}p{11.2cm}}
+\caption{Quy tắc chuyển lớp thành bảng}\\
+\toprule
+\textbf{Trong sơ đồ lớp} & \textbf{Trong mô hình dữ liệu} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Quan hệ 1--N & Khóa ngoại đặt ở bảng phía ``N'' (ví dụ \texttt{customer\_order.customer\_id}). \\
+Quan hệ 1--1 hoặc 1--0..1 & Khóa ngoại kèm ràng buộc \texttt{UNIQUE}, hoặc dùng chung khóa chính (\texttt{customer.id} cũng là khóa ngoại tới \texttt{account.id}). \\
+Composition (Cart--CartItem, Order--OrderItem) & Bảng con có khóa ngoại với \texttt{ON DELETE CASCADE}; khóa chính của bảng con là khóa kép (ví dụ \texttt{(order\_id, product\_id)}). \\
+Thuộc tính tính được (\texttt{subTotal}, \texttt{totalAmount} của giỏ hàng) & Không lưu để tránh sai lệch dữ liệu (chuẩn hóa 3NF); tính khi truy vấn. Riêng \texttt{customer\_order.total\_amount} được lưu vì là giá trị đã chốt tại thời điểm đặt (BR-05). \\
+Kiểu tiền tệ & \texttt{DECIMAL(12,2)}, không dùng số thực để tránh sai số làm tròn. \\
+Tên lớp \texttt{Order} & Đặt tên bảng \texttt{customer\_order} vì \texttt{ORDER} là từ khóa của SQL. \\
+\end{longtable}
+
+\subsection{Quyết định về các cây kế thừa}
+
+Cơ sở dữ liệu quan hệ không có khái niệm kế thừa nên có ba cách ánh xạ: (1) mỗi lớp một bảng, (2) chỉ bảng cho các lớp con, (3) gom tất cả vào một bảng. Bản nháp ERD tự sinh từ công cụ dùng cách (1), tạo ra 11 bảng phụ (FullName và các lớp con của Customer, Product, Payment). Mô hình chính thức thay bằng cách gọn hơn, phù hợp với tuyên bố ở Chương 1 (``mỗi sản phẩm được quản lý ở mức một mã hàng với bộ thuộc tính mô tả linh hoạt'').
+
+\begin{longtable}{p{3.8cm}p{4.2cm}p{7.8cm}}
+\caption{Ánh xạ các lớp kế thừa sang bảng}\\
+\toprule
+\textbf{Lớp ở mục 4.1} & \textbf{Trong mô hình dữ liệu} & \textbf{Lý do} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Product, Book, Electronic, Laptop, Mobile, Clothes, Shoes & Bảng \texttt{product} với cột \texttt{attributes} (JSON) và khóa ngoại \texttt{category\_id} tới bảng \texttt{category}. & Thêm ngành hàng mới chỉ cần thêm một dòng \texttt{category}, không phải tạo bảng. Thuộc tính riêng (ISBN, CPU, size...) lưu trong JSON. \\
+Customer, CustomerVIP, CustomerNew & Bảng \texttt{customer} với cột \texttt{loyalty\_tier} (NEW, REGULAR, VIP) và \texttt{loyalty\_point}. & VIP hay mới là trạng thái thay đổi theo thời gian của cùng một khách, không phải loại khách khác nhau. \\
+Payment, PayCash, PayCredit & Bảng \texttt{payment} với cột \texttt{method} (COD, WALLET, CARD) và \texttt{transaction\_id}. & Chỉ khác nhau ở một vài thuộc tính; không lưu số thẻ hay mã xác thực để đáp ứng NFR-05. \\
+FullName & Ba cột \texttt{first\_name}, \texttt{middle\_name}, \texttt{last\_name} trong \texttt{customer}. & \texttt{FullName} chỉ là giá trị mô tả, không cần bảng riêng. \\
+\end{longtable}
+
+\subsection{Mô hình dữ liệu quan hệ (ERD)}
+
+Mô hình gồm \textbf{21 bảng}, chia thành sáu nhóm theo nghiệp vụ:
+
+\begin{longtable}{p{3.6cm}p{5.4cm}p{6.8cm}}
+\caption{Danh sách bảng theo nhóm}\\
+\toprule
+\textbf{Nhóm} & \textbf{Bảng} & \textbf{Mục đích} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Tài khoản & \texttt{role}, \texttt{account}, \texttt{customer}, \texttt{address} & Vai trò, đăng nhập, hồ sơ và sổ địa chỉ khách hàng (UC-01, UC-08, UC-24, UC-26). \\
+Danh mục và kho & \texttt{category}, \texttt{product}, \texttt{inventory}, \texttt{stock\_movement}, \texttt{promotion} & Catalogue, tồn kho, lịch sử nhập xuất, mã giảm giá (UC-02, UC-04, UC-10 đến UC-12). \\
+Giỏ hàng & \texttt{cart}, \texttt{cart\_item} & Giỏ hàng hiện hành của khách (UC-05). \\
+Đơn hàng & \texttt{customer\_order}, \texttt{order\_item}, \texttt{order\_status\_history}, \texttt{payment}, \texttt{shipment} & Đặt hàng, thanh toán, vận chuyển và lịch sử đổi trạng thái (UC-06, UC-07, UC-13, UC-14, UC-21). \\
+Hỗ trợ và cung ứng & \texttt{review}, \texttt{support\_request}, \texttt{supplier}, \texttt{restock\_request} & Đánh giá, yêu cầu hỗ trợ, nhập hàng (UC-09, UC-22, UC-23). \\
+AI (Giai đoạn 2) & \texttt{interaction\_log} & Nhật ký hành vi người dùng cho phân hệ AI (UC-16). \\
+\end{longtable}
+
+\clearpage
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \IfFileExists{erd.png}{%
+    \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{erd.png}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{4cm}\textit{[Chen hinh: erd.png]}\vspace{4cm}}}}
+  \caption{Mô hình dữ liệu quan hệ (ERD) của ABC Online Shop}\label{fig:erd}
+\end{figure}
+\end{landscape}
+\clearpage
+
+\subsection{Giải thích quan hệ giữa các bảng}
+
+\begin{longtable}{p{3.2cm}p{3.2cm}p{1.8cm}p{7.6cm}}
+\caption{Quan hệ giữa các bảng}\\
+\toprule
+\textbf{Bảng cha} & \textbf{Bảng con} & \textbf{Bội số} & \textbf{Khóa ngoại và ý nghĩa} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{role} & \texttt{account} & 1--N & \texttt{account.role\_id}: mỗi tài khoản có đúng một vai trò (BR-10). \\
+\texttt{account} & \texttt{customer} & 1--0..1 & \texttt{customer.id} vừa là khóa chính vừa là khóa ngoại: tài khoản của khách hàng có thêm hồ sơ; tài khoản nhân viên thì không. \\
+\texttt{customer} & \texttt{address} & 1--N & \texttt{address.customer\_id}: một khách lưu nhiều địa chỉ. \\
+\texttt{customer} & \texttt{cart} & 1--0..1 & \texttt{cart.customer\_id} (UNIQUE): mỗi khách một giỏ hàng (BR-02). \\
+\texttt{cart} & \texttt{cart\_item} & 1--N & \texttt{cart\_item.cart\_id}, xóa theo giỏ. \\
+\texttt{category} & \texttt{product} & 1--N & \texttt{product.category\_id}: mỗi sản phẩm thuộc đúng một danh mục (BR-01). \\
+\texttt{product} & \texttt{inventory} & 1--1 & \texttt{inventory.product\_id} dùng chung khóa chính: mỗi sản phẩm có đúng một bản ghi tồn kho. \\
+\texttt{product} & \texttt{cart\_item}, \texttt{order\_item} & 1--N & Hai bảng trung gian giữa sản phẩm với giỏ hàng và đơn hàng. \\
+\texttt{customer} & \texttt{customer\_order} & 1--N & \texttt{customer\_order.customer\_id}: một khách đặt nhiều đơn. \\
+\texttt{promotion} & \texttt{customer\_order} & 1--N (tùy chọn) & \texttt{customer\_order.promotion\_id} có thể rỗng: đơn không dùng mã giảm giá (BR-05). \\
+\texttt{customer\_order} & \texttt{order\_item} & 1--N & Khóa kép \texttt{(order\_id, product\_id)}, xóa theo đơn; một đơn có ít nhất một dòng hàng. \\
+\texttt{customer\_order} & \texttt{order\_status\_history} & 1--N & Ghi lại mỗi lần đổi trạng thái: trạng thái cũ, mới, người đổi, thời điểm (BR-07). \\
+\texttt{customer\_order} & \texttt{payment}, \texttt{shipment} & 1--0..1 & \texttt{order\_id} (UNIQUE): đơn có tối đa một giao dịch thanh toán và một vận đơn. \\
+\texttt{customer\_order}, \texttt{product}, \texttt{customer} & \texttt{review} & 1--N & Đánh giá gắn với khách, sản phẩm và đơn; \texttt{UNIQUE(order\_id, product\_id)} bảo đảm mỗi sản phẩm trong đơn chỉ được đánh giá một lần (BR-09). \\
+\texttt{customer}, \texttt{customer\_order} & \texttt{support\_request} & 1--N & Yêu cầu hỗ trợ của khách, có thể gắn với một đơn. \\
+\texttt{supplier}, \texttt{product} & \texttt{restock\_request} & 1--N & Yêu cầu nhập hàng gửi nhà cung cấp cho một sản phẩm (BR-11). \\
+\texttt{product}, \texttt{customer\_order} & \texttt{stock\_movement} & 1--N & Lịch sử nhập, xuất, hoàn kho; xuất kho gắn với đơn hàng. \\
+\texttt{customer}, \texttt{product} & \texttt{interaction\_log} & 1--N (tùy chọn) & Nhật ký hành vi; khách vãng lai không có \texttt{customer\_id}. \\
+\end{longtable}
+
+\subsection{Ràng buộc toàn vẹn gắn với yêu cầu}
+
+Nhiều quy tắc nghiệp vụ và yêu cầu phi chức năng được cài trực tiếp thành ràng buộc trong cơ sở dữ liệu, nên dữ liệu sai bị từ chối ngay cả khi lỗi nằm ở tầng ứng dụng.
+
+\begin{longtable}{p{2.6cm}p{6.4cm}p{6.8cm}}
+\caption{Ràng buộc trong cơ sở dữ liệu}\\
+\toprule
+\textbf{Yêu cầu} & \textbf{Ràng buộc} & \textbf{Tác dụng} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+BR-01 & \texttt{product.status} chỉ nhận ACTIVE hoặc HIDDEN. & Ẩn thay vì xóa sản phẩm đã có đơn. \\
+BR-02 & \texttt{cart.customer\_id} UNIQUE. & Mỗi khách một giỏ hàng. \\
+BR-03, NFR-15 & \texttt{CHECK (inventory.quantity >= 0)}. & Không bao giờ bán vượt tồn kho; cập nhật tồn dùng lệnh có điều kiện \texttt{quantity >= số lượng mua}. \\
+BR-04 & \texttt{payment\_method} chỉ nhận COD hoặc ONLINE. & Hai hình thức thanh toán hợp lệ. \\
+BR-05 & \texttt{order\_item.unit\_price}, các cột tiền không âm. & Đơn giá chốt tại thời điểm đặt. \\
+BR-07 & \texttt{customer\_order.status} chỉ nhận 7 trạng thái; có bảng \texttt{order\_status\_history}. & Vòng đời đơn rõ ràng, truy vết được. \\
+BR-09 & \texttt{CHECK (rating BETWEEN 1 AND 5)} và \texttt{UNIQUE(order\_id, product\_id)}. & Điểm đánh giá hợp lệ, mỗi sản phẩm một đánh giá. \\
+BR-11 & \texttt{inventory.min\_threshold}. & Làm căn cứ cảnh báo hàng sắp hết. \\
+UC-07 (A3) & \texttt{payment.transaction\_id} UNIQUE. & Bỏ qua kết quả thanh toán gửi trùng. \\
+NFR-03, NFR-05 & Chỉ có \texttt{password\_hash}; bảng \texttt{payment} không có cột số thẻ. & Không lưu mật khẩu thô và dữ liệu thẻ. \\
+\end{longtable}
+
+\subsection{Tạo cơ sở dữ liệu}
+
+Cơ sở dữ liệu được tạo bằng tập lệnh \texttt{schema.sql} (tạo cơ sở dữ liệu \texttt{ecommerce}, 21 bảng, ràng buộc và dữ liệu mẫu gồm 7 vai trò, 5 tài khoản, 4 danh mục, 6 sản phẩm, 1 mã giảm giá). Chạy bằng dòng lệnh hoặc MySQL Workbench:
+
+\begin{verbatim}
+mysql -u root -p < schema.sql
+mysql -u root -p abc_shop -e "SHOW TABLES;"
+\end{verbatim}
+
+Kết quả sau khi chạy: danh sách 21 bảng như Hình~\ref{fig:db-tables}, và dữ liệu mẫu trong bảng sản phẩm như Hình~\ref{fig:db-sample}.
+
+\clearpage
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \IfFileExists{db-tables.png}{%
+    \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{db-tables.png}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{4cm}\textit{[Chen hinh: db-tables.png]}\vspace{4cm}}}}
+  \caption{Danh sách bảng trong cơ sở dữ liệu abc\_shop}\label{fig:db-tables}
+\end{figure}
+\end{landscape}
+\clearpage
+\vpfigure{db-sample.png}{Dữ liệu mẫu của bảng product và inventory}{fig:db-sample}
+
+Để kiểm tra các ràng buộc hoạt động, hai thao tác sai sau đều bị cơ sở dữ liệu từ chối: đặt tồn kho âm (vi phạm \texttt{ck\_inventory\_qty}) và thêm đánh giá 9 sao (vi phạm \texttt{ck\_review\_rating}). Lệnh trừ kho có điều kiện cho kết quả 0 dòng bị ảnh hưởng khi số lượng yêu cầu lớn hơn tồn kho, đúng với NFR-15.
+
+\subsection{Kết luận mục 4.2}
+
+Mô hình dữ liệu 21 bảng giữ nguyên các thực thể nghiệp vụ của mục 4.1, đồng thời bỏ các bảng chỉ để mô phỏng kế thừa, thêm các bảng còn thiếu so với Chương 1, 2 và chuyển các quy tắc nghiệp vụ thành ràng buộc dữ liệu. Mô hình này là cơ sở để cập nhật sơ đồ lớp thiết kế ở mục 4.3 và cài đặt tầng truy xuất dữ liệu ở Chương 5.
+
+
+\section{Class Diagram in Design}
+
+\subsection{Mục đích và cách cập nhật từ sơ đồ phân tích}
+
+Sơ đồ lớp thiết kế được hoàn thiện từ sơ đồ phân tích ở mục 4.1 theo hai hướng: (1) \textbf{khớp với mô hình dữ liệu} ở mục 4.2 để mỗi lớp tương ứng một bảng, (2) \textbf{đủ chi tiết để lập trình}: có kiểu dữ liệu, phương thức và các kiểu liệt kê. Sơ đồ chỉ gồm các lớp thuộc tầng miền (domain); các lớp dịch vụ, truy xuất dữ liệu và giao diện được trình bày ở mục 4.4.
+
+Các thay đổi so với sơ đồ phân tích:
+
+\begin{longtable}{p{4.2cm}p{4.6cm}p{6.6cm}}
+\caption{Thay đổi từ sơ đồ phân tích (4.1) sang sơ đồ thiết kế (4.3)}\\
+\toprule
+\textbf{Ở mục 4.1} & \textbf{Ở mục 4.3} & \textbf{Lý do} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{Order} & \texttt{CustomerOrder} & \texttt{ORDER} là từ khóa SQL; tên lớp khớp với tên bảng. \\
+\texttt{FullName} & Ba thuộc tính \texttt{first\_name}, \texttt{middle\_name}, \texttt{last\_name} và phương thức \texttt{full\_name()} & Họ tên chỉ là giá trị mô tả, không cần lớp riêng. \\
+\texttt{CustomerVIP}, \texttt{CustomerNew} & Kiểu liệt kê \texttt{LoyaltyTier} và thuộc tính \texttt{loyalty\_point} & VIP hay mới là trạng thái của cùng một khách và thay đổi theo thời gian. \\
+\texttt{Book}, \texttt{Electronic}, \texttt{Laptop}, \texttt{Mobile}, \texttt{Clothes}, \texttt{Shoes} & Thuộc tính \texttt{attributes : dict} và lớp \texttt{Category} & Thêm ngành hàng mới không cần sửa mã nguồn; khớp với cột JSON ở 4.2. \\
+\texttt{PayCash}, \texttt{PayCredit} & Thuộc tính \texttt{method : PaymentChannel} và \texttt{transaction\_id} & Chỉ khác nhau vài thuộc tính; không lưu dữ liệu thẻ (NFR-05). \\
+\texttt{Product.stockQuantity} & Lớp \texttt{Inventory} với \texttt{quantity}, \texttt{min\_threshold} & Tách tồn kho để có ngưỡng cảnh báo và lịch sử nhập xuất (BR-11). \\
+\texttt{subTotal}, \texttt{totalAmount} của giỏ hàng, \texttt{CartItem.unitPrice} & Phương thức \texttt{subtotal()}, \texttt{sub\_total()} & Giá trị tính được thì tính khi cần, không lưu để tránh sai lệch; giỏ hàng luôn lấy giá hiện tại của sản phẩm. \\
+\texttt{Shipping} & \texttt{Shipment}; phí vận chuyển chuyển sang \texttt{CustomerOrder.shipping\_fee} & Phí là một phần của tổng tiền đơn hàng (BR-05, BR-06). \\
+Chưa có & \texttt{Role}, \texttt{Account}, \texttt{Category}, \texttt{Inventory}, \texttt{StockMovement}, \texttt{Promotion}, \texttt{OrderStatusHistory}, \texttt{Review}, \texttt{SupportRequest}, \texttt{Supplier}, \texttt{RestockRequest}, \texttt{InteractionLog} & Bổ sung 12 lớp để đáp ứng các use case UC-09, UC-11, UC-12, UC-16, UC-21 đến UC-26 và các quy tắc nghiệp vụ ở Chương 1, 2. \\
+Kiểu dữ liệu sơ bộ (\texttt{String}, \texttt{double}) & \texttt{str}, \texttt{int}, \texttt{Decimal} (tiền), \texttt{datetime}, \texttt{date}, \texttt{dict} & Kiểu của ngôn ngữ cài đặt (Python); tiền dùng \texttt{Decimal} để không sai số làm tròn. \\
+\end{longtable}
+
+Kết quả: sơ đồ có \textbf{21 lớp} (9 lớp giữ từ 4.1 và 12 lớp mới) cùng \textbf{12 kiểu liệt kê}.
+
+Sơ đồ lớp thiết kế đầy đủ được trình bày trên một trang ngang riêng ở cuối mục này (Hình~\ref{fig:class-design}).
+
+\subsection{Quy ước ký hiệu}
+
+Thuộc tính ghi dạng \texttt{tên : kiểu}, phương thức ghi dạng \texttt{tên(tham số : kiểu) : kiểu trả về}; thuộc tính ở mức riêng tư (\texttt{-}), phương thức ở mức công khai (\texttt{+}); tên theo \texttt{snake\_case} của Python. Khóa ngoại thể hiện bằng đường quan hệ thay vì thuộc tính; khi cài đặt, công cụ ánh xạ tự sinh cột khóa ngoại ở mục 4.2.
+
+\subsection{Các kiểu liệt kê}
+
+Các trường trạng thái có tập giá trị cố định được mô hình hóa thành kiểu liệt kê, giúp trình biên dịch và kiểm thử phát hiện giá trị sai ngay từ đầu; chúng cũng khớp với các ràng buộc \texttt{CHECK} của cơ sở dữ liệu ở mục 4.2.
+
+\begin{longtable}{p{3.4cm}p{7.4cm}p{5cm}}
+\caption{Các kiểu liệt kê}\\
+\toprule
+\textbf{Kiểu} & \textbf{Giá trị} & \textbf{Liên quan} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{OrderStatus} & PENDING\_PAYMENT, PENDING, CONFIRMED, PACKED, SHIPPING, DELIVERED, CANCELLED & BR-07 \\
+\texttt{PaymentMethod} & COD, ONLINE & BR-04 (hình thức thanh toán của đơn) \\
+\texttt{PaymentChannel} & COD, WALLET, CARD & Kênh thanh toán thực tế của giao dịch \\
+\texttt{PaymentStatus} & PENDING, SUCCESS, FAILED & UC-07 \\
+\texttt{ShipmentStatus} & CREATED, IN\_TRANSIT, DELIVERED, FAILED & UC-14 \\
+\texttt{LoyaltyTier} & NEW, REGULAR, VIP & Thay cho CustomerNew, CustomerVIP \\
+\texttt{ProductStatus} & ACTIVE, HIDDEN & BR-01 \\
+\texttt{DiscountType} & PERCENT, AMOUNT & BR-05 \\
+\texttt{MovementType} & IN, OUT, RETURN, ADJUST & UC-12 \\
+\texttt{SupportStatus} & OPEN, IN\_PROGRESS, RESOLVED & UC-23 \\
+\texttt{RestockStatus} & REQUESTED, CONFIRMED, RECEIVED, REJECTED & UC-22 \\
+\texttt{EventType} & VIEW, SEARCH, ADD\_TO\_CART, PURCHASE, CLICK\_REC & UC-16 \\
+\end{longtable}
+
+\subsection{Thuộc tính và phương thức của các lớp}
+
+Bảng dưới liệt kê thuộc tính và phương thức của 21 lớp miền, chia theo năm nhóm: tài khoản và khách hàng (\texttt{Role} đến \texttt{Address}); danh mục, kho, khuyến mại (\texttt{Category} đến \texttt{Promotion}); giỏ hàng (\texttt{Cart}, \texttt{CartItem}); đơn hàng, thanh toán, vận chuyển (\texttt{CustomerOrder} đến \texttt{Shipment}); đánh giá, hỗ trợ, nhập hàng, AI (\texttt{Review} đến \texttt{InteractionLog}). Kiểu dữ liệu chi tiết xem Hình~\ref{fig:class-design}.
+
+\begin{longtable}{>{\raggedright\arraybackslash\small\bfseries}p{3.3cm}>{\raggedright\arraybackslash\ttfamily\footnotesize}p{6.2cm}>{\raggedright\arraybackslash\ttfamily\footnotesize}p{6.3cm}}
+\caption{Thuộc tính và phương thức của các lớp miền}\\
+\toprule
+\textbf{Lớp} & \multicolumn{1}{l}{\textbf{Thuộc tính}} & \multicolumn{1}{l}{\textbf{Phương thức}} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Role & id, name & --- \\
+Account & id, email, password\_hash, status & is\_active(), lock(), unlock(), verify\_password(raw) \\
+Customer & id, first\_name, middle\_name, last\_name, phone, loyalty\_tier, loyalty\_point & full\_name(), add\_points(points), default\_address() \\
+Address & id, recipient, phone, street, district, city, country, post\_code, is\_default & one\_line() \\
+Category & id, name, description & --- \\
+Product & id, sku, name, description, brand, price, image\_url, attributes, status, created\_at & is\_visible(), in\_stock(quantity), hide(), activate() \\
+Inventory & quantity, min\_threshold & is\_low(), can\_fulfill(quantity) \\
+StockMovement & id, type, quantity, reason, created\_at & --- \\
+Promotion & id, code, discount\_type, discount\_value, min\_order\_value, start\_at, end\_at, active & is\_valid(subtotal, now), compute\_discount(subtotal) \\
+Cart & id, created\_at & add\_item(product, quantity), update\_quantity(product\_id, quantity), remove\_item(product\_id), clear(), subtotal(), is\_empty() \\
+CartItem & quantity & sub\_total() \\
+CustomerOrder & id, ship\_recipient, ship\_phone, ship\_address, subtotal, discount, shipping\_fee, total\_amount, payment\_method, status, created\_at & can\_be\_cancelled(), change\_status(new\_status, actor\_id), item\_count() \\
+OrderItem & quantity, unit\_price & sub\_total() \\
+OrderStatusHistory & id, from\_status, to\_status, changed\_by, changed\_at & --- \\
+Payment & id, method, amount, status, transaction\_id, paid\_at & mark\_success(transaction\_id, at), mark\_failed(), is\_completed() \\
+Shipment & id, carrier, tracking\_number, status, delivery\_date & mark\_in\_transit(), mark\_delivered(on) \\
+Review & id, rating, comment, created\_at & is\_valid\_rating() \\
+SupportRequest & id, content, status, created\_at & assign(account\_id), resolve() \\
+Supplier & id, name, contact & --- \\
+RestockRequest & id, quantity, status, created\_at & confirm(), receive() \\
+InteractionLog & id, event\_type, keyword, created\_at & --- \\
+\end{longtable}
+
+\subsubsection*{Ý nghĩa của các phương thức chính}
+
+\begin{longtable}{p{4.6cm}p{11.2cm}}
+\toprule
+\textbf{Phương thức} & \textbf{Ý nghĩa và yêu cầu liên quan} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{Cart.add\_item()} & UC-05: thêm sản phẩm vào giỏ; nếu sản phẩm đã có thì cộng dồn số lượng. \\
+\texttt{Cart.subtotal()} & Tổng tạm tính của giỏ; đầu vào của bước tính tổng tiền ở UC-06. \\
+\texttt{Product.in\_stock()}, \texttt{Inventory.can\_fulfill()} & Kiểm tra còn đủ hàng (\texttt{Validate Shopping Cart}, UC-06, UC-04). \\
+\texttt{Inventory.is\_low()} & Phát hiện hàng dưới ngưỡng tối thiểu để cảnh báo (BR-11, FR-31). \\
+\texttt{Promotion.is\_valid()}, \texttt{Promotion.compute\_discount()} & Kiểm tra mã còn hiệu lực, đạt giá trị tối thiểu và tính tiền giảm (BR-05, luồng rẽ A3 của UC-06). \\
+\texttt{CustomerOrder.can\_be\_cancelled()} & Chỉ cho hủy khi đơn chưa được đóng gói (BR-08). \\
+\texttt{CustomerOrder.change\_status()} & Đổi trạng thái đơn và ghi một bản ghi \texttt{OrderStatusHistory} (BR-07, FR-34). \\
+\texttt{Payment.mark\_success()} & Ghi nhận thanh toán thành công và bỏ qua nếu mã giao dịch đã được xử lý (UC-07, luồng rẽ A3). \\
+\texttt{Account.verify\_password()} & So khớp mật khẩu với bản băm, không lưu mật khẩu thô (NFR-03). \\
+\texttt{Customer.full\_name()} & Ghép họ tên, thay cho lớp \texttt{FullName} ở mục 4.1. \\
+\texttt{Review.is\_valid\_rating()} & Điểm đánh giá từ 1 đến 5 (BR-09). \\
+\end{longtable}
+
+\subsection{Quan hệ giữa các lớp}
+
+Sơ đồ thiết kế có 26 quan hệ, khớp với các khóa ngoại ở mục 4.2 (bảng Quan hệ giữa các bảng). Các quan hệ composition (thành phần bị xóa theo lớp cha) gồm \texttt{Cart}--\texttt{CartItem}, \texttt{Product}--\texttt{Inventory}, \texttt{CustomerOrder}--\texttt{OrderItem} và \texttt{CustomerOrder}--\texttt{OrderStatusHistory}; các quan hệ còn lại là association.
+
+\textbf{Hướng điều hướng.} Với quan hệ composition, lớp cha biết lớp con (ví dụ \texttt{Cart} chứa danh sách \texttt{CartItem}; \texttt{CustomerOrder} chứa \texttt{OrderItem} và \texttt{OrderStatusHistory}). Với các quan hệ còn lại, lớp ở phía ``nhiều'' luôn biết lớp ở phía ``một'' (tương ứng khóa ngoại ở mục 4.2); chiều ngược lại chỉ được thêm khi use case cần, ví dụ \texttt{Customer.addresses} để lấy sổ địa chỉ, \texttt{CustomerOrder.payment} để xem trạng thái thanh toán.
+
+\clearpage
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \IfFileExists{class-design.png}{%
+    \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{class-design.png}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{4cm}\textit{[Chen hinh: class-design.png]}\vspace{4cm}}}}
+  \caption{Sơ đồ lớp thiết kế (tổng thể)}\label{fig:class-design}
+\end{figure}
+\end{landscape}
+\clearpage
+
+\subsection{Giải thích các quyết định thiết kế}
+
+\begin{enumerate}
+  \item \textbf{Quy tắc chỉ liên quan một lớp nằm trong lớp miền:} \texttt{Promotion.is\_valid()} (BR-05), \texttt{CustomerOrder.can\_be\_cancelled()} (BR-08), \texttt{Inventory.is\_low()} (BR-11), \texttt{Product.is\_visible()} (BR-01); mỗi quy tắc có đúng một nơi để sửa và dễ kiểm thử độc lập.
+  \item \textbf{Giá trị tính được thành phương thức} (\texttt{subtotal()}, \texttt{sub\_total()}) để tổng tiền luôn khớp các dòng hàng; \textbf{giá được chốt trong} \texttt{OrderItem.unit\_price}, còn \texttt{CartItem} không có đơn giá nên giỏ phản ánh giá hiện tại (BR-05).
+  \item \textbf{Nghiệp vụ liên quan nhiều lớp thuộc lớp dịch vụ.} Đặt hàng (kiểm tra giỏ, trừ kho, tạo đơn, ghi lịch sử, làm trống giỏ trong một giao dịch) do \texttt{CheckoutService} thực hiện ở mục 4.4; quyền chuyển trạng thái được kiểm tra ở lớp dịch vụ theo bảng chuyển trạng thái, còn \texttt{CustomerOrder.change\_status()} chỉ đổi trạng thái và ghi lịch sử.
+  \item \textbf{Kiểu liệt kê thay cho chuỗi tự do} để tránh sai chính tả và khớp ràng buộc \texttt{CHECK} ở cơ sở dữ liệu.
+  \item \textbf{Không dùng kế thừa cho dữ liệu thay đổi:} loại khách hàng, loại thanh toán, ngành hàng biểu diễn bằng thuộc tính hoặc quan hệ; kế thừa chỉ nên dùng khi các lớp con có hành vi khác nhau, điều chưa xảy ra trong phạm vi này.
+\end{enumerate}
+
+\subsection{Kết luận mục 4.3}
+
+Sơ đồ lớp thiết kế gồm 21 lớp miền, 12 kiểu liệt kê và 26 quan hệ, khớp từng lớp với bảng ở mục 4.2 và từng quy tắc nghiệp vụ với một phương thức hoặc ràng buộc cụ thể. Các lớp này là nền tảng để mục 4.4 bổ sung các tầng dịch vụ, truy xuất dữ liệu và giao diện, và là đầu vào để sinh khung mã nguồn ở mục 4.5.
+
+
+\section{Layers, Classes and Relationships}
+\subsection{Purpose and architecture style}
+Mục này tổ chức các lớp ở 4.3 vào kiến trúc \textbf{phân tầng (layered architecture)} gồm 4 tầng: Presentation, Business, Persistence, Domain; dữ liệu nằm ở MySQL (\texttt{abc\_shop}, mục 4.2). Mục tiêu: tách giao diện, luật nghiệp vụ và truy cập dữ liệu để dễ kiểm thử, dễ thay đổi (NFR về bảo trì), và để mỗi luật BR chỉ nằm ở một nơi.
+\subsection{Layer overview}
+\begin{longtable}{@{}p{2.8cm}p{3.2cm}p{9.2cm}@{}}\toprule \textbf{Tầng} & \textbf{Package Python} & \textbf{Trách nhiệm}\\\midrule\endhead
+Presentation & \texttt{abc\_shop/presentation} & Nhận request HTTP, kiểm tra đầu vào, gọi service, trả JSON/mã lỗi. Không chứa luật nghiệp vụ.\\\midrule
+Business & \texttt{abc\_shop/business} & Chứa luật nghiệp vụ BR-01..BR-11, điều phối giao dịch (một service method = một transaction).\\\midrule
+Persistence & \texttt{abc\_shop/persistence} & Truy cập MySQL qua SQLAlchemy; mỗi repository ứng với một nhóm bảng. Không chứa luật nghiệp vụ.\\\midrule
+Domain & \texttt{abc\_shop/domain} & 21 lớp thực thể ở mục 4.3 (SQLAlchemy models) cùng các phương thức thuộc về chính đối tượng.\\\midrule
+\bottomrule\end{longtable}
+
+\clearpage
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \IfFileExists{layers.png}{%
+    \includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{layers.png}}{%
+    \fbox{\parbox{0.8\linewidth}{\centering\vspace{4cm}\textit{[Chen hinh: layers.png]}\vspace{4cm}}}}
+  \caption{Kiến trúc phân tầng của ABC Online Shop}\label{fig:layers}
+\end{figure}
+\end{landscape}
+\clearpage
+
+\subsection{Dependency rules}
+\begin{enumerate}\item Phụ thuộc chỉ đi \textbf{từ trên xuống}: Presentation $\to$ Business $\to$ Persistence $\to$ MySQL.\item Tầng Domain được mọi tầng sử dụng nhưng \textbf{không phụ thuộc} tầng nào (không biết Flask hay Service).\item Controller không gọi Repository trực tiếp; mọi truy cập dữ liệu đi qua Service.\item Service là biên giới transaction: mỗi phương thức public được gắn decorator \texttt{@transactional}: thành công thì commit, lỗi thì rollback.\item Lỗi nghiệp vụ là các \texttt{BusinessError}; Controller chuyển thành mã HTTP (400/403/404/409).\item Service nhận Repository qua constructor (dependency injection) để thay bằng đối tượng giả khi kiểm thử; \texttt{PricingCalculator} và \texttt{OrderStatusPolicy} là lớp tiện ích thuần, không truy cập CSDL (BR-04, BR-05, BR-07); \texttt{PaymentService} gọi \texttt{OrderService} để dùng chung luật chuyển trạng thái.\end{enumerate}
+\subsection{Presentation layer classes}
+\begin{longtable}{@{}>{\raggedright\arraybackslash\small\bfseries}p{3.4cm}>{\raggedright\arraybackslash\ttfamily\footnotesize}p{7.2cm}>{\raggedright\arraybackslash\footnotesize}p{4.6cm}@{}}\toprule Lớp & Phương thức / endpoint & Phụ thuộc (dùng)\\\midrule\endhead
+ProductController & GET /api/products \newline GET /api/products/\{id\} & ProductService\\\midrule
+CartController & GET /api/cart \newline POST /api/cart/items \newline PATCH /api/cart/items/\{id\} \newline DELETE /api/cart/items/\{id\} & CartService\\\midrule
+OrderController & POST /api/orders \newline GET /api/orders \newline PATCH /api/orders/\{id\}/status \newline POST /api/orders/\{id\}/cancel & CheckoutService, OrderService\\\midrule
+PaymentController & POST /api/payments/callback & PaymentService\\\midrule
+InventoryController & GET /api/inventory/low-stock \newline POST /api/inventory/\{id\}/restock & InventoryService\\\midrule
+\bottomrule\end{longtable}
+\subsection{Business layer classes}
+\begin{longtable}{@{}>{\raggedright\arraybackslash\small\bfseries}p{3.4cm}>{\raggedright\arraybackslash\ttfamily\footnotesize}p{7.2cm}>{\raggedright\arraybackslash\footnotesize}p{4.6cm}@{}}\toprule Lớp & Phương thức / endpoint & Phụ thuộc (dùng)\\\midrule\endhead
+ProductService & search(keyword, category\_id, min\_price, max\_price, sort, page, size) : tuple[list[Product], int] \newline get\_detail(product\_id) : Product & ProductRepository\\\midrule
+CartService & view(customer\_id) : Cart \newline add\_item(customer\_id, product\_id, qty) : Cart \newline update\_quantity(customer\_id, product\_id, qty) : Cart \newline remove\_item(customer\_id, product\_id) : Cart & CartRepository, ProductRepository, InventoryRepository\\\midrule
+CheckoutService & place\_order(customer\_id, address\_id, method, promo\_code) : CustomerOrder & CartRepository, AddressRepository, PromotionRepository, InventoryRepository, OrderRepository, PricingCalculator\\\midrule
+OrderService & change\_status(order\_id, new\_status, actor) : CustomerOrder \newline cancel(order\_id, customer\_id) : CustomerOrder \newline list\_for\_customer(customer\_id) : list[CustomerOrder] \newline expire\_unpaid(now) : int & OrderRepository, InventoryRepository, OrderStatusPolicy\\\midrule
+PaymentService & handle\_callback(order\_id, transaction\_id, status) : Payment & PaymentRepository, OrderRepository, OrderService\\\midrule
+InventoryService & low\_stock\_report() : list[Inventory] \newline restock(product\_id, qty, staff\_id) : Inventory & InventoryRepository\\\midrule
+PricingCalculator & subtotal(lines) : Decimal \newline discount(promo, subtotal, now) : Decimal \newline shipping\_fee(subtotal) : Decimal \newline total(subtotal, discount, shipping) : Decimal & ---\\\midrule
+OrderStatusPolicy & can\_transition(actor, current, target) : bool & ---\\\midrule
+BusinessError & NotFound \newline Forbidden \newline OutOfStock \newline InvalidTransition & ---\\\midrule
+Actor & role : str \newline account\_id : int & ---\\\midrule
+\bottomrule\end{longtable}
+\subsection{Persistence layer classes}
+\begin{longtable}{@{}>{\raggedright\arraybackslash\small\bfseries}p{3.4cm}>{\raggedright\arraybackslash\ttfamily\footnotesize}p{7.2cm}>{\raggedright\arraybackslash\footnotesize}p{4.6cm}@{}}\toprule Lớp & Phương thức / endpoint & Phụ thuộc (dùng)\\\midrule\endhead
+ProductRepository & get(id) : Product \newline search(...) : list[Product] & Product\\\midrule
+InventoryRepository & try\_decrease(product\_id, qty) : bool \newline increase(product\_id, qty) : None \newline log(...) : None \newline low\_stock() : list[Inventory] & Inventory\\\midrule
+CartRepository & get\_by\_customer(customer\_id) : Cart & Cart\\\midrule
+AddressRepository & get\_for\_customer(address\_id, customer\_id) : Address & Address\\\midrule
+PromotionRepository & find\_by\_code(code) : Promotion & Promotion\\\midrule
+OrderRepository & add(order) \newline get(id, lock) : CustomerOrder \newline list\_by\_customer(id) \newline list\_by\_status(s) \newline unpaid\_before(cutoff) \newline add\_history(...) & CustomerOrder\\\midrule
+PaymentRepository & by\_order(order\_id) : Payment \newline by\_transaction(txn) : Payment & Payment\\\midrule
+Database & engine \newline new\_session() : Session & ---\\\midrule
+\bottomrule\end{longtable}
+\subsection{Key collaboration: place an order}
+\begin{enumerate}\item \texttt{OrderController} nhận \texttt{POST /api/orders}, gọi \texttt{CheckoutService.place\_order}.\item Service lấy giỏ (\texttt{CartRepository}), địa chỉ (\texttt{AddressRepository}), khuyến mãi (\texttt{PromotionRepository}).\item Với từng dòng, \texttt{InventoryRepository.try\_decrease} trừ kho nguyên tử; nếu thất bại ném \texttt{OutOfStock} và rollback toàn bộ.\item \texttt{PricingCalculator} tính tạm tính, giảm giá, phí giao, tổng (đơn giá được chụp lại vào \texttt{OrderItem}).\item \texttt{OrderRepository.add} lưu đơn kèm lịch sử trạng thái; giỏ được xóa; commit.\item Controller trả \texttt{201} cùng thông tin đơn.\end{enumerate}
+\subsection{Design decisions}
+\begin{itemize}\item \textbf{Repository tách khỏi Service}: đổi CSDL hoặc ORM không ảnh hưởng luật nghiệp vụ.\item \textbf{Service theo ca sử dụng}: CheckoutService, OrderService\ldots tương ứng nhóm UC ở Chương 2.\item \textbf{Luật nhiều thực thể đặt ở Service}, luật một thực thể đặt ở Domain (nhất quán với 4.3).\item \textbf{Trừ kho nguyên tử trong Repository}, tránh bán vượt tồn khi nhiều khách đặt cùng lúc.\item \textbf{Xác thực} mô phỏng bằng header trong bản mẫu; Chương 5 thay bằng đăng nhập thật mà không đổi tầng Business.\end{itemize}
+\subsection{Conclusion}
+Kiến trúc 4 tầng gồm 5 controller, 8 lớp nghiệp vụ và tiện ích, 7 repository cùng 21 lớp domain. Đây là cơ sở để sinh khung mã và cài đặt ở mục 4.5.
+
+
+\section{Generate Code}
+\subsection{Approach}
+Mã nguồn được sinh và hoàn thiện từ sơ đồ 4.4 theo ba bước: (1) trong Visual Paradigm dùng \emph{Instant Generator} (Tools $\rightarrow$ Code $\rightarrow$ Instant Generator $\rightarrow$ Python) trên sơ đồ lớp tầng để sinh khung lớp và phương thức; (2) ánh xạ lớp thực thể của 4.3 sang SQLAlchemy ORM khớp với 21 bảng của \texttt{schema.sql} (4.2); (3) viết thân phương thức theo luật nghiệp vụ BR-01..BR-11 và kiểm thử bằng \texttt{pytest} trên cơ sở dữ liệu MySQL thật.
+\textbf{Công nghệ:} Python 3.11, Flask (tầng Presentation), SQLAlchemy 2 và PyMySQL (tầng Persistence), MySQL 8 (CSDL), pytest (kiểm thử).
+\subsection{Package and class structure}
+\begin{lstlisting}[language={},caption={Cấu trúc thư mục dự án},label={lst:tree}]
+abc-shop/
+|-- README.md, requirements.txt
+|-- sql/schema.sql                   # 21 tables + sample data (4.2)
+|-- abc_shop/
+|   |-- config.py                    # DB url, shipping fee, unpaid timeout
+|   |-- main.py, seed.py
+|   |-- presentation/                # TANG 1: Flask
+|   |   |-- app.py  controllers.py  auth.py  serializers.py  wiring.py
+|   |-- business/                    # TANG 2: luat nghiep vu
+|   |   |-- product_service.py  cart_service.py  checkout_service.py
+|   |   |-- order_service.py  payment_service.py  inventory_service.py
+|   |   |-- pricing.py  order_status.py  actor.py  transaction.py  exceptions.py
+|   |-- persistence/                 # TANG 3: truy cap MySQL
+|   |   |-- database.py  repositories.py
+|   |-- domain/                      # TANG 4: thuc the
+|       |-- enums.py  models.py
+|-- tests/  conftest.py  test_domain.py  test_api.py
+\end{lstlisting}
+
+\subsection{Domain layer code}
+Mỗi lớp của 4.3 là một lớp Python ánh xạ sang một bảng; phương thức nghiệp vụ của một đối tượng nằm ngay trong lớp. Các đoạn mã trong mục này đã được rút gọn (lược bỏ khai báo cột, hàm khởi tạo và các phương thức tương tự).
+\begin{lstlisting}[language=Python,caption={Inventory và Cart (rút gọn từ models.py)},label={lst:domain1}]
+class Inventory(Base):
+    __tablename__ = "inventory"
+    product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id"), primary_key=True)
+    quantity: Mapped[int] = mapped_column(Integer, default=0)
+    min_threshold: Mapped[int] = mapped_column(Integer, default=5)
+
+    product: Mapped[Product] = relationship(back_populates="inventory")
+
+    def is_low(self) -> bool:                        # BR-11
+        return self.quantity <= self.min_threshold
+
+    def can_fulfill(self, quantity: int) -> bool:
+        return self.quantity >= quantity
+
+class Cart(Base):
+    __tablename__ = "cart"
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    customer_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("customer.id"), unique=True)
+
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    items: Mapped[list["CartItem"]] = relationship(back_populates="cart", cascade="all, delete-orphan")
+
+    def add_item(self, product: Product, quantity: int) -> None:
+        for it in self.items:
+            if it.product_id == product.id:
+                it.quantity += quantity
+                return
+        self.items.append(CartItem(product_id=product.id, product=product, quantity=quantity))
+
+    # update_quantity(), remove_item(), clear(): omitted
+
+    def subtotal(self) -> Decimal:
+        return sum((it.sub_total() for it in self.items), Decimal("0"))
+
+    def is_empty(self) -> bool:
+        return not self.items
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={CustomerOrder: luật hủy đơn và ghi lịch sử trạng thái},label={lst:domain2}]
+class CustomerOrder(Base):
+    __tablename__ = "customer_order"
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    # columns: customer_id, promotion_id, ship_recipient, ship_phone, ship_address,
+    #          subtotal, discount, shipping_fee, total_amount, payment_method, status, created_at
+
+    items: Mapped[list["OrderItem"]] = relationship(back_populates="order", cascade="all, delete-orphan")
+    history: Mapped[list["OrderStatusHistory"]] = relationship(back_populates="order", cascade="all, delete-orphan")
+    payment: Mapped[Optional["Payment"]] = relationship(back_populates="order", uselist=False)
+    shipment: Mapped[Optional["Shipment"]] = relationship(back_populates="order", uselist=False)
+
+    def can_be_cancelled(self) -> bool:              # BR-08: before the parcel is handed to the carrier
+        return self.status in (OrderStatus.PENDING_PAYMENT.value, OrderStatus.PENDING.value,
+                               OrderStatus.CONFIRMED.value)
+
+    def change_status(self, new_status: OrderStatus, actor_id: Optional[int]) -> None:
+        """Record the transition; whether the actor is allowed is decided by OrderStatusPolicy."""
+        self.history.append(OrderStatusHistory(from_status=self.status, to_status=new_status.value,
+                                               changed_by=actor_id))
+        self.status = new_status.value
+
+    def item_count(self) -> int:
+        return sum(i.quantity for i in self.items)
+\end{lstlisting}
+
+\subsection{Persistence layer code}
+Chỉ tầng này chứa truy vấn. Trừ kho bằng một câu lệnh UPDATE có điều kiện nên không bán vượt tồn dù nhiều khách đặt cùng lúc (NFR-15).
+\begin{lstlisting}[language=Python,caption={InventoryRepository},label={lst:persist}]
+class InventoryRepository:
+    def __init__(self, s: Session):
+        self.s = s
+
+    def try_decrease(self, product_id: int, qty: int) -> bool:
+        """Atomic conditional update: no overselling even with concurrent orders (NFR-15)."""
+        res = self.s.execute(
+            update(Inventory)
+            .where(Inventory.product_id == product_id, Inventory.quantity >= qty)
+            .values(quantity=Inventory.quantity - qty)
+        )
+        return res.rowcount == 1
+
+    # increase(), log(), low_stock(): omitted
+\end{lstlisting}
+
+\subsection{Business layer code}
+\begin{lstlisting}[language=Python,caption={OrderStatusPolicy: ai được chuyển trạng thái nào (BR-07)},label={lst:policy}]
+S = OrderStatus
+
+# actor -> set of (from, to) it may perform  (FR-34, NFR-06)
+ALLOWED = {
+    "CUSTOMER":  {(S.PENDING_PAYMENT, S.CANCELLED), (S.PENDING, S.CANCELLED), (S.CONFIRMED, S.CANCELLED)},
+    "SERVICE":   {(S.PENDING, S.CONFIRMED), (S.PENDING, S.CANCELLED), (S.CONFIRMED, S.CANCELLED)},
+    "WAREHOUSE": {(S.CONFIRMED, S.PACKED)},
+    "SHIPPING":  {(S.PACKED, S.SHIPPING), (S.SHIPPING, S.DELIVERED), (S.SHIPPING, S.CANCELLED)},
+    "SYSTEM":    {(S.PENDING_PAYMENT, S.PENDING), (S.PENDING_PAYMENT, S.CANCELLED)},
+}
+
+
+class OrderStatusPolicy:
+    """Who may move an order from one status to another."""
+
+    @staticmethod
+    def can_transition(actor: str, current: OrderStatus, target: OrderStatus) -> bool:
+        return (current, target) in ALLOWED.get(actor, set())
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={Decorator @transactional},label={lst:tx}]
+"""Every public service method is one database transaction: commit on success, rollback on any error."""
+from functools import wraps
+
+
+def transactional(method):
+    @wraps(method)
+    def wrapper(self, *args, **kwargs):
+        try:
+            result = method(self, *args, **kwargs)
+            self.session.commit()
+            return result
+        except Exception:
+            self.session.rollback()
+            raise
+    return wrapper
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={CheckoutService.place\_order: một giao dịch cho toàn bộ quy trình đặt hàng},label={lst:checkout}]
+class CheckoutService:
+    """UC-05 Place order. One transaction: reserve stock -> price -> save order -> clear cart.
+    If any line is out of stock the whole transaction is rolled back (BR-02, BR-03)."""
+
+    # __init__: receives the session and the repositories (dependency injection)
+
+    @transactional
+    def place_order(self, customer_id: int, address_id: int, method: PaymentMethod,
+                    promo_code: Optional[str] = None, now: Optional[datetime] = None) -> CustomerOrder:
+        now = now or datetime.now()
+        cart = self.carts.get_by_customer(customer_id)
+        if cart is None or cart.is_empty():
+            raise BusinessError("Cart is empty")
+        address = self.addresses.get_for_customer(address_id, customer_id)
+        if address is None:
+            raise NotFound("Delivery address not found")
+        promo = None
+        if promo_code:
+            promo = self.promotions.find_by_code(promo_code)
+
+        lines = sorted(cart.items, key=lambda i: i.product_id)      # fixed order avoids deadlocks
+        for it in lines:
+            if not it.product.is_visible():
+                raise BusinessError(f"{it.product.name} is no longer available")
+            if not self.inventory.try_decrease(it.product_id, it.quantity):
+                raise OutOfStock(f"{it.product.name}: not enough stock")
+
+        subtotal = cart.subtotal()
+        if promo_code and (promo is None or not promo.is_valid(subtotal, now)):
+            raise BusinessError("Promotion code is not valid")
+        discount = self.pricing.discount(promo, subtotal, now)
+        shipping = self.pricing.shipping_fee(subtotal)
+        initial = OrderStatus.PENDING_PAYMENT if method == PaymentMethod.ONLINE else OrderStatus.PENDING
+
+        order = CustomerOrder(
+            customer_id=customer_id, promotion_id=promo.id if promo and discount else None,
+            ship_recipient=address.recipient, ship_phone=address.phone, ship_address=address.one_line(),
+            subtotal=subtotal, discount=discount, shipping_fee=shipping,
+            total_amount=self.pricing.total(subtotal, discount, shipping),
+            payment_method=method.value, status=initial.value,
+        )
+        for it in lines:                                            # price snapshot (BR-03)
+            order.items.append(OrderItem(product_id=it.product_id, quantity=it.quantity,
+                                         unit_price=it.product.price))
+        order.history.append(OrderStatusHistory(from_status=None, to_status=initial.value, changed_by=customer_id))
+        order.payment = Payment(method="CARD" if method == PaymentMethod.ONLINE else "COD",
+                                amount=order.total_amount)
+        self.orders.add(order)
+        for it in lines:
+            self.inventory.log(it.product_id, MovementType.OUT.value, it.quantity, "ORDER", order.id)
+        cart.clear()
+        return order
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={OrderService: đổi trạng thái, hủy đơn, tự hủy đơn chưa thanh toán},label={lst:orderservice}]
+class OrderService:
+    """UC-08 Track orders, UC-09 Cancel order, UC-10..12 Process order (BR-07, BR-08)."""
+
+    # __init__, list_for_customer(), _get_locked() (row lock): omitted
+
+    def _apply(self, order: CustomerOrder, new_status: OrderStatus, actor: Actor) -> None:
+        current = OrderStatus(order.status)
+        if not self.policy.can_transition(actor.role, current, new_status):
+            raise InvalidTransition(f"{actor.role} cannot change {current.value} -> {new_status.value}")
+        order.change_status(new_status, actor.account_id)
+        if new_status == OrderStatus.CANCELLED:                     # give the stock back
+            for it in order.items:
+                self.inventory.increase(it.product_id, it.quantity)
+                self.inventory.log(it.product_id, MovementType.RETURN.value, it.quantity, "CANCEL", order.id)
+
+    @transactional
+    def change_status(self, order_id: int, new_status: OrderStatus, actor: Actor) -> CustomerOrder:
+        order = self._get_locked(order_id)
+        self._apply(order, new_status, actor)
+        return order
+
+    @transactional
+    def cancel(self, order_id: int, customer_id: int) -> CustomerOrder:
+        order = self._get_locked(order_id)
+        if order.customer_id != customer_id:
+            raise Forbidden("This is not your order")
+        if not order.can_be_cancelled():
+            raise InvalidTransition("The order can no longer be cancelled")
+        self._apply(order, OrderStatus.CANCELLED, Actor("CUSTOMER", customer_id))
+        return order
+
+    @transactional
+    def expire_unpaid(self, now: Optional[datetime] = None) -> int:
+        """Run by a scheduler: cancel online orders unpaid for 15 minutes (BR-04)."""
+        now = now or datetime.now()
+        cutoff = now - timedelta(minutes=config.UNPAID_ORDER_TIMEOUT_MINUTES)
+        expired = self.orders.unpaid_before(cutoff)
+        for order in expired:
+            self._apply(self._get_locked(order.id), OrderStatus.CANCELLED, SYSTEM)
+        return len(expired)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,caption={PaymentService: callback thanh toán idempotent},label={lst:payservice}]
+class PaymentService:
+    """UC-07 Pay online. The gateway callback is idempotent: the same transaction_id is applied once."""
+
+    # __init__: receives the session, the repositories and OrderService
+
+    @transactional
+    def handle_callback(self, order_id: int, transaction_id: str, status: PaymentStatus,
+                        now: Optional[datetime] = None) -> Payment:
+        known = self.payments.by_transaction(transaction_id)
+        if known is not None:                                       # duplicate callback -> no effect
+            return known
+        payment = self.payments.by_order(order_id)
+        if payment is None:
+            raise NotFound("Payment not found")
+        order = self.order_service._get_locked(order_id)
+        if status == PaymentStatus.SUCCESS:
+            payment.mark_success(transaction_id, now or datetime.now())
+            self.order_service._apply(order, OrderStatus.PENDING, SYSTEM)
+        else:
+            payment.mark_failed()                                   # customer may retry before timeout
+        return payment
+\end{lstlisting}
+
+\subsection{Presentation layer code}
+Tầng Presentation gồm 5 controller đăng ký route Flask, dùng \texttt{@require\_role} để xác thực mô phỏng và kiểm tra vai trò, gọi service rồi trả JSON; \texttt{create\_app} mở session theo request và chuyển \texttt{BusinessError} thành mã HTTP. Các endpoint được tóm tắt trong bảng sau.
+\begin{longtable}{@{}p{1.6cm}p{5.6cm}p{2.8cm}p{5.2cm}@{}}\toprule \textbf{HTTP} & \textbf{Đường dẫn} & \textbf{Vai trò} & \textbf{Use case / service}\\\midrule\endhead
+GET & \texttt{/api/products, /api/products/\{id\}} & Mọi người & UC-01, UC-02 / ProductService\\\midrule
+GET POST PATCH DELETE & \texttt{/api/cart, /api/cart/items[/\{id\}]} & CUSTOMER & UC-03 / CartService\\\midrule
+POST & \texttt{/api/orders} & CUSTOMER & UC-05 / CheckoutService\\\midrule
+GET & \texttt{/api/orders} & CUSTOMER & UC-08 / OrderService\\\midrule
+POST & \texttt{/api/orders/\{id\}/cancel} & CUSTOMER & UC-09 / OrderService\\\midrule
+PATCH & \texttt{/api/orders/\{id\}/status} & SERVICE, WAREHOUSE, SHIPPING & UC-10..12 / OrderService\\\midrule
+POST & \texttt{/api/payments/callback} & Cổng thanh toán & UC-07 / PaymentService\\\midrule
+GET POST & \texttt{/api/inventory/low-stock, /api/inventory/\{id\}/restock} & WAREHOUSE, ADMIN & UC-13, UC-14 / InventoryService\\\midrule
+\bottomrule\end{longtable}
+\subsection{Build and run}
+\begin{lstlisting}[language=bash,caption={Các lệnh cài đặt và chạy},label={lst:run}]
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+mysql -u root -p < sql/schema.sql          # tao database abc_shop + du lieu mau
+export DATABASE_URL='mysql+pymysql://root:PASSWORD@localhost:3306/abc_shop?charset=utf8mb4'
+python -m abc_shop.seed                    # dat mat khau mau
+python -m abc_shop.main                    # http://127.0.0.1:5000
+\end{lstlisting}
+
+\vpfigure[0.9]{api-demo.png}{Gọi thử API (curl hoặc Postman): thêm vào giỏ và đặt hàng}{fig:api-demo}
+\subsection{Testing}
+Bộ kiểm thử gồm 23 test chạy trên MySQL thật (cơ sở dữ liệu \texttt{abc\_shop\_test} được dựng lại từ \texttt{schema.sql} cho mỗi test), gồm 7 test đơn vị cho lớp domain và 16 test tích hợp qua HTTP.
+\begin{longtable}{@{}p{6.6cm}p{8.6cm}@{}}\toprule \textbf{Test} & \textbf{Luật được kiểm tra}\\\midrule\endhead
+\texttt{test\_cart\_rejects\_more\_than\_stock} & BR-02: số lượng trong giỏ không vượt tồn kho\\\midrule
+\texttt{test\_place\_cod\_order\_...} & Đặt hàng COD trừ kho và xóa giỏ\\\midrule
+\texttt{test\_online\_order\_waits\_for\_payment} & Đơn ONLINE ở trạng thái PENDING\_PAYMENT\\\midrule
+\texttt{test\_checkout\_rolls\_back\_...} & Một dòng hết hàng thì hủy cả giao dịch\\\midrule
+\texttt{test\_only\_last\_units\_are\_sold\_under\_concurrency} & 6 khách tranh 3 sản phẩm cuối: đúng 3 thành công, tồn không âm\\\midrule
+\texttt{test\_promotion\_and\_shipping\_are\_applied} & BR-05, BR-06: giảm giá và phí giao\\\midrule
+\texttt{test\_customer\_cancel\_restores\_stock} & BR-08: hủy đơn hoàn kho\\\midrule
+\texttt{test\_status\_flow\_and\_invalid\_transitions} & BR-07: chỉ chuyển trạng thái hợp lệ theo vai trò\\\midrule
+\texttt{test\_payment\_callback\_is\_idempotent} & Callback trùng không xử lý hai lần\\\midrule
+\texttt{test\_unpaid\_online\_orders\_expire\_...} & BR-04: quá 15 phút tự hủy và hoàn kho\\\midrule
+\texttt{test\_wrong\_role\_and\_no\_login} & 401 khi chưa đăng nhập, 403 khi sai vai trò\\\midrule
+\texttt{test\_low\_stock\_report\_for\_warehouse} & BR-11: báo cáo tồn thấp\\\midrule
+\bottomrule\end{longtable}
+Kết quả chạy \texttt{pytest -v}: \textbf{23 passed in 5.04s} (Hình~\ref{fig:pytest}).
+
+\vpfigure[0.9]{pytest-result.png}{Ảnh chụp kết quả chạy pytest}{fig:pytest}
+\subsection{Conclusion}
+Mã nguồn gồm 5 controller, 6 service, 7 repository và 21 lớp thực thể, tổ chức đúng 4 tầng của mục 4.4, và vượt qua 23 test. Các giới hạn của bản mẫu: xác thực mô phỏng bằng header (thay bằng đăng nhập thật ở Chương 5), chưa có giao diện web, cổng thanh toán được giả lập qua callback.
+
+
+\chapter{CODE AND IMPLEMENTATION}
+
+Chương này trình bày kết quả cài đặt hệ thống ABC Online Shop theo thiết kế ở Chương 4. Do giới hạn của báo cáo cá nhân, chương chỉ minh họa năm nhóm giao diện chính của khách hàng: \textbf{trang chủ, sản phẩm, giỏ hàng, thanh toán và hồ sơ cá nhân}. Với mỗi giao diện, báo cáo nêu use case liên quan, các thành phần trên màn hình, luồng xử lý, quy tắc nghiệp vụ được áp dụng và các lớp ở từng tầng tham gia xử lý.
+
+\section{Development Environment}
+
+\begin{longtable}{@{}p{4.2cm}p{11.2cm}@{}}
+\toprule
+\textbf{Thành phần} & \textbf{Công nghệ sử dụng} \\
+\midrule
+\endhead
+Ngôn ngữ lập trình & Python 3.11 \\
+Khung ứng dụng web (Presentation) & Flask 3 \\
+Truy cập dữ liệu (Persistence) & SQLAlchemy 2, PyMySQL \\
+Cơ sở dữ liệu & MySQL 8, lược đồ \texttt{abc\_shop} ở mục 4.2 \\
+Giao diện người dùng & HTML, CSS, JavaScript \\
+Kiểm thử & pytest (23 test ở mục 4.5), kiểm thử thủ công giao diện \\
+Công cụ & Visual Paradigm (sơ đồ), Overleaf (báo cáo), Git \\
+\bottomrule
+\end{longtable}
+
+\section{Implementation Overview}
+
+Mỗi giao diện gọi đến các đường dẫn API của tầng Presentation; controller gọi service, service dùng repository để truy cập MySQL (mục 4.4). Bảng dưới liệt kê sự tương ứng giữa giao diện, use case và mã nguồn.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}
+\toprule
+\textbf{Giao diện} & \textbf{Use case} & \textbf{API chính} & \textbf{Lớp xử lý} \\
+\midrule
+\endhead
+Trang chủ & UC-02, UC-03 & \texttt{GET /api/products} & \texttt{ProductController}, \texttt{ProductService}, \texttt{ProductRepository} \\
+Sản phẩm & UC-02, UC-03, UC-04 & \texttt{GET /api/products}, \texttt{GET /api/products/\{id\}} & như trên \\
+Giỏ hàng & UC-05 & \texttt{GET /api/cart}, \texttt{POST /api/cart/items}, \texttt{PATCH}, \texttt{DELETE /api/cart/items/\{id\}} & \texttt{CartController}, \texttt{CartService}, \texttt{CartRepository} \\
+Thanh toán & UC-06, UC-07 & \texttt{POST /api/orders}, \texttt{POST /api/payments/callback} & \texttt{OrderController}, \texttt{CheckoutService}, \texttt{PaymentService}, \texttt{PricingCalculator} \\
+Hồ sơ cá nhân & UC-08, UC-25, UC-26 & \texttt{GET /api/orders}, \texttt{POST /api/orders/\{id\}/cancel} & \texttt{OrderService}, \texttt{Customer}, \texttt{Address} \\
+\bottomrule
+\end{longtable}
+
+\section{Home Page}
+
+Trang chủ là điểm vào của hệ thống, giúp khách vãng lai và khách hàng tìm sản phẩm nhanh, xem ngành hàng và sản phẩm nổi bật (UC-02, UC-03; FR-02, FR-03).
+
+\begin{itemize}
+  \item \textbf{Thành phần:} thanh đầu trang (logo, ô tìm kiếm, đăng nhập/đăng ký, giỏ hàng kèm số lượng); danh sách ngành hàng lấy từ bảng \texttt{category}; banner và mã giảm giá đang hiệu lực (ví dụ \texttt{WELCOME10}); lưới sản phẩm nổi bật/mới (ảnh, tên, giá, nút xem chi tiết hoặc thêm vào giỏ); chân trang.
+  \item \textbf{Luồng xử lý:} khi tải trang, giao diện gọi \texttt{GET /api/products} (sắp xếp mới nhất, phân trang) và lấy danh mục; \texttt{ProductService.search} và \texttt{ProductRepository.search} truy vấn MySQL; nhập từ khóa hoặc chọn danh mục thì gọi lại API với tham số \texttt{q}, \texttt{category\_id}.
+  \item \textbf{Quy tắc áp dụng:} BR-01 -- chỉ sản phẩm \texttt{ACTIVE} được hiển thị; sản phẩm hết hàng vẫn hiện, đánh dấu ``Hết hàng'' và vô hiệu nút thêm vào giỏ (\texttt{Product.in\_stock}).
+\end{itemize}
+
+\vpfigure[0.9]{ui-home.png}{Giao diện trang chủ}{fig:ui-home}
+
+\section{Product Pages}
+
+\subsection{Product list, search and filter (UC-02, UC-03)}
+\begin{itemize}
+  \item Bộ lọc: ngành hàng, khoảng giá (\texttt{min\_price}, \texttt{max\_price}), sắp xếp (mới nhất, giá tăng, giá giảm), phân trang.
+  \item Mỗi thẻ hiển thị ảnh, tên, thương hiệu, giá và trạng thái còn hàng.
+  \item Kết quả rỗng hiển thị thông báo ``Không tìm thấy sản phẩm'' và gợi ý bỏ bớt bộ lọc.
+\end{itemize}
+\vpfigure[0.9]{ui-products.png}{Giao diện danh sách và tìm kiếm sản phẩm}{fig:ui-products}
+
+\subsection{Product detail (UC-04)}
+\begin{itemize}
+  \item Thông tin chung: ảnh, tên, thương hiệu, mô tả, giá, số lượng còn lại.
+  \item Thuộc tính riêng theo ngành hàng lấy từ cột JSON \texttt{attributes} (sách: ISBN, tác giả; giày: cỡ, loại\ldots), nên thêm ngành mới không cần sửa mã (mục 4.3).
+  \item Chọn số lượng và bấm ``Thêm vào giỏ''; nếu số lượng vượt tồn kho, hệ thống báo lỗi \texttt{OUT\_OF\_STOCK} (mã HTTP 409).
+  \item Đánh giá của khách đã mua (UC-09) hiển thị bên dưới, điểm từ 1 đến 5 (BR-09).
+\end{itemize}
+\vpfigure[0.9]{ui-product-detail.png}{Giao diện chi tiết sản phẩm}{fig:ui-product-detail}
+
+\section{Shopping Cart}
+
+Cho phép khách hàng đã đăng nhập gom sản phẩm trước khi đặt hàng (UC-05; FR-05).
+
+\begin{itemize}
+  \item \textbf{Thành phần:} danh sách dòng hàng (ảnh, tên, đơn giá, ô số lượng, thành tiền \texttt{CartItem.sub\_total}, nút xóa); tạm tính (\texttt{Cart.subtotal}); nút ``Thanh toán'' (vô hiệu khi giỏ trống -- \texttt{Cart.is\_empty}); thông báo giỏ trống kèm liên kết quay lại mua sắm.
+  \item \textbf{Luồng xử lý:} thêm sản phẩm qua \texttt{POST /api/cart/items} (đã có thì cộng dồn -- \texttt{Cart.add\_item}); đổi số lượng qua \texttt{PATCH /api/cart/items/\{id\}} (bằng 0 thì xóa dòng).
+  \item \textbf{Quy tắc:} BR-02 -- số lượng không vượt tồn kho (\texttt{CartService} kiểm tra bằng \texttt{Product.in\_stock}); giỏ hiển thị giá hiện tại, giá chỉ được chốt khi đặt hàng (BR-03); mỗi thao tác là một giao dịch (\texttt{@transactional}), lỗi thì không lưu gì.
+\end{itemize}
+\vpfigure[0.9]{ui-cart.png}{Giao diện giỏ hàng}{fig:ui-cart}
+
+\section{Checkout and Payment}
+
+\subsection{Purpose}
+Hoàn tất mua hàng: chọn địa chỉ, phương thức thanh toán, nhập mã giảm giá, xem tổng tiền và xác nhận đặt hàng (UC-06); thanh toán trực tuyến khi cần (UC-07; FR-06 đến FR-09).
+
+\subsection{Screen components}
+\begin{longtable}{@{}p{4cm}p{11.4cm}@{}}
+\toprule
+\textbf{Thành phần} & \textbf{Nội dung và hành vi} \\
+\midrule
+\endhead
+Địa chỉ giao hàng & Chọn từ sổ địa chỉ (mặc định: \texttt{Customer.default\_address}) hoặc thêm địa chỉ mới \\
+Phương thức thanh toán & COD (trả khi nhận hàng) hoặc ONLINE (thẻ/ví) \\
+Mã giảm giá & Ô nhập mã; hiển thị số tiền giảm hoặc thông báo mã không hợp lệ \\
+Tóm tắt đơn hàng & Tạm tính, giảm giá, phí giao hàng, \textbf{tổng thanh toán} \\
+Nút ``Đặt hàng'' & Gửi \texttt{POST /api/orders} \\
+Màn hình kết quả & Mã đơn, trạng thái, hướng dẫn tiếp theo \\
+\bottomrule
+\end{longtable}
+\vpfigure[0.9]{ui-checkout.png}{Giao diện thanh toán (xác nhận đơn hàng)}{fig:ui-checkout}
+
+\subsection{Processing flow}
+\begin{enumerate}
+  \item \texttt{CheckoutService.place\_order} kiểm tra giỏ không rỗng và địa chỉ thuộc khách; trừ kho từng dòng bằng một câu lệnh UPDATE có điều kiện (\texttt{InventoryRepository.try\_decrease}); thiếu hàng thì hủy toàn bộ và báo \texttt{OUT\_OF\_STOCK}.
+  \item \texttt{PricingCalculator} tính tạm tính, giảm giá (BR-05) và phí giao hàng (BR-06: miễn phí từ 500\,000\,VND, ngược lại 30\,000\,VND); tạo đơn với đơn giá đã chốt (BR-03), ghi lịch sử trạng thái, xóa giỏ, rồi commit. Trạng thái đầu: \texttt{PENDING} (COD) hoặc \texttt{PENDING\_PAYMENT} (online).
+  \item Với đơn online, giao diện chuyển sang cổng thanh toán; cổng gọi \texttt{POST /api/payments/callback}. Callback trùng mã giao dịch chỉ xử lý một lần; thành công thì đơn chuyển sang \texttt{PENDING}, thất bại thì khách được thanh toán lại.
+  \item BR-04: đơn online quá 15 phút chưa thanh toán tự hủy và hoàn kho (\texttt{OrderService.expire\_unpaid}).
+\end{enumerate}
+\vpfigure[0.9]{ui-payment.png}{Giao diện thanh toán trực tuyến và kết quả}{fig:ui-payment}
+
+\subsection{Error handling}
+\begin{longtable}{@{}p{4.6cm}p{2cm}p{8.8cm}@{}}
+\toprule
+\textbf{Tình huống} & \textbf{HTTP} & \textbf{Thông báo cho người dùng} \\
+\midrule
+\endhead
+Giỏ hàng trống & 400 & Giỏ hàng của bạn đang trống \\
+Hết hàng khi đặt & 409 & Sản phẩm không đủ số lượng, vui lòng cập nhật giỏ \\
+Mã giảm giá sai hoặc hết hạn & 400 & Mã giảm giá không hợp lệ \\
+Địa chỉ không thuộc khách & 404 & Không tìm thấy địa chỉ giao hàng \\
+Chưa đăng nhập & 401 & Vui lòng đăng nhập để tiếp tục \\
+\bottomrule
+\end{longtable}
+
+\section{Personal Profile}
+
+Cho khách hàng quản lý thông tin cá nhân, sổ địa chỉ và theo dõi đơn hàng (UC-08, UC-25, UC-26; FR-11, FR-28, FR-29).
+
+\begin{itemize}
+  \item \textbf{Thành phần:} thông tin cá nhân (họ, tên đệm, tên -- \texttt{Customer.full\_name}, email, số điện thoại; chỉnh sửa và lưu); hạng thành viên (\texttt{NEW}, \texttt{REGULAR}, \texttt{VIP}) và điểm tích lũy; sổ địa chỉ (thêm, sửa, xóa, đặt mặc định); đổi mật khẩu/đăng xuất (mật khẩu lưu dạng băm, NFR-05); lịch sử đơn hàng (trạng thái, tổng tiền, chi tiết và lịch sử đổi trạng thái); nút hủy đơn chỉ hiện khi \texttt{CustomerOrder.can\_be\_cancelled} (BR-08), hủy sẽ hoàn kho.
+  \item \textbf{Luồng xử lý và quy tắc:} xem đơn qua \texttt{GET /api/orders}, hủy đơn qua \texttt{POST /api/orders/\{id\}/cancel}; hồ sơ và đơn hàng chỉ hiển thị cho chính chủ (\texttt{OrderService.cancel} trả \texttt{403 FORBIDDEN} nếu đơn của người khác); tài khoản bị khóa (\texttt{Account.is\_active} sai) không đăng nhập được.
+\end{itemize}
+\vpfigure[0.9]{ui-profile.png}{Giao diện hồ sơ cá nhân}{fig:ui-profile}
+\vpfigure[0.9]{ui-orders.png}{Giao diện lịch sử và theo dõi đơn hàng}{fig:ui-orders}
+
+\section{Testing the Interfaces}
+
+\begin{longtable}{@{}p{2.2cm}p{6.4cm}p{6.8cm}@{}}
+\toprule
+\textbf{Giao diện} & \textbf{Kịch bản kiểm thử} & \textbf{Kết quả mong đợi} \\
+\midrule
+\endhead
+Trang chủ & Mở trang, tìm từ khóa, chọn danh mục & Hiển thị đúng sản phẩm đang bán \\
+Sản phẩm & Lọc theo giá, sắp xếp, xem chi tiết & Kết quả đúng bộ lọc; thuộc tính khớp ngành hàng \\
+Giỏ hàng & Thêm vượt tồn kho & Báo lỗi, giỏ không thay đổi \\
+Thanh toán & Đặt đơn COD có mã giảm giá & Tổng tiền đúng, kho giảm, giỏ được xóa \\
+Thanh toán & Callback thanh toán trùng & Đơn chỉ chuyển trạng thái một lần \\
+Hồ sơ & Hủy đơn đang chờ xác nhận & Đơn thành \texttt{CANCELLED}, kho được hoàn \\
+\bottomrule
+\end{longtable}
+\noindent Các luật nghiệp vụ trên cũng được kiểm chứng tự động bằng bộ test ở mục 4.5.
+
+\section{Conclusion}
+Hệ thống đã cài đặt được luồng mua hàng chính của khách hàng: xem sản phẩm, quản lý giỏ, đặt hàng, thanh toán và theo dõi đơn. Các giao diện bám theo use case ở Chương 2 và gọi đúng các lớp đã thiết kế ở Chương 4. Hạn chế hiện tại: cổng thanh toán được giả lập, phân hệ AI (Chương 3) và giao diện quản trị chưa đưa vào phạm vi minh họa. Đây là hướng phát triển tiếp theo.
+
+
+\end{document}
