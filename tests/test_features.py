@@ -253,6 +253,35 @@ def test_admin_product_lifecycle_and_bar_01(client, session, as_):
     assert client.post("/api/admin/products", json=body | {"sku": "Z1"}, headers=as_(SERVICE)).status_code == 403
 
 
+def test_admin_product_keeps_subtype_row_in_step(client, session, as_):
+    """Product specialisation: creating / updating a product writes its book / electronics / fashion row."""
+    admin = as_(ADMIN)
+    def row(sql, pid):
+        session.rollback()                      # new snapshot: see what the API committed since the last read
+        return session.execute(text(sql), {"p": pid}).first()
+    body = {"sku": "BK-900", "name": "Refactoring", "category_id": 1, "price": 450000, "brand": "Addison-Wesley",
+            "attributes": {"isbn": "9780134757599", "author": "Martin Fowler", "pageCount": 448, "language": "English"},
+            "quantity": 0, "min_threshold": 1}
+    pid = client.post("/api/admin/products", json=body, headers=admin).json()["id"]
+    assert tuple(row("SELECT isbn, author, publisher, page_count, language FROM book WHERE product_id = :p", pid)) == \
+        ("9780134757599", "Martin Fowler", "Addison-Wesley", 448, "English")
+    update = {k: v for k, v in body.items() if k not in ("sku", "quantity", "min_threshold")}
+    # an attribute that is no longer sent keeps its column; a bad number is rejected and nothing is saved
+    assert client.put(f"/api/admin/products/{pid}", json=update | {"attributes": {"pageCount": 460}}, headers=admin).status_code == 200
+    assert tuple(row("SELECT isbn, page_count FROM book WHERE product_id = :p", pid)) == ("9780134757599", 460)
+    assert client.put(f"/api/admin/products/{pid}", json=update | {"attributes": {"pageCount": "many"}}, headers=admin).status_code == 400
+    # moving the product to another category moves it to the matching subtype table
+    moved = update | {"category_id": 2, "brand": "Kindle", "attributes": {"modelNumber": "KPW-5", "warranty": "2 năm"}}
+    assert client.put(f"/api/admin/products/{pid}", json=moved, headers=admin).status_code == 200
+    assert row("SELECT 1 FROM book WHERE product_id = :p", pid) is None
+    assert tuple(row("SELECT brand, model_number, warranty_months FROM electronics WHERE product_id = :p", pid)) == ("Kindle", "KPW-5", 24)
+    shoes = client.post("/api/admin/products", json=body | {"sku": "SH-900", "category_id": 4, "attributes": {"shoesSize": 43, "color": "black"}}, headers=admin).json()
+    assert tuple(row("SELECT size, color, material FROM fashion WHERE product_id = :p", shoes["id"])) == ("43", "black", None)
+    # deleting the product removes its subtype row (ON DELETE CASCADE)
+    assert client.delete(f"/api/admin/products/{shoes['id']}", headers=admin).json()["result"] == "DELETED"
+    assert row("SELECT 1 FROM fashion WHERE product_id = :p", shoes["id"]) is None
+
+
 def test_promotions_crud_and_validation(client, as_):
     admin = as_(ADMIN)
     base = {"code": "sale50k", "discount_type": "AMOUNT", "discount_value": 50000, "min_order_value": 100000,

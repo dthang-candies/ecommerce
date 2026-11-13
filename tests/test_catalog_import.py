@@ -35,6 +35,9 @@ def test_import_is_idempotent_and_never_overwrites(db, session, tmp_path):
     assert rows["T-1"][1] == "/images/products/t-1.webp" and rows["T-1"][2] == 7
     assert rows["T-2"][1] is None                                          # no photo on disk -> no broken link
     assert rows["T-4"][2] == 0 and rows["T-4"][3] == "Electronics"         # existing category reused
+    subtype = "SELECT {} FROM {} t JOIN product p ON p.id = t.product_id WHERE p.sku = '{}'"
+    assert session.execute(text(subtype.format("t.warranty_months", "electronics", "T-4"))).scalar() == 12   # '1 năm'
+    assert session.execute(text(subtype.format("COUNT(*)", "electronics", "T-1"))).scalar() == 0             # plain Product
     assert session.execute(text("SELECT id FROM category WHERE name='Thể thao & dã ngoại'")).scalar() == 10   # stable id for the UI icon
     assert session.execute(text("SELECT COUNT(*) FROM stock_movement WHERE reason='IMPORT'")).scalar() == 3    # stock 0 has no movement
     assert session.execute(text("SELECT attributes FROM product WHERE sku='T-3'")).scalar() == '{"return_policy": "Đổi trả trong 7 ngày"}'  # no warranty on food

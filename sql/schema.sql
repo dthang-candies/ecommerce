@@ -67,7 +67,7 @@ CREATE TABLE product (
     brand        VARCHAR(80),
     price        DECIMAL(12,2) NOT NULL,
     image_url    VARCHAR(255),
-    attributes   JSON,                                   -- replaces Book/Laptop/Shoes... subclasses
+    attributes   JSON,                                   -- free-form extras; typed subtype data is in book/electronics/fashion/furniture
     status       VARCHAR(10) NOT NULL DEFAULT 'ACTIVE',  -- BR-01
     created_at   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_product_category FOREIGN KEY (category_id) REFERENCES category(id),
@@ -75,6 +75,45 @@ CREATE TABLE product (
     CONSTRAINT ck_product_status CHECK (status IN ('ACTIVE','HIDDEN')),
     INDEX idx_product_category (category_id),
     INDEX idx_product_name (name)
+) ENGINE=InnoDB;
+
+-- Product specialisation (class-table inheritance): each subtype row shares the PK of its product row.
+-- A product with no subtype row is a plain Product (other categories).
+CREATE TABLE book (
+    product_id  BIGINT PRIMARY KEY,
+    isbn        VARCHAR(255),
+    author      VARCHAR(255),
+    publisher   VARCHAR(255),
+    page_count  INT,
+    language    VARCHAR(255),
+    CONSTRAINT fk_book_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE electronics (
+    product_id       BIGINT PRIMARY KEY,
+    brand            VARCHAR(255),
+    model_number     VARCHAR(255),
+    warranty_months  INT,
+    CONSTRAINT fk_electronics_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE fashion (
+    product_id  BIGINT PRIMARY KEY,
+    size        VARCHAR(255),
+    color       VARCHAR(255),
+    material    VARCHAR(255),
+    CONSTRAINT fk_fashion_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE furniture (
+    product_id         BIGINT PRIMARY KEY,
+    material           VARCHAR(255),
+    width_cm           INT,
+    depth_cm           INT,
+    height_cm          INT,
+    weight_kg          INT,
+    assembly_required  BOOLEAN,
+    CONSTRAINT fk_furniture_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE inventory (
@@ -310,6 +349,11 @@ INSERT INTO product(id,category_id,sku,name,description,brand,price,attributes) 
  (4,3,'CL-001','Ao so mi nam','Cotton','ABC',299000,'{"size":"M","color":"white","material":"cotton"}'),
  (5,4,'SH-001','Giay chay bo','Running shoes','RunFast',1250000,'{"shoesSize":42,"shoesType":"running"}'),
  (6,1,'BK-002','Database System Concepts','Silberschatz','McGraw-Hill',890000,'{"isbn":"9780078022159"}');
+
+INSERT INTO book(product_id,isbn,author,publisher) VALUES
+ (1,'9780132350884','Robert C. Martin','Prentice Hall'),(6,'9780078022159',NULL,'McGraw-Hill');
+INSERT INTO electronics(product_id,brand,warranty_months) VALUES (2,'ABC',NULL),(3,'XPhone',12);
+INSERT INTO fashion(product_id,size,color,material) VALUES (4,'M','white','cotton'),(5,'42',NULL,NULL);
 
 INSERT INTO inventory(product_id,quantity,min_threshold) SELECT id,20,5 FROM product;
 UPDATE inventory SET quantity = 3 WHERE product_id = 5;   -- low-stock sample (below threshold)

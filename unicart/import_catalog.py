@@ -12,6 +12,7 @@ from pathlib import Path
 from sqlalchemy import select
 
 from . import config
+from .business.extended.catalog_service import sync_subtype
 from .domain.models import Category, Inventory, Product, StockMovement
 from .persistence.database import Database
 
@@ -59,6 +60,7 @@ def import_catalog(db: Database | None = None, path: Path = CATALOG, images_root
             s.add(product)
             s.flush()
             s.add(Inventory(product_id=product.id, quantity=it["stock"], min_threshold=5))
+            sync_subtype(s, product)                    # book / electronics / fashion / furniture row
             if it["stock"]:
                 s.add(StockMovement(product_id=product.id, type="IN", quantity=it["stock"], reason="IMPORT"))
             added += 1

@@ -1,9 +1,10 @@
 import logging
+import re
 from decimal import Decimal, InvalidOperation
 from typing import Optional
 
 from ...domain.enums import MovementType, ProductStatus
-from ...domain.models import Category, Inventory, Product
+from ...domain.models import Book, Category, Electronics, Fashion, Furniture, Inventory, Product
 from ...persistence.repositories import CategoryRepository, InventoryRepository, ProductRepository
 from ..exceptions import BusinessError, Conflict, NotFound
 from ..transaction import transactional
@@ -19,6 +20,90 @@ def _price(value) -> Decimal:
     if price < 0 or price > Decimal("999999999.99"):
         raise BusinessError("Giá phải từ 0 đến 999.999.999")
     return price
+
+
+# Product specialisation: category name -> subtype table, and for each column the attribute keys that feed it.
+_SUBTYPES = {
+    "Books": Book, "Electronics": Electronics, "Clothes": Fashion, "Shoes": Fashion, "Nội thất & trang trí": Furniture,
+}
+_STR, _INT, _BOOL = "str", "int", "bool"
+_FIELDS = {
+    Book: {"isbn": (_STR, "isbn"), "author": (_STR, "author"), "publisher": (_STR, "publisher"),
+           "page_count": (_INT, "page_count", "pageCount"), "language": (_STR, "language")},
+    Electronics: {"model_number": (_STR, "model_number", "modelNumber"),
+                  "warranty_months": (_INT, "warranty_months", "warrantyMonths")},
+    Fashion: {"size": (_STR, "size", "shoesSize"), "color": (_STR, "color"), "material": (_STR, "material")},
+    Furniture: {"material": (_STR, "material"), "width_cm": (_INT, "width_cm", "widthCm"),
+                "depth_cm": (_INT, "depth_cm", "depthCm"), "height_cm": (_INT, "height_cm", "heightCm"),
+                "weight_kg": (_INT, "weight_kg", "weightKg"),
+                "assembly_required": (_BOOL, "assembly_required", "assemblyRequired")},
+}
+
+
+def _warranty_months(text) -> Optional[int]:
+    """'6 tháng' -> 6, '2 năm' -> 24, 'Không bảo hành' -> 0; anything else (e.g. 'Trọn đời') is unknown."""
+    text = str(text or "").strip().lower()
+    m = re.fullmatch(r"(\d+)\s*(tháng|năm)", text)
+    if m:
+        return int(m.group(1)) * (12 if m.group(2) == "năm" else 1)
+    return 0 if text == "không bảo hành" else None
+
+
+def _convert(kind: str, key: str, value):
+    if kind == _STR:
+        if isinstance(value, (dict, list)):
+            raise BusinessError(f"Thuộc tính '{key}' phải là chuỗi hoặc số")
+        return str(value).strip()[:255] or None
+    if kind == _BOOL:
+        if isinstance(value, bool):
+            return value
+        folded = str(value).strip().lower()
+        if folded in ("true", "1", "yes", "có"):
+            return True
+        if folded in ("false", "0", "no", "không"):
+            return False
+        raise BusinessError(f"Thuộc tính '{key}' phải là true hoặc false")
+    try:
+        if isinstance(value, bool):
+            raise ValueError
+        number = Decimal(str(value).strip())
+        if number != number.to_integral_value() or not 0 <= number <= 2147483647:
+            raise ValueError
+        return int(number)
+    except (InvalidOperation, ValueError):
+        raise BusinessError(f"Thuộc tính '{key}' phải là số nguyên không âm")
+
+
+def sync_subtype(session, p: Product) -> None:
+    """Keeps the product's subtype row (book / electronics / fashion / furniture) in step with its category, brand and
+    attributes. A column keeps its value when the attributes do not mention it. Every code path that creates or edits
+    a product calls this (administration, seed, catalogue import)."""
+    category = session.get(Category, p.category_id)
+    model = _SUBTYPES.get(category.name) if category else None
+    for other in set(_SUBTYPES.values()) - {model}:        # the category changed: drop the stale subtype row
+        stale = session.get(other, p.id)
+        if stale is not None:
+            session.delete(stale)
+    if model is None:
+        return
+    row = session.get(model, p.id)
+    if row is None:
+        row = model(product_id=p.id)
+        session.add(row)
+    attrs = p.attributes or {}
+    for column, (kind, *keys) in _FIELDS[model].items():
+        key = next((k for k in keys if attrs.get(k) not in (None, "")), None)
+        if key is not None:
+            setattr(row, column, _convert(kind, key, attrs[key]))
+    if model is Book and attrs.get("publisher") in (None, ""):
+        row.publisher = p.brand or row.publisher           # books keep the publisher in product.brand
+    if model is Electronics:
+        row.brand = p.brand
+        if all(attrs.get(k) in (None, "") for k in ("warranty_months", "warrantyMonths")):
+            months = _warranty_months(attrs.get("warranty"))
+            if months is not None:
+                row.warranty_months = months
+    session.flush()
 
 
 class CatalogService:
@@ -78,6 +163,9 @@ class CatalogService:
         if attributes is not None and not isinstance(attributes, dict):
             raise BusinessError("Thuộc tính phải là một đối tượng JSON")
 
+    def _sync_subtype(self, p: Product) -> None:
+        sync_subtype(self.session, p)
+
     @transactional
     def create_product(self, sku: str, name: str, category_id: int, price, brand, description, image_url,
                        attributes, quantity: int, min_threshold: int, admin_id: int) -> Product:
@@ -95,6 +183,7 @@ class CatalogService:
             image_url=(image_url or "").strip() or None, attributes=attributes, status=ProductStatus.ACTIVE.value))
         self.session.add(Inventory(product_id=p.id, quantity=quantity, min_threshold=min_threshold))
         self.session.flush()
+        self._sync_subtype(p)
         if quantity:
             self.inventory.log(p.id, MovementType.IN.value, quantity, f"INITIAL by {admin_id}", None)
         self.session.refresh(p)
@@ -114,6 +203,7 @@ class CatalogService:
         p.image_url = (image_url or "").strip() or None
         p.attributes = attributes
         self.session.flush()
+        self._sync_subtype(p)
         self.session.refresh(p)
         audit.info("admin=%s updated product id=%s", admin_id, product_id)
         return p

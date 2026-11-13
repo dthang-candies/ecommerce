@@ -5,7 +5,7 @@ from datetime import date, datetime
 from decimal import Decimal
 from typing import Optional
 
-from sqlalchemy import BigInteger, Date, DateTime, ForeignKey, Integer, JSON, LargeBinary, Numeric, String, Text, func
+from sqlalchemy import BigInteger, Boolean, Date, DateTime, ForeignKey, Integer, JSON, LargeBinary, Numeric, String, Text, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 from .extended import security
@@ -130,6 +130,44 @@ class Product(Base):
 
     def activate(self) -> None:
         self.status = ProductStatus.ACTIVE.value
+
+
+# Product specialisation (class-table inheritance): a subtype row shares the primary key of its product row.
+class Book(Base):
+    __tablename__ = "book"
+    product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id", ondelete="CASCADE"), primary_key=True)
+    isbn: Mapped[Optional[str]] = mapped_column(String(255))
+    author: Mapped[Optional[str]] = mapped_column(String(255))
+    publisher: Mapped[Optional[str]] = mapped_column(String(255))
+    page_count: Mapped[Optional[int]] = mapped_column(Integer)
+    language: Mapped[Optional[str]] = mapped_column(String(255))
+
+
+class Electronics(Base):
+    __tablename__ = "electronics"
+    product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id", ondelete="CASCADE"), primary_key=True)
+    brand: Mapped[Optional[str]] = mapped_column(String(255))
+    model_number: Mapped[Optional[str]] = mapped_column(String(255))
+    warranty_months: Mapped[Optional[int]] = mapped_column(Integer)
+
+
+class Fashion(Base):
+    __tablename__ = "fashion"
+    product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id", ondelete="CASCADE"), primary_key=True)
+    size: Mapped[Optional[str]] = mapped_column(String(255))
+    color: Mapped[Optional[str]] = mapped_column(String(255))
+    material: Mapped[Optional[str]] = mapped_column(String(255))
+
+
+class Furniture(Base):
+    __tablename__ = "furniture"
+    product_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("product.id", ondelete="CASCADE"), primary_key=True)
+    material: Mapped[Optional[str]] = mapped_column(String(255))
+    width_cm: Mapped[Optional[int]] = mapped_column(Integer)
+    depth_cm: Mapped[Optional[int]] = mapped_column(Integer)
+    height_cm: Mapped[Optional[int]] = mapped_column(Integer)
+    weight_kg: Mapped[Optional[int]] = mapped_column(Integer)
+    assembly_required: Mapped[Optional[bool]] = mapped_column(Boolean)
 
 
 class Inventory(Base):

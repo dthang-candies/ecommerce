@@ -14,6 +14,7 @@ from .domain.models import (
     Account, Address, Cart, Category, Customer, CustomerOrder, InteractionLog, Inventory, OrderItem,
     OrderStatusHistory, Payment, Product, Review, Role, Shipment, StockMovement,
 )
+from .business.extended.catalog_service import sync_subtype
 from .persistence.database import Database
 
 SAMPLE_PASSWORD = "Abc@12345"
@@ -116,6 +117,7 @@ def _catalogue(s) -> int:
         s.add(p)
         s.flush()
         s.add(Inventory(product_id=p.id, quantity=qty, min_threshold=5))
+        sync_subtype(s, p)                              # book / electronics / fashion / furniture row
         if qty:
             s.add(StockMovement(product_id=p.id, type="IN", quantity=qty, reason="SEED"))
         added += 1
