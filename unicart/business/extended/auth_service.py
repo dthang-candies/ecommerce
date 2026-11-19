@@ -1,6 +1,11 @@
+import hashlib
+import secrets
+from datetime import datetime, timedelta
+
+from ... import config
 from ...domain.extended import security
-from ...domain.models import Account, Cart, Customer
-from ...persistence.repositories import AccountRepository, CustomerRepository
+from ...domain.models import Account, Cart, Customer, PasswordReset
+from ...persistence.repositories import AccountRepository, CustomerRepository, PasswordResetRepository
 from ..exceptions import Conflict, Unauthorized
 from ..transaction import transactional
 from .validation import check_email, check_password, check_phone
@@ -10,8 +15,10 @@ from ..exceptions import BusinessError
 class AuthService:
     """UC-01 Register Account, UC-26 Login/Logout (FR-01, FR-28, NFR-03)."""
 
-    def __init__(self, session, accounts: AccountRepository, customers: CustomerRepository):
+    def __init__(self, session, accounts: AccountRepository, customers: CustomerRepository,
+                 resets: PasswordResetRepository | None = None):
         self.session, self.accounts, self.customers = session, accounts, customers
+        self.resets = resets or PasswordResetRepository(session)
 
     @transactional
     def register(self, email: str, password: str, first_name: str, last_name: str,
@@ -55,3 +62,35 @@ class AuthService:
             raise BusinessError("Mật khẩu hiện tại không đúng")
         check_password(new)
         account.password_hash = security.hash_password(new)
+
+    # ---- forgotten password
+    @transactional
+    def request_password_reset(self, email: str, now: datetime | None = None) -> tuple[str, str] | None:
+        """Returns (e-mail, one-time token) to send, or None when there is no such active account. The caller must
+        answer the same way in both cases, so the form cannot be used to find out which e-mails are registered."""
+        now = now or datetime.now()
+        account = self.accounts.by_email((email or "").strip())
+        if account is None or not account.is_active():
+            return None
+        self.resets.purge_expired(now - timedelta(days=1))
+        self.resets.revoke_for_account(account.id, now)                # only the newest link works
+        token = secrets.token_urlsafe(32)
+        self.resets.add(PasswordReset(account_id=account.id, token_hash=_token_hash(token),
+                                      expires_at=now + timedelta(minutes=config.PASSWORD_RESET_MINUTES)))
+        return account.email, token
+
+    @transactional
+    def reset_password(self, token: str, new: str, now: datetime | None = None) -> Account:
+        now = now or datetime.now()
+        check_password(new)                                            # a weak password does not use up the link
+        reset = self.resets.by_hash(_token_hash(token or ""), lock=True)
+        account = self.accounts.get(reset.account_id) if reset is not None and reset.is_usable(now) else None
+        if account is None or not account.is_active():
+            raise BusinessError("Liên kết đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Vui lòng gửi yêu cầu mới.")
+        account.password_hash = security.hash_password(new)
+        self.resets.revoke_for_account(account.id, now)
+        return account
+
+
+def _token_hash(token: str) -> str:
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()

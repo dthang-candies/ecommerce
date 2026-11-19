@@ -18,7 +18,7 @@ function useRange() {
   return { start, end, bad, ui }
 }
 
-function BarChart({ data }: { data: { label: string; value: number; detail: string }[] }) {
+export function BarChart({ data }: { data: { label: string; value: number; detail: string }[] }) {
   const max = Math.max(...data.map((d) => d.value), 1)
   const step = Math.ceil(data.length / 8)
   return (

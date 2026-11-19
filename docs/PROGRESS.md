@@ -17,6 +17,12 @@ Search text ngữ nghĩa + giọng nói + hình ảnh, chi tiết ở `AI_SEARCH
 ## Chatbot hỗ trợ người mua (UC-18/19) — đã xong
 Widget chat React + `POST /api/chat`: mã giảm giá hôm nay, gợi ý sản phẩm, tra cứu đơn (chỉ đơn của khách), hướng dẫn đổi trả. Gemini function-calling với 8 công cụ chỉ đọc, đường nhanh bằng bộ luật cho câu ngắn, dự phòng khi AI lỗi. 31 test mới (tổng 131). Chi tiết, số đo độ trễ và giới hạn: `CHATBOT.md`.
 
+## Quên mật khẩu + trang tổng quan quản trị — đã xong (2026-11-13)
+- Quên mật khẩu: `POST /api/auth/forgot-password`, `POST /api/auth/reset-password`, trang `/quen-mat-khau` và `/dat-lai-mat-khau`. Liên kết dùng một lần, hạn 30 phút, chỉ lưu SHA-256 của mã; không tiết lộ email nào đã đăng ký; tối đa 3 thư / hộp thư / 15 phút. Thư gửi qua SMTP nếu có cấu hình, không thì in ra log.
+- Trang tổng quan: `GET /api/staff/dashboard` + trang `/quan-tri`, nội dung theo vai trò.
+- 15 test mới (tổng 148).
+- Giới hạn: đặt lại mật khẩu không thu hồi các phiên đang đăng nhập (JWT stateless, hết hạn sau 8 giờ); giới hạn tần suất lưu trong bộ nhớ của một tiến trình.
+
 ## Dữ liệu sản phẩm đa dạng + ảnh — đã xong
 189 sản phẩm / 10 danh mục / ảnh thật trong `images/products/` từ DummyJSON (không phải Shopee, lý do ở `DATA_SOURCES.md`); tên và mô tả dịch bằng Gemini.
 

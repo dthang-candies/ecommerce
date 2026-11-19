@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session, joinedload, selectinload
 
 from ..domain.models import (
     Account, Address, Cart, CartItem, Category, Customer, CustomerOrder, InteractionLog, Inventory,
-    OrderItem, OrderStatusHistory, Payment, Product, ProductEmbedding, Promotion, RestockRequest, Review, Role, Shipment,
+    OrderItem, OrderStatusHistory, PasswordReset, Payment, Product, ProductEmbedding, Promotion, RestockRequest, Review, Role, Shipment,
     StockMovement, Supplier, SupportRequest,
 )
 
@@ -50,6 +50,28 @@ class AccountRepository:
         if keyword:
             q = q.where(Account.email.like(_like(keyword)))
         return list(self.s.scalars(q).unique())
+
+
+class PasswordResetRepository:
+    def __init__(self, s: Session):
+        self.s = s
+
+    def add(self, reset: PasswordReset) -> PasswordReset:
+        self.s.add(reset)
+        self.s.flush()
+        return reset
+
+    def by_hash(self, token_hash: str, lock: bool = False) -> Optional[PasswordReset]:
+        q = select(PasswordReset).where(PasswordReset.token_hash == token_hash)
+        return self.s.scalars(q.with_for_update() if lock else q).first()
+
+    def revoke_for_account(self, account_id: int, now: datetime) -> None:
+        """A new request (or a successful reset) cancels every link that is still open."""
+        self.s.execute(update(PasswordReset).where(PasswordReset.account_id == account_id,
+                                                   PasswordReset.used_at.is_(None)).values(used_at=now))
+
+    def purge_expired(self, before: datetime) -> None:
+        self.s.execute(delete(PasswordReset).where(PasswordReset.expires_at < before))
 
 
 class CustomerRepository:
@@ -561,6 +583,37 @@ class ReportRepository:
              .group_by(Product.id, Product.name, Product.sku)
              .order_by(func.sum(OrderItem.quantity).desc()).limit(limit))
         return [(pid, name, sku, int(qty), rev) for pid, name, sku, qty, rev in self.s.execute(q)]
+
+    # ---- staff dashboard
+    def open_orders_by_status(self) -> dict[str, int]:
+        q = (select(CustomerOrder.status, func.count())
+             .where(CustomerOrder.status.not_in(("DELIVERED", "CANCELLED"))).group_by(CustomerOrder.status))
+        return {s: int(n) for s, n in self.s.execute(q)}
+
+    def recent_orders(self, limit: int = 6) -> list[CustomerOrder]:
+        return list(self.s.scalars(select(CustomerOrder).order_by(CustomerOrder.id.desc()).limit(limit)))
+
+    def support_by_status(self) -> dict[str, int]:
+        q = select(SupportRequest.status, func.count()).group_by(SupportRequest.status)
+        return {s: int(n) for s, n in self.s.execute(q)}
+
+    def open_restock_requests(self) -> int:
+        return int(self.s.scalar(select(func.count()).select_from(RestockRequest)
+                                 .where(RestockRequest.status.in_(("REQUESTED", "CONFIRMED")))))
+
+    def active_promotions(self, now: datetime) -> int:
+        return int(self.s.scalar(select(func.count()).select_from(Promotion).where(
+            Promotion.active.is_(True), Promotion.start_at <= now, Promotion.end_at >= now)))
+
+    def account_counts(self, since: datetime) -> dict[str, int]:
+        customer = Role.name == "CUSTOMER"
+        row = self.s.execute(
+            select(func.coalesce(func.sum(case((customer, 1), else_=0)), 0),
+                   func.coalesce(func.sum(case((and_(customer, Account.created_at >= since), 1), else_=0)), 0),
+                   func.coalesce(func.sum(case((customer, 0), else_=1)), 0),
+                   func.coalesce(func.sum(case((Account.status == "LOCKED", 1), else_=0)), 0))
+            .select_from(Account).join(Role, Role.id == Account.role_id)).one()
+        return {"customers": int(row[0]), "new_customers": int(row[1]), "staff": int(row[2]), "locked": int(row[3])}
 
     def units_sold(self, start: datetime, end: datetime) -> int:
         q = (select(func.coalesce(func.sum(OrderItem.quantity), 0))

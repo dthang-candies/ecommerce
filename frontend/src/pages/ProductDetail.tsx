@@ -14,7 +14,8 @@ import { useFetch } from '../lib/useFetch'
 import Icon from '../components/Icon'
 
 const ATTR_LABEL: Record<string, string> = {
-  isbn: 'ISBN', author: 'Tác giả', cpu: 'CPU', ram: 'RAM', storage: 'Bộ nhớ', screenSize: 'Màn hình (inch)', warrantyMonths: 'Bảo hành (tháng)',
+  isbn: 'ISBN', author: 'Tác giả', publisher: 'Nhà xuất bản', pageCount: 'Số trang', language: 'Ngôn ngữ',
+  modelNumber: 'Model', batteryCapacity: 'Pin (mAh)', cpu: 'CPU', ram: 'RAM', storage: 'Bộ nhớ', screenSize: 'Màn hình (inch)', warrantyMonths: 'Bảo hành (tháng)',
   size: 'Kích cỡ', color: 'Màu sắc', material: 'Chất liệu', shoesSize: 'Cỡ giày', shoesType: 'Loại giày', volume: 'Dung tích', capacity: 'Dung lượng',
   warranty: 'Bảo hành', shipping: 'Giao hàng', return_policy: 'Đổi trả',
 }

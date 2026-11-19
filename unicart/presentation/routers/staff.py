@@ -24,6 +24,13 @@ StockViewer = Annotated[Actor, Depends(require_roles("WAREHOUSE", "ADMIN", "MANA
 Sales = Annotated[Actor, Depends(require_roles("SALES", "ADMIN"))]
 
 
+# ---- dashboard (home page of /quan-tri): each role gets only the sections it has rights to
+@router.get("/staff/dashboard")
+def dashboard(svc: Svc, actor: Annotated[Actor, Depends(require_roles(
+        "ADMIN", "SERVICE", "SALES", "WAREHOUSE", "MARKETING", "MANAGER"))]):
+    return deep_money(svc.reports.dashboard(actor.role))
+
+
 # ---- orders
 @router.get("/staff/orders")
 def staff_orders(svc: Svc, _: OrderStaff, status: Optional[OrderStatus] = None, q: Optional[str] = Query(None, max_length=50),

@@ -21,6 +21,13 @@ python -m unicart.import_catalog --update-text   # chỉ cập nhật tên/mô t
 ```
 SKU dạng `DJ-001…DJ-194` (khớp id nguồn).
 
+## Dữ liệu bổ sung: sách, laptop, điện tử, giày
+Bốn nhóm chuyên biệt của mô hình dữ liệu (Book, Laptop, Electronic/Mobile, Shoes) được làm dày thêm bằng dữ liệu tự soạn, không lấy từ sàn nào:
+- `python tools/build_extra_catalog.py` tạo `data/catalog_extra.json` (108 sản phẩm: 36 sách `BK-006…`, 20 laptop `LT-003…`, 12 điện thoại `MB-003…`, 15 thiết bị khác `EL-007…`, 25 giày dép `SH-004…`) và ảnh SVG tự vẽ `images/products/x-<sku>.svg` (bìa sách, hoặc thẻ có biểu tượng + thương hiệu + tên; không dùng ảnh của bên thứ ba).
+- `python -m unicart.import_catalog` nhập luôn tệp này; thuộc tính đi vào bảng con qua `sync_subtype` (`book.isbn/author/publisher/page_count/language`, `electronics.brand/model_number/warranty_months`, `fashion.size/color/material`), còn `cpu`, `ram`, `storage`, `screenSize`, `batteryCapacity`, `shoesType` nằm trong `product.attributes`.
+- Tên sách và tên model là thật; **giá, tồn kho và thông số kỹ thuật là giá trị minh họa**. Sách bản tiếng Anh ghi ISBN của bản gốc; sách bản tiếng Việt không ghi ISBN.
+- `python -m unicart.enrich_sales` thêm 15 khách hàng (mật khẩu mẫu `Abc@12345`) và ~260 đơn trong 90 ngày gần nhất, dồn nhiều hơn về các tuần gần đây, chủ yếu sách/điện tử/giày; mỗi đơn có lịch sử trạng thái, thanh toán, vận đơn, xuất kho, điểm tích lũy, đánh giá và log tương tác; không bán vượt tồn kho; mã `WELCOME10` dùng tối đa một lần mỗi khách. Chạy lại không thêm gì (nhận biết qua mã giao dịch `ENR-…`).
+
 ## Ảnh cho 34 sản phẩm mẫu cũ (`schema.sql` / `seed.py`)
 `python tools/attach_sample_images.py` rồi `python -m unicart.import_catalog` (chỉ điền chỗ còn trống, không ghi đè `image_url` admin đã đặt). Kết quả ghi ở `data/sample_images.json`.
 - **17 sản phẩm** dùng ảnh DummyJSON **cùng loại** (laptop, điện thoại, tai nghe, sạc dự phòng, áo, váy, giày, ba lô, đồng hồ, kính, cốc, sữa tắm), chọn một góc chụp khác với ảnh đã nhập. Ảnh có thể là thương hiệu khác với tên sản phẩm (ví dụ "Laptop Pro 14 – ABC" hiện ảnh Dell XPS): chỉ là ảnh minh họa cho demo.

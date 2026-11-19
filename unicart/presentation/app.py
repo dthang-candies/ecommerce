@@ -14,6 +14,7 @@ from fastapi.staticfiles import StaticFiles
 from .. import config
 from ..business.exceptions import BusinessError
 from ..business.extended.ai.runtime import AiRuntime
+from ..business.extended.mailer import Mailer
 from ..persistence.database import Database
 from .routers import admin, auth, catalog, chat, customer, search, staff
 from .wiring import build_services
@@ -30,7 +31,8 @@ def sweep_expired(db: Database) -> int:
         return build_services(session).orders.expire_unpaid()
 
 
-def create_app(db: Database | None = None, run_scheduler: bool = False, ai: AiRuntime | None = None) -> FastAPI:
+def create_app(db: Database | None = None, run_scheduler: bool = False, ai: AiRuntime | None = None,
+               mailer: Mailer | None = None) -> FastAPI:
     database = db or Database()
 
     @asynccontextmanager
@@ -57,6 +59,7 @@ def create_app(db: Database | None = None, run_scheduler: bool = False, ai: AiRu
     app = FastAPI(title="UniCart API", version="1.0.0", lifespan=lifespan)
     app.state.db = database
     app.state.ai = ai
+    app.state.mailer = mailer or Mailer()
     app.add_middleware(CORSMiddleware, allow_origins=config.CORS_ORIGINS, allow_credentials=False,
                        allow_methods=["*"], allow_headers=["*"])
 

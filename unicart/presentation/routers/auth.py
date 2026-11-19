@@ -1,11 +1,12 @@
-"""AuthController: UC-01 Register, UC-26 Login/Logout."""
+"""AuthController: UC-01 Register, UC-26 Login/Logout, forgotten password."""
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, Request, Response
+from fastapi import APIRouter, BackgroundTasks, Depends, Request, Response
 
 from ...business.actor import Actor
-from ..extended.deps import current_actor, get_services, throttle
-from ..extended.schemas import ChangePasswordIn, LoginIn, RegisterIn
+from ...business.extended.mailer import password_reset_mail
+from ..extended.deps import RateLimited, current_actor, get_services, reset_budget, reset_ip_budget, throttle
+from ..extended.schemas import ChangePasswordIn, ForgotPasswordIn, LoginIn, RegisterIn, ResetPasswordIn
 from ..security import create_token
 from ..serializers import account_json, customer_json
 from ..wiring import Services
@@ -59,4 +60,32 @@ def me(actor: Annotated[Actor, Depends(current_actor)], svc: Svc):
 @router.post("/change-password", status_code=204)
 def change_password(body: ChangePasswordIn, actor: Annotated[Actor, Depends(current_actor)], svc: Svc):
     svc.auth.change_password(actor.account_id, body.old_password, body.new_password)
+    return Response(status_code=204)
+
+
+FORGOT_REPLY = {"message": "Nếu email này đã đăng ký, chúng tôi đã gửi hướng dẫn đặt lại mật khẩu. "
+                           "Vui lòng kiểm tra hộp thư (cả mục thư rác)."}
+
+
+@router.post("/forgot-password", status_code=202)
+def forgot_password(body: ForgotPasswordIn, request: Request, tasks: BackgroundTasks, svc: Svc):
+    """Always answers the same, whether or not the e-mail is registered. The mail is sent after the response."""
+    ip = request.client.host if request.client else "-"
+    if not reset_ip_budget.allow(ip):
+        raise RateLimited("Bạn gửi yêu cầu quá nhiều lần, vui lòng thử lại sau ít phút")
+    if reset_budget.allow(body.email.strip().lower()):                 # per mailbox: silently capped, no mail flood
+        issued = svc.auth.request_password_reset(body.email)
+        if issued:
+            email, token = issued
+            tasks.add_task(request.app.state.mailer.send, email, *password_reset_mail(token))
+    return FORGOT_REPLY
+
+
+@router.post("/reset-password", status_code=204)
+def reset_password(body: ResetPasswordIn, request: Request, svc: Svc):
+    ip = request.client.host if request.client else "-"
+    if not reset_ip_budget.allow(ip):
+        raise RateLimited("Bạn thử quá nhiều lần, vui lòng thử lại sau ít phút")
+    account = svc.auth.reset_password(body.token, body.new_password)
+    throttle.succeeded(f"{account.email.lower()}|{ip}")                # the owner is no longer locked out of login
     return Response(status_code=204)

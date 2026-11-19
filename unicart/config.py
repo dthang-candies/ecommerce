@@ -36,6 +36,16 @@ PARTNER_SECRET = os.getenv("PARTNER_SECRET", "") or secrets.token_urlsafe(24)
 CORS_ORIGINS = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
                 if o.strip()]
 
+# --- Forgotten password. The link in the e-mail points at PUBLIC_BASE_URL (never at the request's Host header).
+PASSWORD_RESET_MINUTES = int(os.getenv("PASSWORD_RESET_MINUTES", "30"))
+PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
+# Outgoing e-mail. Without SMTP_HOST nothing is sent: the message is written to the server log instead (development).
+SMTP_HOST = os.getenv("SMTP_HOST", "")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+SMTP_FROM = os.getenv("SMTP_FROM", "") or SMTP_USER or "no-reply@unicart.local"
+
 # --- AI search through the Google Gemini API (free tier). Without a key, search falls back to keywords (NFR-12).
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 GEMINI_TEXT_MODEL = os.getenv("GEMINI_TEXT_MODEL", "gemini-flash-lite-latest")      # image understanding + speech-to-text

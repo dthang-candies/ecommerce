@@ -2,6 +2,7 @@
 
     python -m unicart.import_catalog
 
+Also imports data/catalog_extra.json (more books, laptops, other electronics and shoes, built by tools/build_extra_catalog.py).
 New SKUs are inserted with stock; existing SKUs are never overwritten (only a missing image_url is filled in).
 `--update-text` also refreshes name/description of the rows this import created (sku DJ-...), e.g. after correcting translations.
 Also attaches photos to the original sample products (data/sample_images.json).
@@ -18,6 +19,7 @@ from .persistence.database import Database
 
 ROOT = Path(__file__).resolve().parent.parent
 CATALOG = ROOT / "data" / "catalog.json"
+EXTRA_CATALOG = ROOT / "data" / "catalog_extra.json"
 SAMPLE_IMAGES = ROOT / "data" / "sample_images.json"
 # Stable ids for the categories this import creates (the front-end picks their icons by id).
 NEW_CATEGORIES = {"Nội thất & trang trí": (8, "Đồ nội thất, trang trí nhà cửa"), "Thực phẩm & đồ uống": (9, "Thực phẩm, đồ uống, đồ khô"),
@@ -87,5 +89,7 @@ def attach_sample_images(db: Database | None = None, path: Path = SAMPLE_IMAGES,
 if __name__ == "__main__":
     import sys
     print(import_catalog(update_text="--update-text" in sys.argv))
+    if EXTRA_CATALOG.exists():
+        print(import_catalog(path=EXTRA_CATALOG))
     print(attach_sample_images())
     print("Restart the server (or POST /api/admin/ai/reindex) so the new products get AI search vectors.")

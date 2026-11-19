@@ -62,6 +62,16 @@ export interface BusinessReport {
   top_products: { product_id: number; name: string; sku: string; quantity: number; revenue: number }[]
   inventory: { skus: number; units: number; value: number; out_of_stock: number; low_stock: number }
 }
+export interface Dashboard {
+  date: string
+  sales?: { today: SalesTotal; yesterday: SalesTotal; last_7_days: SalesTotal; previous_7_days: SalesTotal; series: { date: string; orders: number; sales: number }[] }
+  orders?: { waiting: Record<Exclude<OrderStatus, 'DELIVERED' | 'CANCELLED'>, number>; recent: { id: number; recipient: string; total_amount: number; status: OrderStatus; created_at: string }[] }
+  inventory?: { low_stock: number; out_of_stock: number; open_restock_requests: number; lowest: { product_id: number; name: string; sku: string; quantity: number; min_threshold: number }[] }
+  support?: { open: number; in_progress: number }
+  promotions?: { active: number }
+  accounts?: { customers: number; new_customers: number; staff: number; locked: number }
+}
+export interface SalesTotal { orders: number; sales: number }
 export interface RecRow { placement: string; impressions: number; clicks: number; add_to_cart: number; purchases: number; ctr: number; add_to_cart_rate: number; conversion_rate: number }
 export interface RecReport { period: { start: string; end: string }; total: RecRow; placements: RecRow[] }
 

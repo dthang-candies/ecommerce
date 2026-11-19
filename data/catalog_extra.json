@@ -1,0 +1,1850 @@
+[
+ {
+  "sku": "BK-006",
+  "category": "Books",
+  "name": "The Pragmatic Programmer (20th Anniversary Edition)",
+  "description": "Kinh nghiệm thực chiến giúp lập trình viên viết mã linh hoạt, dễ bảo trì.",
+  "brand": "Addison-Wesley",
+  "price": 890000,
+  "stock": 40,
+  "image": "images/products/old-bk-006.jpg",
+  "attributes": {
+   "isbn": "9780135957059",
+   "author": "David Thomas, Andrew Hunt",
+   "publisher": "Addison-Wesley",
+   "pageCount": 352,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-007",
+  "category": "Books",
+  "name": "Design Patterns: Elements of Reusable Object-Oriented Software",
+  "description": "23 mẫu thiết kế hướng đối tượng kinh điển của nhóm Gang of Four.",
+  "brand": "Addison-Wesley",
+  "price": 1150000,
+  "stock": 65,
+  "image": "images/products/old-bk-007.jpg",
+  "attributes": {
+   "isbn": "9780201633610",
+   "author": "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides",
+   "publisher": "Addison-Wesley",
+   "pageCount": 395,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-008",
+  "category": "Books",
+  "name": "Refactoring (2nd Edition)",
+  "description": "Cải thiện thiết kế của mã nguồn hiện có qua từng bước tái cấu trúc an toàn.",
+  "brand": "Addison-Wesley",
+  "price": 980000,
+  "stock": 89,
+  "image": "images/products/old-bk-008.jpg",
+  "attributes": {
+   "isbn": "9780134757599",
+   "author": "Martin Fowler",
+   "publisher": "Addison-Wesley",
+   "pageCount": 448,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-009",
+  "category": "Books",
+  "name": "Introduction to Algorithms (3rd Edition)",
+  "description": "Giáo trình thuật toán toàn diện, dùng rộng rãi ở các trường đại học.",
+  "brand": "MIT Press",
+  "price": 1890000,
+  "stock": 146,
+  "image": "images/products/old-bk-009.jpg",
+  "attributes": {
+   "isbn": "9780262033848",
+   "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+   "publisher": "MIT Press",
+   "pageCount": 1312,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-010",
+  "category": "Books",
+  "name": "Designing Data-Intensive Applications",
+  "description": "Nguyên lý xây dựng hệ thống dữ liệu tin cậy, mở rộng được và dễ bảo trì.",
+  "brand": "O'Reilly Media",
+  "price": 1050000,
+  "stock": 90,
+  "image": "images/products/x-bk-010.jpg",
+  "attributes": {
+   "isbn": "9781449373320",
+   "author": "Martin Kleppmann",
+   "publisher": "O'Reilly Media",
+   "pageCount": 616,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-011",
+  "category": "Books",
+  "name": "Code Complete (2nd Edition)",
+  "description": "Cẩm nang thực hành về xây dựng phần mềm chất lượng.",
+  "brand": "Microsoft Press",
+  "price": 990000,
+  "stock": 107,
+  "image": "images/products/x-bk-011.jpg",
+  "attributes": {
+   "isbn": "9780735619678",
+   "author": "Steve McConnell",
+   "publisher": "Microsoft Press",
+   "pageCount": 960,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-012",
+  "category": "Books",
+  "name": "Head First Design Patterns",
+  "description": "Học mẫu thiết kế qua hình ảnh và ví dụ trực quan, dễ nhớ.",
+  "brand": "O'Reilly Media",
+  "price": 920000,
+  "stock": 135,
+  "image": "images/products/x-bk-012.jpg",
+  "attributes": {
+   "isbn": "9780596007126",
+   "author": "Eric Freeman, Elisabeth Robson",
+   "publisher": "O'Reilly Media",
+   "pageCount": 694,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-013",
+  "category": "Books",
+  "name": "Domain-Driven Design",
+  "description": "Giải quyết độ phức tạp của phần mềm bằng mô hình miền nghiệp vụ.",
+  "brand": "Addison-Wesley",
+  "price": 1250000,
+  "stock": 146,
+  "image": "images/products/x-bk-013.jpg",
+  "attributes": {
+   "isbn": "9780321125217",
+   "author": "Eric Evans",
+   "publisher": "Addison-Wesley",
+   "pageCount": 560,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-014",
+  "category": "Books",
+  "name": "Cracking the Coding Interview",
+  "description": "189 câu hỏi phỏng vấn lập trình kèm lời giải chi tiết.",
+  "brand": "CareerCup",
+  "price": 780000,
+  "stock": 38,
+  "image": "images/products/x-bk-014.jpg",
+  "attributes": {
+   "isbn": "9780984782857",
+   "author": "Gayle Laakmann McDowell",
+   "publisher": "CareerCup",
+   "pageCount": 687,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-015",
+  "category": "Books",
+  "name": "Artificial Intelligence: A Modern Approach (4th Edition)",
+  "description": "Giáo trình trí tuệ nhân tạo chuẩn mực cho sinh viên và người nghiên cứu.",
+  "brand": "Pearson",
+  "price": 2350000,
+  "stock": 138,
+  "image": "images/products/x-bk-015.jpg",
+  "attributes": {
+   "isbn": "9780134610993",
+   "author": "Stuart Russell, Peter Norvig",
+   "publisher": "Pearson",
+   "pageCount": 1136,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-016",
+  "category": "Books",
+  "name": "Effective Java (3rd Edition)",
+  "description": "90 lời khuyên để viết mã Java rõ ràng, đúng đắn và hiệu quả.",
+  "brand": "Addison-Wesley",
+  "price": 950000,
+  "stock": 53,
+  "image": "images/products/x-bk-016.jpg",
+  "attributes": {
+   "isbn": "9780134685991",
+   "author": "Joshua Bloch",
+   "publisher": "Addison-Wesley",
+   "pageCount": 416,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-017",
+  "category": "Books",
+  "name": "The Mythical Man-Month",
+  "description": "Những tiểu luận kinh điển về quản lý dự án phần mềm.",
+  "brand": "Addison-Wesley",
+  "price": 690000,
+  "stock": 139,
+  "image": "images/products/x-bk-017.jpg",
+  "attributes": {
+   "isbn": "9780201835953",
+   "author": "Frederick P. Brooks Jr.",
+   "publisher": "Addison-Wesley",
+   "pageCount": 336,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-018",
+  "category": "Books",
+  "name": "Python Crash Course (2nd Edition)",
+  "description": "Nhập môn Python nhanh qua các dự án thực hành.",
+  "brand": "No Starch Press",
+  "price": 720000,
+  "stock": 101,
+  "image": "images/products/x-bk-018.jpg",
+  "attributes": {
+   "isbn": "9781593279288",
+   "author": "Eric Matthes",
+   "publisher": "No Starch Press",
+   "pageCount": 544,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-019",
+  "category": "Books",
+  "name": "Fluent Python (2nd Edition)",
+  "description": "Khai thác các tính năng nâng cao để viết Python gọn gàng, hiệu quả.",
+  "brand": "O'Reilly Media",
+  "price": 1390000,
+  "stock": 104,
+  "image": "images/products/x-bk-019.jpg",
+  "attributes": {
+   "isbn": "9781492056355",
+   "author": "Luciano Ramalho",
+   "publisher": "O'Reilly Media",
+   "pageCount": 1012,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-020",
+  "category": "Books",
+  "name": "Sapiens: A Brief History of Humankind",
+  "description": "Lược sử loài người từ thời săn bắt hái lượm đến kỷ nguyên công nghệ.",
+  "brand": "Harper",
+  "price": 420000,
+  "stock": 96,
+  "image": "images/products/x-bk-020.jpg",
+  "attributes": {
+   "isbn": "9780062316097",
+   "author": "Yuval Noah Harari",
+   "publisher": "Harper",
+   "pageCount": 464,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-021",
+  "category": "Books",
+  "name": "Atomic Habits",
+  "description": "Thay đổi nhỏ mỗi ngày để tạo nên thói quen tốt bền vững.",
+  "brand": "Avery",
+  "price": 390000,
+  "stock": 78,
+  "image": "images/products/x-bk-021.jpg",
+  "attributes": {
+   "isbn": "9780735211292",
+   "author": "James Clear",
+   "publisher": "Avery",
+   "pageCount": 320,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-022",
+  "category": "Books",
+  "name": "Thinking, Fast and Slow",
+  "description": "Hai hệ thống tư duy chi phối cách con người phán đoán và ra quyết định.",
+  "brand": "Farrar, Straus and Giroux",
+  "price": 380000,
+  "stock": 125,
+  "image": "images/products/x-bk-022.jpg",
+  "attributes": {
+   "isbn": "9780374533557",
+   "author": "Daniel Kahneman",
+   "publisher": "Farrar, Straus and Giroux",
+   "pageCount": 499,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-023",
+  "category": "Books",
+  "name": "Deep Work",
+  "description": "Quy tắc làm việc tập trung cao độ trong một thế giới đầy xao nhãng.",
+  "brand": "Grand Central Publishing",
+  "price": 360000,
+  "stock": 98,
+  "image": "images/products/x-bk-023.jpg",
+  "attributes": {
+   "isbn": "9781455586691",
+   "author": "Cal Newport",
+   "publisher": "Grand Central Publishing",
+   "pageCount": 304,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-024",
+  "category": "Books",
+  "name": "Zero to One",
+  "description": "Ghi chép về khởi nghiệp và cách tạo ra những điều chưa từng có.",
+  "brand": "Crown Business",
+  "price": 340000,
+  "stock": 95,
+  "image": "images/products/x-bk-024.jpg",
+  "attributes": {
+   "isbn": "9780804139298",
+   "author": "Peter Thiel",
+   "publisher": "Crown Business",
+   "pageCount": 224,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-025",
+  "category": "Books",
+  "name": "The Lean Startup",
+  "description": "Phương pháp khởi nghiệp tinh gọn: xây dựng, đo lường, học hỏi.",
+  "brand": "Crown Business",
+  "price": 350000,
+  "stock": 132,
+  "image": "images/products/x-bk-025.jpg",
+  "attributes": {
+   "isbn": "9780307887894",
+   "author": "Eric Ries",
+   "publisher": "Crown Business",
+   "pageCount": 336,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-026",
+  "category": "Books",
+  "name": "1984",
+  "description": "Tiểu thuyết phản địa đàng kinh điển về một xã hội bị giám sát toàn diện.",
+  "brand": "Signet Classic",
+  "price": 190000,
+  "stock": 118,
+  "image": "images/products/x-bk-026.jpg",
+  "attributes": {
+   "isbn": "9780451524935",
+   "author": "George Orwell",
+   "publisher": "Signet Classic",
+   "pageCount": 328,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-027",
+  "category": "Books",
+  "name": "The Great Gatsby",
+  "description": "Câu chuyện về giấc mơ Mỹ và nước Mỹ thập niên 1920.",
+  "brand": "Scribner",
+  "price": 210000,
+  "stock": 124,
+  "image": "images/products/x-bk-027.jpg",
+  "attributes": {
+   "isbn": "9780743273565",
+   "author": "F. Scott Fitzgerald",
+   "publisher": "Scribner",
+   "pageCount": 180,
+   "language": "Tiếng Anh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-028",
+  "category": "Books",
+  "name": "Dế Mèn phiêu lưu ký",
+  "description": "Truyện đồng thoại nổi tiếng về chuyến phiêu lưu của chú Dế Mèn.",
+  "brand": "NXB Kim Đồng",
+  "price": 65000,
+  "stock": 123,
+  "image": "images/products/x-bk-028.jpg",
+  "attributes": {
+   "author": "Tô Hoài",
+   "publisher": "NXB Kim Đồng",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-029",
+  "category": "Books",
+  "name": "Tôi thấy hoa vàng trên cỏ xanh",
+  "description": "Câu chuyện tuổi thơ trong trẻo ở một làng quê nghèo.",
+  "brand": "NXB Trẻ",
+  "price": 125000,
+  "stock": 87,
+  "image": "images/products/x-bk-029.jpg",
+  "attributes": {
+   "author": "Nguyễn Nhật Ánh",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-030",
+  "category": "Books",
+  "name": "Mắt biếc",
+  "description": "Mối tình đơn phương day dứt của Ngạn dành cho Hà Lan.",
+  "brand": "NXB Trẻ",
+  "price": 110000,
+  "stock": 121,
+  "image": "images/products/x-bk-030.jpg",
+  "attributes": {
+   "author": "Nguyễn Nhật Ánh",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-031",
+  "category": "Books",
+  "name": "Cho tôi xin một vé đi tuổi thơ",
+  "description": "Tấm vé trở về tuổi thơ dành cho những ai từng là trẻ con.",
+  "brand": "NXB Trẻ",
+  "price": 90000,
+  "stock": 123,
+  "image": "images/products/x-bk-031.jpg",
+  "attributes": {
+   "author": "Nguyễn Nhật Ánh",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-032",
+  "category": "Books",
+  "name": "Số đỏ",
+  "description": "Tiểu thuyết trào phúng đặc sắc của văn học Việt Nam hiện đại.",
+  "brand": "NXB Văn Học",
+  "price": 75000,
+  "stock": 100,
+  "image": "images/products/x-bk-032.png",
+  "attributes": {
+   "author": "Vũ Trọng Phụng",
+   "publisher": "NXB Văn Học",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-033",
+  "category": "Books",
+  "name": "Truyện Kiều",
+  "description": "Kiệt tác truyện thơ Nôm của đại thi hào Nguyễn Du.",
+  "brand": "NXB Văn Học",
+  "price": 95000,
+  "stock": 81,
+  "image": "images/products/x-bk-033.jpg",
+  "attributes": {
+   "author": "Nguyễn Du",
+   "publisher": "NXB Văn Học",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-034",
+  "category": "Books",
+  "name": "Đất rừng phương Nam",
+  "description": "Hành trình của cậu bé An giữa thiên nhiên và con người Nam Bộ.",
+  "brand": "NXB Kim Đồng",
+  "price": 85000,
+  "stock": 55,
+  "image": "images/products/x-bk-034.png",
+  "attributes": {
+   "author": "Đoàn Giỏi",
+   "publisher": "NXB Kim Đồng",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-035",
+  "category": "Books",
+  "name": "Tắt đèn",
+  "description": "Số phận người nông dân trước Cách mạng qua hình tượng chị Dậu.",
+  "brand": "NXB Văn Học",
+  "price": 60000,
+  "stock": 25,
+  "image": "images/products/x-bk-035.jpg",
+  "attributes": {
+   "author": "Ngô Tất Tố",
+   "publisher": "NXB Văn Học",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-036",
+  "category": "Books",
+  "name": "Tuổi trẻ đáng giá bao nhiêu",
+  "description": "Chia sẻ về học tập, trải nghiệm và định hướng cho người trẻ.",
+  "brand": "NXB Hội Nhà Văn",
+  "price": 99000,
+  "stock": 103,
+  "image": "images/products/x-bk-036.png",
+  "attributes": {
+   "author": "Rosie Nguyễn",
+   "publisher": "NXB Hội Nhà Văn",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-037",
+  "category": "Books",
+  "name": "Cà phê cùng Tony",
+  "description": "Những câu chuyện dí dỏm về cách sống và làm việc của người trẻ.",
+  "brand": "NXB Trẻ",
+  "price": 105000,
+  "stock": 35,
+  "image": "images/products/x-bk-037.jpg",
+  "attributes": {
+   "author": "Tony Buổi Sáng",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-038",
+  "category": "Books",
+  "name": "Dạy con làm giàu (Tập 1)",
+  "description": "Bài học về tư duy tài chính qua câu chuyện cha giàu, cha nghèo.",
+  "brand": "NXB Trẻ",
+  "price": 115000,
+  "stock": 39,
+  "image": "images/products/x-bk-038.jpg",
+  "attributes": {
+   "author": "Robert T. Kiyosaki",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-039",
+  "category": "Books",
+  "name": "Hoàng tử bé",
+  "description": "Chuyện về hoàng tử bé đến từ một tiểu tinh cầu, dành cho mọi lứa tuổi.",
+  "brand": "Nhã Nam",
+  "price": 79000,
+  "stock": 61,
+  "image": "images/products/x-bk-039.jpg",
+  "attributes": {
+   "author": "Antoine de Saint-Exupéry",
+   "publisher": "Nhã Nam",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-040",
+  "category": "Books",
+  "name": "Lược sử thời gian",
+  "description": "Vũ trụ học cho mọi người: từ Vụ nổ lớn đến lỗ đen.",
+  "brand": "NXB Trẻ",
+  "price": 135000,
+  "stock": 129,
+  "image": "images/products/x-bk-040.jpg",
+  "attributes": {
+   "author": "Stephen Hawking",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "BK-041",
+  "category": "Books",
+  "name": "Harry Potter và Hòn đá Phù thủy",
+  "description": "Tập đầu tiên trong bộ truyện về cậu bé phù thủy Harry Potter.",
+  "brand": "NXB Trẻ",
+  "price": 165000,
+  "stock": 37,
+  "image": "images/products/x-bk-041.jpg",
+  "attributes": {
+   "author": "J.K. Rowling",
+   "publisher": "NXB Trẻ",
+   "language": "Tiếng Việt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-003",
+  "category": "Electronics",
+  "name": "Laptop Apple MacBook Air 13 M3",
+  "description": "Mỏng nhẹ, không quạt, pin dùng cả ngày.",
+  "brand": "Apple",
+  "price": 27990000,
+  "stock": 34,
+  "image": "images/products/x-lt-003.png",
+  "attributes": {
+   "cpu": "Apple M3",
+   "ram": "8GB",
+   "storage": "256GB SSD",
+   "screenSize": 13.6,
+   "warrantyMonths": 12,
+   "modelNumber": "MacBook Air 13 M3"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-004",
+  "category": "Electronics",
+  "name": "Laptop Apple MacBook Pro 16 M3 Pro",
+  "description": "Màn hình Liquid Retina XDR, hiệu năng cho công việc chuyên nghiệp.",
+  "brand": "Apple",
+  "price": 64990000,
+  "stock": 6,
+  "image": "images/products/x-lt-004.png",
+  "attributes": {
+   "cpu": "Apple M3 Pro",
+   "ram": "18GB",
+   "storage": "512GB SSD",
+   "screenSize": 16.2,
+   "warrantyMonths": 12,
+   "modelNumber": "MacBook Pro 16 M3 Pro"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-005",
+  "category": "Electronics",
+  "name": "Laptop Dell XPS 15 9530",
+  "description": "Thiết kế cao cấp, màn hình viền mỏng cho người sáng tạo nội dung.",
+  "brand": "Dell",
+  "price": 52990000,
+  "stock": 37,
+  "image": "images/products/x-lt-005.jpg",
+  "attributes": {
+   "cpu": "Core i7-13700H",
+   "ram": "16GB",
+   "storage": "1TB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 12,
+   "modelNumber": "XPS 15 9530"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-006",
+  "category": "Electronics",
+  "name": "Laptop Dell Inspiron 15 3520",
+  "description": "Laptop văn phòng bền bỉ, giá hợp lý cho học tập.",
+  "brand": "Dell",
+  "price": 13490000,
+  "stock": 26,
+  "image": "images/products/x-lt-006.jpg",
+  "attributes": {
+   "cpu": "Core i5-1235U",
+   "ram": "8GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 12,
+   "modelNumber": "Inspiron 15 3520"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-007",
+  "category": "Electronics",
+  "name": "Laptop Dell Latitude 7440",
+  "description": "Dòng doanh nhân bảo mật cao, bảo hành 3 năm.",
+  "brand": "Dell",
+  "price": 34900000,
+  "stock": 19,
+  "image": "images/products/x-lt-007.jpg",
+  "attributes": {
+   "cpu": "Core i7-1365U",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 36,
+   "modelNumber": "Latitude 7440"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-008",
+  "category": "Electronics",
+  "name": "Laptop HP Pavilion 15",
+  "description": "Vỏ kim loại, đa dụng cho học tập và giải trí.",
+  "brand": "HP",
+  "price": 17990000,
+  "stock": 31,
+  "image": "images/products/x-lt-008.jpg",
+  "attributes": {
+   "cpu": "Core i5-1335U",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 12,
+   "modelNumber": "Pavilion 15"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-009",
+  "category": "Electronics",
+  "name": "Laptop HP Envy x360 14",
+  "description": "Xoay gập 360 độ, màn hình cảm ứng kèm bút.",
+  "brand": "HP",
+  "price": 26990000,
+  "stock": 22,
+  "image": "images/products/x-lt-009.jpg",
+  "attributes": {
+   "cpu": "Ryzen 7 7730U",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 12,
+   "modelNumber": "Envy x360 14"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-010",
+  "category": "Electronics",
+  "name": "Laptop HP Victus 16",
+  "description": "Laptop gaming tầm trung, màn hình 144Hz.",
+  "brand": "HP",
+  "price": 23490000,
+  "stock": 28,
+  "image": "images/products/x-lt-010.png",
+  "attributes": {
+   "cpu": "Core i5-13500H",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 16.1,
+   "warrantyMonths": 12,
+   "modelNumber": "Victus 16"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-011",
+  "category": "Electronics",
+  "name": "Laptop Lenovo ThinkPad X1 Carbon Gen 11",
+  "description": "Siêu nhẹ, bàn phím ThinkPad trứ danh cho doanh nhân.",
+  "brand": "Lenovo",
+  "price": 45990000,
+  "stock": 28,
+  "image": "images/products/x-lt-011.jpg",
+  "attributes": {
+   "cpu": "Core i7-1355U",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 36,
+   "modelNumber": "ThinkPad X1 Carbon Gen 11"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-012",
+  "category": "Electronics",
+  "name": "Laptop Lenovo IdeaPad Slim 5 14",
+  "description": "Mỏng nhẹ, pin bền, phù hợp sinh viên.",
+  "brand": "Lenovo",
+  "price": 18490000,
+  "stock": 30,
+  "image": "images/products/x-lt-012.jpg",
+  "attributes": {
+   "cpu": "Ryzen 5 7530U",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 24,
+   "modelNumber": "IdeaPad Slim 5 14"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-013",
+  "category": "Electronics",
+  "name": "Laptop Lenovo Legion 5 Pro 16",
+  "description": "Gaming hiệu năng cao, tản nhiệt tốt, màn hình 165Hz.",
+  "brand": "Lenovo",
+  "price": 38990000,
+  "stock": 38,
+  "image": "images/products/x-lt-013.jpg",
+  "attributes": {
+   "cpu": "Ryzen 7 7745HX",
+   "ram": "16GB",
+   "storage": "1TB SSD",
+   "screenSize": 16.0,
+   "warrantyMonths": 24,
+   "modelNumber": "Legion 5 Pro 16"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-014",
+  "category": "Electronics",
+  "name": "Laptop ASUS Vivobook 15",
+  "description": "Gọn nhẹ, đủ dùng cho văn phòng và học online.",
+  "brand": "ASUS",
+  "price": 12990000,
+  "stock": 10,
+  "image": "images/products/x-lt-014.jpg",
+  "attributes": {
+   "cpu": "Core i5-1235U",
+   "ram": "8GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 24,
+   "modelNumber": "Vivobook 15"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-015",
+  "category": "Electronics",
+  "name": "Laptop ASUS ROG Strix G16",
+  "description": "Chiến mọi tựa game với hệ thống tản nhiệt ROG.",
+  "brand": "ASUS",
+  "price": 41990000,
+  "stock": 27,
+  "image": "images/products/x-lt-015.jpg",
+  "attributes": {
+   "cpu": "Core i7-13650HX",
+   "ram": "16GB",
+   "storage": "1TB SSD",
+   "screenSize": 16.0,
+   "warrantyMonths": 24,
+   "modelNumber": "ROG Strix G16"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-016",
+  "category": "Electronics",
+  "name": "Laptop ASUS TUF Gaming F15",
+  "description": "Độ bền chuẩn quân đội, gaming giá tốt.",
+  "brand": "ASUS",
+  "price": 21990000,
+  "stock": 11,
+  "image": "images/products/x-lt-016.jpg",
+  "attributes": {
+   "cpu": "Core i5-12500H",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 24,
+   "modelNumber": "TUF Gaming F15"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-017",
+  "category": "Electronics",
+  "name": "Laptop Acer Aspire 7",
+  "description": "Có card đồ họa rời, cân bằng giữa học tập và giải trí.",
+  "brand": "Acer",
+  "price": 16990000,
+  "stock": 40,
+  "image": "images/products/x-lt-017.jpg",
+  "attributes": {
+   "cpu": "Core i5-12450H",
+   "ram": "8GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 12,
+   "modelNumber": "Aspire 7"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-018",
+  "category": "Electronics",
+  "name": "Laptop Acer Nitro 5",
+  "description": "Laptop gaming quốc dân, dễ nâng cấp.",
+  "brand": "Acer",
+  "price": 22490000,
+  "stock": 24,
+  "image": "images/products/x-lt-018.jpg",
+  "attributes": {
+   "cpu": "Core i5-12500H",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 12,
+   "modelNumber": "Nitro 5"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-019",
+  "category": "Electronics",
+  "name": "Laptop Acer Swift 3",
+  "description": "Vỏ nhôm mỏng nhẹ, màn hình sắc nét.",
+  "brand": "Acer",
+  "price": 17490000,
+  "stock": 24,
+  "image": "images/products/x-lt-019.jpg",
+  "attributes": {
+   "cpu": "Core i5-1240P",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 12,
+   "modelNumber": "Swift 3"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-020",
+  "category": "Electronics",
+  "name": "Laptop MSI Modern 14",
+  "description": "Nhỏ gọn, giá dễ tiếp cận cho nhu cầu cơ bản.",
+  "brand": "MSI",
+  "price": 11990000,
+  "stock": 35,
+  "image": "images/products/x-lt-020.jpg",
+  "attributes": {
+   "cpu": "Core i3-1215U",
+   "ram": "8GB",
+   "storage": "512GB SSD",
+   "screenSize": 14.0,
+   "warrantyMonths": 24,
+   "modelNumber": "Modern 14"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-021",
+  "category": "Electronics",
+  "name": "Laptop MSI Katana 15",
+  "description": "Gaming mạnh mẽ, bàn phím đèn nền RGB.",
+  "brand": "MSI",
+  "price": 27990000,
+  "stock": 15,
+  "image": "images/products/x-lt-021.jpg",
+  "attributes": {
+   "cpu": "Core i7-13620H",
+   "ram": "16GB",
+   "storage": "1TB SSD",
+   "screenSize": 15.6,
+   "warrantyMonths": 24,
+   "modelNumber": "Katana 15"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "LT-022",
+  "category": "Electronics",
+  "name": "Laptop LG Gram 16",
+  "description": "Màn hình 16 inch nhưng chỉ nặng khoảng 1,2 kg.",
+  "brand": "LG",
+  "price": 36990000,
+  "stock": 25,
+  "image": "images/products/x-lt-022.jpg",
+  "attributes": {
+   "cpu": "Core i7-1360P",
+   "ram": "16GB",
+   "storage": "512GB SSD",
+   "screenSize": 16.0,
+   "warrantyMonths": 12,
+   "modelNumber": "Gram 16"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-003",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone 15 128GB",
+  "description": "Dynamic Island, camera 48MP, cổng USB-C.",
+  "brand": "Apple",
+  "price": 19990000,
+  "stock": 11,
+  "image": "images/products/x-mb-003.jpg",
+  "attributes": {
+   "screenSize": 6.1,
+   "storage": "128GB",
+   "batteryCapacity": 3349,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-004",
+  "category": "Electronics",
+  "name": "Điện thoại iPhone 15 Pro Max 256GB",
+  "description": "Khung titan, chip A17 Pro, zoom quang 5x.",
+  "brand": "Apple",
+  "price": 31990000,
+  "stock": 55,
+  "image": "images/products/x-mb-004.webp",
+  "attributes": {
+   "screenSize": 6.7,
+   "storage": "256GB",
+   "batteryCapacity": 4441,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-005",
+  "category": "Electronics",
+  "name": "Điện thoại Samsung Galaxy S24 Ultra 256GB",
+  "description": "Bút S Pen, camera 200MP, tính năng Galaxy AI.",
+  "brand": "Samsung",
+  "price": 28990000,
+  "stock": 33,
+  "image": "images/products/x-mb-005.webp",
+  "attributes": {
+   "screenSize": 6.8,
+   "storage": "256GB",
+   "batteryCapacity": 5000,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-006",
+  "category": "Electronics",
+  "name": "Điện thoại Samsung Galaxy Z Flip5 256GB",
+  "description": "Màn hình gập nhỏ gọn, màn hình phụ lớn.",
+  "brand": "Samsung",
+  "price": 19990000,
+  "stock": 33,
+  "image": "images/products/x-mb-006.webp",
+  "attributes": {
+   "screenSize": 6.7,
+   "storage": "256GB",
+   "batteryCapacity": 3700,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-007",
+  "category": "Electronics",
+  "name": "Điện thoại Xiaomi Redmi Note 13 Pro",
+  "description": "Màn hình AMOLED 120Hz, camera 200MP, sạc nhanh.",
+  "brand": "Xiaomi",
+  "price": 7490000,
+  "stock": 39,
+  "image": "images/products/x-mb-007.webp",
+  "attributes": {
+   "screenSize": 6.67,
+   "storage": "256GB",
+   "batteryCapacity": 5100,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-008",
+  "category": "Electronics",
+  "name": "Điện thoại Xiaomi 14",
+  "description": "Flagship nhỏ gọn, ống kính Leica.",
+  "brand": "Xiaomi",
+  "price": 22990000,
+  "stock": 37,
+  "image": "images/products/x-mb-008.webp",
+  "attributes": {
+   "screenSize": 6.36,
+   "storage": "512GB",
+   "batteryCapacity": 4610,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-009",
+  "category": "Electronics",
+  "name": "Điện thoại OPPO Reno11 F 5G",
+  "description": "Thiết kế mỏng nhẹ, chụp chân dung đẹp.",
+  "brand": "OPPO",
+  "price": 8990000,
+  "stock": 15,
+  "image": "images/products/x-mb-009.webp",
+  "attributes": {
+   "screenSize": 6.7,
+   "storage": "256GB",
+   "batteryCapacity": 5000,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-010",
+  "category": "Electronics",
+  "name": "Điện thoại OPPO Find N3 Flip",
+  "description": "Điện thoại gập với cụm ba camera Hasselblad.",
+  "brand": "OPPO",
+  "price": 22990000,
+  "stock": 35,
+  "image": "images/products/x-mb-010.webp",
+  "attributes": {
+   "screenSize": 6.8,
+   "storage": "256GB",
+   "batteryCapacity": 4300,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-011",
+  "category": "Electronics",
+  "name": "Điện thoại Vivo V30 5G",
+  "description": "Màn hình cong, đèn Aura cho ảnh chân dung.",
+  "brand": "Vivo",
+  "price": 11990000,
+  "stock": 47,
+  "image": "images/products/x-mb-011.webp",
+  "attributes": {
+   "screenSize": 6.78,
+   "storage": "256GB",
+   "batteryCapacity": 5000,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-012",
+  "category": "Electronics",
+  "name": "Điện thoại Realme 12 Pro+ 5G",
+  "description": "Camera tele tiềm vọng, mặt lưng da sang trọng.",
+  "brand": "Realme",
+  "price": 10990000,
+  "stock": 45,
+  "image": "images/products/x-mb-012.webp",
+  "attributes": {
+   "screenSize": 6.7,
+   "storage": "256GB",
+   "batteryCapacity": 5000,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-013",
+  "category": "Electronics",
+  "name": "Điện thoại Google Pixel 8",
+  "description": "Android thuần, nhiếp ảnh điện toán, cập nhật lâu dài.",
+  "brand": "Google",
+  "price": 16990000,
+  "stock": 41,
+  "image": "images/products/x-mb-013.webp",
+  "attributes": {
+   "screenSize": 6.2,
+   "storage": "128GB",
+   "batteryCapacity": 4575,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "MB-014",
+  "category": "Electronics",
+  "name": "Điện thoại Nokia G22",
+  "description": "Pin lớn, dễ tự sửa chữa, giá phổ thông.",
+  "brand": "Nokia",
+  "price": 3490000,
+  "stock": 17,
+  "image": "images/products/x-mb-014.webp",
+  "attributes": {
+   "screenSize": 6.52,
+   "storage": "128GB",
+   "batteryCapacity": 5050,
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-007",
+  "category": "Electronics",
+  "name": "Máy tính bảng iPad Air 11 inch M2",
+  "description": "Chip M2 mạnh mẽ, hỗ trợ Apple Pencil Pro.",
+  "brand": "Apple",
+  "price": 16990000,
+  "stock": 62,
+  "image": "images/products/x-el-007.webp",
+  "attributes": {
+   "screenSize": 11,
+   "storage": "128GB",
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-008",
+  "category": "Electronics",
+  "name": "Máy tính bảng Samsung Galaxy Tab S9 FE",
+  "description": "Kèm bút S Pen, kháng nước IP68.",
+  "brand": "Samsung",
+  "price": 9990000,
+  "stock": 72,
+  "image": "images/products/x-el-008.webp",
+  "attributes": {
+   "screenSize": 10.9,
+   "storage": "128GB",
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-009",
+  "category": "Electronics",
+  "name": "Máy tính bảng Xiaomi Pad 6",
+  "description": "Màn hình 144Hz, bốn loa, giá tốt.",
+  "brand": "Xiaomi",
+  "price": 7990000,
+  "stock": 70,
+  "image": "images/products/x-el-009.webp",
+  "attributes": {
+   "screenSize": 11,
+   "storage": "128GB",
+   "warrantyMonths": 18
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-010",
+  "category": "Electronics",
+  "name": "Tai nghe chống ồn Sony WH-1000XM5",
+  "description": "Chống ồn hàng đầu, pin 30 giờ.",
+  "brand": "Sony",
+  "price": 7490000,
+  "stock": 58,
+  "image": "images/products/x-el-010.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-011",
+  "category": "Electronics",
+  "name": "Tai nghe Apple AirPods Pro 2",
+  "description": "Chống ồn chủ động, âm thanh không gian, hộp sạc USB-C.",
+  "brand": "Apple",
+  "price": 5990000,
+  "stock": 75,
+  "image": "images/products/x-el-011.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-012",
+  "category": "Electronics",
+  "name": "Tai nghe Bluetooth JBL Tune 520BT",
+  "description": "Âm bass JBL Pure Bass, pin 57 giờ.",
+  "brand": "JBL",
+  "price": 1190000,
+  "stock": 41,
+  "image": "images/products/x-el-012.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-013",
+  "category": "Electronics",
+  "name": "Loa Bluetooth JBL Charge 5",
+  "description": "Chống nước IP67, pin 20 giờ, kiêm sạc dự phòng.",
+  "brand": "JBL",
+  "price": 3690000,
+  "stock": 61,
+  "image": "images/products/x-el-013.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-014",
+  "category": "Electronics",
+  "name": "Bàn phím cơ Keychron K2",
+  "description": "Layout 75%, kết nối Bluetooth và có dây, dùng được cho Mac và Windows.",
+  "brand": "Keychron",
+  "price": 1890000,
+  "stock": 80,
+  "image": "images/products/x-el-014.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-015",
+  "category": "Electronics",
+  "name": "Chuột không dây Logitech MX Master 3S",
+  "description": "Cảm biến 8000 DPI, click êm, cuộn siêu nhanh.",
+  "brand": "Logitech",
+  "price": 2290000,
+  "stock": 69,
+  "image": "images/products/x-el-015.webp",
+  "attributes": {
+   "warrantyMonths": 12
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-016",
+  "category": "Electronics",
+  "name": "Màn hình gaming LG UltraGear 27GP850",
+  "description": "Tấm nền Nano IPS 2K, tần số quét 165Hz.",
+  "brand": "LG",
+  "price": 8490000,
+  "stock": 73,
+  "image": "images/products/x-el-016.webp",
+  "attributes": {
+   "screenSize": 27,
+   "warrantyMonths": 24
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-017",
+  "category": "Electronics",
+  "name": "Ổ cứng SSD di động Samsung T7 1TB",
+  "description": "Nhỏ gọn, tốc độ đọc đến 1.050 MB/s.",
+  "brand": "Samsung",
+  "price": 2590000,
+  "stock": 74,
+  "image": "images/products/x-el-017.webp",
+  "attributes": {
+   "storage": "1TB",
+   "warrantyMonths": 36
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-018",
+  "category": "Electronics",
+  "name": "Webcam Logitech C920 HD Pro",
+  "description": "Quay Full HD 1080p, micro kép cho họp trực tuyến.",
+  "brand": "Logitech",
+  "price": 1790000,
+  "stock": 11,
+  "image": "images/products/x-el-018.webp",
+  "attributes": {
+   "warrantyMonths": 24
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-019",
+  "category": "Electronics",
+  "name": "Smart TV Samsung Crystal UHD 55 inch",
+  "description": "Độ phân giải 4K, hệ điều hành Tizen nhiều ứng dụng.",
+  "brand": "Samsung",
+  "price": 12490000,
+  "stock": 36,
+  "image": "images/products/x-el-019.jpg",
+  "attributes": {
+   "screenSize": 55,
+   "warrantyMonths": 24
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-020",
+  "category": "Electronics",
+  "name": "Máy ảnh Sony Alpha a6400",
+  "description": "Máy ảnh không gương lật, lấy nét theo mắt nhanh và chính xác.",
+  "brand": "Sony",
+  "price": 21990000,
+  "stock": 24,
+  "image": "images/products/x-el-020.webp",
+  "attributes": {
+   "warrantyMonths": 24
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "EL-021",
+  "category": "Electronics",
+  "name": "Router Wi-Fi 6 TP-Link Archer AX55",
+  "description": "Wi-Fi 6 tốc độ AX3000, phủ sóng rộng cho gia đình.",
+  "brand": "TP-Link",
+  "price": 1690000,
+  "stock": 14,
+  "image": "images/products/x-el-021.jpg",
+  "attributes": {
+   "warrantyMonths": 24
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-004",
+  "category": "Shoes",
+  "name": "Giày chạy bộ Nike Air Zoom Pegasus 40",
+  "description": "Đệm Zoom Air êm ái cho các buổi chạy hằng ngày.",
+  "brand": "Nike",
+  "price": 3290000,
+  "stock": 76,
+  "image": "images/products/x-sh-004.webp",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "running",
+   "color": "đen",
+   "material": "vải mesh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-005",
+  "category": "Shoes",
+  "name": "Giày Nike Air Force 1 '07",
+  "description": "Mẫu sneaker trắng kinh điển, dễ phối đồ.",
+  "brand": "Nike",
+  "price": 2890000,
+  "stock": 23,
+  "image": "images/products/x-sh-005.jpg",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "trắng",
+   "material": "da"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-006",
+  "category": "Shoes",
+  "name": "Giày chạy bộ Nike Revolution 7",
+  "description": "Nhẹ, êm, phù hợp người mới tập chạy.",
+  "brand": "Nike",
+  "price": 1790000,
+  "stock": 89,
+  "image": "images/products/x-sh-006.webp",
+  "attributes": {
+   "shoesSize": 40,
+   "shoesType": "running",
+   "color": "xanh navy",
+   "material": "vải mesh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-007",
+  "category": "Shoes",
+  "name": "Giày chạy bộ Adidas Ultraboost Light",
+  "description": "Đệm Boost hoàn trả năng lượng, thân giày ôm chân.",
+  "brand": "Adidas",
+  "price": 4500000,
+  "stock": 64,
+  "image": "images/products/x-sh-007.webp",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "running",
+   "color": "trắng",
+   "material": "vải Primeknit"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-008",
+  "category": "Shoes",
+  "name": "Giày Adidas Stan Smith",
+  "description": "Thiết kế tối giản huyền thoại từ sân quần vợt.",
+  "brand": "Adidas",
+  "price": 2500000,
+  "stock": 70,
+  "image": "images/products/x-sh-008.webp",
+  "attributes": {
+   "shoesSize": 40,
+   "shoesType": "sneaker",
+   "color": "trắng xanh",
+   "material": "da"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-009",
+  "category": "Shoes",
+  "name": "Giày Adidas Samba OG",
+  "description": "Phong cách retro đang được ưa chuộng.",
+  "brand": "Adidas",
+  "price": 2700000,
+  "stock": 28,
+  "image": "images/products/x-sh-009.webp",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "đen trắng",
+   "material": "da"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-010",
+  "category": "Shoes",
+  "name": "Giày Puma Suede Classic XXI",
+  "description": "Biểu tượng đường phố với chất liệu da lộn mềm.",
+  "brand": "Puma",
+  "price": 2100000,
+  "stock": 71,
+  "image": "images/products/x-sh-010.webp",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "sneaker",
+   "color": "đen",
+   "material": "da lộn"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-011",
+  "category": "Shoes",
+  "name": "Giày New Balance 574",
+  "description": "Kiểu dáng cổ điển, đế ENCAP êm ái.",
+  "brand": "New Balance",
+  "price": 2390000,
+  "stock": 39,
+  "image": "images/products/x-sh-011.webp",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "xám",
+   "material": "da lộn phối lưới"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-012",
+  "category": "Shoes",
+  "name": "Giày New Balance 530",
+  "description": "Phong cách chạy bộ thập niên 2000.",
+  "brand": "New Balance",
+  "price": 2690000,
+  "stock": 25,
+  "image": "images/products/x-sh-012.webp",
+  "attributes": {
+   "shoesSize": 39,
+   "shoesType": "sneaker",
+   "color": "trắng bạc",
+   "material": "vải lưới"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-013",
+  "category": "Shoes",
+  "name": "Giày Converse Chuck Taylor All Star cổ cao",
+  "description": "Đôi giày vải cổ cao kinh điển cho mọi phong cách.",
+  "brand": "Converse",
+  "price": 1500000,
+  "stock": 90,
+  "image": "images/products/x-sh-013.webp",
+  "attributes": {
+   "shoesSize": 40,
+   "shoesType": "sneaker",
+   "color": "đen",
+   "material": "vải canvas"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-014",
+  "category": "Shoes",
+  "name": "Giày Vans Old Skool",
+  "description": "Sọc Jazz đặc trưng, đế waffle bám tốt.",
+  "brand": "Vans",
+  "price": 1750000,
+  "stock": 68,
+  "image": "images/products/x-sh-014.webp",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "đen trắng",
+   "material": "vải canvas phối da lộn"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-015",
+  "category": "Shoes",
+  "name": "Giày chạy bộ Asics Gel-Kayano 30",
+  "description": "Hỗ trợ ổn định bàn chân cho quãng đường dài.",
+  "brand": "Asics",
+  "price": 4290000,
+  "stock": 70,
+  "image": "images/products/x-sh-015.webp",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "running",
+   "color": "xanh dương",
+   "material": "vải mesh"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-016",
+  "category": "Shoes",
+  "name": "Giày thể thao Biti's Hunter X",
+  "description": "Đế LiteFlex siêu nhẹ, thương hiệu Việt.",
+  "brand": "Biti's",
+  "price": 899000,
+  "stock": 79,
+  "image": "images/products/x-sh-016.jpg",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "đen cam",
+   "material": "vải dệt"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-017",
+  "category": "Shoes",
+  "name": "Giày thể thao Biti's Hunter Street",
+  "description": "Trẻ trung, năng động, giá học sinh sinh viên.",
+  "brand": "Biti's",
+  "price": 799000,
+  "stock": 42,
+  "image": "images/products/x-sh-017.jpg",
+  "attributes": {
+   "shoesSize": 40,
+   "shoesType": "sneaker",
+   "color": "trắng",
+   "material": "vải canvas"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-018",
+  "category": "Shoes",
+  "name": "Giày vải Ananas Track 6",
+  "description": "Phong cách tối giản từ thương hiệu giày Việt.",
+  "brand": "Ananas",
+  "price": 990000,
+  "stock": 81,
+  "image": "images/products/x-sh-018.jpg",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "sneaker",
+   "color": "kem",
+   "material": "da tổng hợp"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-019",
+  "category": "Shoes",
+  "name": "Giày tây nam Oxford da bò",
+  "description": "Giày công sở lịch lãm, khâu đế chắc chắn.",
+  "brand": "Đông Hải",
+  "price": 1650000,
+  "stock": 61,
+  "image": "images/products/x-sh-019.jpg",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "formal",
+   "color": "nâu",
+   "material": "da bò"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-020",
+  "category": "Shoes",
+  "name": "Giày lười nam da thật",
+  "description": "Đi làm, đi tiệc đều hợp, dễ xỏ chân.",
+  "brand": "Laforce",
+  "price": 1350000,
+  "stock": 49,
+  "image": "images/products/x-sh-020.jpg",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "loafer",
+   "color": "đen",
+   "material": "da bò"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-021",
+  "category": "Shoes",
+  "name": "Giày cao gót mũi nhọn 7cm",
+  "description": "Tôn dáng, thanh lịch nơi công sở.",
+  "brand": "Juno",
+  "price": 550000,
+  "stock": 80,
+  "image": "images/products/x-sh-021.webp",
+  "attributes": {
+   "shoesSize": 37,
+   "shoesType": "heel",
+   "color": "đen",
+   "material": "da tổng hợp"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-022",
+  "category": "Shoes",
+  "name": "Giày búp bê nữ mũi tròn",
+  "description": "Êm chân, đi cả ngày không mỏi.",
+  "brand": "Vascara",
+  "price": 620000,
+  "stock": 74,
+  "image": "images/products/x-sh-022.jpg",
+  "attributes": {
+   "shoesSize": 36,
+   "shoesType": "flat",
+   "color": "be",
+   "material": "da tổng hợp"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-023",
+  "category": "Shoes",
+  "name": "Giày sandal nữ quai mảnh",
+  "description": "Thoáng mát, hợp váy và quần ống rộng.",
+  "brand": "Juno",
+  "price": 450000,
+  "stock": 71,
+  "image": "images/products/x-sh-023.webp",
+  "attributes": {
+   "shoesSize": 37,
+   "shoesType": "sandal",
+   "color": "trắng",
+   "material": "da tổng hợp"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-024",
+  "category": "Shoes",
+  "name": "Dép Crocs Classic Clog",
+  "description": "Nhẹ, êm, thoáng khí, dễ vệ sinh.",
+  "brand": "Crocs",
+  "price": 1190000,
+  "stock": 61,
+  "image": "images/products/x-sh-024.jpg",
+  "attributes": {
+   "shoesSize": 40,
+   "shoesType": "clog",
+   "color": "xanh navy",
+   "material": "nhựa Croslite"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-025",
+  "category": "Shoes",
+  "name": "Dép quai ngang Adidas Adilette Comfort",
+  "description": "Đế đệm mềm, lý tưởng sau khi tập luyện.",
+  "brand": "Adidas",
+  "price": 750000,
+  "stock": 65,
+  "image": "images/products/x-sh-025.webp",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "slide",
+   "color": "đen",
+   "material": "cao su"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-026",
+  "category": "Shoes",
+  "name": "Giày bóng đá Mizuno Monarcida Neo TF",
+  "description": "Giày sân cỏ nhân tạo, ôm chân, bám sân tốt.",
+  "brand": "Mizuno",
+  "price": 1990000,
+  "stock": 35,
+  "image": "images/products/x-sh-026.jpg",
+  "attributes": {
+   "shoesSize": 41,
+   "shoesType": "football",
+   "color": "trắng xanh",
+   "material": "da tổng hợp"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-027",
+  "category": "Shoes",
+  "name": "Giày leo núi Columbia Newton Ridge",
+  "description": "Chống thấm, bám đường tốt cho các chuyến trekking.",
+  "brand": "Columbia",
+  "price": 3190000,
+  "stock": 47,
+  "image": "images/products/x-sh-027.jpg",
+  "attributes": {
+   "shoesSize": 42,
+   "shoesType": "hiking",
+   "color": "nâu",
+   "material": "da chống thấm"
+  },
+  "source": "unicart-extra"
+ },
+ {
+  "sku": "SH-028",
+  "category": "Shoes",
+  "name": "Giày thể thao trẻ em Biti's",
+  "description": "Quai dán tiện lợi, nhẹ và êm cho bé.",
+  "brand": "Biti's",
+  "price": 380000,
+  "stock": 44,
+  "image": "images/products/x-sh-028.jpg",
+  "attributes": {
+   "shoesSize": 30,
+   "shoesType": "kids",
+   "color": "hồng",
+   "material": "vải lưới"
+  },
+  "source": "unicart-extra"
+ }
+]

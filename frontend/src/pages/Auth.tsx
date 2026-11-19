@@ -1,6 +1,6 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
-import { errorMessage } from '../api/client'
+import { api, errorMessage } from '../api/client'
 import { Field } from '../components/ui'
 import { useAuth, isStaff, type RegisterData } from '../context/AuthContext'
 import Icon from '../components/Icon'
@@ -38,6 +38,7 @@ export function Login() {
       <form onSubmit={submit} className="space-y-4" noValidate>
         <Field label="Email"><input className="input" type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} autoFocus /></Field>
         <Field label="Mật khẩu"><input className="input" type="password" autoComplete="current-password" required value={password} onChange={(e) => setPassword(e.target.value)} /></Field>
+        <p className="-mt-2 text-right text-sm"><Link to="/quen-mat-khau" className="font-medium text-brand-700 hover:underline">Quên mật khẩu?</Link></p>
         {err && <p className="rounded-lg bg-rose-50 p-3 text-sm text-rose-700" role="alert">{err}</p>}
         <button className="btn-primary w-full py-2.5" disabled={busy || !email || !password}>{busy ? 'Đang đăng nhập…' : 'Đăng nhập'}</button>
       </form>
@@ -81,6 +82,82 @@ export function Register() {
         <button className="btn-primary w-full py-2.5" disabled={busy || weak || mismatch || !f.password || !f.confirm}>{busy ? 'Đang tạo…' : 'Đăng ký'}</button>
       </form>
       <p className="mt-5 text-center text-sm text-slate-500">Đã có tài khoản? <Link to="/dang-nhap" state={{ from }} className="font-semibold text-brand-700 hover:underline">Đăng nhập</Link></p>
+    </Shell>
+  )
+}
+
+export function ForgotPassword() {
+  const [email, setEmail] = useState('')
+  const [sent, setSent] = useState<string | null>(null)
+  const [err, setErr] = useState<string | null>(null)
+  const [busy, setBusy] = useState(false)
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault()
+    setBusy(true); setErr(null)
+    try { setSent((await api.post<{ message: string }>('/auth/forgot-password', { email })).message) }
+    catch (e2) { setErr(errorMessage(e2)) }
+    finally { setBusy(false) }
+  }
+  return (
+    <Shell title="Quên mật khẩu" subtitle="Nhập email đã đăng ký để nhận liên kết đặt lại mật khẩu">
+      {sent ? (
+        <div className="space-y-4 text-sm">
+          <p className="rounded-lg bg-emerald-50 p-3 text-emerald-800" role="status">{sent}</p>
+          <p className="text-slate-500">Liên kết có hiệu lực 30 phút và chỉ dùng được một lần.</p>
+          <button className="btn-secondary w-full" onClick={() => setSent(null)}>Gửi lại</button>
+        </div>
+      ) : (
+        <form onSubmit={submit} className="space-y-4" noValidate>
+          <Field label="Email"><input className="input" type="email" autoComplete="email" required maxLength={150} value={email} onChange={(e) => setEmail(e.target.value)} autoFocus /></Field>
+          {err && <p className="rounded-lg bg-rose-50 p-3 text-sm text-rose-700" role="alert">{err}</p>}
+          <button className="btn-primary w-full py-2.5" disabled={busy || !email.trim()}>{busy ? 'Đang gửi…' : 'Gửi liên kết đặt lại'}</button>
+        </form>
+      )}
+      <p className="mt-5 text-center text-sm text-slate-500"><Link to="/dang-nhap" className="font-semibold text-brand-700 hover:underline">Quay lại đăng nhập</Link></p>
+    </Shell>
+  )
+}
+
+export function ResetPassword() {
+  const { hash } = useLocation()
+  const nav = useNavigate()
+  // The token travels in the URL fragment, which browsers never send to the server or to other sites.
+  const [token] = useState(() => new URLSearchParams(hash.slice(1)).get('token') ?? '')
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
+  const [err, setErr] = useState<string | null>(null)
+  const [busy, setBusy] = useState(false)
+  const [done, setDone] = useState(false)
+  useEffect(() => { if (token) nav('/dat-lai-mat-khau', { replace: true }) }, [token, nav])   // keep it out of history
+  const mismatch = confirm !== '' && confirm !== password
+  const weak = password !== '' && (password.length < 8 || !/[A-Za-z]/.test(password) || !/\d/.test(password))
+
+  const submit = async (e: FormEvent) => {
+    e.preventDefault()
+    setBusy(true); setErr(null)
+    try { await api.post('/auth/reset-password', { token, new_password: password }); setDone(true) }
+    catch (e2) { setErr(errorMessage(e2)) }
+    finally { setBusy(false) }
+  }
+  if (done) return (
+    <Shell title="Đã đổi mật khẩu" subtitle="Bạn có thể đăng nhập bằng mật khẩu mới">
+      <Link to="/dang-nhap" className="btn-primary w-full py-2.5">Đăng nhập</Link>
+    </Shell>
+  )
+  if (!token) return (
+    <Shell title="Liên kết không hợp lệ" subtitle="Liên kết đặt lại mật khẩu bị thiếu hoặc đã hỏng">
+      <Link to="/quen-mat-khau" className="btn-primary w-full py-2.5">Gửi yêu cầu mới</Link>
+    </Shell>
+  )
+  return (
+    <Shell title="Đặt lại mật khẩu" subtitle="Chọn mật khẩu mới cho tài khoản của bạn">
+      <form onSubmit={submit} className="space-y-4">
+        <Field label="Mật khẩu mới" hint="Tối thiểu 8 ký tự, gồm chữ và số" error={weak ? 'Mật khẩu chưa đủ mạnh' : null}><input className="input" type="password" autoComplete="new-password" required value={password} onChange={(e) => setPassword(e.target.value)} autoFocus /></Field>
+        <Field label="Nhập lại mật khẩu mới" error={mismatch ? 'Mật khẩu nhập lại không khớp' : null}><input className="input" type="password" autoComplete="new-password" required value={confirm} onChange={(e) => setConfirm(e.target.value)} /></Field>
+        {err && <div className="rounded-lg bg-rose-50 p-3 text-sm text-rose-700" role="alert">{err} <Link to="/quen-mat-khau" className="font-semibold underline">Gửi yêu cầu mới</Link></div>}
+        <button className="btn-primary w-full py-2.5" disabled={busy || weak || mismatch || !password || !confirm}>{busy ? 'Đang lưu…' : 'Đặt lại mật khẩu'}</button>
+      </form>
     </Shell>
   )
 }

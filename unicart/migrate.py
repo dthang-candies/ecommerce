@@ -6,6 +6,7 @@ Changes relative to the report's schema.sql (see docs/DATABASE_DESIGN.md):
   3. product_embedding table - vectors for AI semantic search (ProductEmbedding, section 3.6.2)
   4. book / electronics / fashion / furniture - Product specialisation (class-table inheritance); each new table is
      filled from the existing product rows of the matching categories (product.attributes and product.brand are kept)
+  5. password_reset table - one-time links of the "forgot password" flow
 """
 from sqlalchemy import text
 
@@ -20,6 +21,18 @@ CREATE TABLE product_embedding (
     vector        BLOB NOT NULL,
     updated_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_embedding_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) ENGINE=InnoDB
+"""
+_RESET_TABLE = """
+CREATE TABLE password_reset (
+    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    account_id  BIGINT NOT NULL,
+    token_hash  CHAR(64) NOT NULL UNIQUE,
+    expires_at  DATETIME NOT NULL,
+    used_at     DATETIME,
+    created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_reset_account FOREIGN KEY (account_id) REFERENCES account(id) ON DELETE CASCADE,
+    INDEX idx_reset_account (account_id)
 ) ENGINE=InnoDB
 """
 _EVENTS = "'VIEW','SEARCH','ADD_TO_CART','PURCHASE','CLICK_REC','REC_IMPRESSION'"
@@ -76,6 +89,12 @@ def migrate(db: Database | None = None) -> list[str]:
         if not has_table:
             c.execute(text(_EMBEDDING_TABLE))
             done.append("product_embedding")
+        has_reset = c.execute(text(
+            "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() "
+            "AND table_name = 'password_reset'")).scalar()
+        if not has_reset:
+            c.execute(text(_RESET_TABLE))
+            done.append("password_reset")
         for table, (columns, categories, fill) in _SUBTYPES.items():
             exists = c.execute(text(
                 "SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() "

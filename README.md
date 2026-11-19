@@ -16,7 +16,8 @@ mysql -u root -p < sql/schema.sql
 #    CSDL ĐÃ CÓ dữ liệu: KHÔNG chạy schema.sql, chỉ nâng cấp cộng thêm:
 python -m unicart.migrate
 python -m unicart.seed          # mật khẩu mẫu + dữ liệu demo (idempotent), mật khẩu: Abc@12345
-python -m unicart.import_catalog  # (tùy chọn) 189 sản phẩm có ảnh, tiếng Việt
+python -m unicart.import_catalog  # (tùy chọn) 189 sản phẩm có ảnh, tiếng Việt + 108 sách, laptop, điện tử, giày
+python -m unicart.enrich_sales    # (tùy chọn) thêm 15 khách hàng và ~260 đơn lịch sử 90 ngày (idempotent)
 
 # 3. Frontend
 cd frontend && npm install && npm run build && cd ..
@@ -39,6 +40,12 @@ Phát triển giao diện với hot reload: chạy API như trên, rồi `cd fro
 
 Thanh toán online dùng cổng sandbox: số thẻ kết thúc `0000` bị từ chối, còn lại thành công. Số thẻ không bao giờ gửi lên máy chủ.
 
+## Quên mật khẩu
+Trang đăng nhập có liên kết "Quên mật khẩu?": khách (và nhân viên) nhập email, nhận liên kết dùng một lần có hiệu lực 30 phút, rồi đặt mật khẩu mới. Chưa cấu hình `SMTP_HOST` thì **không có thư nào được gửi**: liên kết được in ra log của máy chủ (tìm dòng `unicart.mail`), đủ để demo. Muốn gửi thư thật, điền `SMTP_*` và `PUBLIC_BASE_URL` trong `.env` (xem `.env.example`). CSDL đang có cần chạy `python -m unicart.migrate` một lần để tạo bảng `password_reset`.
+
+## Trang tổng quan quản trị
+`/quan-tri` mở trang Tổng quan: doanh số hôm nay và 7 ngày, việc cần xử lý (đơn chờ xác nhận/đóng gói, yêu cầu hỗ trợ, hàng sắp hết), đơn mới nhất, tồn kho thấp nhất, số tài khoản. Mỗi vai trò chỉ thấy các mục mình có quyền.
+
 ## Dữ liệu sản phẩm
 `python -m unicart.import_catalog` nhập 189 sản phẩm (10 danh mục, tên tiếng Việt, ảnh thật trong `images/products/`) từ `data/catalog.json`. Nguồn là DummyJSON (dữ liệu mẫu công khai), **không** phải Shopee — xem `docs/DATA_SOURCES.md` để biết lý do, giá quy đổi và lưu ý bản quyền.
 
@@ -51,7 +58,7 @@ Nút "Hỏi trợ lý" ở góc phải mọi trang: mã giảm giá đang hiệu
 ## Kiểm thử
 ```bash
 export TEST_DB_USER=root TEST_DB_PASSWORD=...     # hoặc đặt trong .env; dùng CSDL riêng unicart_test
-pytest -v                                         # 131 test trên MySQL thật (Gemini được giả lập, không tốn hạn mức)
+pytest -v                                         # 148 test trên MySQL thật (Gemini được giả lập, không tốn hạn mức)
 cd frontend && npm run typecheck && npm run build
 ```
 E2E trình duyệt: xem đầu `tests/e2e/run.mjs` (Playwright, cài ngoài dự án).

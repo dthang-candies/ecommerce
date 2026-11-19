@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink, Navigate, Outlet, useNavigate } from 'react-router-dom'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import type { Role } from '../../api/types'
 import { useAuth } from '../../context/AuthContext'
 import { ROLE_LABEL } from '../../lib/format'
@@ -7,6 +7,7 @@ import Icon, { type IconName } from '../../components/Icon'
 
 interface Item { to: string; label: string; icon: IconName; roles: Role[] }
 export const STAFF_NAV: Item[] = [
+  { to: '/quan-tri', label: 'Tổng quan', icon: 'home', roles: ['ADMIN', 'SERVICE', 'SALES', 'WAREHOUSE', 'MARKETING', 'MANAGER'] },
   { to: '/quan-tri/bao-cao', label: 'Báo cáo kinh doanh', icon: 'chart', roles: ['MANAGER', 'ADMIN'] },
   { to: '/quan-tri/ai', label: 'Hiệu quả gợi ý AI', icon: 'sparkles', roles: ['MANAGER', 'MARKETING', 'ADMIN'] },
   { to: '/quan-tri/don-hang', label: 'Đơn hàng', icon: 'receipt', roles: ['SERVICE', 'WAREHOUSE', 'SALES', 'ADMIN', 'MANAGER'] },
@@ -17,12 +18,6 @@ export const STAFF_NAV: Item[] = [
   { to: '/quan-tri/tai-khoan', label: 'Tài khoản & vai trò', icon: 'users', roles: ['ADMIN'] },
 ]
 
-export function StaffHome() {
-  const { user } = useAuth()
-  const first = STAFF_NAV.find((n) => user && n.roles.includes(user.role))
-  return <Navigate to={first?.to ?? '/'} replace />
-}
-
 export default function StaffLayout() {
   const { user, logout } = useAuth()
   const nav = useNavigate()
@@ -32,7 +27,7 @@ export default function StaffLayout() {
   const links = (
     <nav className="space-y-1" aria-label="Quản trị">
       {items.map((n) => (
-        <NavLink key={n.to} to={n.to} onClick={() => setOpen(false)}
+        <NavLink key={n.to} to={n.to} end={n.to === '/quan-tri'} onClick={() => setOpen(false)}
           className={({ isActive }) => `flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium ${isActive ? 'bg-brand-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}>
           <Icon name={n.icon} size={18} />{n.label}
         </NavLink>

@@ -115,4 +115,6 @@ class SlidingWindow:
 
 
 text_budget, image_budget, voice_budget = SlidingWindow(60), SlidingWindow(10), SlidingWindow(10)
+reset_budget = SlidingWindow(3, 900)              # reset e-mails per mailbox per 15 minutes
+reset_ip_budget = SlidingWindow(10, 900)          # forgot / reset attempts per client address per 15 minutes
 chat_budget = SlidingWindow(20)                   # chatbot questions per minute per account / client address

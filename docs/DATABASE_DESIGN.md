@@ -1,6 +1,6 @@
 # Thiết kế cơ sở dữ liệu
 
-Theo mục 4.2 của báo cáo: 21 bảng, cộng `product_embedding` cho tìm kiếm AI và 4 bảng con của `product` (kế thừa) = 26 bảng. MySQL 8, `DECIMAL(12,2)` cho tiền, bảng con cho thuộc tính riêng của từng loại sản phẩm (JSON cho thuộc tính tự do còn lại), ràng buộc CHECK/UNIQUE/FK cài trực tiếp quy tắc nghiệp vụ (xem `sql/schema.sql`).
+Theo mục 4.2 của báo cáo: 21 bảng, cộng `product_embedding` cho tìm kiếm AI và 4 bảng con của `product` (kế thừa) và `password_reset` (quên mật khẩu) = 27 bảng. MySQL 8, `DECIMAL(12,2)` cho tiền, bảng con cho thuộc tính riêng của từng loại sản phẩm (JSON cho thuộc tính tự do còn lại), ràng buộc CHECK/UNIQUE/FK cài trực tiếp quy tắc nghiệp vụ (xem `sql/schema.sql`).
 
 | Nhóm | Bảng |
 |---|---|
@@ -18,6 +18,7 @@ Theo mục 4.2 của báo cáo: 21 bảng, cộng `product_embedding` cho tìm k
 | `support_request.response TEXT NULL` | lưu phản hồi nhân viên (UC-23) |
 | `interaction_log.ck_log_event` thêm `REC_IMPRESSION` | tính CTR (công thức 3.3) |
 | Bảng mới `product_embedding` | vector tìm kiếm ngữ nghĩa (mục 3.6.2 nêu thực thể ProductEmbedding) |
+| Bảng mới `password_reset` | liên kết đặt lại mật khẩu dùng một lần: chỉ lưu SHA-256 của mã, hạn dùng, thời điểm đã dùng |
 | Bảng mới `book`, `electronics`, `fashion`, `furniture` | kế thừa Product: thuộc tính riêng của từng loại sản phẩm có cột và kiểu dữ liệu rõ ràng (xem mục dưới) |
 
 Áp cho CSDL đang có: `python -m unicart.migrate` (kiểm tra `information_schema`, chạy lại an toàn). CSDL mới: `schema.sql` đã gồm các thay đổi này.

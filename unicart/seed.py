@@ -125,6 +125,60 @@ def _catalogue(s) -> int:
     return added
 
 
+def _order(s, rnd, customer, address, picks: dict, created: datetime, now: datetime, tag: str, i: int, promo=None) -> CustomerOrder:
+    """One past order with its status history, payment, shipment, stock movements, loyalty points and reviews.
+    picks: product id -> (product, quantity). `tag` marks the generated payment / tracking codes (SEED, ENR)."""
+    age_days = (now - created).days
+    subtotal = sum(p.price * q for p, q in picks.values())
+    discount = promo.compute_discount(subtotal) if promo is not None and promo.is_valid(subtotal, created) else Decimal(0)
+    shipping = Decimal(0) if subtotal >= 500000 else Decimal(30000)
+    online = rnd.random() < 0.45
+    roll = rnd.random()
+    if age_days >= 8:
+        status = "CANCELLED" if roll < 0.1 else "DELIVERED"
+    else:
+        status = ("CANCELLED" if roll < 0.08 else "DELIVERED" if roll < 0.35 else "SHIPPING" if roll < 0.5 else
+                  "PACKED" if roll < 0.62 else "CONFIRMED" if roll < 0.8 else "PENDING")
+    order = CustomerOrder(customer_id=customer.id, promotion_id=promo.id if discount else None,
+                          ship_recipient=address.recipient, ship_phone=address.phone,
+                          ship_address=address.one_line(), subtotal=subtotal, discount=discount,
+                          shipping_fee=shipping, total_amount=subtotal - discount + shipping,
+                          payment_method="ONLINE" if online else "COD", status=status, created_at=created)
+    for p, q in picks.values():
+        order.items.append(OrderItem(product_id=p.id, quantity=q, unit_price=p.price))
+    path = ["PENDING", "CONFIRMED", "PACKED", "SHIPPING", "DELIVERED"]
+    flow = (["PENDING_PAYMENT"] if online else []) + path[:path.index(status) + 1] if status != "CANCELLED" \
+        else ([("PENDING_PAYMENT" if online else "PENDING"), "CANCELLED"])
+    prev, t = None, created
+    for st in flow:
+        order.history.append(OrderStatusHistory(from_status=prev, to_status=st, changed_at=t))
+        prev, t = st, min(t + timedelta(hours=rnd.randint(1, 10)), now)
+    paid = online and status != "CANCELLED"
+    order.payment = Payment(method="CARD" if online else "COD", amount=order.total_amount,
+                            status="SUCCESS" if paid or status == "DELIVERED" else "PENDING",
+                            transaction_id=f"{tag}-{i:04d}" if paid else None, paid_at=created if paid else None)
+    if status in ("PACKED", "SHIPPING", "DELIVERED"):
+        order.shipment = Shipment(carrier="UniExpress", tracking_number=f"UCX{tag}{i:04d}",
+                                  status={"PACKED": "CREATED", "SHIPPING": "IN_TRANSIT"}.get(status, "DELIVERED"),
+                                  delivery_date=created.date() + timedelta(days=3) if status == "DELIVERED" else None)
+    s.add(order)
+    s.flush()
+    if status != "CANCELLED":
+        for p, q in picks.values():
+            inv = s.get(Inventory, p.id)
+            inv.quantity = max(inv.quantity - q, 0)
+            s.add(StockMovement(product_id=p.id, type="OUT", quantity=q, reason="ORDER", order_id=order.id,
+                                created_at=created))
+    if status == "DELIVERED":
+        customer.add_points(int(order.total_amount // 10000))
+        for p, q in picks.values():
+            if rnd.random() < 0.5:
+                s.add(Review(customer_id=customer.id, product_id=p.id, order_id=order.id,
+                             rating=rnd.choice([3, 4, 4, 5, 5, 5]), comment=rnd.choice(COMMENTS),
+                             created_at=min(created + timedelta(days=4), now)))
+    return order
+
+
 def _history(s) -> int:
     """~45 orders over the last 30 days so reports, best-sellers and the recommender have data."""
     if s.scalar(select(func.count()).select_from(CustomerOrder)):
@@ -140,55 +194,10 @@ def _history(s) -> int:
         if address is None:
             continue
         created = now - timedelta(days=rnd.randint(1, 29), hours=rnd.randint(0, 20), minutes=rnd.randint(0, 59))
-        age_days = (now - created).days
         picks = {}
         for p in rnd.choices(products, weights, k=rnd.randint(1, 3)):
             picks[p.id] = (p, rnd.randint(1, 2))
-        subtotal = sum(p.price * q for p, q in picks.values())
-        shipping = Decimal(0) if subtotal >= 500000 else Decimal(30000)
-        online = rnd.random() < 0.45
-        roll = rnd.random()
-        if age_days >= 8:
-            status = "CANCELLED" if roll < 0.1 else "DELIVERED"
-        else:
-            status = ("CANCELLED" if roll < 0.08 else "DELIVERED" if roll < 0.35 else "SHIPPING" if roll < 0.5 else
-                      "PACKED" if roll < 0.62 else "CONFIRMED" if roll < 0.8 else "PENDING")
-        order = CustomerOrder(customer_id=customer.id, ship_recipient=address.recipient, ship_phone=address.phone,
-                              ship_address=address.one_line(), subtotal=subtotal, discount=Decimal(0),
-                              shipping_fee=shipping, total_amount=subtotal + shipping,
-                              payment_method="ONLINE" if online else "COD", status=status, created_at=created)
-        for p, q in picks.values():
-            order.items.append(OrderItem(product_id=p.id, quantity=q, unit_price=p.price))
-        path = ["PENDING", "CONFIRMED", "PACKED", "SHIPPING", "DELIVERED"]
-        flow = (["PENDING_PAYMENT"] if online else []) + path[:path.index(status) + 1] if status != "CANCELLED" \
-            else ([("PENDING_PAYMENT" if online else "PENDING"), "CANCELLED"])
-        prev, t = None, created
-        for st in flow:
-            order.history.append(OrderStatusHistory(from_status=prev, to_status=st, changed_at=t))
-            prev, t = st, t + timedelta(hours=rnd.randint(1, 10))
-        paid = online and status != "CANCELLED"
-        order.payment = Payment(method="CARD" if online else "COD", amount=order.total_amount,
-                                status="SUCCESS" if paid or status == "DELIVERED" else "PENDING",
-                                transaction_id=f"SEED-{i:04d}" if paid else None, paid_at=created if paid else None)
-        if status in ("PACKED", "SHIPPING", "DELIVERED"):
-            order.shipment = Shipment(carrier="UniExpress", tracking_number=f"UCXSEED{i:04d}",
-                                      status={"PACKED": "CREATED", "SHIPPING": "IN_TRANSIT"}.get(status, "DELIVERED"),
-                                      delivery_date=created.date() + timedelta(days=3) if status == "DELIVERED" else None)
-        s.add(order)
-        s.flush()
-        if status != "CANCELLED":
-            for p, q in picks.values():
-                inv = s.get(Inventory, p.id)
-                inv.quantity = max(inv.quantity - q, 0)
-                s.add(StockMovement(product_id=p.id, type="OUT", quantity=q, reason="ORDER", order_id=order.id,
-                                    created_at=created))
-        if status == "DELIVERED":
-            customer.add_points(int(order.total_amount // 10000))
-            for p, q in picks.values():
-                if rnd.random() < 0.5:
-                    s.add(Review(customer_id=customer.id, product_id=p.id, order_id=order.id,
-                                 rating=rnd.choice([3, 4, 4, 5, 5, 5]), comment=rnd.choice(COMMENTS),
-                                 created_at=created + timedelta(days=4)))
+        _order(s, rnd, customer, address, picks, created, now, "SEED", i)
         made += 1
     s.flush()
     # synthetic recommendation telemetry so the AI report (FR-18) is not empty

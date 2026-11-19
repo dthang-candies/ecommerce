@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { api, errorMessage } from '../../api/client'
 import type { Order, OrderStatus, Page } from '../../api/types'
 import { ConfirmModal, Empty, ErrorBox, Modal, PageTitle, Pagination, Spinner, StatusBadge } from '../../components/ui'
@@ -16,7 +17,8 @@ export default function StaffOrders() {
   const { user } = useAuth()
   const toast = useToast()
   const role = user!.role
-  const initial: OrderStatus = role === 'SERVICE' ? 'PENDING' : role === 'WAREHOUSE' ? 'CONFIRMED' : 'PENDING'
+  const asked = useSearchParams()[0].get('status')                     // deep link from the dashboard
+  const initial: OrderStatus = asked && asked in STATUS_LABEL ? (asked as OrderStatus) : role === 'WAREHOUSE' ? 'CONFIRMED' : 'PENDING'
   const [status, setStatus] = useState<OrderStatus | ''>(initial)
   const [q, setQ] = useState('')
   const [term, setTerm] = useState('')

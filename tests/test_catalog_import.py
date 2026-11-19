@@ -116,3 +116,53 @@ def test_attach_sample_images_only_fills_missing(db, session, tmp_path):
     session.rollback()
     urls = dict(session.execute(text("SELECT sku, image_url FROM product WHERE sku IN ('BK-001','LT-001','MB-001')")).all())
     assert urls == {"BK-001": "/images/products/a.webp", "LT-001": "/images/custom/mine.jpg", "MB-001": None}
+
+
+def test_shipped_extra_catalog_is_consistent_and_fills_the_subtype_tables(db, session):
+    items = json.loads((ROOT / "data" / "catalog_extra.json").read_text(encoding="utf-8"))
+    base = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    assert len(items) >= 100 and {i["category"] for i in items} == {"Books", "Electronics", "Shoes"}
+    assert len({i["sku"] for i in items}) == len(items) and not {i["sku"] for i in items} & {i["sku"] for i in base}
+    assert len({i["name"] for i in items} | {i["name"] for i in base}) == len(items) + len(base)
+    for i in items:
+        assert 0 < len(i["name"]) <= 200 and i["description"] and i["price"] >= 1000 and i["stock"] > 0
+        svg = (ROOT / i["image"]).read_text(encoding="utf-8")
+        assert svg.startswith("<svg") and "<script" not in svg and "onload" not in svg, i["image"]
+    assert sum(i["name"].startswith("Laptop ") for i in items) >= 15
+    r = import_catalog(db, ROOT / "data" / "catalog_extra.json")
+    assert r["products_added"] == len(items) and r["missing_images"] == 0          # no clash with the schema.sql samples
+    assert import_catalog(db, ROOT / "data" / "catalog_extra.json")["products_added"] == 0
+    one = "SELECT {} FROM {} t JOIN product p ON p.id = t.product_id WHERE p.sku = '{}'"
+    assert session.execute(text(one.format("t.isbn, t.page_count, t.language", "book", "BK-006"))).one() == ("9780135957059", 352, "Tiếng Anh")
+    assert session.execute(text(one.format("t.brand, t.model_number, t.warranty_months", "electronics", "LT-003"))).one() == ("Apple", "MacBook Air 13 M3", 12)
+    assert session.execute(text(one.format("t.size, t.color", "fashion", "SH-004"))).one() == ("42", "đen")
+    assert session.execute(text("SELECT JSON_UNQUOTE(JSON_EXTRACT(attributes, '$.cpu')) FROM product WHERE sku='LT-003'")).scalar() == "Apple M3"
+
+
+def test_enrich_sales_is_idempotent_and_never_oversells(db, session):
+    from datetime import datetime
+
+    from unicart.enrich_sales import enrich_sales
+    import_catalog(db, ROOT / "data" / "catalog_extra.json")
+    stock_before = session.execute(text("SELECT SUM(quantity) FROM inventory")).scalar()
+    session.rollback()
+    now = datetime(2026, 11, 13, 12, 0)
+    r = enrich_sales(db, now)
+    assert r["customers_added"] == 15 and r["orders_added"] >= 200
+    assert enrich_sales(db, now) == {"customers_added": 0, "orders_added": 0}
+    q = lambda sql: session.execute(text(sql)).scalar()
+    assert q("SELECT COUNT(*) FROM customer_order") == r["orders_added"]
+    assert q("SELECT COUNT(*) FROM customer_order WHERE total_amount <> subtotal - discount + shipping_fee") == 0
+    assert q("SELECT COUNT(*) FROM customer_order o WHERE subtotal <> (SELECT SUM(quantity * unit_price) FROM order_item WHERE order_id = o.id)") == 0
+    assert q("SELECT MIN(quantity) FROM inventory") >= 0
+    assert stock_before - q("SELECT SUM(quantity) FROM inventory") == q("SELECT SUM(quantity) FROM stock_movement WHERE type='OUT'")
+    assert q("SELECT COUNT(*) FROM customer_order WHERE created_at > '2026-11-13 12:00:00' OR created_at < '2026-08-14'") == 0
+    assert q("SELECT COUNT(*) FROM order_status_history WHERE changed_at > '2026-11-13 12:00:00'") == 0
+    assert 0 < q("SELECT COUNT(*) FROM customer_order WHERE discount > 0") <= 16     # WELCOME10 at most once per customer
+    assert q("SELECT COUNT(DISTINCT status) FROM customer_order") >= 5
+    focus = q("SELECT SUM(oi.quantity) FROM order_item oi JOIN product p ON p.id = oi.product_id JOIN category c ON c.id = p.category_id "
+              "WHERE c.name IN ('Books','Electronics','Shoes')")
+    assert 10 * focus > 9 * q("SELECT SUM(quantity) FROM order_item")                 # the rest is the one Clothes sample
+    assert q("SELECT COUNT(*) FROM review") > 20 and q("SELECT COUNT(*) FROM interaction_log WHERE event_type='PURCHASE'") > 200
+    login = __import__("unicart.domain.extended.security", fromlist=["x"]).verify_password
+    assert login("Abc@12345", q("SELECT password_hash FROM account WHERE email='giang@gmail.com'"))

@@ -320,6 +320,18 @@ CREATE TABLE product_embedding (
     CONSTRAINT fk_embedding_product FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+-- ---------- forgotten password: one-time reset links ----------
+CREATE TABLE password_reset (
+    id          BIGINT AUTO_INCREMENT PRIMARY KEY,
+    account_id  BIGINT NOT NULL,
+    token_hash  CHAR(64) NOT NULL UNIQUE,                -- SHA-256 of the token; the token itself is only in the e-mail
+    expires_at  DATETIME NOT NULL,
+    used_at     DATETIME,
+    created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_reset_account FOREIGN KEY (account_id) REFERENCES account(id) ON DELETE CASCADE,
+    INDEX idx_reset_account (account_id)
+) ENGINE=InnoDB;
+
 -- =====================================================================
 -- Sample data  (passwords are set by seed.py because they must be hashed)
 -- =====================================================================

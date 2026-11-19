@@ -32,6 +32,7 @@ class Account(Base):
     password_hash: Mapped[str] = mapped_column(String(255))
     role_id: Mapped[int] = mapped_column(Integer, ForeignKey("role.id"))
     status: Mapped[str] = mapped_column(String(10), default="ACTIVE")
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
 
     role: Mapped[Role] = relationship()
 
@@ -449,3 +450,17 @@ class ProductEmbedding(Base):
     content_hash: Mapped[str] = mapped_column(String(32))            # re-embed only when the text changed
     vector: Mapped[bytes] = mapped_column(LargeBinary(65535))        # float32 little-endian
     updated_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now(), onupdate=func.now())
+
+
+class PasswordReset(Base):
+    """One-time link of the "forgot password" flow. Only the SHA-256 of the token is stored."""
+    __tablename__ = "password_reset"
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
+    account_id: Mapped[int] = mapped_column(BigInteger, ForeignKey("account.id", ondelete="CASCADE"))
+    token_hash: Mapped[str] = mapped_column(String(64), unique=True)
+    expires_at: Mapped[datetime] = mapped_column(DateTime)
+    used_at: Mapped[Optional[datetime]] = mapped_column(DateTime)
+    created_at: Mapped[datetime] = mapped_column(DateTime, server_default=func.now())
+
+    def is_usable(self, now: datetime) -> bool:
+        return self.used_at is None and now <= self.expires_at

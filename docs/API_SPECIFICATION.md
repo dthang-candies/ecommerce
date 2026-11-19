@@ -6,7 +6,7 @@ Danh sách phân trang: `{total, page, size, items}`. Tiền là số (VND).
 
 | Nhóm | Phương thức & đường dẫn | Vai trò |
 |---|---|---|
-| Auth | `POST /auth/register`, `POST /auth/login`, `POST /auth/logout`, `GET /auth/me`, `POST /auth/change-password` | công khai / đã đăng nhập |
+| Auth | `POST /auth/register`, `POST /auth/login`, `POST /auth/logout`, `GET /auth/me`, `POST /auth/change-password`; `POST /auth/forgot-password` {email} → 202 (luôn cùng một câu trả lời), `POST /auth/reset-password` {token, new_password} → 204 | công khai / đã đăng nhập |
 | Catalogue | `GET /categories`, `GET /products?q&category_id&min_price&max_price&sort&page&size` (kèm `suggestion`), `GET /products/{id}` (kèm đánh giá) | công khai |
 | Tìm kiếm AI | `GET /search?q…` (kèm `mode`, `corrected`, `interpreted`), `GET /search/status`, `POST /search/image` (byte ảnh), `POST /search/voice` (byte âm thanh) — xem `AI_SEARCH.md`; `POST /admin/ai/reindex` (ADMIN) | công khai |
 | Chatbot | `POST /chat` {messages:[{role,content}]} → `{reply, mode, degraded, suggestions, products, promotions, orders, actions}` — xem `CHATBOT.md` | công khai (đăng nhập để tra đơn) |
@@ -21,6 +21,7 @@ Danh sách phân trang: `{total, page, size, items}`. Tiền là số (VND).
 | Kho | `GET /inventory`, `/inventory/low-stock`, `/inventory/summary`, `/inventory/{id}/movements` (WAREHOUSE, ADMIN, MANAGER); `POST /inventory/{id}/restock`, `PUT /inventory/{id}/threshold` (WAREHOUSE, ADMIN) | — |
 | Nhập hàng | `GET /suppliers`, `GET/POST /restock-requests`, `POST /restock-requests/{id}/receive`, `POST /suppliers/callback` (đối tác), `POST /staff/sandbox/supplier/{id}` | WAREHOUSE, ADMIN |
 | Quản trị | `/admin/products` (GET/POST/PUT, `POST …/visibility`, DELETE), `/admin/categories` (POST/PUT/DELETE), `/admin/promotions` (GET: ADMIN/MARKETING/MANAGER; ghi: ADMIN), `/admin/accounts` (GET/POST, `PATCH …/role`, `PATCH …/lock`), `GET /admin/roles` | ADMIN |
+| Tổng quan | `GET /staff/dashboard` — chỉ trả các mục vai trò được xem: `sales` (MANAGER, ADMIN), `orders` (nhân viên xử lý đơn), `inventory` (WAREHOUSE, ADMIN, MANAGER), `support` (SALES, ADMIN), `promotions` (ADMIN, MARKETING, MANAGER), `accounts` (ADMIN) | mọi vai trò nhân viên |
 | Báo cáo | `GET /reports/business?start&end` (MANAGER, ADMIN); `GET /reports/recommendations` (MANAGER, MARKETING, ADMIN) | — |
 | Hệ thống | `GET /health` | công khai |
 

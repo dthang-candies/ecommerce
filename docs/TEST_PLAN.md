@@ -12,7 +12,7 @@
 | E2E trình duyệt | Playwright/Chromium headless | hành trình đầy đủ: đăng ký → tìm kiếm (không dấu, gõ sai) → giỏ → địa chỉ → mã giảm → thanh toán online (thẻ bị từ chối rồi thành công) → nhân viên xác nhận/đóng gói/giao → đánh giá → hỗ trợ → báo cáo; chặn quyền; mobile 390px không tràn ngang; không lỗi console/5xx | `tests/e2e/run.mjs` |
 
 ## Kết quả lần chạy cuối (pytest, tsc, build: 2026-11-03; E2E gốc: 2026-10-28)
-- `pytest`: **131 passed** (7 domain + 16 API gốc + 26 chức năng + 45 tìm kiếm AI/parser + 6 nhập catalogue/ảnh + 31 chatbot). Chạy lần cuối 2026-11-03.
+- `pytest`: **148 passed**, chạy lần cuối 2026-11-13. Gồm 11 test quên mật khẩu (`test_password_reset.py`) và 4 test trang tổng quan (`test_dashboard.py`).
 - `tsc --noEmit`: 0 lỗi (đã kiểm chứng bằng lỗi cố ý rằng nó thực sự bắt lỗi). `npm run build`: thành công (JS 440 kB / 126 kB gzip).
 - E2E: 21/21 bước đạt, không có lỗi console, page error hay HTTP 5xx.
 

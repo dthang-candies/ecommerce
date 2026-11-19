@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { RequireAuth } from './components/Guards'
 import Layout from './components/Layout'
 import Account from './pages/Account'
-import { Login, Register } from './pages/Auth'
+import { ForgotPassword, Login, Register, ResetPassword } from './pages/Auth'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
 import Home from './pages/Home'
@@ -15,7 +15,8 @@ import Products from './pages/Products'
 import StaffAccounts from './pages/staff/Accounts'
 import StaffCatalogue from './pages/staff/Catalogue'
 import StaffInventory from './pages/staff/Inventory'
-import StaffLayout, { StaffHome } from './pages/staff/StaffLayout'
+import StaffDashboard from './pages/staff/Dashboard'
+import StaffLayout from './pages/staff/StaffLayout'
 import StaffOrders from './pages/staff/Orders'
 import StaffPromotions from './pages/staff/Promotions'
 import { AiReportPage, BusinessReportPage } from './pages/staff/Reports'
@@ -37,6 +38,8 @@ export default function App() {
         <Route path="tim-kiem-anh" element={<ImageSearch />} />
         <Route path="dang-nhap" element={<Login />} />
         <Route path="dang-ky" element={<Register />} />
+        <Route path="quen-mat-khau" element={<ForgotPassword />} />
+        <Route path="dat-lai-mat-khau" element={<ResetPassword />} />
         <Route element={<RequireAuth roles={['CUSTOMER']} />}>
           <Route path="gio-hang" element={<Cart />} />
           <Route path="thanh-toan" element={<Checkout />} />
@@ -51,7 +54,7 @@ export default function App() {
 
       <Route path="quan-tri" element={<RequireAuth roles={['ADMIN', 'SERVICE', 'SALES', 'WAREHOUSE', 'MARKETING', 'MANAGER']} />}>
         <Route element={<StaffLayout />}>
-          <Route index element={<StaffHome />} />
+          <Route index element={<StaffDashboard />} />
           <Route element={<RequireAuth roles={['MANAGER', 'ADMIN']} />}><Route path="bao-cao" element={<BusinessReportPage />} /></Route>
           <Route element={<RequireAuth roles={['MANAGER', 'MARKETING', 'ADMIN']} />}><Route path="ai" element={<AiReportPage />} /></Route>
           <Route element={<RequireAuth roles={['SERVICE', 'WAREHOUSE', 'SALES', 'ADMIN', 'MANAGER']} />}><Route path="don-hang" element={<StaffOrders />} /></Route>
